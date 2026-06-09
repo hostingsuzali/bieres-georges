@@ -21,7 +21,7 @@ export function StoreLocatorSection() {
             as="h2"
             text="Où goûter l'audace ?"
             accentFrom={2}
-            className="font-display mt-6 text-5xl font-semibold uppercase leading-[0.95] tracking-tight text-green sm:text-7xl"
+            className="font-display mt-6 text-4xl font-semibold uppercase leading-[0.95] tracking-tight text-green sm:text-5xl lg:text-7xl"
           />
           <motion.p
             initial={{ opacity: 0, y: 16 }}

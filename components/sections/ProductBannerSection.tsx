@@ -39,14 +39,14 @@ export function ProductBannerSection() {
             <AnimatedHeading
               as="h2"
               text="L'audace depuis 1836."
-              className="font-display mt-6 text-5xl font-bold uppercase leading-[0.92] tracking-tight sm:text-7xl"
+              className="font-display mt-6 text-4xl font-bold uppercase leading-[0.92] tracking-tight sm:text-5xl lg:text-7xl"
             />
             <motion.p
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={inViewOnce}
               transition={{ duration: 0.7, ease: EASE }}
-              className="font-serif mt-1 text-4xl italic text-orange sm:text-5xl"
+              className="font-serif mt-1 text-3xl italic text-orange sm:text-4xl lg:text-5xl"
             >
               Une histoire brassée dans le temps.
             </motion.p>
@@ -102,17 +102,23 @@ export function ProductBannerSection() {
             className="grid items-end gap-8 sm:gap-10 md:grid-cols-3"
           >
             {historyMilestones.map((m, i) => {
-              // alternating tilt for a vintage scrapbook feel
-              const tilt = i === 0 ? -3 : i === 2 ? 3 : 0;
+              // alternating tilt for a vintage scrapbook feel — desktop only.
+              // On mobile (stacked, narrow), the rotation overflows; we keep
+              // them straight and rely on the photo's natural sepia for charm.
+              const tiltClass =
+                i === 0
+                  ? "md:-rotate-3"
+                  : i === 2
+                    ? "md:rotate-3"
+                    : "";
               return (
                 <motion.figure
                   key={m.year}
                   variants={fadeUp}
-                  whileHover={{ rotate: 0, y: -10, scale: 1.02 }}
-                  initial={{ rotate: tilt }}
+                  whileHover={{ y: -10, scale: 1.02 }}
                   style={{ originY: 1 }}
                   transition={{ duration: 0.5, ease: EASE }}
-                  className="relative bg-cream p-3 pb-14 text-green shadow-[0_30px_60px_-40px_rgba(0,0,0,0.7)] sm:p-4 sm:pb-16"
+                  className={`relative bg-cream p-3 pb-14 text-green shadow-[0_30px_60px_-40px_rgba(0,0,0,0.7)] transition-transform hover:rotate-0 sm:p-4 sm:pb-16 ${tiltClass}`}
                 >
                   <div className="relative aspect-[4/5] overflow-hidden bg-green-deep">
                     {/* eslint-disable-next-line @next/next/no-img-element */}

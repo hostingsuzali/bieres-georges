@@ -40,7 +40,7 @@ export function BeerCollectionsSection() {
           <AnimatedHeading
             as="h2"
             text="À chaque envie,"
-            className="font-display mt-7 text-5xl font-bold leading-[0.95] tracking-tight text-green sm:text-7xl"
+            className="font-display mt-7 text-4xl font-bold leading-[0.95] tracking-tight text-green sm:text-5xl lg:text-7xl"
           />
 
           <motion.p
@@ -48,7 +48,7 @@ export function BeerCollectionsSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={inViewOnce}
             transition={{ duration: 0.7, ease: EASE }}
-            className="font-serif mt-1 text-4xl italic text-orange sm:text-6xl"
+            className="font-serif mt-1 text-3xl italic text-orange sm:text-4xl lg:text-6xl"
           >
             sa collection.
           </motion.p>
@@ -59,7 +59,7 @@ export function BeerCollectionsSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={inViewOnce}
           transition={{ duration: 0.8, delay: 0.18, ease: EASE }}
-          className="mt-14 grid gap-5 md:grid-cols-2 xl:grid-cols-4"
+          className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 md:mt-14 xl:grid-cols-4"
         >
           {collections.map((collection) => (
             <CollectionCard key={collection.name} {...collection} />
@@ -103,7 +103,7 @@ function CollectionCard({
       whileFocus="hover"
       variants={cardVariants}
       transition={{ duration: 0.45, ease: EASE }}
-      className="tag-shape group relative flex min-h-[38rem] cursor-pointer flex-col overflow-hidden bg-cream-dark p-6 text-green outline-none transition-colors duration-500 hover:bg-orange hover:text-cream focus-visible:bg-orange focus-visible:text-cream sm:p-7"
+      className="tag-shape group relative flex min-h-[26rem] cursor-pointer flex-col overflow-hidden bg-cream-dark p-6 text-green outline-none transition-colors duration-500 hover:bg-orange hover:text-cream focus-visible:bg-orange focus-visible:text-cream sm:p-7 md:min-h-[38rem]"
     >
       <div
         className="pointer-events-none absolute inset-0 bg-cover bg-center opacity-80 mix-blend-multiply transition-opacity duration-500 group-hover:opacity-35 group-focus-visible:opacity-35"
@@ -121,7 +121,7 @@ function CollectionCard({
         </p>
       </div>
 
-      <div className="relative z-10 mt-auto h-72 shrink-0">
+      <div className="relative z-10 mt-auto h-44 shrink-0 md:h-72">
         <BeerImage
           src={companionBeers[0]}
           alt=""

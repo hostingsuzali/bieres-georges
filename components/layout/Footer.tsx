@@ -125,7 +125,7 @@ export function Footer() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={inViewOnce}
         transition={{ duration: 0.9 }}
-        className="container-page flex min-h-[25rem] items-end justify-center pb-8 sm:min-h-[32rem] md:min-h-[38rem]"
+        className="container-page flex min-h-[10rem] items-end justify-center pb-8 sm:min-h-[20rem] md:min-h-[38rem]"
       >
         <Image
           src="/assets/logos/largefooter.png"

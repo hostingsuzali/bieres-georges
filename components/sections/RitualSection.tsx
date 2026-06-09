@@ -53,14 +53,14 @@ export function RitualSection() {
             <AnimatedHeading
               as="h2"
               text="Des bières de caractère,"
-              className="font-display mt-6 text-5xl font-bold uppercase leading-[0.92] tracking-tight text-green sm:text-7xl"
+              className="font-display mt-6 text-4xl font-bold uppercase leading-[0.92] tracking-tight text-green sm:text-5xl lg:text-7xl"
             />
             <motion.p
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={inViewOnce}
               transition={{ duration: 0.7, ease: EASE }}
-              className="font-serif mt-1 text-4xl italic text-orange sm:text-5xl"
+              className="font-serif mt-1 text-3xl italic text-orange sm:text-4xl lg:text-5xl"
             >
               pensées pour tous les moments.
             </motion.p>
@@ -93,7 +93,7 @@ export function RitualSection() {
               initial={{ opacity: 0, scale: 1.02 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, ease: EASE }}
-              className={`tag-shape relative flex min-h-[28rem] flex-col p-7 sm:min-h-[34rem] sm:p-10 ${accent.tile}`}
+              className={`tag-shape relative flex min-h-[24rem] flex-col p-6 sm:min-h-[28rem] sm:p-7 lg:min-h-[34rem] lg:p-10 ${accent.tile}`}
             >
               {/* huge index numeral */}
               <span
@@ -104,7 +104,7 @@ export function RitualSection() {
               </span>
 
               {/* photo */}
-              <div className="relative z-10 mt-2 aspect-[4/5] max-h-[26rem] w-full overflow-hidden">
+              <div className="relative z-10 mt-2 aspect-[5/4] max-h-[16rem] w-full overflow-hidden sm:aspect-[4/5] sm:max-h-[26rem]">
                 <motion.img
                   key={current.image}
                   src={current.image}

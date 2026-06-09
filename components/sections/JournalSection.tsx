@@ -22,14 +22,14 @@ export function JournalSection() {
             <AnimatedHeading
               as="h2"
               text="Histoires de bière."
-              className="font-display text-5xl font-bold uppercase leading-[0.95] tracking-tight text-green sm:text-6xl"
+              className="font-display text-4xl font-bold uppercase leading-[0.95] tracking-tight text-green sm:text-5xl lg:text-6xl"
             />
             <motion.p
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={inViewOnce}
               transition={{ duration: 0.7, ease: EASE }}
-              className="font-serif mt-1 text-4xl italic text-orange sm:text-5xl"
+              className="font-serif mt-1 text-3xl italic text-orange sm:text-4xl lg:text-5xl"
             >
               Histoires de Lyon.
             </motion.p>

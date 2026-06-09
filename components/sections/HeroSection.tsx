@@ -18,7 +18,7 @@ export function HeroSection() {
   return (
     <section
       id="hero"
-      className="relative flex min-h-screen items-center justify-center overflow-hidden bg-cream px-4 pt-24 pb-16"
+      className="relative flex min-h-[44rem] items-center justify-center overflow-hidden bg-cream px-4 pb-44 pt-28 sm:min-h-screen sm:pb-16"
     >
       {/* layered background */}
       <div className="pointer-events-none absolute inset-0 z-0" aria-hidden="true">
@@ -97,7 +97,7 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.9, duration: 0.7, ease: EASE }}
-          className="font-serif text-2xl italic text-orange sm:text-3xl"
+          className="font-serif text-xl italic text-orange sm:text-3xl"
         >
           Bières Georges
         </motion.p>
@@ -106,7 +106,7 @@ export function HeroSection() {
           initial="hidden"
           animate="visible"
           variants={{ visible: { transition: { staggerChildren: 0.1, delayChildren: 1.1 } } }}
-          className="font-display mt-2 text-5xl font-bold uppercase leading-[0.9] tracking-tight text-green sm:text-7xl"
+          className="font-display mt-2 text-4xl font-bold uppercase leading-[0.9] tracking-tight text-green sm:text-7xl"
         >
           {["Brasserie", "lyonnaise"].map((line) => (
             <span key={line} className="block overflow-hidden">

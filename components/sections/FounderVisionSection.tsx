@@ -41,9 +41,9 @@ export function FounderVisionSection() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={inViewOnce}
             transition={{ duration: 0.7, ease: EASE, delay: 0.4 }}
-            className="absolute -bottom-6 -left-4 flex items-center gap-3 bg-orange px-5 py-3 text-cream sm:-left-6"
+            className="absolute -bottom-5 left-2 flex items-center gap-3 bg-orange px-4 py-2.5 text-cream sm:-bottom-6 sm:-left-6 sm:px-5 sm:py-3"
           >
-            <span className="font-display text-3xl font-bold leading-none">
+            <span className="font-display text-2xl font-bold leading-none sm:text-3xl">
               1836
             </span>
             <span className="eyebrow text-cream/85">
@@ -62,14 +62,14 @@ export function FounderVisionSection() {
           <AnimatedHeading
             as="h2"
             text="Une brasserie lyonnaise,"
-            className="font-display mt-6 text-4xl font-bold uppercase leading-[0.95] tracking-tight text-green sm:text-6xl"
+            className="font-display mt-6 text-3xl font-bold uppercase leading-[0.95] tracking-tight text-green sm:text-5xl lg:text-6xl"
           />
           <motion.p
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={inViewOnce}
             transition={{ duration: 0.7, ease: EASE }}
-            className="font-serif mt-1 text-4xl italic text-orange sm:text-5xl"
+            className="font-serif mt-1 text-3xl italic text-orange sm:text-4xl lg:text-5xl"
           >
             libre depuis 1836.
           </motion.p>

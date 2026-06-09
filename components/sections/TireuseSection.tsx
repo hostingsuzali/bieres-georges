@@ -42,7 +42,7 @@ export function TireuseSection() {
           whileInView={{ opacity: 1 }}
           viewport={inViewOnce}
           transition={{ duration: 1.1, ease: EASE }}
-          className="relative min-h-[24rem] overflow-hidden bg-green-deep lg:min-h-[42rem]"
+          className="relative min-h-[18rem] overflow-hidden bg-green-deep sm:min-h-[24rem] lg:min-h-[42rem]"
         >
           <motion.div style={{ scale: photoScale, y: photoY }} className="h-full w-full">
             {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -59,9 +59,9 @@ export function TireuseSection() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={inViewOnce}
             transition={{ duration: 0.7, ease: EASE, delay: 0.3 }}
-            className="absolute bottom-6 left-6 flex items-center gap-3 bg-orange px-5 py-3 text-cream sm:bottom-10 sm:left-10"
+            className="absolute bottom-4 left-4 flex items-center gap-2.5 bg-orange px-4 py-2.5 text-cream sm:bottom-10 sm:left-10 sm:gap-3 sm:px-5 sm:py-3"
           >
-            <span className="font-display text-3xl font-bold leading-none">
+            <span className="font-display text-2xl font-bold leading-none sm:text-3xl">
               5L → 30L
             </span>
             <span className="eyebrow text-cream/85">
@@ -88,7 +88,7 @@ export function TireuseSection() {
         </motion.div>
 
         {/* right — copy */}
-        <div className="flex items-center bg-green-deep px-4 py-16 text-cream sm:px-10 lg:py-24">
+        <div className="flex items-center bg-green-deep px-4 py-12 text-cream sm:px-10 sm:py-16 lg:py-24">
           <div className="container-page max-w-xl">
             <Badge tone="green" dot={false}>
               À la pression
@@ -97,14 +97,14 @@ export function TireuseSection() {
             <AnimatedHeading
               as="h2"
               text="Une tireuse"
-              className="font-display mt-6 text-5xl font-bold uppercase leading-[0.92] tracking-tight sm:text-7xl"
+              className="font-display mt-6 text-4xl font-bold uppercase leading-[0.92] tracking-tight sm:text-5xl lg:text-7xl"
             />
             <motion.p
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={inViewOnce}
               transition={{ duration: 0.7, ease: EASE }}
-              className="font-serif mt-1 text-3xl italic text-orange sm:text-5xl"
+              className="font-serif mt-1 text-2xl italic text-orange sm:text-4xl lg:text-5xl"
             >
               pour vos moments forts.
             </motion.p>

@@ -39,7 +39,7 @@
 }
 
 @utility section-padding {
-  padding-block: clamp(4rem, 9vw, 8rem);
+  padding-block: clamp(3rem, 9vw, 8rem);
 }
 
 @utility container-page {

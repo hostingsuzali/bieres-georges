@@ -194,7 +194,7 @@ export function BrasserieSection() {
             <AnimatedHeading
               as="h2"
               text="Brasserie"
-              className="font-display mt-4 text-5xl font-bold uppercase leading-[0.92] tracking-tight text-green sm:text-7xl"
+              className="font-display mt-4 text-4xl font-bold uppercase leading-[0.92] tracking-tight text-green sm:text-5xl lg:text-7xl"
             />
 
             <motion.p
@@ -202,7 +202,7 @@ export function BrasserieSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={inViewOnce}
               transition={{ duration: 0.7, ease: EASE, delay: 0.1 }}
-              className="font-serif mt-1 text-4xl italic text-orange sm:text-5xl"
+              className="font-serif mt-1 text-3xl italic text-orange sm:text-4xl lg:text-5xl"
             >
               audacieuse
             </motion.p>
@@ -250,7 +250,7 @@ export function BrasserieSection() {
             (word, i) => (
               <li
                 key={`${word}-${i}`}
-                className="font-display flex items-center gap-10 whitespace-nowrap text-3xl font-bold uppercase tracking-wide text-green sm:gap-16 sm:text-5xl"
+                className="font-display flex items-center gap-10 whitespace-nowrap text-2xl font-bold uppercase tracking-wide text-green sm:gap-16 sm:text-4xl lg:text-5xl"
               >
                 {word}
                 <span className="text-orange/70">✦</span>
