@@ -1,0 +1,86 @@
+@import "tailwindcss";
+
+@theme {
+  --color-cream: #f6ede4;
+  --color-cream-dark: #efe2d4;
+  --color-green: #073c34;
+  --color-green-deep: #052b25;
+  --color-orange: #d96a3a;
+  --color-orange-soft: #e08a5a;
+  --color-dark-text: #063a34;
+
+  --font-sans: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-display), "Arial Narrow", sans-serif;
+  --font-serif: var(--font-serif), ui-serif, Georgia, serif;
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    background: var(--color-cream);
+    color: var(--color-dark-text);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background: var(--color-orange);
+    color: var(--color-cream);
+  }
+}
+
+@utility section-padding {
+  padding-block: clamp(4rem, 9vw, 8rem);
+}
+
+@utility container-page {
+  width: min(100% - 2.5rem, 78rem);
+  margin-inline: auto;
+}
+
+@utility cut-corner {
+  clip-path: polygon(0 0, calc(100% - 1.25rem) 0, 100% 1.25rem, 100% 100%, 0 100%);
+}
+
+/* octagonal button — all four corners chamfered, like the brand label tags */
+@utility cut-all {
+  clip-path: polygon(
+    0.7rem 0,
+    calc(100% - 0.7rem) 0,
+    100% 0.7rem,
+    100% calc(100% - 0.7rem),
+    calc(100% - 0.7rem) 100%,
+    0.7rem 100%,
+    0 calc(100% - 0.7rem),
+    0 0.7rem
+  );
+}
+
+/* bookmark card — top-right corner diagonally folded, like a paper tag */
+@utility tag-shape {
+  clip-path: polygon(
+    0 0,
+    calc(100% - 2rem) 0,
+    100% 2rem,
+    100% 100%,
+    0 100%
+  );
+}
+
+@utility eyebrow {
+  font-family: var(--font-sans);
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-weight: 600;
+  font-size: 0.7rem;
+}
+
