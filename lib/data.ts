@@ -3,14 +3,6 @@ export const navLinks = [
   { label: "Nos bières", href: "#emblematiques" },
   { label: "Où nous trouver ?", href: "#locator" },
   { label: "Location de tireuse", href: "#tireuse" },
-  {
-    label: "Je suis un pro",
-    href: "#professionals",
-    children: [
-      { label: "CHR", href: "#professionals" },
-      { label: "GMS", href: "#professionals" },
-    ],
-  },
   { label: "Blog", href: "#journal" },
   { label: "Contact", href: "mailto:bonjour@bieresgeorges.fr" },
 ] as const;

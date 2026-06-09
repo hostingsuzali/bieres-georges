@@ -31,35 +31,35 @@ export function StoreLocatorSection() {
       <Script src="https://elfsightcdn.com/platform.js" strategy="lazyOnload" />
 
       <motion.div
-        initial={{ opacity: 0, x: -28, rotate: -12 }}
-        whileInView={{ opacity: 0.32, x: 0, rotate: -7 }}
+        initial={{ opacity: 0, x: -24 }}
+        whileInView={{ opacity: 1, x: 0 }}
         viewport={inViewOnce}
         transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-        className="pointer-events-none absolute -left-16 top-1/2 hidden w-52 -translate-y-1/2 md:block lg:left-4 lg:w-64 xl:left-10 xl:w-72"
+        className="pointer-events-none absolute left-2 top-5 w-36 sm:left-4 sm:top-8 sm:w-44 lg:left-6 lg:top-12 lg:w-56"
         aria-hidden="true"
       >
         <Image
-          src="/assets/Bieres%20OU%20gouter%20l'audace%20icon.png"
+          src="/assets/images/BG-Beige.png"
           alt=""
-          width={500}
-          height={466}
+          width={299}
+          height={417}
           className="h-auto w-full"
         />
       </motion.div>
 
       <motion.div
-        initial={{ opacity: 0, x: 28, rotate: 12 }}
-        whileInView={{ opacity: 0.32, x: 0, rotate: 7 }}
+        initial={{ opacity: 0, x: 24 }}
+        whileInView={{ opacity: 1, x: 0 }}
         viewport={inViewOnce}
         transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-        className="pointer-events-none absolute -right-16 top-1/2 hidden w-52 -translate-y-1/2 md:block lg:right-4 lg:w-64 xl:right-10 xl:w-72"
+        className="pointer-events-none absolute bottom-5 right-2 w-36 sm:bottom-8 sm:right-4 sm:w-44 lg:bottom-12 lg:right-6 lg:w-56"
         aria-hidden="true"
       >
         <Image
-          src="/assets/Bieres%20OU%20gouter%20l'audace%20icon.png"
+          src="/assets/images/BG-Beige.png"
           alt=""
-          width={500}
-          height={466}
+          width={299}
+          height={417}
           className="h-auto w-full"
         />
       </motion.div>

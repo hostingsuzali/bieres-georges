@@ -26,13 +26,13 @@ export function ProductBannerSection() {
     <section
       ref={ref}
       id="history"
-      className="relative overflow-hidden bg-green-deep text-cream"
+      className="relative overflow-hidden bg-cream text-green"
     >
       <div className="container-page section-padding relative">
         {/* heading */}
         <div className="grid items-end gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14">
           <div>
-            <Badge tone="green" dot={false}>
+            <Badge tone="cream" dot={false}>
               Notre histoire
             </Badge>
 
@@ -58,12 +58,12 @@ export function ProductBannerSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={inViewOnce}
               transition={{ duration: 0.7, ease: EASE, delay: 0.15 }}
-              className="text-cream/75 leading-relaxed"
+              className="leading-relaxed text-green/70"
             >
-              Fondée à Lyon en 1836, la maison Georges s'inscrit dans une
+              Fondée à Lyon en 1836, la maison Georges s&apos;inscrit dans une
               tradition brassicole rare, populaire et exigeante. Au fil des
               générations, elle a conservé ce qui fait sa force&nbsp;: le goût
-              du travail bien fait, le sens du partage et l'envie de rester
+              du travail bien fait, le sens du partage et l&apos;envie de rester
               libre.
             </motion.p>
             <motion.p
