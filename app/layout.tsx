@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 import { Fraunces, Inter, Oswald, Poppins } from "next/font/google";
 
 import { AgeVerification } from "@/components/ui/AgeVerification";
+import { AgeVerificationProvider } from "@/lib/age-context";
 
 import "./globals.css";
 
@@ -52,8 +53,10 @@ export default function RootLayout({ children }: RootLayoutProps) {
       className={`${oswald.variable} ${fraunces.variable} ${inter.variable} ${poppins.variable}`}
     >
       <body>
-        <AgeVerification />
-        {children}
+        <AgeVerificationProvider>
+          <AgeVerification />
+          {children}
+        </AgeVerificationProvider>
       </body>
     </html>
   );

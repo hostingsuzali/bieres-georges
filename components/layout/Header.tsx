@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useState } from "react";
 
 import { Icon } from "@/components/ui/Icon";
+import { useAgeVerification } from "@/lib/age-context";
 import { EASE } from "@/lib/motion";
 import { navLinks } from "@/lib/data";
 
@@ -12,6 +13,9 @@ export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const { scrollY } = useScroll();
+  const { verified, hydrated } = useAgeVerification();
+  // Slide the header down only once the visitor has confirmed they are 18+.
+  const play = hydrated && verified;
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     setScrolled(latest > 40);
@@ -20,7 +24,7 @@ export function Header() {
   return (
     <motion.header
       initial={{ y: -80, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
+      animate={play ? { y: 0, opacity: 1 } : { y: -80, opacity: 0 }}
       transition={{ duration: 0.8, ease: EASE }}
       className="fixed inset-x-0 top-0 z-50"
     >
