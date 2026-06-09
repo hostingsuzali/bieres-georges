@@ -64,23 +64,26 @@ function BrasserieVideoPlayer() {
   );
 }
 
-// Wraps the video in a scroll-linked scale-up. As the player crosses into
-// the viewport the scale interpolates from 0.86 → 1; once the section is
-// centered, the video sits at full size. Gives the arrival a cinematic feel.
+// Scroll-linked, cinematic arrival for the brasserie video. As the player
+// enters the viewport it scales from a small framed thumbnail up to full
+// width, lifts into place, sheds a blur, and clears its tint. By the time
+// it's centered, the player owns the page.
 function BrasserieVideoReveal() {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ["start 0.95", "center 0.55"],
+    offset: ["start end", "center 0.45"],
   });
-  const scale = useTransform(scrollYProgress, [0, 1], [0.86, 1]);
-  const opacity = useTransform(scrollYProgress, [0, 0.6], [0.55, 1]);
-  const y = useTransform(scrollYProgress, [0, 1], [40, 0]);
+  const scale = useTransform(scrollYProgress, [0, 1], [0.72, 1]);
+  const opacity = useTransform(scrollYProgress, [0, 0.5], [0.35, 1]);
+  const y = useTransform(scrollYProgress, [0, 1], [80, 0]);
+  const blur = useTransform(scrollYProgress, [0, 0.7], [10, 0]);
+  const filter = useTransform(blur, (v) => `blur(${v}px)`);
 
   return (
     <motion.div
       ref={ref}
-      style={{ scale, opacity, y }}
+      style={{ scale, opacity, y, filter }}
       className="will-change-transform"
     >
       <BrasserieVideoPlayer />
@@ -93,7 +96,7 @@ export function BrasserieSection() {
     <section id="brasserie" className="section-padding overflow-hidden bg-cream px-4">
       <div className="container-page">
         <div className="flex flex-col gap-10 lg:gap-12">
-          <div>
+          <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
             <motion.p
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
