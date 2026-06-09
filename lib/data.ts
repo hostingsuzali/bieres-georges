@@ -1,10 +1,19 @@
 export const navLinks = [
+  { label: "Notre Brasserie", href: "#brasserie" },
   { label: "Nos bières", href: "#emblematiques" },
-  { label: "Maison Georges", href: "#manifeste" },
-  { label: "Notre histoire", href: "#history" },
-  { label: "Points de vente", href: "#locator" },
-  { label: "Journal", href: "#journal" },
-];
+  { label: "Où nous trouver ?", href: "#locator" },
+  { label: "Location de tireuse", href: "#tireuse" },
+  {
+    label: "Je suis un pro",
+    href: "#professionals",
+    children: [
+      { label: "CHR", href: "#professionals" },
+      { label: "GMS", href: "#professionals" },
+    ],
+  },
+  { label: "Blog", href: "#journal" },
+  { label: "Contact", href: "mailto:bonjour@bieresgeorges.fr" },
+] as const;
 
 export const brasseriePillars = [
   {
@@ -219,7 +228,7 @@ export const emblematicBeers = [
     description:
       "Une bière équilibrée, lumineuse et rafraîchissante.",
     profile: "Légère, florale, désaltérante.",
-    image: "/assets/images/PRINCESSE PALE ALE.jpg",
+    image: "/assets/images/verres%203%20bie%CC%80res.jpg",
     accent: "cream",
   },
   {
@@ -227,7 +236,7 @@ export const emblematicBeers = [
     description:
       "Une bière douce et aromatique, aux notes fraîches et délicates.",
     profile: "Agrumes, céréales, fraîcheur.",
-    image: "/assets/images/Silky CHR_retouchée.jpg",
+    image: "/assets/images/pression_bar.jpg",
     accent: "orange",
   },
   {
@@ -235,7 +244,7 @@ export const emblematicBeers = [
     description:
       "Une bière ronde et expressive, marquée par des notes maltées.",
     profile: "Caramel, pain grillé, longueur.",
-    image: "/assets/images/Moreisbitter_retouchée.jpg",
+    image: "/assets/images/BRASSERIE.jpg",
     accent: "cream",
   },
   {
@@ -243,7 +252,7 @@ export const emblematicBeers = [
     description:
       "Une bière plus affirmée, pensée pour surprendre sans dénaturer.",
     profile: "Caractère, intensité, créativité.",
-    image: "/assets/images/IPA_parctêted_or.jpg",
+    image: "/assets/images/trinquent.jpg",
     accent: "green",
   },
 ] as const;

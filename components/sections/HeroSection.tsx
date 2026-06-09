@@ -46,18 +46,46 @@ export function HeroSection() {
         <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-cream/80 to-transparent" />
       </div>
 
-      {/* left hand + amber bottle — pinned to the left edge */}
       <motion.div
-        initial={{ x: "28vw", y: 90, rotate: -6, opacity: 0 }}
+        initial={{ opacity: 0, scale: 0.82 }}
         animate={
           play
             ? {
-                x: ["28vw", "28vw", "0vw"],
+                opacity: [0, 0.92, 0.92, 0],
+                scale: [0.82, 1, 1, 1.08],
+              }
+            : { opacity: 0, scale: 0.82 }
+        }
+        transition={{
+          delay: 0.2,
+          duration: 1.85,
+          ease: EASE,
+          times: [0, 0.2, 0.72, 1],
+        }}
+        className="pointer-events-none absolute inset-0 z-[15] flex translate-x-5 items-center justify-center sm:translate-x-7"
+        aria-hidden="true"
+      >
+        <Image
+          src="/assets/B-logo-green (1).png"
+          alt=""
+          width={408}
+          height={472}
+          className="h-auto w-32 sm:w-44 lg:w-52"
+        />
+      </motion.div>
+
+      {/* left hand + amber bottle — pinned to the left edge */}
+      <motion.div
+        initial={{ x: "22vw", y: 90, rotate: -6, opacity: 0 }}
+        animate={
+          play
+            ? {
+                x: ["22vw", "22vw", "0vw"],
                 y: [90, 0, 0],
                 rotate: [-6, -6, 0],
                 opacity: [0, 1, 1],
               }
-            : { x: "28vw", y: 90, rotate: -6, opacity: 0 }
+            : { x: "22vw", y: 90, rotate: -6, opacity: 0 }
         }
         transition={{ ...beerTransition, delay: 0.1 }}
         className="absolute left-0 top-[10%] z-10 hidden w-[26vw] max-w-[26rem] min-w-[14rem] md:block"
@@ -113,7 +141,7 @@ export function HeroSection() {
         <motion.p
           initial={{ opacity: 0, y: 10 }}
           animate={play ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
-          transition={{ delay: 0.9, duration: 0.7, ease: EASE }}
+          transition={{ delay: 2.05, duration: 0.7, ease: EASE }}
           className="font-serif text-xl italic text-orange sm:text-3xl"
         >
           Bières Georges
@@ -122,7 +150,7 @@ export function HeroSection() {
         <motion.h1
           initial="hidden"
           animate={play ? "visible" : "hidden"}
-          variants={{ visible: { transition: { staggerChildren: 0.1, delayChildren: 1.1 } } }}
+          variants={{ visible: { transition: { staggerChildren: 0.1, delayChildren: 2.2 } } }}
           className="font-display mt-2 text-4xl font-bold uppercase leading-[0.9] tracking-tight text-green sm:text-7xl"
         >
           {["Brasserie", "lyonnaise"].map((line) => (
@@ -157,7 +185,7 @@ export function HeroSection() {
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={play ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ delay: 1.72, duration: 0.7, ease: EASE }}
+          transition={{ delay: 2.85, duration: 0.7, ease: EASE }}
           className="mx-auto mt-6 max-w-md text-dark-text/70 leading-relaxed"
         >
           Une bière de caractère, brassée avec exigence, héritage et audace.
@@ -166,7 +194,7 @@ export function HeroSection() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={play ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ delay: 1.92, duration: 0.7, ease: EASE }}
+          transition={{ delay: 3.05, duration: 0.7, ease: EASE }}
           className="mt-9 flex flex-wrap items-center justify-center gap-3"
         >
           <Button variant="green" cut className="px-9">
@@ -181,16 +209,16 @@ export function HeroSection() {
       {/* bottles for small screens — flanking, smaller */}
       <div className="pointer-events-none absolute inset-x-0 bottom-0 flex items-end justify-between md:hidden">
         <motion.div
-          initial={{ x: "25vw", y: 50, rotate: -5, opacity: 0 }}
+          initial={{ x: "18vw", y: 50, rotate: -5, opacity: 0 }}
           animate={
             play
               ? {
-                  x: ["25vw", "25vw", "0vw"],
+                  x: ["18vw", "18vw", "0vw"],
                   y: [50, 0, 0],
                   rotate: [-5, -5, 0],
                   opacity: [0, 1, 1],
                 }
-              : { x: "25vw", y: 50, rotate: -5, opacity: 0 }
+              : { x: "18vw", y: 50, rotate: -5, opacity: 0 }
           }
           transition={{ ...beerTransition, delay: 0.1 }}
           className="w-[34%]"

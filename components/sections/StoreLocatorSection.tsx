@@ -1,6 +1,7 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
+import Image from "next/image";
 import Script from "next/script";
 import { useRef, useState } from "react";
 
@@ -23,10 +24,47 @@ export function StoreLocatorSection() {
   };
 
   return (
-    <section id="locator" className="section-padding bg-cream px-4">
+    <section
+      id="locator"
+      className="relative overflow-hidden bg-cream px-4 py-28 sm:py-40 lg:py-56"
+    >
       <Script src="https://elfsightcdn.com/platform.js" strategy="lazyOnload" />
 
-      <div className="container-page">
+      <motion.div
+        initial={{ opacity: 0, x: -28, rotate: -12 }}
+        whileInView={{ opacity: 0.32, x: 0, rotate: -7 }}
+        viewport={inViewOnce}
+        transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+        className="pointer-events-none absolute -left-16 top-1/2 hidden w-52 -translate-y-1/2 md:block lg:left-4 lg:w-64 xl:left-10 xl:w-72"
+        aria-hidden="true"
+      >
+        <Image
+          src="/assets/Bieres%20OU%20gouter%20l'audace%20icon.png"
+          alt=""
+          width={500}
+          height={466}
+          className="h-auto w-full"
+        />
+      </motion.div>
+
+      <motion.div
+        initial={{ opacity: 0, x: 28, rotate: 12 }}
+        whileInView={{ opacity: 0.32, x: 0, rotate: 7 }}
+        viewport={inViewOnce}
+        transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+        className="pointer-events-none absolute -right-16 top-1/2 hidden w-52 -translate-y-1/2 md:block lg:right-4 lg:w-64 xl:right-10 xl:w-72"
+        aria-hidden="true"
+      >
+        <Image
+          src="/assets/Bieres%20OU%20gouter%20l'audace%20icon.png"
+          alt=""
+          width={500}
+          height={466}
+          className="h-auto w-full"
+        />
+      </motion.div>
+
+      <div className="container-page relative z-10">
         <div className="flex flex-col items-center text-center">
           <Badge tone="cream">Points de vente</Badge>
           <AnimatedHeading

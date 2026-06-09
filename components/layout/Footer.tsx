@@ -36,7 +36,16 @@ const footerColumns = [
 
 export function Footer() {
   return (
-    <footer className="border-t border-green-deep/10 bg-cream text-green-deep [font-family:var(--font-poppins)]">
+    <footer className="relative overflow-hidden border-t border-green-deep/10 bg-cream text-green-deep [font-family:var(--font-poppins)]">
+      <Image
+        src="/assets/B-logo-green (1).png"
+        alt=""
+        width={408}
+        height={472}
+        aria-hidden="true"
+        className="pointer-events-none absolute -right-8 top-10 h-auto w-32 opacity-[0.07] sm:right-5 sm:w-40 lg:right-12 lg:w-52"
+      />
+
       <motion.div
         variants={stagger(0.12)}
         initial="hidden"

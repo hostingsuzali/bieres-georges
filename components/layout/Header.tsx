@@ -53,17 +53,38 @@ export function Header() {
             />
           </a>
 
-          <nav className="hidden items-center gap-9 lg:flex">
-            {navLinks.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                className="eyebrow group relative text-dark-text/80 transition-colors hover:text-orange"
-              >
-                {link.label}
-                <span className="absolute -bottom-1.5 left-0 h-px w-0 bg-orange transition-all duration-300 group-hover:w-full" />
-              </a>
-            ))}
+          <nav className="hidden items-center gap-5 lg:flex">
+            {navLinks.map((link) => {
+              const children = "children" in link ? link.children : undefined;
+
+              return (
+                <div key={link.label} className="group/nav relative">
+                  <a
+                    href={link.href}
+                    className="eyebrow group/link relative block whitespace-nowrap text-[0.62rem] text-dark-text/80 transition-colors hover:text-orange"
+                  >
+                    {link.label}
+                    <span className="absolute -bottom-1.5 left-0 h-px w-0 bg-orange transition-all duration-300 group-hover/link:w-full" />
+                  </a>
+
+                  {children && (
+                    <div className="invisible absolute left-1/2 top-full min-w-36 -translate-x-1/2 pt-5 opacity-0 transition-all duration-200 group-hover/nav:visible group-hover/nav:opacity-100 group-focus-within/nav:visible group-focus-within/nav:opacity-100">
+                      <div className="rounded-2xl border border-dark-text/10 bg-cream/95 p-2 shadow-xl backdrop-blur-md">
+                        {children.map((child) => (
+                          <a
+                            key={child.label}
+                            href={child.href}
+                            className="eyebrow block rounded-xl px-4 py-3 text-center text-dark-text/75 transition-colors hover:bg-green hover:text-cream"
+                          >
+                            {child.label}
+                          </a>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              );
+            })}
           </nav>
 
           <button
@@ -102,19 +123,36 @@ export function Header() {
                 <Icon name="close" size={20} />
               </button>
             </div>
-            <nav className="container-page flex flex-1 flex-col justify-center gap-2">
+            <nav className="container-page flex flex-1 flex-col justify-center gap-1 py-8">
               {navLinks.map((link, i) => (
-                <motion.a
+                <motion.div
                   key={link.label}
-                  href={link.href}
-                  onClick={() => setOpen(false)}
                   initial={{ opacity: 0, x: -30 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.1 + i * 0.07, ease: EASE }}
-                  className="font-display text-4xl font-semibold transition-colors hover:text-orange sm:text-6xl"
                 >
-                  {link.label}
-                </motion.a>
+                  <a
+                    href={link.href}
+                    onClick={() => setOpen(false)}
+                    className="font-display block text-3xl font-semibold transition-colors hover:text-orange sm:text-5xl"
+                  >
+                    {link.label}
+                  </a>
+                  {"children" in link && (
+                    <div className="mt-1 flex gap-4">
+                      {link.children.map((child) => (
+                        <a
+                          key={child.label}
+                          href={child.href}
+                          onClick={() => setOpen(false)}
+                          className="eyebrow text-cream/60 transition-colors hover:text-orange"
+                        >
+                          {child.label}
+                        </a>
+                      ))}
+                    </div>
+                  )}
+                </motion.div>
               ))}
             </nav>
           </motion.div>
