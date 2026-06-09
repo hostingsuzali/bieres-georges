@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef, useState } from "react";
 
 import { AnimatedHeading } from "@/components/ui/AnimatedHeading";
@@ -64,6 +64,30 @@ function BrasserieVideoPlayer() {
   );
 }
 
+// Wraps the video in a scroll-linked scale-up. As the player crosses into
+// the viewport the scale interpolates from 0.86 → 1; once the section is
+// centered, the video sits at full size. Gives the arrival a cinematic feel.
+function BrasserieVideoReveal() {
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start 0.95", "center 0.55"],
+  });
+  const scale = useTransform(scrollYProgress, [0, 1], [0.86, 1]);
+  const opacity = useTransform(scrollYProgress, [0, 0.6], [0.55, 1]);
+  const y = useTransform(scrollYProgress, [0, 1], [40, 0]);
+
+  return (
+    <motion.div
+      ref={ref}
+      style={{ scale, opacity, y }}
+      className="will-change-transform"
+    >
+      <BrasserieVideoPlayer />
+    </motion.div>
+  );
+}
+
 export function BrasserieSection() {
   return (
     <section id="brasserie" className="section-padding overflow-hidden bg-cream px-4">
@@ -107,15 +131,8 @@ export function BrasserieSection() {
             </motion.p>
           </div>
 
-          {/* full-width hero video */}
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={inViewOnce}
-            transition={{ duration: 0.9, ease: EASE }}
-          >
-            <BrasserieVideoPlayer />
-          </motion.div>
+          {/* full-width hero video — scrolls in with a scale-up reveal */}
+          <BrasserieVideoReveal />
         </div>
       </div>
 
