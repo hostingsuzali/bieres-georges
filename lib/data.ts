@@ -3,7 +3,9 @@ export const navLinks = [
   { label: "Nos bières", href: "#emblematiques" },
   { label: "Où nous trouver ?", href: "#locator" },
   { label: "Location de tireuse", href: "#tireuse" },
+  { label: "Travaillons Ensemble", href: "#travailos" },
   { label: "Blog", href: "#journal" },
+
   { label: "Contact", href: "mailto:bonjour@bieresgeorges.fr" },
 ] as const;
 
@@ -23,10 +25,15 @@ export const brasseriePillars = [
     line: "Notre caractère donne du relief à chaque dégustation.",
     icon: "caractere",
   },
+  
   {
     keyword: "Générosité",
     line: "Notre générosité se partage autour de chaque table.",
     icon: "generosite",
+  },
+  {
+    label: "Travaillons Ensemble",
+    href: "#partenaires",
   },
 ] as const;
 

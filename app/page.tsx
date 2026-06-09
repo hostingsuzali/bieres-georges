@@ -9,7 +9,7 @@ import { RitualSection } from "@/components/sections/RitualSection";
 import { StoreLocatorSection } from "@/components/sections/StoreLocatorSection";
 import { TireuseSection } from "@/components/sections/TireuseSection";
 import { FilmStripDivider } from "@/components/ui/FilmStripDivider";
-
+import { PartnersSection } from "@/components/sections/PartnersSection";
 export default function Home() {
   return (
     <>
@@ -26,6 +26,7 @@ export default function Home() {
         <FilmStripDivider />
         <StoreLocatorSection />
         <TireuseSection />
+        <PartnersSection />
         <FilmStripDivider />
         <JournalSection />
       </main>
