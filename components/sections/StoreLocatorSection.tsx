@@ -35,13 +35,12 @@ export function StoreLocatorSection() {
         whileInView={{ opacity: 1, x: 0 }}
         viewport={inViewOnce}
         transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-        className="pointer-events-none absolute left-2 top-5 w-36 sm:left-4 sm:top-8 sm:w-44 lg:left-6 lg:top-12 lg:w-56"
-        aria-hidden="true"
+className="pointer-events-none absolute left-2 top-5 w-48 sm:left-4 sm:top-8 sm:w-60 lg:left-6 lg:top-12 lg:w-72"        aria-hidden="true"
       >
         <Image
           src="/assets/images/BG-Beige.png"
           alt=""
-          width={299}
+          width={499}
           height={417}
           className="h-auto w-full"
         />
@@ -52,14 +51,13 @@ export function StoreLocatorSection() {
         whileInView={{ opacity: 1, x: 0 }}
         viewport={inViewOnce}
         transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-        className="pointer-events-none absolute bottom-5 right-2 w-36 sm:bottom-8 sm:right-4 sm:w-44 lg:bottom-12 lg:right-6 lg:w-56"
-        aria-hidden="true"
+className="pointer-events-none absolute bottom-5 right-2 w-64 sm:bottom-8 sm:right-4 sm:w-60 lg:bottom-12 lg:right-6 lg:w-72"        aria-hidden="true"
       >
         <Image
           src="/assets/images/BG-Beige.png"
           alt=""
-          width={299}
-          height={417}
+          width={359}
+          height={457}
           className="h-auto w-full"
         />
       </motion.div>
