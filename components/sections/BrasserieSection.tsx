@@ -3,12 +3,21 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef, useState } from "react";
 
-import { AnimatedHeading } from "@/components/ui/AnimatedHeading";
 import { brasserieKeywords } from "@/lib/data";
 import { EASE, inViewOnce } from "@/lib/motion";
 
 const BREWERY_VIDEO = "/assets/videos/brasserie.mp4";
 const BREWERY_VIDEO_POSTER = "/assets/images/brasserie.jpg";
+
+// Theme palette used by the scroll-driven swap.
+const CREAM = "#f6ede4";
+const GREEN_DEEP = "#052b25";
+const ORANGE = "#d96a3a";
+const GREEN = "#063a34";
+const CREAM_70 = "rgba(246, 237, 228, 0.7)";
+const DARK_TEXT_55 = "rgba(6, 58, 52, 0.55)";
+const FRAME_GOLD = "#d4b87a"; // golden beige
+const FRAME_GOLD_TRANSPARENT = "rgba(212, 184, 122, 0)";
 
 function BrasserieVideoPlayer() {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -23,7 +32,7 @@ function BrasserieVideoPlayer() {
   };
 
   return (
-    <div className="cut-corner relative h-full min-h-[18rem] w-full overflow-hidden bg-green-deep shadow-[0_40px_100px_-60px_rgba(6,58,52,0.55)] sm:min-h-[26rem] lg:min-h-[36rem] xl:min-h-[42rem]">
+    <div className="relative h-full min-h-[18rem] w-full overflow-hidden bg-green-deep sm:min-h-[26rem] lg:min-h-[36rem] xl:min-h-[42rem]">
       <video
         ref={videoRef}
         className="absolute inset-0 h-full w-full object-cover"
@@ -64,80 +73,118 @@ function BrasserieVideoPlayer() {
   );
 }
 
-// Scroll-linked, cinematic arrival for the brasserie video. As the player
-// enters the viewport it scales from a small framed thumbnail up to full
-// width, lifts into place, sheds a blur, and clears its tint. By the time
-// it's centered, the player owns the page.
-function BrasserieVideoReveal() {
-  const ref = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "center 0.45"],
+export function BrasserieSection() {
+  // The theme swap is driven by the scroll position of the WHOLE colored
+  // block (heading + video). The marquee below sits outside this ref so it
+  // keeps its cream background.
+  const stageRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress: stage } = useScroll({
+    target: stageRef,
+    offset: ["start 0.85", "center 0.45"],
   });
-  const scale = useTransform(scrollYProgress, [0, 1], [0.72, 1]);
-  const opacity = useTransform(scrollYProgress, [0, 0.5], [0.35, 1]);
-  const y = useTransform(scrollYProgress, [0, 1], [80, 0]);
-  const blur = useTransform(scrollYProgress, [0, 0.7], [10, 0]);
+
+  // Section bg: cream → deep green.
+  const sectionBg = useTransform(stage, [0, 1], [CREAM, GREEN_DEEP]);
+
+  // Text colors: green → cream (heading + italic), dark-text → cream/70
+  // (paragraph). They each get an opacity dip in the middle so the swap
+  // reads as a fade-out / fade-in rather than a hard transition.
+  const headingColor = useTransform(stage, [0, 0.55, 1], [GREEN, GREEN, CREAM]);
+  const italicColor = useTransform(stage, [0, 0.55, 1], [ORANGE, ORANGE, ORANGE]);
+  const paragraphColor = useTransform(
+    stage,
+    [0, 0.55, 1],
+    [DARK_TEXT_55, DARK_TEXT_55, CREAM_70],
+  );
+  const textOpacity = useTransform(stage, [0, 0.35, 0.6, 1], [1, 0, 0, 1]);
+
+  // Golden-beige frame around the video: invisible until the player is
+  // roughly in view, then fades in to a thick gold matte.
+  const frameColor = useTransform(
+    stage,
+    [0.2, 0.8],
+    [FRAME_GOLD_TRANSPARENT, FRAME_GOLD],
+  );
+
+  // Scale-in reveal stays — same scroll target so timing is in sync.
+  const scale = useTransform(stage, [0, 1], [0.72, 1]);
+  const revealY = useTransform(stage, [0, 1], [80, 0]);
+  const revealOpacity = useTransform(stage, [0, 0.5], [0.35, 1]);
+  const blur = useTransform(stage, [0, 0.7], [10, 0]);
   const filter = useTransform(blur, (v) => `blur(${v}px)`);
 
   return (
-    <motion.div
-      ref={ref}
-      style={{ scale, opacity, y, filter }}
-      className="will-change-transform"
-    >
-      <BrasserieVideoPlayer />
-    </motion.div>
-  );
-}
-
-export function BrasserieSection() {
-  return (
-    <section id="brasserie" className="section-padding overflow-hidden bg-cream px-4">
-      <div className="container-page">
-        <div className="flex flex-col gap-10 lg:gap-12">
-          <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
-            <motion.p
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={inViewOnce}
-              transition={{ duration: 0.7, ease: EASE }}
-              className="eyebrow text-orange"
+    <section id="brasserie" className="overflow-hidden">
+      <motion.div
+        ref={stageRef}
+        style={{ backgroundColor: sectionBg }}
+        className="section-padding px-4 transition-colors"
+      >
+        <div className="container-page">
+          <div className="flex flex-col gap-10 lg:gap-12">
+            <motion.div
+              style={{ opacity: textOpacity }}
+              className="mx-auto flex max-w-3xl flex-col items-center text-center"
             >
-              Depuis 1836
-            </motion.p>
+              <motion.p
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={inViewOnce}
+                transition={{ duration: 0.7, ease: EASE }}
+                className="eyebrow text-orange"
+              >
+                Depuis 1836
+              </motion.p>
 
-            <AnimatedHeading
-              as="h2"
-              text="Brasserie"
-              className="font-display mt-4 text-4xl font-bold uppercase leading-[0.92] tracking-tight text-green sm:text-5xl lg:text-7xl"
-            />
+              <motion.h2
+                style={{ color: headingColor }}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={inViewOnce}
+                transition={{ duration: 0.7, ease: EASE, delay: 0.05 }}
+                className="font-display mt-4 text-4xl font-bold uppercase leading-[0.92] tracking-tight sm:text-5xl lg:text-7xl"
+              >
+                Brasserie
+              </motion.h2>
 
-            <motion.p
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={inViewOnce}
-              transition={{ duration: 0.7, ease: EASE, delay: 0.1 }}
-              className="font-serif mt-1 text-3xl italic text-orange sm:text-4xl lg:text-5xl"
+              <motion.p
+                style={{ color: italicColor }}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={inViewOnce}
+                transition={{ duration: 0.7, ease: EASE, delay: 0.1 }}
+                className="font-serif mt-1 text-3xl italic sm:text-4xl lg:text-5xl"
+              >
+                audacieuse
+              </motion.p>
+
+              <motion.p
+                style={{ color: paragraphColor }}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={inViewOnce}
+                transition={{ duration: 0.7, ease: EASE, delay: 0.15 }}
+                className="mt-6 max-w-lg leading-relaxed"
+              >
+                Héritage, savoir-faire, caractère, générosité.
+              </motion.p>
+            </motion.div>
+
+            {/* full-width hero video — scale-up reveal + golden-beige frame */}
+            <motion.div
+              style={{ scale, opacity: revealOpacity, y: revealY, filter }}
+              className="will-change-transform"
             >
-              audacieuse
-            </motion.p>
-
-            <motion.p
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={inViewOnce}
-              transition={{ duration: 0.7, ease: EASE, delay: 0.15 }}
-              className="mt-6 max-w-lg text-dark-text/55 leading-relaxed"
-            >
-              Héritage, savoir-faire, caractère, générosité.
-            </motion.p>
+              <motion.div
+                style={{ backgroundColor: frameColor }}
+                className="cut-corner p-2 transition-colors sm:p-3 md:p-4"
+              >
+                <BrasserieVideoPlayer />
+              </motion.div>
+            </motion.div>
           </div>
-
-          {/* full-width hero video — scrolls in with a scale-up reveal */}
-          <BrasserieVideoReveal />
         </div>
-      </div>
+      </motion.div>
 
       {/* keyword marquee — Héritage · Savoir-faire · Caractère · Générosité · Audace */}
       <div className="relative mt-16 overflow-hidden border-y border-green/10 bg-green/[0.04] py-5">
