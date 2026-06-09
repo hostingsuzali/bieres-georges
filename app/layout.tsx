@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { Fraunces, Inter, Oswald, Poppins } from "next/font/google";
 
+import { AgeVerification } from "@/components/ui/AgeVerification";
+
 import "./globals.css";
 
 // Bold condensed display for the big uppercase poster headings.
@@ -49,7 +51,10 @@ export default function RootLayout({ children }: RootLayoutProps) {
       lang="fr"
       className={`${oswald.variable} ${fraunces.variable} ${inter.variable} ${poppins.variable}`}
     >
-      <body>{children}</body>
+      <body>
+        <AgeVerification />
+        {children}
+      </body>
     </html>
   );
 }
