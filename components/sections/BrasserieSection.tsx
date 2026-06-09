@@ -1,16 +1,10 @@
 "use client";
 
-import {
-  motion,
-  useScroll,
-  useTransform,
-  type MotionValue,
-} from "framer-motion";
+import { motion } from "framer-motion";
 import { useRef, useState } from "react";
 
 import { AnimatedHeading } from "@/components/ui/AnimatedHeading";
-import { Icon, type IconName } from "@/components/ui/Icon";
-import { brasserieKeywords, brasseriePillars } from "@/lib/data";
+import { brasserieKeywords } from "@/lib/data";
 import { EASE, inViewOnce } from "@/lib/motion";
 
 const BREWERY_VIDEO = "/assets/videos/brasserie.mp4";
@@ -29,7 +23,7 @@ function BrasserieVideoPlayer() {
   };
 
   return (
-    <div className="cut-corner relative h-full min-h-[18rem] w-full overflow-hidden bg-green-deep shadow-[0_40px_100px_-60px_rgba(6,58,52,0.55)] sm:min-h-[22rem] lg:min-h-[28rem]">
+    <div className="cut-corner relative h-full min-h-[18rem] w-full overflow-hidden bg-green-deep shadow-[0_40px_100px_-60px_rgba(6,58,52,0.55)] sm:min-h-[26rem] lg:min-h-[36rem] xl:min-h-[42rem]">
       <video
         ref={videoRef}
         className="absolute inset-0 h-full w-full object-cover"
@@ -66,111 +60,6 @@ function BrasserieVideoPlayer() {
           </button>
         </>
       )}
-    </div>
-  );
-}
-
-type ScrollPillarItemProps = {
-  index: number;
-  total: number;
-  scrollYProgress: MotionValue<number>;
-  keyword: string;
-  line: string;
-  icon: IconName;
-};
-
-function ScrollPillarItem({
-  index,
-  total,
-  scrollYProgress,
-  keyword,
-  line,
-  icon,
-}: ScrollPillarItemProps) {
-  const fillStart = index / total;
-  const fillEnd = (index + 0.85) / total;
-  const fill = useTransform(scrollYProgress, [fillStart, fillEnd], [0, 1]);
-  const textOpacity = useTransform(scrollYProgress, [fillStart, fillEnd], [0.45, 1]);
-  const borderColor = useTransform(
-    fill,
-    [0, 1],
-    ["rgba(6, 58, 52, 0.1)", "rgba(217, 106, 58, 0.5)"],
-  );
-  const iconColor = useTransform(fill, [0.55, 1], ["#d96a3a", "#f6ede4"]);
-
-  return (
-    <li className="group relative flex gap-3 py-4 first:pt-0 last:pb-0 sm:gap-4">
-      <motion.div
-        className="relative z-10 flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-lg border bg-cream-dark sm:h-11 sm:w-11"
-        style={{ borderColor }}
-      >
-        <motion.div
-          className="absolute inset-0 bg-orange"
-          style={{ scaleY: fill, transformOrigin: "bottom" }}
-        />
-        <motion.div className="relative z-10" style={{ color: iconColor }}>
-          <Icon name={icon} size={18} />
-        </motion.div>
-      </motion.div>
-
-      <motion.div className="min-w-0 pt-0.5" style={{ opacity: textOpacity }}>
-        <div className="flex items-baseline gap-2 sm:gap-3">
-          <span className="font-display text-[0.65rem] font-semibold tabular-nums text-orange/70 sm:text-xs">
-            {String(index + 1).padStart(2, "0")}
-          </span>
-          <h3 className="eyebrow text-green">{keyword}</h3>
-        </div>
-        <p className="mt-1.5 text-xs leading-relaxed text-dark-text/65 sm:text-sm">
-          {line}
-        </p>
-      </motion.div>
-    </li>
-  );
-}
-
-function BrasserieConvictionBlock() {
-  const blockRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: blockRef,
-    offset: ["start 0.9", "end 0.25"],
-  });
-
-  return (
-    <div ref={blockRef} className="flex min-h-0 flex-col">
-      <motion.blockquote
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={inViewOnce}
-        transition={{ duration: 0.8, ease: EASE }}
-        className="relative border-l-2 border-orange pl-4 sm:pl-5"
-      >
-        <p className="font-serif text-base leading-relaxed text-green sm:text-lg">
-          Bières Georges avance avec une conviction simple&nbsp;:
-          <span className="italic text-orange">
-            {" "}
-            une bonne bière doit avoir une âme.
-          </span>
-        </p>
-      </motion.blockquote>
-
-      <ul className="relative mt-8 space-y-0 sm:mt-10">
-        <span
-          className="absolute bottom-3 left-[1.2rem] top-3 w-px bg-gradient-to-b from-orange/50 via-orange/20 to-transparent sm:left-[1.35rem]"
-          aria-hidden="true"
-        />
-
-        {brasseriePillars.map((pillar, index) => (
-          <ScrollPillarItem
-            key={pillar.keyword}
-            index={index}
-            total={brasseriePillars.length}
-            scrollYProgress={scrollYProgress}
-            keyword={pillar.keyword}
-            line={pillar.line}
-            icon={pillar.icon as IconName}
-          />
-        ))}
-      </ul>
     </div>
   );
 }
@@ -218,20 +107,14 @@ export function BrasserieSection() {
             </motion.p>
           </div>
 
+          {/* full-width hero video */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={inViewOnce}
             transition={{ duration: 0.9, ease: EASE }}
-            className="flex flex-col gap-8 lg:flex-row lg:items-stretch lg:gap-6 xl:gap-8"
           >
-            <div className="w-full lg:w-[60%]">
-              <BrasserieVideoPlayer />
-            </div>
-
-            <div className="w-full lg:w-[40%]">
-              <BrasserieConvictionBlock />
-            </div>
+            <BrasserieVideoPlayer />
           </motion.div>
         </div>
       </div>
