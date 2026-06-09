@@ -1,15 +1,27 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import Script from "next/script";
+import { useRef, useState } from "react";
 
 import { AnimatedHeading } from "@/components/ui/AnimatedHeading";
 import { Badge } from "@/components/ui/Badge";
+import { Button } from "@/components/ui/Button";
 import { fadeUp, inViewOnce } from "@/lib/motion";
 
 const ELFSIGHT_APP_ID = "555fd09f-0667-4579-8499-edd2f28f3398";
 
 export function StoreLocatorSection() {
+  const [isMapVisible, setIsMapVisible] = useState(false);
+  const mapRef = useRef<HTMLDivElement>(null);
+
+  const showMap = () => {
+    setIsMapVisible(true);
+    window.setTimeout(() => {
+      mapRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 250);
+  };
+
   return (
     <section id="locator" className="section-padding bg-cream px-4">
       <Script src="https://elfsightcdn.com/platform.js" strategy="lazyOnload" />
@@ -40,13 +52,40 @@ export function StoreLocatorSection() {
           initial="hidden"
           whileInView="visible"
           viewport={inViewOnce}
-          className="mt-12 overflow-hidden rounded-3xl border border-dark-text/10 bg-cream-dark"
+          className="mt-9 flex justify-center"
         >
-          <div
-            className={`elfsight-app-${ELFSIGHT_APP_ID} min-h-[32rem] w-full`}
-            data-elfsight-app-lazy
-          />
+          <Button
+            variant="solid"
+            withArrow={!isMapVisible}
+            cut
+            onClick={isMapVisible ? undefined : showMap}
+            aria-controls="georges-store-map"
+            aria-expanded={isMapVisible}
+            disabled={isMapVisible}
+            className={isMapVisible ? "cursor-default opacity-70" : ""}
+          >
+            {isMapVisible ? "Carte affichée" : "Voir la carte"}
+          </Button>
         </motion.div>
+
+        <AnimatePresence>
+          {isMapVisible && (
+            <motion.div
+              ref={mapRef}
+              id="georges-store-map"
+              initial={{ opacity: 0, height: 0, rotateX: -8 }}
+              animate={{ opacity: 1, height: "auto", rotateX: 0 }}
+              exit={{ opacity: 0, height: 0, rotateX: -8 }}
+              transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+              className="mt-8 scroll-mt-6 overflow-hidden rounded-3xl border border-dark-text/10 bg-cream-dark [transform-origin:top]"
+            >
+              <div
+                className={`elfsight-app-${ELFSIGHT_APP_ID} min-h-[32rem] w-full`}
+                data-elfsight-app-lazy
+              />
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </section>
   );

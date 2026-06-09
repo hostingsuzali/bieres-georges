@@ -40,7 +40,10 @@ export function AnimatedHeading({
       viewport={inViewOnce}
     >
       {words.map((word, i) => (
-        <span key={i} className="inline-block overflow-hidden align-bottom">
+        <span
+          key={i}
+          className="-my-[0.12em] inline-block overflow-hidden py-[0.12em] align-bottom"
+        >
           <motion.span
             variants={wordUp}
             className={`inline-block ${

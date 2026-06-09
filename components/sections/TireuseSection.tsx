@@ -149,7 +149,7 @@ export function TireuseSection() {
               className="mt-10"
             >
               <Button variant="solid" cut withArrow>
-                Demander une tireuse
+                Je loue ma tireuse
               </Button>
             </motion.div>
           </div>

@@ -126,7 +126,10 @@ export function HeroSection() {
           className="font-display mt-2 text-4xl font-bold uppercase leading-[0.9] tracking-tight text-green sm:text-7xl"
         >
           {["Brasserie", "lyonnaise"].map((line) => (
-            <span key={line} className="block overflow-hidden">
+            <span
+              key={line}
+              className="-my-[0.12em] block overflow-hidden py-[0.12em]"
+            >
               <motion.span
                 variants={{
                   hidden: { y: "100%", opacity: 0 },
@@ -138,7 +141,7 @@ export function HeroSection() {
               </motion.span>
             </span>
           ))}
-          <span className="block overflow-hidden">
+          <span className="-my-[0.12em] block overflow-hidden py-[0.12em]">
             <motion.span
               variants={{
                 hidden: { y: "100%", opacity: 0 },

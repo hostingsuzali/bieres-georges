@@ -6,7 +6,6 @@ import { FounderVisionSection } from "@/components/sections/FounderVisionSection
 import { HeroSection } from "@/components/sections/HeroSection";
 import { JournalSection } from "@/components/sections/JournalSection";
 import { ProductBannerSection } from "@/components/sections/ProductBannerSection";
-import { ProfessionalsSection } from "@/components/sections/ProfessionalsSection";
 import { RitualSection } from "@/components/sections/RitualSection";
 import { StoreLocatorSection } from "@/components/sections/StoreLocatorSection";
 import { TireuseSection } from "@/components/sections/TireuseSection";
@@ -29,7 +28,6 @@ export default function Home() {
         <FilmStripDivider />
         <StoreLocatorSection />
         <TireuseSection />
-        <ProfessionalsSection />
         <FilmStripDivider />
         <JournalSection />
       </main>
