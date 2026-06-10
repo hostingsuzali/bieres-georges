@@ -138,7 +138,7 @@ export function Header() {
                   >
                     {link.label}
                   </a>
-                  {"children" in link && (
+                  {link.children && (
                     <div className="mt-1 flex gap-4">
                       {link.children.map((child) => (
                         <a

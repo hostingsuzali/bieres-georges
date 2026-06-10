@@ -1,4 +1,10 @@
-export const navLinks = [
+export type NavLink = {
+  label: string;
+  href: string;
+  children?: readonly { label: string; href: string }[];
+};
+
+export const navLinks: readonly NavLink[] = [
   { label: "Notre Brasserie", href: "#brasserie" },
   { label: "Nos bières", href: "#emblematiques" },
   { label: "Où nous trouver ?", href: "#locator" },
@@ -7,7 +13,7 @@ export const navLinks = [
   { label: "Blog", href: "#journal" },
 
   { label: "Contact", href: "mailto:bonjour@bieresgeorges.fr" },
-] as const;
+];
 
 export const brasseriePillars = [
   {
