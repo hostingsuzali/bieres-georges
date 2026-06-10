@@ -74,7 +74,7 @@ export function RitualSection() {
             className="max-w-xs text-sm leading-relaxed text-dark-text/60"
           >
             Blonde, blanche, ambrée ou créations plus audacieuses&nbsp;: chaque
-            bière Georges porte une signature claire, généreuse et accessible.
+            bière porte une signature claire, généreuse et accessible.
           </motion.p>
         </div>
 

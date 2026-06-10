@@ -188,7 +188,7 @@ export const articles = [
     excerpt:
       "Pourquoi certaines bières se construisent avec patience, exigence et simplicité.",
     tone: "green",
-    image: "/assets/images/verres 3 bières.jpg",
+    image: "/assets/bieres.jpg",
   },
 ] as const;
 
