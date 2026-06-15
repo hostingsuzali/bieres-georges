@@ -80,19 +80,63 @@ export default function WorkWithUsPage() {
           <h2 className="font-display mt-4 text-4xl font-bold uppercase leading-[0.95] sm:text-6xl">
             Deux gammes, une même exigence
           </h2>
-          <div className="mt-10 grid gap-5 lg:grid-cols-2">
-            <RangeCard
-              tag="GMS"
-              title="Pour les magasins"
-              text="Des packshots identifiables, plusieurs formats et une sélection adaptée au libre-service."
-              image="/assets/gammes/GAMME GMS - Visuels/Version BLACKTHORNS/Bouteilles 33CL/BG_PILS_33CL.png"
-            />
-            <RangeCard
-              tag="CHR"
-              title="Pour les lieux de convivialité"
-              text="Des références dédiées aux bars, restaurants, cavistes et événements, en bouteilles ou en fûts."
-              image="/assets/gammes/GAMME CHR - Visuels/IPA 33CL 3760268370136.png"
-            />
+          <div className="mt-12 space-y-8">
+            <article className="overflow-hidden rounded-3xl bg-cream text-green">
+              <div className="grid lg:grid-cols-[1.25fr_0.75fr]">
+                <div className="relative min-h-[24rem] overflow-hidden lg:min-h-[34rem]">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src="/assets/gammes/GAMME GMS - Visuels/Version TRACE/En situation/WEB/BIERE GEORGE PHOTO PRESSE-DSC00672.jpg"
+                    alt="Bière Georges de la gamme GMS"
+                    className="absolute inset-0 h-full w-full object-cover"
+                  />
+                </div>
+                <div className="flex flex-col justify-center p-8 sm:p-12">
+                  <span className="eyebrow text-orange">Gamme GMS</span>
+                  <h3 className="font-display mt-4 text-4xl font-bold uppercase leading-[0.95]">
+                    Pour les magasins
+                  </h3>
+                  <p className="mt-5 leading-relaxed text-green/65">
+                    Une identité forte en rayon, plusieurs formats et une
+                    sélection pensée pour la grande distribution et les achats
+                    à emporter.
+                  </p>
+                  <div className="mt-8">
+                    <CtaLink href="/toutes-les-bieres" variant="green">
+                      Voir la gamme GMS
+                    </CtaLink>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article className="overflow-hidden rounded-3xl border border-cream/15 bg-black/20">
+              <div className="grid lg:grid-cols-[0.7fr_1.3fr]">
+                <div className="flex flex-col justify-center p-8 sm:p-12">
+                  <span className="eyebrow text-orange">Gamme CHR</span>
+                  <h3 className="font-display mt-4 text-4xl font-bold uppercase leading-[0.95]">
+                    Pour les lieux de convivialité
+                  </h3>
+                  <p className="mt-5 leading-relaxed text-cream/65">
+                    Une gamme colorée et expressive pour les bars, restaurants,
+                    cavistes et événements, en bouteilles comme à la pression.
+                  </p>
+                  <div className="mt-8">
+                    <CtaLink href="/toutes-les-bieres" variant="light">
+                      Voir la gamme CHR
+                    </CtaLink>
+                  </div>
+                </div>
+                <div className="relative order-first min-h-[24rem] overflow-hidden lg:order-last lg:min-h-[34rem]">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src="/assets/bieres.jpg"
+                    alt="La gamme CHR des Bières Georges"
+                    className="absolute inset-0 h-full w-full object-cover object-center"
+                  />
+                </div>
+              </div>
+            </article>
           </div>
         </div>
       </section>
@@ -131,32 +175,3 @@ export default function WorkWithUsPage() {
     </SiteShell>
   );
 }
-
-function RangeCard({
-  tag,
-  title,
-  text,
-  image,
-}: {
-  tag: string;
-  title: string;
-  text: string;
-  image: string;
-}) {
-  return (
-    <article className="grid min-h-[27rem] overflow-hidden rounded-3xl border border-cream/15 bg-cream/5 sm:grid-cols-[1fr_0.8fr]">
-      <div className="flex flex-col justify-end p-7 sm:p-9">
-        <span className="eyebrow text-orange">{tag}</span>
-        <h3 className="font-display mt-3 text-3xl font-bold uppercase">
-          {title}
-        </h3>
-        <p className="mt-4 text-sm leading-relaxed text-cream/65">{text}</p>
-      </div>
-      <div className="flex min-h-64 items-end justify-center bg-cream-dark p-6">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={image} alt="" className="h-64 max-w-full object-contain" />
-      </div>
-    </article>
-  );
-}
-

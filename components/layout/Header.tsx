@@ -1,6 +1,6 @@
 "use client";
 
-import { AnimatePresence, motion, useScroll, useMotionValueEvent } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
@@ -11,16 +11,10 @@ import { EASE } from "@/lib/motion";
 import { navLinks } from "@/lib/data";
 
 export function Header() {
-  const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-  const { scrollY } = useScroll();
   const { verified, hydrated } = useAgeVerification();
   // Slide the header down only once the visitor has confirmed they are 18+.
   const play = hydrated && verified;
-
-  useMotionValueEvent(scrollY, "change", (latest) => {
-    setScrolled(latest > 40);
-  });
 
   return (
     <motion.header
@@ -30,16 +24,7 @@ export function Header() {
       className="fixed inset-x-0 top-0 z-50"
     >
       <motion.div
-        animate={{
-          backgroundColor: scrolled
-            ? "rgba(246,237,228,0.92)"
-            : "rgba(246,237,228,0)",
-          boxShadow: scrolled
-            ? "0 10px 30px -20px rgba(6,58,52,0.5)"
-            : "0 0 0 rgba(0,0,0,0)",
-        }}
-        transition={{ duration: 0.4, ease: EASE }}
-        className="backdrop-blur-[2px]"
+        className="border-b border-green/10 bg-cream/95 shadow-[0_10px_30px_-24px_rgba(6,58,52,0.65)] backdrop-blur-md"
         style={{ WebkitBackdropFilter: "blur(2px)" }}
       >
         <div className="container-page flex items-center justify-between py-4">
@@ -107,19 +92,19 @@ export function Header() {
             exit={{ opacity: 0 }}
             className="fixed inset-0 z-50 flex flex-col bg-green text-cream"
           >
-            <div className="container-page flex items-center justify-between py-4">
+            <div className="flex items-center justify-between border-b border-green/10 bg-cream px-5 py-4 sm:px-8">
               <Image
                 src="/assets/logos/logo-bieres-georges.svg"
                 alt="Bières Georges"
                 width={92}
                 height={47}
-                className="h-10 w-auto brightness-0 invert"
+                className="h-10 w-auto"
               />
               <button
                 type="button"
                 aria-label="Fermer le menu"
                 onClick={() => setOpen(false)}
-                className="flex h-10 w-10 items-center justify-center rounded-full border border-cream/25 transition-colors hover:bg-cream hover:text-green"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-green/20 text-green transition-colors hover:bg-green hover:text-cream"
               >
                 <Icon name="close" size={20} />
               </button>

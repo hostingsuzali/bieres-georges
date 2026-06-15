@@ -5,6 +5,7 @@ import { SiteShell } from "@/components/layout/SiteShell";
 import { StoreLocatorEmbed } from "@/components/store/StoreLocatorEmbed";
 import { CtaLink } from "@/components/ui/CtaLink";
 import { InternalPageHero } from "@/components/ui/InternalPageHero";
+import { VersionSwitcher } from "@/components/ui/VersionSwitcher";
 import { beers } from "@/lib/products";
 
 export const metadata: Metadata = {
@@ -85,7 +86,7 @@ export default function FindUsPage() {
           </CtaLink>
         </div>
       </section>
+      <VersionSwitcher href="/trouver/v2" targetVersion="V2" />
     </SiteShell>
   );
 }
-

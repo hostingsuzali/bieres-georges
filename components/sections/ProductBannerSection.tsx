@@ -125,7 +125,9 @@ export function ProductBannerSection() {
                     <img
                       src={m.image}
                       alt={`${m.year} — ${m.title}`}
-                      className="h-full w-full object-cover sepia-[0.25]"
+                      className={`h-full w-full object-cover ${
+                        m.year === "Aujourd'hui" ? "" : "sepia-[0.25]"
+                      }`}
                     />
                   </div>
 

@@ -5,6 +5,7 @@ import { RentalRequestForm } from "@/components/forms/RentalRequestForm";
 import { SiteShell } from "@/components/layout/SiteShell";
 import { Icon } from "@/components/ui/Icon";
 import { InternalPageHero } from "@/components/ui/InternalPageHero";
+import { VersionSwitcher } from "@/components/ui/VersionSwitcher";
 import { beers } from "@/lib/products";
 
 export const metadata: Metadata = {
@@ -159,6 +160,7 @@ export default function RentTapPage() {
           </p>
         </div>
       </section>
+      <VersionSwitcher href="/louer-une-tireuse/v2" targetVersion="V2" />
     </SiteShell>
   );
 }

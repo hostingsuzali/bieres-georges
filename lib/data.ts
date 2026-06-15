@@ -288,7 +288,7 @@ export const historyMilestones = [
     year: "Aujourd'hui",
     title: "Libres et exigeants",
     line: "La maison crée son propre rythme, sans suivre les modes.",
-    image: "/assets/images/camions livraison historiques.jpeg",
+    image: "/assets/images/fabrique-aujourdhui.webp",
   },
 ] as const;
 

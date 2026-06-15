@@ -4,6 +4,7 @@ import { BeerCatalog } from "@/components/beers/BeerCatalog";
 import { SiteShell } from "@/components/layout/SiteShell";
 import { CtaLink } from "@/components/ui/CtaLink";
 import { InternalPageHero } from "@/components/ui/InternalPageHero";
+import { VersionSwitcher } from "@/components/ui/VersionSwitcher";
 
 export const metadata: Metadata = {
   title: "Toutes les bières | Bières Georges",
@@ -58,6 +59,7 @@ export default function AllBeersPage() {
           </CtaLink>
         </div>
       </section>
+      <VersionSwitcher href="/toutes-les-bieres/v2" targetVersion="V2" />
     </SiteShell>
   );
 }
