@@ -5,7 +5,7 @@ import Image from "next/image";
 
 import { AnimatedHeading } from "@/components/ui/AnimatedHeading";
 import { Badge } from "@/components/ui/Badge";
-import { Button } from "@/components/ui/Button";
+import { CtaLink } from "@/components/ui/CtaLink";
 import { fadeUp, inViewOnce } from "@/lib/motion";
 
 const channels = [
@@ -61,9 +61,9 @@ export function PartnersSection() {
             </div>
 
             <div className="mt-10">
-              <Button variant="solid" cut withArrow>
+              <CtaLink href="/travailler-avec-nous">
                 Devenir partenaire
-              </Button>
+              </CtaLink>
             </div>
           </motion.div>
 

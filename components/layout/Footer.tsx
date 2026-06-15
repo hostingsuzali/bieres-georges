@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 
 import { fadeUp, inViewOnce, stagger } from "@/lib/motion";
 
@@ -9,18 +10,19 @@ const footerColumns = [
   {
     title: "Navigation",
     links: [
-      { label: "Accueil", href: "#hero" },
-      { label: "Nos bières", href: "#emblematiques" },
-      { label: "Collections", href: "#collections" },
-      { label: "Notre histoire", href: "#history" },
+      { label: "Accueil", href: "/" },
+      { label: "Toutes les bières", href: "/toutes-les-bieres" },
+      { label: "Collections", href: "/#collections" },
+      { label: "Notre histoire", href: "/#history" },
     ],
   },
   {
     title: "La maison",
     links: [
-      { label: "Points de vente", href: "#locator" },
-      { label: "Professionnels", href: "#professionals" },
-      { label: "Journal", href: "#journal" },
+      { label: "Points de vente", href: "/trouver" },
+      { label: "Professionnels", href: "/travailler-avec-nous" },
+      { label: "Louer une tireuse", href: "/louer-une-tireuse" },
+      { label: "Journal", href: "/#journal" },
       { label: "Contact", href: "mailto:bonjour@bieresgeorges.fr" },
     ],
   },
@@ -57,8 +59,8 @@ export function Footer() {
           variants={fadeUp}
           className="flex flex-col gap-7 sm:flex-row sm:items-center"
         >
-          <a
-            href="#hero"
+          <Link
+            href="/"
             aria-label="Retour en haut de page"
             className="flex h-20 w-20 shrink-0 items-center justify-center rounded-2xl border border-green-deep/15 transition-colors hover:border-orange"
           >
@@ -69,7 +71,7 @@ export function Footer() {
               height={374}
               className="h-auto w-16"
             />
-          </a>
+          </Link>
 
           <div className="w-full max-w-sm">
             <p className="mb-3 text-xs font-medium uppercase tracking-[0.18em] text-green-deep/55">

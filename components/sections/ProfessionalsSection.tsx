@@ -53,7 +53,7 @@ export function ProfessionalsSection() {
             transition={{ duration: 0.7, ease: EASE, delay: 0.1 }}
             className="mt-6 max-w-md text-dark-text/70 leading-relaxed"
           >
-            Vous êtes restaurateur, caviste, hôtelier, organisateur d'événements
+            Vous êtes restaurateur, caviste, hôtelier, organisateur d’événements
             ou distributeur&nbsp;? Bières Georges accompagne les professionnels
             avec une offre claire, fiable et adaptée à leurs besoins.
           </motion.p>

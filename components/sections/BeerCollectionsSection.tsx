@@ -67,7 +67,7 @@ export function BeerCollectionsSection() {
         </motion.div>
 
         <motion.a
-          href="#collections"
+          href="/toutes-les-bieres"
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={inViewOnce}
@@ -75,7 +75,7 @@ export function BeerCollectionsSection() {
           className="group eyebrow mx-auto mt-12 flex w-fit items-center gap-3 text-orange"
         >
           <span className="border-b-2 border-dashed border-orange/60 pb-1.5">
-            Explorer les collections
+            Explorer toutes les bières
           </span>
           <span className="transition-transform duration-300 group-hover:translate-x-1">
             <Icon name="arrowRight" size={16} />

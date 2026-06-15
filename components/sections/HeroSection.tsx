@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 
-import { Button } from "@/components/ui/Button";
+import { CtaLink } from "@/components/ui/CtaLink";
 import { useAgeVerification } from "@/lib/age-context";
 import { EASE } from "@/lib/motion";
 
@@ -197,12 +197,12 @@ export function HeroSection() {
           transition={{ delay: 3.05, duration: 0.7, ease: EASE }}
           className="mt-9 flex flex-wrap items-center justify-center gap-3"
         >
-          <Button variant="green" cut className="px-9">
+          <CtaLink href="/toutes-les-bieres" variant="green" className="px-9">
             Découvrir nos bières
-          </Button>
-          <Button variant="ghost" withArrow className="px-2">
+          </CtaLink>
+          <CtaLink href="/#history" variant="outline" className="px-6">
             Notre histoire
-          </Button>
+          </CtaLink>
         </motion.div>
       </div>
 

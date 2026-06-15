@@ -5,7 +5,7 @@ import { useState } from "react";
 
 import { AnimatedHeading } from "@/components/ui/AnimatedHeading";
 import { Badge } from "@/components/ui/Badge";
-import { Button } from "@/components/ui/Button";
+import { CtaLink } from "@/components/ui/CtaLink";
 import { emblematicBeers } from "@/lib/data";
 import { EASE, fadeUp, inViewOnce, stagger } from "@/lib/motion";
 
@@ -192,9 +192,9 @@ export function RitualSection() {
               variants={fadeUp}
               className="mt-4"
             >
-              <Button variant="green" cut withArrow>
+              <CtaLink href="/toutes-les-bieres" variant="green">
                 Voir toutes les bières
-              </Button>
+              </CtaLink>
             </motion.div>
           </motion.ul>
         </div>

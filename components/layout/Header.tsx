@@ -2,6 +2,7 @@
 
 import { AnimatePresence, motion, useScroll, useMotionValueEvent } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 
 import { Icon } from "@/components/ui/Icon";
@@ -42,7 +43,7 @@ export function Header() {
         style={{ WebkitBackdropFilter: "blur(2px)" }}
       >
         <div className="container-page flex items-center justify-between py-4">
-          <a href="#hero" className="block">
+          <Link href="/" className="block">
             <Image
               src="/assets/logos/logo-bieres-georges.svg"
               alt="Bières Georges"
@@ -51,7 +52,7 @@ export function Header() {
               priority
               className="h-10 w-auto"
             />
-          </a>
+          </Link>
 
           <nav className="hidden items-center gap-5 lg:flex">
             {navLinks.map((link) => {

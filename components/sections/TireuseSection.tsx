@@ -5,7 +5,7 @@ import { useRef } from "react";
 
 import { AnimatedHeading } from "@/components/ui/AnimatedHeading";
 import { Badge } from "@/components/ui/Badge";
-import { Button } from "@/components/ui/Button";
+import { CtaLink } from "@/components/ui/CtaLink";
 import { Icon } from "@/components/ui/Icon";
 import { EASE, fadeUp, inViewOnce, stagger } from "@/lib/motion";
 
@@ -148,9 +148,9 @@ export function TireuseSection() {
               transition={{ duration: 0.7, ease: EASE, delay: 0.6 }}
               className="mt-10"
             >
-              <Button variant="solid" cut withArrow>
+              <CtaLink href="/louer-une-tireuse">
                 Je loue ma tireuse
-              </Button>
+              </CtaLink>
             </motion.div>
           </div>
         </div>

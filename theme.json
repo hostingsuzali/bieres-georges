@@ -1,0 +1,33 @@
+{
+    "version": 2,
+    "settings": {
+      "color": {
+        "palette": [
+          { "slug": "creme", "color": "#F5F0E8", "name": "Crème" },
+          { "slug": "vert", "color": "#2D4A3E", "name": "Vert foncé" },
+          { "slug": "orange", "color": "#C4521A", "name": "Orange rouille" },
+          { "slug": "noir", "color": "#1A1A1A", "name": "Noir" },
+          { "slug": "beige", "color": "#E8DCC8", "name": "Beige" }
+        ]
+      },
+      "typography": {
+        "fontFamilies": [
+          {
+            "slug": "playfair",
+            "name": "Playfair Display",
+            "fontFamily": "'Playfair Display', serif"
+          },
+          {
+            "slug": "lora",
+            "name": "Lora",
+            "fontFamily": "'Lora', serif"
+          },
+          {
+            "slug": "inter",
+            "name": "Inter",
+            "fontFamily": "'Inter', sans-serif"
+          }
+        ]
+      }
+    }
+  }

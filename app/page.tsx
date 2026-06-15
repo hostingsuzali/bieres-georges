@@ -1,5 +1,4 @@
-import { Footer } from "@/components/layout/Footer";
-import { Header } from "@/components/layout/Header";
+import { SiteShell } from "@/components/layout/SiteShell";
 import { BeerCollectionsSection } from "@/components/sections/BeerCollectionsSection";
 import { BrasserieSection } from "@/components/sections/BrasserieSection";
 import { HeroSection } from "@/components/sections/HeroSection";
@@ -12,9 +11,7 @@ import { FilmStripDivider } from "@/components/ui/FilmStripDivider";
 import { PartnersSection } from "@/components/sections/PartnersSection";
 export default function Home() {
   return (
-    <>
-      <Header />
-      <main>
+    <SiteShell>
         <HeroSection />
         <FilmStripDivider />
         <BeerCollectionsSection />
@@ -29,8 +26,6 @@ export default function Home() {
         <PartnersSection />
         <FilmStripDivider />
         <JournalSection />
-      </main>
-      <Footer />
-    </>
+    </SiteShell>
   );
 }

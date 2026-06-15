@@ -8,6 +8,7 @@ import { useRef, useState } from "react";
 import { AnimatedHeading } from "@/components/ui/AnimatedHeading";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
+import { CtaLink } from "@/components/ui/CtaLink";
 import { fadeUp, inViewOnce } from "@/lib/motion";
 
 const ELFSIGHT_APP_ID = "555fd09f-0667-4579-8499-edd2f28f3398";
@@ -103,6 +104,12 @@ className="pointer-events-none absolute bottom-5 right-2 w-64 sm:bottom-8 sm:rig
             {isMapVisible ? "Carte affichée" : "Voir la carte"}
           </Button>
         </motion.div>
+
+        <div className="mt-5 flex justify-center">
+          <CtaLink href="/trouver" variant="outline">
+            Ouvrir la page points de vente
+          </CtaLink>
+        </div>
 
         <AnimatePresence>
           {isMapVisible && (

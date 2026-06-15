@@ -78,7 +78,7 @@ export function AgeVerification() {
                   transition={{ duration: 0.5, ease: EASE }}
                 >
                   <p className="font-serif mt-7 text-xl italic text-orange sm:text-2xl">
-                    Avant d'entrer.
+                    Avant d’entrer.
                   </p>
 
                   <h2
@@ -91,7 +91,7 @@ export function AgeVerification() {
                   </h2>
 
                   <p className="mt-6 text-sm leading-relaxed text-cream/70">
-                    La vente d'alcool aux mineurs est interdite. Pour accéder au
+                    La vente d’alcool aux mineurs est interdite. Pour accéder au
                     site, merci de confirmer votre âge.
                   </p>
 
@@ -102,7 +102,7 @@ export function AgeVerification() {
                       onClick={grantAccess}
                       className="w-full sm:w-auto"
                     >
-                      Oui, j'ai 18 ans ou plus
+                      Oui, j’ai 18 ans ou plus
                     </Button>
                     <Button
                       variant="ghost"
@@ -114,7 +114,7 @@ export function AgeVerification() {
                   </div>
 
                   <p className="mt-10 border-t border-cream/15 pt-5 text-[0.65rem] uppercase tracking-[0.18em] text-cream/45">
-                    L'abus d'alcool est dangereux pour la santé.
+                    L’abus d’alcool est dangereux pour la santé.
                     <br className="sm:hidden" /> À consommer avec modération.
                   </p>
                 </motion.div>
@@ -154,7 +154,7 @@ export function AgeVerification() {
                   </div>
 
                   <p className="mt-10 border-t border-cream/15 pt-5 text-[0.65rem] uppercase tracking-[0.18em] text-cream/45">
-                    L'abus d'alcool est dangereux pour la santé.
+                    L’abus d’alcool est dangereux pour la santé.
                     <br className="sm:hidden" /> À consommer avec modération.
                   </p>
                 </motion.div>

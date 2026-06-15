@@ -1,65 +1,27 @@
 "use client";
 
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef, useState } from "react";
+import { useRef } from "react";
 
 import { AnimatedHeading } from "@/components/ui/AnimatedHeading";
 import { brasserieKeywords } from "@/lib/data";
 import { EASE, inViewOnce } from "@/lib/motion";
 
-const BREWERY_VIDEO = "/assets/videos/brasserie.mp4";
 const BREWERY_VIDEO_POSTER = "/assets/images/brasserie.jpg";
 
 function BrasserieVideoPlayer() {
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const [isPlaying, setIsPlaying] = useState(false);
-
-  const handlePlay = () => {
-    const video = videoRef.current;
-    if (!video) return;
-
-    void video.play();
-    setIsPlaying(true);
-  };
-
   return (
     <div className="cut-corner relative h-full min-h-[18rem] w-full overflow-hidden bg-green-deep shadow-[0_40px_100px_-60px_rgba(6,58,52,0.55)] sm:min-h-[26rem] lg:min-h-[36rem] xl:min-h-[42rem]">
-      <video
-        ref={videoRef}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src={BREWERY_VIDEO_POSTER}
+        alt="La brasserie Bières Georges"
         className="absolute inset-0 h-full w-full object-cover"
-        poster={BREWERY_VIDEO_POSTER}
-        playsInline
-        controls={isPlaying}
-        preload="metadata"
-        onPlay={() => setIsPlaying(true)}
-        onPause={() => setIsPlaying(false)}
-        onEnded={() => setIsPlaying(false)}
-      >
-        <source src={BREWERY_VIDEO} type="video/mp4" />
-      </video>
-
-      {!isPlaying && (
-        <>
-          <div className="absolute inset-0 bg-gradient-to-t from-green-deep/80 via-green-deep/25 to-green-deep/10" />
-
-          <button
-            type="button"
-            onClick={handlePlay}
-            aria-label="Lire la vidéo de la brasserie"
-            className="absolute inset-0 flex items-center justify-center"
-          >
-            <span className="flex h-16 w-16 items-center justify-center rounded-full border-2 border-cream/70 bg-green-deep/75 text-cream backdrop-blur-sm transition-transform duration-300 hover:scale-105 hover:border-orange hover:bg-orange sm:h-20 sm:w-20">
-              <svg
-                viewBox="0 0 24 24"
-                aria-hidden="true"
-                className="ml-1 h-7 w-7 fill-current sm:h-8 sm:w-8"
-              >
-                <path d="M8 5.14v13.72a1 1 0 0 0 1.5.86l11.04-6.86a1 1 0 0 0 0-1.72L9.5 4.28A1 1 0 0 0 8 5.14Z" />
-              </svg>
-            </span>
-          </button>
-        </>
-      )}
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-green-deep/55 via-transparent to-green-deep/10" />
+      <span className="eyebrow absolute bottom-6 left-6 rounded-full border border-cream/30 bg-green-deep/65 px-4 py-2 text-cream backdrop-blur-sm">
+        Dans les coulisses de la brasserie
+      </span>
     </div>
   );
 }

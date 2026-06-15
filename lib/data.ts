@@ -5,13 +5,12 @@ export type NavLink = {
 };
 
 export const navLinks: readonly NavLink[] = [
-  { label: "Notre Brasserie", href: "#brasserie" },
-  { label: "Nos bières", href: "#emblematiques" },
-  { label: "Où nous trouver ?", href: "#locator" },
-  { label: "Location de tireuse", href: "#tireuse" },
-  { label: "Travaillons Ensemble", href: "#travailos" },
-  { label: "Blog", href: "#journal" },
-
+  { label: "Notre Brasserie", href: "/#brasserie" },
+  { label: "Toutes les bières", href: "/toutes-les-bieres" },
+  { label: "Où nous trouver ?", href: "/trouver" },
+  { label: "Location de tireuse", href: "/louer-une-tireuse" },
+  { label: "Travaillons ensemble", href: "/travailler-avec-nous" },
+  { label: "Blog", href: "/#journal" },
   { label: "Contact", href: "mailto:bonjour@bieresgeorges.fr" },
 ];
 

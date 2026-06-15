@@ -97,7 +97,7 @@ export function JournalSection() {
                   className="eyebrow mt-6 inline-flex items-center gap-2 text-orange"
                 >
                   <span className="border-b border-dashed border-current pb-1">
-                    Lire l'article
+                    Lire l’article
                   </span>
                   <span className="transition-transform duration-300 group-hover:translate-x-1">
                     <Icon name="arrowRight" size={14} />
