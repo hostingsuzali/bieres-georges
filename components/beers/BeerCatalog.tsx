@@ -10,106 +10,128 @@ import {
   type BeerRange,
 } from "@/lib/products";
 
-type RangeFilter = "Toutes" | BeerRange;
-type CollectionFilter = "Toutes" | BeerCollection;
-
 export function BeerCatalog() {
-  const [range, setRange] = useState<RangeFilter>("Toutes");
-  const [collection, setCollection] =
-    useState<CollectionFilter>("Toutes");
+  const [ranges, setRanges] = useState<BeerRange[]>([]);
+  const [collections, setCollections] = useState<BeerCollection[]>([]);
 
   const filtered = useMemo(
     () =>
       beers.filter(
         (beer) =>
-          (range === "Toutes" || beer.ranges.includes(range)) &&
-          (collection === "Toutes" || beer.collection === collection),
+          (ranges.length === 0 ||
+            beer.ranges.some((range) => ranges.includes(range))) &&
+          (collections.length === 0 ||
+            collections.includes(beer.collection)),
       ),
-    [collection, range],
+    [collections, ranges],
   );
 
   return (
-    <div>
-      <div className="grid gap-7 rounded-3xl border border-green/10 bg-white/35 p-5 lg:grid-cols-2 lg:p-7">
-        <FilterGroup
+    <div className="grid gap-8 lg:grid-cols-[17rem_1fr]">
+      <aside className="h-fit rounded-3xl border border-green/10 bg-white/40 p-6 lg:sticky lg:top-28">
+        <p className="eyebrow text-orange">Filtres</p>
+        <CheckboxGroup
           label="Gamme"
-          values={["Toutes", "GMS", "CHR"]}
-          active={range}
-          onChange={(value) => setRange(value as RangeFilter)}
+          values={["GMS", "CHR"]}
+          selected={ranges}
+          onToggle={(value) =>
+            setRanges((current) =>
+              current.includes(value)
+                ? current.filter((item) => item !== value)
+                : [...current, value],
+            )
+          }
         />
-        <FilterGroup
+        <CheckboxGroup
           label="Collection"
-          values={["Toutes", ...beerCollections]}
-          active={collection}
-          onChange={(value) => setCollection(value as CollectionFilter)}
+          values={beerCollections}
+          selected={collections}
+          onToggle={(value) =>
+            setCollections((current) =>
+              current.includes(value)
+                ? current.filter((item) => item !== value)
+                : [...current, value],
+            )
+          }
         />
-      </div>
-
-      <div className="mt-8 flex items-center justify-between border-b border-green/10 pb-4">
-        <p className="text-sm text-green/60">
-          <strong className="text-green">{filtered.length}</strong>{" "}
-          {filtered.length > 1 ? "bières affichées" : "bière affichée"}
-        </p>
-        {(range !== "Toutes" || collection !== "Toutes") && (
+        <div className="mt-7 border-t border-green/10 pt-5">
+          <p className="font-display text-4xl font-bold text-green">
+            {filtered.length}
+          </p>
+          <p className="mt-1 text-sm text-green/55">bières affichées</p>
+        </div>
+        {(ranges.length > 0 || collections.length > 0) && (
           <button
             type="button"
             onClick={() => {
-              setRange("Toutes");
-              setCollection("Toutes");
+              setRanges([]);
+              setCollections([]);
             }}
-            className="eyebrow text-orange hover:text-green"
+            className="eyebrow mt-6 text-orange hover:text-green"
           >
             Réinitialiser
           </button>
         )}
-      </div>
+      </aside>
 
-      <div className="mt-9 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-        {filtered.map((beer) => (
-          <BeerCard key={beer.slug} beer={beer} />
-        ))}
+      <div>
+        <div className="flex items-center justify-between border-b border-green/10 pb-4">
+          <p className="text-sm text-green/60">
+            <strong className="text-green">{filtered.length}</strong>{" "}
+            {filtered.length > 1 ? "bières affichées" : "bière affichée"}
+          </p>
+          <p className="eyebrow text-green/45">Multi-sélection</p>
+        </div>
+
+        <div className="mt-9 grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
+          {filtered.map((beer) => (
+            <BeerCard key={beer.slug} beer={beer} />
+          ))}
+        </div>
       </div>
     </div>
   );
 }
 
-type FilterGroupProps = {
+type CheckboxGroupProps<T extends string> = {
   label: string;
-  values: readonly string[];
-  active: string;
-  onChange: (value: string) => void;
+  values: readonly T[];
+  selected: readonly T[];
+  onToggle: (value: T) => void;
 };
 
-function FilterGroup({
+function CheckboxGroup<T extends string>({
   label,
   values,
-  active,
-  onChange,
-}: FilterGroupProps) {
+  selected,
+  onToggle,
+}: CheckboxGroupProps<T>) {
   return (
-    <fieldset>
+    <fieldset className="mt-7">
       <legend className="eyebrow mb-3 text-green/55">{label}</legend>
-      <div className="flex flex-wrap gap-2">
+      <div className="space-y-2">
         {values.map((value) => {
-          const selected = value === active;
+          const isSelected = selected.includes(value);
           return (
-            <button
+            <label
               key={value}
-              type="button"
-              aria-pressed={selected}
-              onClick={() => onChange(value)}
-              className={`rounded-full border px-4 py-2 text-xs font-semibold transition-colors ${
-                selected
-                  ? "border-orange bg-orange text-cream"
-                  : "border-green/15 text-green hover:border-green/40"
+              className={`flex cursor-pointer items-center justify-between rounded-2xl border px-4 py-3 text-sm transition-colors ${
+                isSelected
+                  ? "border-orange bg-orange/10 text-green"
+                  : "border-green/10 text-green/65 hover:border-green/30"
               }`}
             >
-              {value}
-            </button>
+              <span>{value}</span>
+              <input
+                type="checkbox"
+                checked={isSelected}
+                onChange={() => onToggle(value)}
+                className="h-4 w-4 accent-orange"
+              />
+            </label>
           );
         })}
       </div>
     </fieldset>
   );
 }
-

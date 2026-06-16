@@ -14,14 +14,24 @@ export const metadata: Metadata = {
 
 const channels: { title: string; text: string; icon: IconName }[] = [
   {
-    title: "Bars & Restaurants",
-    text: "Bières bouteilles et pression, accompagnement de carte et visibilité sur le lieu.",
+    title: "Bars",
+    text: "Une offre pression et bouteilles pensée pour les comptoirs vivants.",
+    icon: "bar",
+  },
+  {
+    title: "Restaurants",
+    text: "Des accords simples à intégrer à une carte de table ou de terrasse.",
     icon: "bar",
   },
   {
     title: "Cavistes",
     text: "Une gamme de caractère, des formats variés et des références saisonnières.",
     icon: "caviste",
+  },
+  {
+    title: "Hôtels",
+    text: "Une bière lyonnaise à proposer au bar, en chambre ou lors d'événements.",
+    icon: "evenement",
   },
   {
     title: "Grande distribution",
@@ -35,9 +45,51 @@ const channels: { title: string; text: string; icon: IconName }[] = [
   },
 ];
 
+const channelImages = [
+  "/assets/images/pression_bar.jpg",
+  "/assets/images/trinquent.jpg",
+  "/assets/images/verres 3 bières.jpg",
+  "/assets/images/Bières Georges 10.jpg",
+  "/assets/gammes/GAMME GMS - Visuels/Version TRACE/En situation/WEB/BIERE GEORGE PHOTO PRESSE-DSC00672.jpg",
+  "/assets/images/pression bar_03.JPG",
+];
+
+const gmsSlides = [
+  "/assets/gammes/GAMME GMS - Visuels/Version TRACE/En situation/WEB/BIERE GEORGE PHOTO PRESSE-DSC00672.jpg",
+  "/assets/gammes/GAMME GMS - Visuels/Version TRACE/En situation/WEB/BIERE GEORGE PHOTO PRESSE-DSC00678.jpg",
+  "/assets/gammes/GAMME GMS - Visuels/Version BLACKTHORNS/Bouteilles 33CL/BG_PILS_33CL.png",
+  "/assets/gammes/GAMME GMS - Visuels/Version BLACKTHORNS/Canettes 44CL/BG_NEIPA_44CL.png",
+];
+
+const chrSlides = [
+  "/assets/bieres.jpg",
+  "/assets/gammes/GAMME CHR - Visuels/COFFRET CHR 6X33CL (Face) 3760268370310.png",
+  "/assets/gammes/GAMME CHR - Visuels/IPA 33CL 3760268370136.png",
+  "/assets/gammes/GAMME CHR - Visuels/VERY GOOD TRIPLE 75CL 3760268370679.png",
+];
+
+const gmsTrack = [...gmsSlides, ...gmsSlides];
+const chrTrack = [...chrSlides, ...chrSlides];
+
 export default function WorkWithUsPage() {
   return (
     <SiteShell>
+      <style>{`
+        @keyframes gamme-left {
+          from { transform: translateX(0); }
+          to { transform: translateX(-50%); }
+        }
+        @keyframes gamme-right {
+          from { transform: translateX(-50%); }
+          to { transform: translateX(0); }
+        }
+        .gamme-left-track { animation: gamme-left 28s linear infinite; }
+        .gamme-right-track { animation: gamme-right 28s linear infinite; }
+        @media (prefers-reduced-motion: reduce) {
+          .gamme-left-track,
+          .gamme-right-track { animation: none; }
+        }
+      `}</style>
       <InternalPageHero
         eyebrow="Professionnels"
         title="Travailler avec les Bières Georges"
@@ -49,25 +101,41 @@ export default function WorkWithUsPage() {
 
       <section className="section-padding bg-cream px-4">
         <div className="container-page">
-          <div className="max-w-3xl">
-            <p className="eyebrow text-orange">Nos partenaires</p>
-            <h2 className="font-display mt-4 text-4xl font-bold uppercase leading-[0.95] text-green sm:text-6xl">
-              À chaque activité son accompagnement
-            </h2>
+          <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
+            <div>
+              <p className="eyebrow text-orange">Nos partenaires</p>
+              <h2 className="font-display mt-4 text-4xl font-bold uppercase leading-[0.95] text-green sm:text-6xl">
+                À chaque activité son accompagnement
+              </h2>
+            </div>
+            <p className="max-w-xl leading-relaxed text-green/65">
+              Des formats, supports et gammes à adapter selon le lieu, le
+              moment de consommation et le circuit de distribution.
+            </p>
           </div>
-          <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
-            {channels.map((channel) => (
+          <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+            {channels.map((channel, index) => (
               <article
                 key={channel.title}
-                className="tag-shape bg-cream-dark p-7 text-green"
+                className="group overflow-hidden rounded-3xl bg-cream-dark text-green"
               >
-                <Icon name={channel.icon} size={32} className="text-orange" />
-                <h3 className="font-display mt-8 text-2xl font-bold uppercase">
-                  {channel.title}
-                </h3>
-                <p className="mt-4 text-sm leading-relaxed text-green/65">
-                  {channel.text}
-                </p>
+                <div className="relative aspect-[4/3] overflow-hidden">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={channelImages[index]}
+                    alt={channel.title}
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                </div>
+                <div className="p-7">
+                  <Icon name={channel.icon} size={28} className="text-orange" />
+                  <h3 className="font-display mt-6 text-2xl font-bold uppercase">
+                    {channel.title}
+                  </h3>
+                  <p className="mt-4 text-sm leading-relaxed text-green/65">
+                    {channel.text}
+                  </p>
+                </div>
               </article>
             ))}
           </div>
@@ -80,63 +148,24 @@ export default function WorkWithUsPage() {
           <h2 className="font-display mt-4 text-4xl font-bold uppercase leading-[0.95] sm:text-6xl">
             Deux gammes, une même exigence
           </h2>
-          <div className="mt-12 space-y-8">
-            <article className="overflow-hidden rounded-3xl bg-cream text-green">
-              <div className="grid lg:grid-cols-[1.25fr_0.75fr]">
-                <div className="relative min-h-[24rem] overflow-hidden lg:min-h-[34rem]">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src="/assets/gammes/GAMME GMS - Visuels/Version TRACE/En situation/WEB/BIERE GEORGE PHOTO PRESSE-DSC00672.jpg"
-                    alt="Bière Georges de la gamme GMS"
-                    className="absolute inset-0 h-full w-full object-cover"
-                  />
-                </div>
-                <div className="flex flex-col justify-center p-8 sm:p-12">
-                  <span className="eyebrow text-orange">Gamme GMS</span>
-                  <h3 className="font-display mt-4 text-4xl font-bold uppercase leading-[0.95]">
-                    Pour les magasins
-                  </h3>
-                  <p className="mt-5 leading-relaxed text-green/65">
-                    Une identité forte en rayon, plusieurs formats et une
-                    sélection pensée pour la grande distribution et les achats
-                    à emporter.
-                  </p>
-                  <div className="mt-8">
-                    <CtaLink href="/toutes-les-bieres" variant="green">
-                      Voir la gamme GMS
-                    </CtaLink>
-                  </div>
-                </div>
-              </div>
-            </article>
 
-            <article className="overflow-hidden rounded-3xl border border-cream/15 bg-black/20">
-              <div className="grid lg:grid-cols-[0.7fr_1.3fr]">
-                <div className="flex flex-col justify-center p-8 sm:p-12">
-                  <span className="eyebrow text-orange">Gamme CHR</span>
-                  <h3 className="font-display mt-4 text-4xl font-bold uppercase leading-[0.95]">
-                    Pour les lieux de convivialité
-                  </h3>
-                  <p className="mt-5 leading-relaxed text-cream/65">
-                    Une gamme colorée et expressive pour les bars, restaurants,
-                    cavistes et événements, en bouteilles comme à la pression.
-                  </p>
-                  <div className="mt-8">
-                    <CtaLink href="/toutes-les-bieres" variant="light">
-                      Voir la gamme CHR
-                    </CtaLink>
-                  </div>
-                </div>
-                <div className="relative order-first min-h-[24rem] overflow-hidden lg:order-last lg:min-h-[34rem]">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src="/assets/bieres.jpg"
-                    alt="La gamme CHR des Bières Georges"
-                    className="absolute inset-0 h-full w-full object-cover object-center"
-                  />
-                </div>
-              </div>
-            </article>
+          <div className="mt-12 space-y-14">
+            <RangeSlider
+              eyebrow="Gamme GMS"
+              title="Pour les magasins"
+              text="Une identité forte en rayon, plusieurs formats et une sélection pensée pour la grande distribution et les achats à emporter."
+              images={gmsTrack}
+              direction="left"
+              cta="Voir la gamme GMS"
+            />
+            <RangeSlider
+              eyebrow="Gamme CHR"
+              title="Pour les lieux de convivialité"
+              text="Une gamme colorée et expressive pour les bars, restaurants, cavistes et événements, en bouteilles comme à la pression."
+              images={chrTrack}
+              direction="right"
+              cta="Voir la gamme CHR"
+            />
           </div>
         </div>
       </section>
@@ -172,6 +201,84 @@ export default function WorkWithUsPage() {
           </div>
         </div>
       </section>
+
+      <section className="bg-green-deep px-4 py-16 text-cream">
+        <div className="container-page grid gap-8 rounded-3xl border border-cream/15 p-8 sm:p-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
+          <div>
+            <p className="eyebrow text-orange">Maillage interne</p>
+            <h2 className="font-display mt-4 text-4xl font-bold uppercase leading-[0.95] sm:text-6xl">
+              Découvrir notre brasserie
+            </h2>
+          </div>
+          <div>
+            <p className="leading-relaxed text-cream/70">
+              Avant de choisir une gamme, explorez l’histoire, le savoir-faire
+              et l’ancrage lyonnais de la maison Georges.
+            </p>
+            <div className="mt-7">
+              <CtaLink href="/#brasserie" variant="light">
+                Aller vers Notre brasserie
+              </CtaLink>
+            </div>
+          </div>
+        </div>
+      </section>
     </SiteShell>
+  );
+}
+
+function RangeSlider({
+  eyebrow,
+  title,
+  text,
+  images,
+  direction,
+  cta,
+}: {
+  eyebrow: string;
+  title: string;
+  text: string;
+  images: string[];
+  direction: "left" | "right";
+  cta: string;
+}) {
+  return (
+    <article className="overflow-hidden rounded-3xl border border-cream/15 bg-cream/5">
+      <div className="grid gap-8 p-7 sm:p-9 lg:grid-cols-[0.45fr_0.55fr] lg:items-center">
+        <div>
+          <p className="eyebrow text-orange">{eyebrow}</p>
+          <h3 className="font-display mt-4 text-4xl font-bold uppercase leading-[0.95]">
+            {title}
+          </h3>
+          <p className="mt-5 leading-relaxed text-cream/65">{text}</p>
+          <div className="mt-8">
+            <CtaLink href="/toutes-les-bieres" variant="light">
+              {cta}
+            </CtaLink>
+          </div>
+        </div>
+        <div className="overflow-hidden rounded-2xl bg-cream-dark py-5">
+          <div
+            className={`flex w-max gap-5 ${
+              direction === "left" ? "gamme-left-track" : "gamme-right-track"
+            }`}
+          >
+            {images.map((image, index) => (
+              <div
+                key={`${image}-${index}`}
+                className="relative h-72 w-[24rem] shrink-0 overflow-hidden rounded-2xl bg-cream"
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={image}
+                  alt=""
+                  className="h-full w-full object-contain p-4"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </article>
   );
 }

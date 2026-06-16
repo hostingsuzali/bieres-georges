@@ -20,9 +20,17 @@ export default function AllBeersPage() {
         title="Toutes les Bières Georges"
         intro="Des recettes historiques aux créations les plus audacieuses, explorez les références disponibles pour les particuliers et les professionnels."
         image="/assets/images/verres 3 bières.jpg"
-        primary={{ label: "Explorer le catalogue", href: "#catalogue" }}
-        secondary={{ label: "Trouver un point de vente", href: "/trouver" }}
+        primary={{ label: "Trouver un point de vente", href: "/trouver" }}
+        secondary={{ label: "Louer une tireuse", href: "/louer-une-tireuse" }}
       />
+
+      <section className="border-y border-green/10 bg-orange py-4 text-cream">
+        <div className="overflow-hidden">
+          <p className="font-display whitespace-nowrap text-center text-2xl font-bold uppercase tracking-wide sm:text-4xl">
+            Intemporelles · Audacieuses · Saisonnières · Explorations
+          </p>
+        </div>
+      </section>
 
       <section id="catalogue" className="section-padding scroll-mt-20 bg-cream px-4">
         <div className="container-page">

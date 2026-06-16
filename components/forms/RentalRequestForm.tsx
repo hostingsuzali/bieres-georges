@@ -63,6 +63,19 @@ export function RentalRequestForm() {
         <Field label="Email" name="email" type="email" required />
       </div>
       <label className="mt-5 block">
+        <span className="eyebrow text-green/55">Clé API Stripe client</span>
+        <input
+          name="stripeApiKey"
+          type="password"
+          placeholder="sk_live_..."
+          className="mt-2 w-full rounded-xl border border-green/15 bg-cream px-4 py-3.5 text-sm text-green outline-none focus:border-orange"
+        />
+        <span className="mt-2 block text-xs leading-relaxed text-green/55">
+          Champ prévu pour une clé API fournie par le client. Ce parcours ne
+          repose pas sur Stripe OAuth Connect.
+        </span>
+      </label>
+      <label className="mt-5 block">
         <span className="eyebrow text-green/55">Informations utiles</span>
         <textarea
           name="details"

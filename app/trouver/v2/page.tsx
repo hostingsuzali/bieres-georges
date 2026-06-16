@@ -3,7 +3,6 @@ import type { Metadata } from "next";
 import { SiteShell } from "@/components/layout/SiteShell";
 import { StoreLocatorEmbed } from "@/components/store/StoreLocatorEmbed";
 import { CtaLink } from "@/components/ui/CtaLink";
-import { Icon } from "@/components/ui/Icon";
 import { VersionSwitcher } from "@/components/ui/VersionSwitcher";
 
 export const metadata: Metadata = {
@@ -12,32 +11,33 @@ export const metadata: Metadata = {
     "Seconde proposition de page pour localiser les Bières Georges.",
 };
 
-const featuredPlaces = [
-  {
-    name: "Le LYON'S",
-    type: "Bar",
-    address: "46 avenue Paul Santy, 69008 Lyon",
-  },
-  {
-    name: "Le Vieux Lyon",
-    type: "Restaurant",
-    address: "44 rue Saint-Jean, 69005 Lyon",
-  },
-  {
-    name: "Brasserie Georges",
-    type: "Brasserie",
-    address: "30 cours de Verdun Perrache, 69002 Lyon",
-  },
-  {
-    name: "La Fabrique du Faubourg",
-    type: "Brasserie & vente",
-    address: "3 allée des Érables, 69200 Vénissieux",
-  },
+const partnerLogos = [
+  "Le LYON'S",
+  "Le Vieux Lyon",
+  "Brasserie Georges",
+  "La Fabrique du Faubourg",
+  "Caves Hoffmann",
+  "Halles Paul Bocuse",
+  "Maison Pradel",
+  "Auberge Quai 7",
 ];
+const marqueeLogos = [...partnerLogos, ...partnerLogos];
 
 export default function FindUsV2Page() {
   return (
     <SiteShell>
+      <style>{`
+        @keyframes partner-logo-strip {
+          from { transform: translateX(0); }
+          to { transform: translateX(-50%); }
+        }
+        .partner-logo-track {
+          animation: partner-logo-strip 26s linear infinite;
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .partner-logo-track { animation: none; }
+        }
+      `}</style>
       <section className="bg-cream px-4 pb-16 pt-32 sm:pt-40">
         <div className="container-page">
           <div className="mb-10 grid gap-7 lg:grid-cols-[1fr_0.75fr] lg:items-end">
@@ -72,38 +72,30 @@ export default function FindUsV2Page() {
 
       <section className="section-padding bg-green-deep px-4 text-cream">
         <div className="container-page">
-          <div className="flex flex-col justify-between gap-7 lg:flex-row lg:items-end">
-            <div>
-              <p className="eyebrow text-orange">Quelques adresses</p>
-              <h2 className="font-display mt-4 text-5xl font-bold uppercase leading-[0.9] sm:text-7xl">
-                Le réseau Georges
-              </h2>
-            </div>
-            <p className="max-w-md text-sm leading-relaxed text-cream/60">
-              Une sélection issue de la carte actuelle. Le réseau complet reste
-              consultable dans le Store Locator.
+          <div className="mx-auto max-w-3xl text-center">
+            <p className="eyebrow text-orange">Réseau partenaire</p>
+            <h2 className="font-display mt-4 text-5xl font-bold uppercase leading-[0.9] sm:text-7xl">
+              Ils font déjà découvrir Georges
+            </h2>
+            <p className="mt-5 leading-relaxed text-cream/60">
+              Un repère rassurant pour montrer la présence de la marque sur des
+              lieux de consommation et de distribution variés.
             </p>
           </div>
 
-          <div className="mt-12 divide-y divide-cream/15 border-y border-cream/15">
-            {featuredPlaces.map((place, index) => (
-              <article
-                key={place.name}
-                className="grid gap-4 py-7 sm:grid-cols-[4rem_1fr_0.7fr_auto] sm:items-center"
-              >
-                <span className="font-display text-3xl font-bold text-cream/20">
-                  0{index + 1}
-                </span>
-                <div>
-                  <p className="eyebrow text-orange">{place.type}</p>
-                  <h3 className="font-display mt-2 text-3xl font-bold uppercase">
-                    {place.name}
-                  </h3>
+          <div className="mt-12 overflow-hidden border-y border-cream/15 py-7">
+            <div className="partner-logo-track flex w-max gap-5">
+              {marqueeLogos.map((logo, index) => (
+                <div
+                  key={`${logo}-${index}`}
+                  className="flex h-24 w-64 shrink-0 items-center justify-center rounded-3xl border border-cream/15 bg-cream/5 px-8 text-center"
+                >
+                  <span className="font-display text-2xl font-bold uppercase leading-none">
+                    {logo}
+                  </span>
                 </div>
-                <p className="text-sm text-cream/60">{place.address}</p>
-                <Icon name="pin" className="text-orange" />
-              </article>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>

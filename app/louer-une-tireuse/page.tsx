@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { BeerCard } from "@/components/beers/BeerCard";
 import { RentalRequestForm } from "@/components/forms/RentalRequestForm";
 import { SiteShell } from "@/components/layout/SiteShell";
+import { CtaLink } from "@/components/ui/CtaLink";
 import { Icon } from "@/components/ui/Icon";
 import { InternalPageHero } from "@/components/ui/InternalPageHero";
 import { VersionSwitcher } from "@/components/ui/VersionSwitcher";
@@ -17,6 +18,7 @@ export const metadata: Metadata = {
 const draftBeers = beers
   .filter((beer) => beer.ranges.includes("CHR") && beer.formats.includes("Fût"))
   .slice(0, 3);
+const draftBeerSlider = [...draftBeers, ...draftBeers, ...draftBeers];
 
 const steps = [
   {
@@ -44,6 +46,29 @@ const steps = [
 export default function RentTapPage() {
   return (
     <SiteShell>
+      <style>{`
+        @keyframes tireuse-product-slider {
+          from { transform: translateX(0); }
+          to { transform: translateX(-50%); }
+        }
+        .tireuse-product-track {
+          animation: tireuse-product-slider 24s linear infinite;
+        }
+        .tireuse-journey-step {
+          opacity: 0;
+          transform: translateX(-2rem);
+          animation: tireuse-step-in both ease-out;
+          animation-timeline: view();
+          animation-range: entry 15% cover 35%;
+        }
+        @keyframes tireuse-step-in {
+          to { opacity: 1; transform: translateX(0); }
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .tireuse-product-track { animation: none; }
+          .tireuse-journey-step { opacity: 1; transform: none; animation: none; }
+        }
+      `}</style>
       <InternalPageHero
         eyebrow="Location événementielle"
         title="Louer une tireuse à bière"
@@ -57,20 +82,26 @@ export default function RentTapPage() {
         <div className="container-page">
           <p className="eyebrow text-orange">Comment ça marche ?</p>
           <h2 className="font-display mt-4 text-4xl font-bold uppercase leading-[0.95] text-green sm:text-6xl">
-            Quatre étapes, zéro pression
+            Le parcours de réservation
           </h2>
-          <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+          <div className="relative mt-12 max-w-4xl">
+            <div className="absolute bottom-8 left-7 top-8 hidden w-px bg-green/15 sm:block" />
             {steps.map((step) => (
-              <article key={step.number} className="bg-cream-dark p-7">
-                <span className="font-display text-5xl font-bold text-orange">
-                  {step.number}
+              <article
+                key={step.number}
+                className="tireuse-journey-step relative mb-6 grid gap-5 rounded-3xl bg-cream-dark p-6 sm:grid-cols-[4rem_1fr] sm:p-8"
+              >
+                <span className="relative z-10 flex h-14 w-14 items-center justify-center rounded-full bg-orange font-display text-2xl font-bold text-cream">
+                  {step.number.replace("0", "")}
                 </span>
-                <h3 className="font-display mt-8 text-2xl font-bold uppercase text-green">
-                  {step.title}
-                </h3>
-                <p className="mt-3 text-sm leading-relaxed text-green/65">
-                  {step.text}
-                </p>
+                <div>
+                  <h3 className="font-display text-3xl font-bold uppercase text-green">
+                    {step.title}
+                  </h3>
+                  <p className="mt-3 leading-relaxed text-green/65">
+                    {step.text}
+                  </p>
+                </div>
               </article>
             ))}
           </div>
@@ -140,10 +171,22 @@ export default function RentTapPage() {
           <h2 className="font-display mt-4 text-4xl font-bold uppercase leading-[0.95] text-green sm:text-6xl">
             Les bières disponibles en fût
           </h2>
-          <div className="mt-10 grid gap-5 md:grid-cols-3">
-            {draftBeers.map((beer) => (
-              <BeerCard key={beer.slug} beer={beer} />
-            ))}
+          <div className="mt-10 overflow-hidden">
+            <div className="tireuse-product-track flex w-max gap-5">
+              {draftBeerSlider.map((beer, index) => (
+                <div
+                  key={`${beer.slug}-${index}`}
+                  className="w-[19rem] shrink-0 sm:w-[21rem]"
+                >
+                  <BeerCard beer={beer} />
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="mt-10 flex justify-center">
+            <CtaLink href="/toutes-les-bieres" variant="green">
+              Voir toutes les bières
+            </CtaLink>
           </div>
         </div>
       </section>
