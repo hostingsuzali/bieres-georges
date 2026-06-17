@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 
-import { PartnerInquiryForm } from "@/components/forms/PartnerInquiryForm";
+import { BeerCard } from "@/components/beers/BeerCard";
 import { SiteShell } from "@/components/layout/SiteShell";
+import { ProfessionalContactPrompt } from "@/components/sections/ProfessionalContactPrompt";
 import { CtaLink } from "@/components/ui/CtaLink";
 import { Icon, type IconName } from "@/components/ui/Icon";
 import { InternalPageHero } from "@/components/ui/InternalPageHero";
+import { beers, type Beer } from "@/lib/products";
 
 export const metadata: Metadata = {
   title: "Travailler avec les Bières Georges",
@@ -36,22 +38,10 @@ const channelImages = [
   "/assets/images/pression bar_03.JPG",
 ];
 
-const gmsSlides = [
-  "/assets/gammes/GAMME GMS - Visuels/Version TRACE/En situation/WEB/BIERE GEORGE PHOTO PRESSE-DSC00672.jpg",
-  "/assets/gammes/GAMME GMS - Visuels/Version TRACE/En situation/WEB/BIERE GEORGE PHOTO PRESSE-DSC00678.jpg",
-  "/assets/gammes/GAMME GMS - Visuels/Version BLACKTHORNS/Bouteilles 33CL/BG_PILS_33CL.png",
-  "/assets/gammes/GAMME GMS - Visuels/Version BLACKTHORNS/Canettes 44CL/BG_NEIPA_44CL.png",
-];
-
-const chrSlides = [
-  "/assets/bieres.jpg",
-  "/assets/gammes/GAMME CHR - Visuels/COFFRET CHR 6X33CL (Face) 3760268370310.png",
-  "/assets/gammes/GAMME CHR - Visuels/IPA 33CL 3760268370136.png",
-  "/assets/gammes/GAMME CHR - Visuels/VERY GOOD TRIPLE 75CL 3760268370679.png",
-];
-
-const gmsTrack = [...gmsSlides, ...gmsSlides];
-const chrTrack = [...chrSlides, ...chrSlides];
+const gmsBeers = beers.filter((beer) => beer.ranges.includes("GMS")).slice(0, 6);
+const chrBeers = beers.filter((beer) => beer.ranges.includes("CHR")).slice(0, 6);
+const gmsTrack = [...gmsBeers, ...gmsBeers];
+const chrTrack = [...chrBeers, ...chrBeers];
 
 export default function WorkWithUsPage() {
   return (
@@ -136,7 +126,7 @@ export default function WorkWithUsPage() {
               eyebrow="Gamme GMS"
               title="Pour les magasins"
               text="Une identité forte en rayon, plusieurs formats et une sélection pensée pour la grande distribution et les achats à emporter."
-              images={gmsTrack}
+              beers={gmsTrack}
               direction="left"
               cta="Voir la gamme GMS"
             />
@@ -144,7 +134,7 @@ export default function WorkWithUsPage() {
               eyebrow="Gamme CHR"
               title="Pour les lieux de convivialité"
               text="Une gamme colorée et expressive pour les bars, restaurants, cavistes et événements, en bouteilles comme à la pression."
-              images={chrTrack}
+              beers={chrTrack}
               direction="right"
               cta="Voir la gamme CHR"
             />
@@ -152,37 +142,7 @@ export default function WorkWithUsPage() {
         </div>
       </section>
 
-      <section className="section-padding bg-cream px-4">
-        <div className="container-page grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
-          <div>
-            <p className="eyebrow text-orange">Pourquoi Georges ?</p>
-            <h2 className="font-display mt-4 text-4xl font-bold uppercase leading-[0.95] text-green sm:text-6xl">
-              Une marque qui a du répondant
-            </h2>
-            <ul className="mt-8 space-y-5 text-green/70">
-              {[
-                "Une histoire lyonnaise depuis 1836",
-                "Des recettes lisibles et différenciantes",
-                "Une gamme adaptée à plusieurs circuits",
-                "Un accompagnement commercial à construire selon vos besoins",
-              ].map((item) => (
-                <li key={item} className="flex gap-3">
-                  <Icon name="check" className="shrink-0 text-orange" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-            <div className="mt-9">
-              <CtaLink href="/toutes-les-bieres" variant="green">
-                Explorer les bières
-              </CtaLink>
-            </div>
-          </div>
-          <div id="contact-pro" className="scroll-mt-24">
-            <PartnerInquiryForm />
-          </div>
-        </div>
-      </section>
+      <ProfessionalContactPrompt />
 
       <section className="bg-green-deep px-4 py-16 text-cream">
         <div className="container-page grid gap-8 rounded-3xl border border-cream/15 p-8 sm:p-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
@@ -213,49 +173,44 @@ function RangeSlider({
   eyebrow,
   title,
   text,
-  images,
+  beers,
   direction,
   cta,
 }: {
   eyebrow: string;
   title: string;
   text: string;
-  images: string[];
+  beers: Beer[];
   direction: "left" | "right";
   cta: string;
 }) {
   return (
-    <article className="overflow-hidden rounded-3xl border border-cream/15 bg-cream/5">
-      <div className="grid gap-8 p-7 sm:p-9 lg:grid-cols-[0.45fr_0.55fr] lg:items-center">
-        <div>
+    <article className="overflow-hidden border border-cream/15 bg-cream/5">
+      <div className="grid gap-8 p-5 sm:p-7 lg:grid-cols-[0.36fr_0.64fr] lg:items-center lg:p-9">
+        <div className="tag-shape bg-cream p-7 text-green shadow-[0_28px_80px_-58px_rgba(0,0,0,0.85)] sm:p-8">
           <p className="eyebrow text-orange">{eyebrow}</p>
           <h3 className="font-display mt-4 text-4xl font-bold uppercase leading-[0.95]">
             {title}
           </h3>
-          <p className="mt-5 leading-relaxed text-cream/65">{text}</p>
+          <p className="mt-5 leading-relaxed text-green/65">{text}</p>
           <div className="mt-8">
-            <CtaLink href="/toutes-les-bieres" variant="light">
+            <CtaLink href="/toutes-les-bieres" variant="green">
               {cta}
             </CtaLink>
           </div>
         </div>
-        <div className="overflow-hidden rounded-2xl bg-cream-dark py-5">
+        <div className="overflow-hidden py-4">
           <div
             className={`flex w-max gap-5 ${
               direction === "left" ? "gamme-left-track" : "gamme-right-track"
             }`}
           >
-            {images.map((image, index) => (
+            {beers.map((beer, index) => (
               <div
-                key={`${image}-${index}`}
-                className="relative h-72 w-[24rem] shrink-0 overflow-hidden rounded-2xl bg-cream"
+                key={`${beer.slug}-${index}`}
+                className="w-[17rem] shrink-0 sm:w-[20rem]"
               >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={image}
-                  alt=""
-                  className="h-full w-full object-contain p-4"
-                />
+                <BeerCard beer={beer} />
               </div>
             ))}
           </div>

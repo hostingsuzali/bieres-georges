@@ -70,7 +70,7 @@ export function PartnersSection() {
             className="mt-6 leading-relaxed text-dark-text/65"
           >
             Rejoignez le réseau de partenaires des Bières Georges — en magasin,
-            en établissement ou lors d'événements.
+            en établissement ou lors d&apos;événements.
           </motion.p>
         </div>
 

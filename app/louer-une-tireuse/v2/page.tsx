@@ -4,6 +4,7 @@ import { RentalRequestForm } from "@/components/forms/RentalRequestForm";
 import { SiteShell } from "@/components/layout/SiteShell";
 import { CtaLink } from "@/components/ui/CtaLink";
 import { Icon } from "@/components/ui/Icon";
+import { InternalPageHero } from "@/components/ui/InternalPageHero";
 import { VersionSwitcher } from "@/components/ui/VersionSwitcher";
 
 export const metadata: Metadata = {
@@ -36,42 +37,14 @@ const formulas = [
 export default function RentTapV2Page() {
   return (
     <SiteShell>
-      <section className="bg-green-deep px-4 pb-16 pt-32 text-cream sm:pt-40">
-        <div className="container-page grid overflow-hidden rounded-3xl border border-cream/15 lg:grid-cols-[0.85fr_1.15fr]">
-          <div className="relative min-h-[34rem]">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/assets/images/pression_bar.jpg"
-              alt="Une bière Georges servie à la pression"
-              className="absolute inset-0 h-full w-full object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-green-deep/80 via-transparent to-transparent" />
-            <div className="absolute inset-x-0 bottom-0 p-7 sm:p-10">
-              <p className="eyebrow text-orange">Location événementielle · V2</p>
-              <h1 className="font-display mt-4 text-5xl font-bold uppercase leading-[0.9] sm:text-7xl">
-                La pression,
-                <br />
-                chez vous.
-              </h1>
-            </div>
-          </div>
-          <div className="flex flex-col justify-center bg-cream p-7 text-green sm:p-12">
-            <p className="eyebrow text-orange">Votre événement commence ici</p>
-            <h2 className="font-display mt-4 text-4xl font-bold uppercase leading-[0.95] sm:text-5xl">
-              Dites-nous quand, où et pour combien
-            </h2>
-            <p className="mt-5 leading-relaxed text-green/65">
-              Cette variante place la demande de réservation au cœur du premier
-              écran, puis guide vers la formule adaptée.
-            </p>
-            <div className="mt-8">
-              <CtaLink href="#demande-v2" variant="green">
-                Préparer ma demande
-              </CtaLink>
-            </div>
-          </div>
-        </div>
-      </section>
+      <InternalPageHero
+        eyebrow="Location événementielle"
+        title="Louer une tireuse à bière"
+        intro="Bières Georges accompagne vos événements privés ou professionnels quel que soit le nombre de convives. Nous vous proposons du matériel adapté à votre projet avec différents modèles de tireuses mobiles."
+        image="/assets/images/pression_bar.jpg"
+        primary={{ label: "Préparer ma réservation", href: "#demande-v2" }}
+        secondary={{ label: "Voir le mode d'emploi", href: "#mode-emploi-v2" }}
+      />
 
       <section className="section-padding bg-cream px-4">
         <div className="container-page">
@@ -132,7 +105,7 @@ export default function RentTapV2Page() {
         </div>
       </section>
 
-      <section className="section-padding bg-green-deep px-4 text-cream">
+      <section id="mode-emploi-v2" className="section-padding scroll-mt-20 bg-green-deep px-4 text-cream">
         <div className="container-page">
           <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
             <div>

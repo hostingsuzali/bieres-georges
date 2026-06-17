@@ -2,6 +2,11 @@
 
 import { useState } from "react";
 
+const fieldClassName = "flex h-full flex-col";
+const labelClassName = "eyebrow flex min-h-9 items-end text-green/55";
+const controlClassName =
+  "mt-2 min-h-12 w-full rounded-xl border border-green/15 bg-cream px-4 py-3.5 text-sm text-green outline-none transition-colors focus:border-orange";
+
 export function RentalRequestForm() {
   const [prepared, setPrepared] = useState(false);
 
@@ -39,13 +44,13 @@ export function RentalRequestForm() {
         <Field label="Date de l'événement" name="date" type="date" required />
         <Field label="Code postal" name="postalCode" required />
         <Field label="Nombre de personnes" name="guests" type="number" required />
-        <label>
-          <span className="eyebrow text-green/55">Type d’événement</span>
+        <label className={fieldClassName}>
+          <span className={labelClassName}>Type d’événement</span>
           <select
             name="eventType"
             required
             defaultValue=""
-            className="mt-2 w-full rounded-xl border border-green/15 bg-cream px-4 py-3.5 text-sm text-green outline-none focus:border-orange"
+            className={controlClassName}
           >
             <option value="" disabled>
               Sélectionner
@@ -63,12 +68,12 @@ export function RentalRequestForm() {
         <Field label="Email" name="email" type="email" required />
       </div>
       <label className="mt-5 block">
-        <span className="eyebrow text-green/55">Clé API Stripe client</span>
+        <span className={labelClassName}>Clé API Stripe client</span>
         <input
           name="stripeApiKey"
           type="password"
           placeholder="sk_live_..."
-          className="mt-2 w-full rounded-xl border border-green/15 bg-cream px-4 py-3.5 text-sm text-green outline-none focus:border-orange"
+          className={controlClassName}
         />
         <span className="mt-2 block text-xs leading-relaxed text-green/55">
           Champ prévu pour une clé API fournie par le client. Ce parcours ne
@@ -76,12 +81,12 @@ export function RentalRequestForm() {
         </span>
       </label>
       <label className="mt-5 block">
-        <span className="eyebrow text-green/55">Informations utiles</span>
+        <span className={labelClassName}>Informations utiles</span>
         <textarea
           name="details"
           rows={4}
           placeholder="Lieu, horaires, besoin de livraison, préférences de bières..."
-          className="mt-2 w-full resize-none rounded-xl border border-green/15 bg-cream px-4 py-3.5 text-sm text-green outline-none focus:border-orange"
+          className={`${controlClassName} resize-none`}
         />
       </label>
       <button
@@ -103,14 +108,14 @@ type FieldProps = {
 
 function Field({ label, name, type = "text", required }: FieldProps) {
   return (
-    <label>
-      <span className="eyebrow text-green/55">{label}</span>
+    <label className={fieldClassName}>
+      <span className={labelClassName}>{label}</span>
       <input
         name={name}
         type={type}
         required={required}
         min={type === "number" ? 1 : undefined}
-        className="mt-2 w-full rounded-xl border border-green/15 bg-cream px-4 py-3.5 text-sm text-green outline-none focus:border-orange"
+        className={controlClassName}
       />
     </label>
   );

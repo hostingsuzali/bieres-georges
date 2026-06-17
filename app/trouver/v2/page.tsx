@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 
+import { BeerCard } from "@/components/beers/BeerCard";
 import { SiteShell } from "@/components/layout/SiteShell";
 import { StoreLocatorEmbed } from "@/components/store/StoreLocatorEmbed";
 import { CtaLink } from "@/components/ui/CtaLink";
 import { VersionSwitcher } from "@/components/ui/VersionSwitcher";
+import { beers } from "@/lib/products";
 
 export const metadata: Metadata = {
   title: "Trouver les Bières Georges V2",
@@ -22,6 +24,7 @@ const partnerLogos = [
   "Auberge Quai 7",
 ];
 const marqueeLogos = [...partnerLogos, ...partnerLogos];
+const featuredGms = beers.filter((beer) => beer.ranges.includes("GMS"));
 
 export default function FindUsV2Page() {
   return (
@@ -70,6 +73,40 @@ export default function FindUsV2Page() {
         </div>
       </section>
 
+      <section id="gamme-gms" className="section-padding scroll-mt-20 bg-green-deep px-4 text-cream">
+        <div className="container-page">
+          <div className="flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
+            <div className="max-w-3xl">
+              <p className="eyebrow text-orange">Gamme GMS</p>
+              <h2 className="font-display mt-4 text-4xl font-bold uppercase leading-[0.95] sm:text-6xl">
+                Nos bières en grande distribution
+              </h2>
+              <p className="mt-5 leading-relaxed text-cream/65">
+                Une sélection accessible en magasins, dans plusieurs styles et
+                formats.
+              </p>
+            </div>
+          </div>
+          <div className="mt-10 -mx-4 overflow-x-auto px-4 pb-4 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
+            <div className="flex w-max gap-5 scroll-smooth">
+              {featuredGms.map((beer) => (
+                <div
+                  key={beer.slug}
+                  className="w-[17rem] shrink-0 sm:w-[20rem]"
+                >
+                  <BeerCard beer={beer} />
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="mt-10 flex justify-center">
+            <CtaLink href="/toutes-les-bieres" variant="light">
+              Voir toute la gamme
+            </CtaLink>
+          </div>
+        </div>
+      </section>
+
       <section className="section-padding bg-green-deep px-4 text-cream">
         <div className="container-page">
           <div className="mx-auto max-w-3xl text-center">
@@ -95,34 +132,6 @@ export default function FindUsV2Page() {
                   </span>
                 </div>
               ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="relative overflow-hidden bg-orange text-cream">
-        <div className="grid lg:grid-cols-[1.15fr_0.85fr]">
-          <div className="relative min-h-[30rem]">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/assets/gammes/GAMME GMS - Visuels/Version TRACE/En situation/WEB/BIERE GEORGE PHOTO PRESSE-DSC00672.jpg"
-              alt="Bière Georges disponible en magasin"
-              className="absolute inset-0 h-full w-full object-cover"
-            />
-          </div>
-          <div className="flex flex-col justify-center p-8 sm:p-12 lg:p-16">
-            <p className="eyebrow text-cream/70">À emporter</p>
-            <h2 className="font-display mt-4 text-5xl font-bold uppercase leading-[0.9] sm:text-6xl">
-              Nos bières en grande distribution
-            </h2>
-            <p className="mt-6 max-w-lg leading-relaxed text-cream/75">
-              Découvrez les références GMS et leurs différents formats avant de
-              rechercher le point de vente le plus proche.
-            </p>
-            <div className="mt-8">
-              <CtaLink href="/toutes-les-bieres" variant="light">
-                Explorer la gamme GMS
-              </CtaLink>
             </div>
           </div>
         </div>

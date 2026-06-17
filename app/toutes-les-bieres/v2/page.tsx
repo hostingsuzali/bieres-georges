@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 
+import { BeerHeroBottles } from "@/components/beers/BeerHeroBottles";
 import { BeerCatalogV2 } from "@/components/beers/BeerCatalogV2";
 import { SiteShell } from "@/components/layout/SiteShell";
 import { CtaLink } from "@/components/ui/CtaLink";
 import { VersionSwitcher } from "@/components/ui/VersionSwitcher";
-import { beers } from "@/lib/products";
+import { beers, type Beer } from "@/lib/products";
 
 export const metadata: Metadata = {
   title: "Toutes les bières V2 | Bières Georges",
@@ -14,9 +15,7 @@ export const metadata: Metadata = {
 
 const heroBeers = [
   beers.find((beer) => beer.slug === "ipa"),
-  beers.find((beer) => beer.slug === "framboise"),
-  beers.find((beer) => beer.slug === "very-good-triple"),
-].filter(Boolean);
+].filter((beer): beer is Beer => Boolean(beer));
 
 export default function AllBeersV2Page() {
   return (
@@ -25,7 +24,7 @@ export default function AllBeersV2Page() {
         <div className="container-page grid min-h-[36rem] items-center gap-10 lg:grid-cols-[1fr_0.9fr]">
           <div className="relative z-10">
             <p className="eyebrow text-orange">Catalogue · Proposition V2</p>
-            <h1 className="font-display mt-6 text-6xl font-bold uppercase leading-[0.84] tracking-tight text-green sm:text-8xl lg:text-[7.5rem]">
+            <h1 className="font-display mt-6 text-6xl font-bold uppercase leading-[0.92] tracking-tight text-green sm:text-8xl sm:leading-[0.9] lg:text-[7.5rem] lg:leading-[0.88]">
               Une maison,
               <br />
               <span className="text-orange">plusieurs</span>
@@ -46,30 +45,7 @@ export default function AllBeersV2Page() {
             </div>
           </div>
 
-          <div className="relative flex min-h-[31rem] items-end justify-center">
-            <div className="absolute inset-x-0 bottom-0 h-64 rounded-[50%] bg-orange/15 blur-2xl" />
-            {heroBeers.map((beer, index) =>
-              beer ? (
-                <div
-                  key={beer.slug}
-                  className={`absolute bottom-0 ${
-                    index === 0
-                      ? "left-[7%] h-[72%] -rotate-6"
-                      : index === 1
-                        ? "left-1/2 z-10 h-[93%] -translate-x-1/2"
-                        : "right-[5%] h-[77%] rotate-6"
-                  }`}
-                >
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={beer.image}
-                    alt={`Bière Georges ${beer.name}`}
-                    className="h-full w-auto max-w-none object-contain drop-shadow-2xl"
-                  />
-                </div>
-              ) : null,
-            )}
-          </div>
+          <BeerHeroBottles beers={heroBeers} />
         </div>
       </section>
 
@@ -136,4 +112,3 @@ export default function AllBeersV2Page() {
     </SiteShell>
   );
 }
-

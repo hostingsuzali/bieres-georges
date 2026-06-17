@@ -2,6 +2,7 @@ import { SiteShell } from "@/components/layout/SiteShell";
 import { BeerCollectionsSection } from "@/components/sections/BeerCollectionsSection";
 import { BrasserieSection } from "@/components/sections/BrasserieSection";
 import { HeroSection } from "@/components/sections/HeroSection";
+import { HistorySection } from "@/components/sections/HistorySection";
 import { PartnersSection } from "@/components/sections/PartnersSection";
 import { StoreLocatorSection } from "@/components/sections/StoreLocatorSection";
 import { TireuseSection } from "@/components/sections/TireuseSection";
@@ -15,6 +16,7 @@ export default function Home() {
       <StoreLocatorSection />
       <TireuseSection />
       <PartnersSection />
+      <HistorySection />
     </SiteShell>
   );
 }
