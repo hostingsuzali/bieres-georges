@@ -6,6 +6,8 @@ import { HistorySection } from "@/components/sections/HistorySection";
 import { PartnersSection } from "@/components/sections/PartnersSection";
 import { StoreLocatorSection } from "@/components/sections/StoreLocatorSection";
 import { TireuseSection } from "@/components/sections/TireuseSection";
+import { BlogSection } from "@/components/sections/BlogSection";
+
 
 export default function Home() {
   return (
@@ -16,6 +18,7 @@ export default function Home() {
       <StoreLocatorSection />
       <TireuseSection />
       <PartnersSection />
+      <BlogSection />
       <HistorySection />
     </SiteShell>
   );
