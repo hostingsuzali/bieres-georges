@@ -153,7 +153,7 @@ export function BlogSection() {
 
         {/* CTA */}
         <div className="mt-10 flex justify-center">
-          <CtaLink href="/blog" tone="light">
+          <CtaLink href="/blog">
             Tous les articles
           </CtaLink>
         </div>
