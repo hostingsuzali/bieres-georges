@@ -38,9 +38,9 @@ const footerColumns = [
 
 export function Footer() {
   return (
-    <footer className="relative overflow-hidden border-t border-green-deep/10 bg-cream text-green-deep [font-family:var(--font-poppins)]">
+    <footer className="relative overflow-hidden border-t border-green-deep/10 bg-cream text-green-deep">
       <Image
-        src="/assets/B-logo-green (1).png"
+        src="/assets/logos/sigle-stripes.png"
         alt=""
         width={408}
         height={472}
@@ -65,10 +65,10 @@ export function Footer() {
             className="flex h-20 w-20 shrink-0 items-center justify-center rounded-2xl border border-green-deep/15 transition-colors hover:border-orange"
           >
             <Image
-              src="/assets/logos/rounded-footer.png"
+              src="/assets/logos/logo-rond-orange.png"
               alt="Bières Georges"
-              width={373}
-              height={374}
+              width={693}
+              height={693}
               className="h-auto w-16"
             />
           </Link>

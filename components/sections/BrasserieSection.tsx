@@ -7,7 +7,7 @@ import { AnimatedHeading } from "@/components/ui/AnimatedHeading";
 import { brasserieKeywords } from "@/lib/data";
 import { EASE, inViewOnce } from "@/lib/motion";
 
-const BREWERY_VIDEO_POSTER = "/assets/images/brasserie.jpg";
+const BREWERY_VIDEO_POSTER = "/Charte Graphique_Dossier/Links/BIERES GEORGES-9084 HD (2).jpg";
 
 function BrasserieVideoPlayer() {
   return (
@@ -121,7 +121,7 @@ function BrasserieStage() {
               style={{ color: bodyColor }}
               className="mt-6 max-w-lg leading-relaxed"
             >
-              Héritage, savoir-faire, caractère, générosité.
+              Nous sommes les héritiers de l&apos;audacieux Georges. Nous brassons bien plus qu&apos;une bière&nbsp;: nous poursuivons l&apos;histoire des Bières Georges nées à Lyon en 1836.
             </motion.p>
           </div>
 

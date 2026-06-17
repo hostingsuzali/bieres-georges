@@ -1,10 +1,8 @@
 export type BeerRange = "GMS" | "CHR";
 
 export type BeerCollection =
-  | "Les Intemporelles"
-  | "Les Audacieuses"
-  | "Les Saisonnières"
-  | "Les Explorations";
+  | "Les Originales"
+  | "Les Spéciales";
 
 export type Beer = {
   slug: string;
@@ -28,7 +26,7 @@ export const beers: Beer[] = [
     style: "Blonde légère",
     description: "Une bière vive, fraîche et désaltérante, au profil net.",
     ranges: ["GMS"],
-    collection: "Les Intemporelles",
+    collection: "Les Originales",
     formats: ["33 cl", "44 cl", "75 cl"],
     image: `${gmsBase}/BG_PILS_33CL.png`,
   },
@@ -38,7 +36,7 @@ export const beers: Beer[] = [
     style: "Blonde houblonnée",
     description: "Une blonde expressive, équilibrée entre céréales et houblons.",
     ranges: ["GMS", "CHR"],
-    collection: "Les Intemporelles",
+    collection: "Les Originales",
     formats: ["33 cl", "75 cl"],
     image: `${gmsBase}/BG_PALE-ALE_33CL.png`,
   },
@@ -48,7 +46,7 @@ export const beers: Beer[] = [
     style: "Blanche",
     description: "Une blanche souple et aromatique aux notes fraîches d'agrumes.",
     ranges: ["GMS"],
-    collection: "Les Intemporelles",
+    collection: "Les Originales",
     formats: ["33 cl", "75 cl"],
     image: `${gmsBase}/BG_WITBIER_33CL.png`,
   },
@@ -58,7 +56,7 @@ export const beers: Beer[] = [
     style: "Blanche de blé",
     description: "Une bière de blé généreuse, ronde et naturellement trouble.",
     ranges: ["GMS"],
-    collection: "Les Intemporelles",
+    collection: "Les Originales",
     formats: ["33 cl", "75 cl"],
     image: `${gmsBase}/BG_HEFEWEIZEN_33CL.png`,
   },
@@ -68,7 +66,7 @@ export const beers: Beer[] = [
     style: "Ambrée maltée",
     description: "Une bière ronde aux notes de caramel et de pain légèrement grillé.",
     ranges: ["GMS"],
-    collection: "Les Intemporelles",
+    collection: "Les Originales",
     formats: ["33 cl", "75 cl"],
     image: `${gmsBase}/BG_AMBREE_33CL.png`,
   },
@@ -78,7 +76,7 @@ export const beers: Beer[] = [
     style: "India Pale Ale",
     description: "Une IPA franche, aromatique et amère, avec une finale persistante.",
     ranges: ["GMS", "CHR"],
-    collection: "Les Audacieuses",
+    collection: "Les Originales",
     formats: ["33 cl", "44 cl", "75 cl", "Fût"],
     image: `${chrBase}/IPA 33CL 3760268370136.png`,
   },
@@ -88,7 +86,7 @@ export const beers: Beer[] = [
     style: "IPA trouble",
     description: "Une bière juteuse et intensément aromatique, à l'amertume douce.",
     ranges: ["GMS", "CHR"],
-    collection: "Les Audacieuses",
+    collection: "Les Originales",
     formats: ["33 cl", "44 cl", "75 cl", "Fût"],
     image: `${chrBase}/NEIPA 33CL.png`,
   },
@@ -98,7 +96,7 @@ export const beers: Beer[] = [
     style: "Bitter",
     description: "Une amertume assumée portée par un corps sec et élégant.",
     ranges: ["CHR"],
-    collection: "Les Audacieuses",
+    collection: "Les Originales",
     formats: ["33 cl", "75 cl", "Fût"],
     image: `${chrBase}/MORE IS BITTER 33CL 3760268370044.png`,
   },
@@ -108,7 +106,7 @@ export const beers: Beer[] = [
     style: "NEIPA fruitée",
     description: "Une création généreuse aux accents de fruits tropicaux.",
     ranges: ["GMS"],
-    collection: "Les Explorations",
+    collection: "Les Spéciales",
     formats: ["33 cl", "75 cl"],
     image: `${gmsBase}/BG_NEIPA-EXOTIC_33CL.png`,
   },
@@ -118,7 +116,7 @@ export const beers: Beer[] = [
     style: "IPA fruitée",
     description: "Une IPA exotique, expressive et résolument contemporaine.",
     ranges: ["GMS"],
-    collection: "Les Explorations",
+    collection: "Les Spéciales",
     formats: ["33 cl", "75 cl"],
     image: `${gmsBase}/BG_IPA-EXOTIC_33CL.png`,
   },
@@ -128,7 +126,7 @@ export const beers: Beer[] = [
     style: "Triple",
     description: "Une triple ample et chaleureuse, à la finale longue.",
     ranges: ["CHR"],
-    collection: "Les Explorations",
+    collection: "Les Originales",
     formats: ["33 cl", "75 cl"],
     image: `${chrBase}/VERY GOOD TRIPLE 33CL 3760268370372.png`,
   },
@@ -138,7 +136,7 @@ export const beers: Beer[] = [
     style: "Brune",
     description: "Une brune profonde aux notes torréfiées et chocolatées.",
     ranges: ["CHR"],
-    collection: "Les Explorations",
+    collection: "Les Originales",
     formats: ["33 cl", "75 cl"],
     image: `${chrBase}/MUNICA BRUNE² 33CL 3760268370068.png`,
   },
@@ -148,7 +146,7 @@ export const beers: Beer[] = [
     style: "Pale Ale",
     description: "Une pale ale fine, florale et délicatement amère.",
     ranges: ["CHR"],
-    collection: "Les Explorations",
+    collection: "Les Originales",
     formats: ["33 cl", "75 cl"],
     image: `${chrBase}/PRINCESSE PALE ALE 33CL 3760268370006.png`,
   },
@@ -158,7 +156,7 @@ export const beers: Beer[] = [
     style: "Bière fruitée",
     description: "Une bière fruitée, fraîche et acidulée, sans lourdeur.",
     ranges: ["GMS", "CHR"],
-    collection: "Les Saisonnières",
+    collection: "Les Originales",
     formats: ["33 cl", "75 cl"],
     image: `${chrBase}/Visuel - FRAMBOISE 33CL - 3760268370471.png`,
   },
@@ -168,7 +166,7 @@ export const beers: Beer[] = [
     style: "Bière fruitée",
     description: "Une recette solaire et gourmande autour de l'abricot.",
     ranges: ["CHR"],
-    collection: "Les Saisonnières",
+    collection: "Les Originales",
     formats: ["33 cl"],
     image: `${chrBase}/ABRICOT 33CL 3760268370846.png`,
   },
@@ -178,16 +176,14 @@ export const beers: Beer[] = [
     style: "Bière saisonnière",
     description: "Un brassin réconfortant aux notes épicées et maltées.",
     ranges: ["CHR"],
-    collection: "Les Saisonnières",
+    collection: "Les Originales",
     formats: ["33 cl", "75 cl"],
     image: `${chrBase}/HIVER 33CL 3760268370495.png`,
   },
 ];
 
 export const beerCollections: BeerCollection[] = [
-  "Les Intemporelles",
-  "Les Audacieuses",
-  "Les Saisonnières",
-  "Les Explorations",
+  "Les Originales",
+  "Les Spéciales",
 ];
 

@@ -1,0 +1,110 @@
+Rapport d'assemblage
+
+-----------------------------------------------------------------------------
+Document :
+Nom : Charte Graphique.ai
+Mode : Couleurs CMJN
+Profil colorimétrique : Coated FOGRA39 (ISO 12647-2:2004)
+Unité : centimètres
+Dimensions : 37,1584 cm x 53,0314 cm
+Afficher les images en mode Tracés : INACTIF
+Mettre en évidence les polices substituées : INACTIF
+Mettre en évidence les glyphes substitués : INACTIF
+Conserver le caractère modifiable du texte
+Simuler le papier couleur : INACTIF
+
+-----------------------------------------------------------------------------
+Objets en tons directs :
+
+-----------------------------------------------------------------------------
+Polices manquantes :SANS
+
+-----------------------------------------------------------------------------
+Polices protégées non assemblées :
+Poppins Light (Polices Adobe)
+Poppins SemiBold (Polices Adobe)
+Poppins ExtraBold (Polices Adobe)
+Poppins Bold (Polices Adobe)
+Poppins Black (Polices Adobe)
+
+-----------------------------------------------------------------------------
+Polices :
+GW Grayback Expanded (OTF)
+GW Grayback Narrow (OTF)
+GW Grayback SemiExpanded (OTF)
+GW Grayback (OTF)
+GW Grayback Condensed (OTF)
+Poppins Regular (TrueType)
+
+-----------------------------------------------------------------------------
+Polices incorporées :
+SANS
+
+-----------------------------------------------------------------------------
+Liens manquants :
+SANS
+
+-----------------------------------------------------------------------------
+Images liées :
+
+F:\CLIENTS\Bières Georges\2. Strategie\Equity\Dossier FABRIQUE DU FAUBOURG\FABRIQUE DU FAUBOURG\PHOTOS\BIERES GEORGES-9084 HD (2).jpg
+Type : RVB
+Bits par pixel : 24
+Couches : 3
+Taille : 5135K, 1623 x 1080 pixels
+Dimensions : 2754,335 x 1832,829 points 
+Résolution : 42,426 x 42,426 pixels par pouce
+
+
+F:\CLIENTS\Bières Georges\3. Design\REFONTE\ROUND 1\AXE2\Biere Georges Montée Choulans.jpg
+Type : RVB
+Bits par pixel : 24
+Couches : 3
+Taille : 3042K, 1248 x 832 pixels
+Dimensions : 645,697 x 430,464 points 
+Résolution : 139,161 x 139,161 pixels par pouce
+
+
+F:\CLIENTS\Bières Georges\3. Design\REFONTE\ROUND 1\AXE2\Bière georges anacronique.jpg
+Type : RVB
+Bits par pixel : 24
+Couches : 3
+Taille : 3000K, 1280 x 800 pixels
+Dimensions : 645,697 x 403,56 points 
+Résolution : 142,73 x 142,73 pixels par pouce
+
+
+F:\CLIENTS\Bières Georges\3. Design\REFONTE\Etiquettes\SRC\brasserie nuit.jpg
+Type : RVB
+Bits par pixel : 24
+Couches : 3
+Taille : 12288K, 2048 x 2048 pixels
+Dimensions : 644,91 x 644,91 points 
+Résolution : 228,646 x 228,646 pixels par pouce
+
+
+F:\CLIENTS\Bières Georges\3. Design\REFONTE\Etiquettes\SRC\brasserie jour.jpg
+Type : RVB
+Bits par pixel : 24
+Couches : 3
+Taille : 12288K, 2048 x 2048 pixels
+Dimensions : 644,91 x 644,91 points 
+Résolution : 228,646 x 228,646 pixels par pouce
+
+
+F:\CLIENTS\Bières Georges\3. Design\REFONTE\Etiquettes\SRC\Georges en 2026.jpeg
+Type : RVB
+Bits par pixel : 24
+Couches : 3
+Taille : 2304K, 768 x 1024 pixels
+Dimensions : 636,76 x 849,014 points 
+Résolution : 86,84 x 86,84 pixels par pouce
+
+
+F:\CLIENTS\Bières Georges\3. Design\REFONTE\Etiquettes\SRC\Georges en 2026.jpeg
+Type : RVB
+Bits par pixel : 24
+Couches : 3
+Taille : 2304K, 768 x 1024 pixels
+Dimensions : 1527,921 x 2037,227 points 
+Résolution : 36,19 x 36,19 pixels par pouce

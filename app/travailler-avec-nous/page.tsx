@@ -14,43 +14,25 @@ export const metadata: Metadata = {
 
 const channels: { title: string; text: string; icon: IconName }[] = [
   {
-    title: "Bars",
-    text: "Une offre pression et bouteilles pensée pour les comptoirs vivants.",
-    icon: "bar",
-  },
-  {
-    title: "Restaurants",
-    text: "Des accords simples à intégrer à une carte de table ou de terrasse.",
-    icon: "bar",
-  },
-  {
-    title: "Cavistes",
-    text: "Une gamme de caractère, des formats variés et des références saisonnières.",
-    icon: "caviste",
-  },
-  {
-    title: "Hôtels",
-    text: "Une bière lyonnaise à proposer au bar, en chambre ou lors d'événements.",
-    icon: "evenement",
-  },
-  {
-    title: "Grande distribution",
-    text: "Une offre GMS identifiable, adaptée aux rayons et aux temps forts commerciaux.",
+    title: "Magasins",
+    text: "Grande distribution, magasins spécialisés, cavistes — une offre GMS identifiable et adaptée.",
     icon: "distribution",
   },
   {
-    title: "Événementiel",
-    text: "Fûts, tireuses et formats pensés pour les événements privés et professionnels.",
+    title: "Établissements",
+    text: "Cafés, bars, hôtels, restaurants — une gamme pression et bouteilles pour les lieux de convivialité.",
+    icon: "bar",
+  },
+  {
+    title: "Événements",
+    text: "Associations culturelles et sportives, festivals — fûts, tireuses et formats pour chaque occasion.",
     icon: "evenement",
   },
 ];
 
 const channelImages = [
-  "/assets/images/pression_bar.jpg",
-  "/assets/images/trinquent.jpg",
-  "/assets/images/verres 3 bières.jpg",
-  "/assets/images/Bières Georges 10.jpg",
   "/assets/gammes/GAMME GMS - Visuels/Version TRACE/En situation/WEB/BIERE GEORGE PHOTO PRESSE-DSC00672.jpg",
+  "/assets/images/pression_bar.jpg",
   "/assets/images/pression bar_03.JPG",
 ];
 
@@ -217,7 +199,7 @@ export default function WorkWithUsPage() {
             </p>
             <div className="mt-7">
               <CtaLink href="/#brasserie" variant="light">
-                Aller vers Notre brasserie
+                Découvrir notre brasserie
               </CtaLink>
             </div>
           </div>

@@ -27,7 +27,7 @@ export default function AllBeersPage() {
       <section className="border-y border-green/10 bg-orange py-4 text-cream">
         <div className="overflow-hidden">
           <p className="font-display whitespace-nowrap text-center text-2xl font-bold uppercase tracking-wide sm:text-4xl">
-            Intemporelles · Audacieuses · Saisonnières · Explorations
+            Les Originales · Les Spéciales · Éditions limitées
           </p>
         </div>
       </section>

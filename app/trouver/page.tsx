@@ -14,32 +14,18 @@ export const metadata: Metadata = {
     "Localisez un bar, restaurant, caviste ou magasin proposant les Bières Georges.",
 };
 
-const featuredGms = beers
-  .filter((beer) => beer.ranges.includes("GMS"))
-  .slice(0, 4);
-const gmsSliderBeers = [...featuredGms, ...featuredGms];
+const featuredGms = beers.filter((beer) => beer.ranges.includes("GMS"));
 
 export default function FindUsPage() {
   return (
     <SiteShell>
-      <style>{`
-        @keyframes trouver-gms-slider {
-          from { transform: translateX(0); }
-          to { transform: translateX(-50%); }
-        }
-        .trouver-gms-track {
-          animation: trouver-gms-slider 24s linear infinite;
-        }
-        @media (prefers-reduced-motion: reduce) {
-          .trouver-gms-track { animation: none; }
-        }
-      `}</style>
       <InternalPageHero
         eyebrow="Points de vente"
         title="Trouver les Bières Georges"
         intro="Repérez les bars, restaurants, caves et magasins où retrouver nos bières, puis découvrez les références pensées pour la grande distribution."
         image="/assets/images/trinquent.jpg"
         primary={{ label: "Voir nos bières", href: "/toutes-les-bieres" }}
+        secondary={{ label: "Louer une tireuse", href: "/louer-une-tireuse" }}
       />
 
       <section id="carte" className="section-padding scroll-mt-20 bg-cream px-4">
@@ -47,7 +33,7 @@ export default function FindUsPage() {
           <div className="mb-10 max-w-3xl">
             <p className="eyebrow text-orange">Près de chez vous</p>
             <h2 className="font-display mt-4 text-4xl font-bold uppercase leading-[0.95] text-green sm:text-6xl">
-              Un point de vente proche de chez vous
+              Un point de vente proche de&nbsp;chez&nbsp;vous
             </h2>
             <p className="mt-5 leading-relaxed text-green/65">
               Recherchez une adresse, un code postal ou un établissement dans la
@@ -64,7 +50,7 @@ export default function FindUsPage() {
             <div className="max-w-3xl">
               <p className="eyebrow text-orange">Gamme GMS</p>
               <h2 className="font-display mt-4 text-4xl font-bold uppercase leading-[0.95] sm:text-6xl">
-                La gamme disponible en GMS
+                Nos bières en grande distribution
               </h2>
               <p className="mt-5 leading-relaxed text-cream/65">
                 Une sélection accessible en magasins, dans plusieurs styles et
@@ -72,12 +58,12 @@ export default function FindUsPage() {
               </p>
             </div>
           </div>
-          <div className="mt-10 overflow-hidden">
-            <div className="trouver-gms-track flex w-max gap-5">
-              {gmsSliderBeers.map((beer, index) => (
+          <div className="mt-10 -mx-4 overflow-x-auto px-4 pb-4 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
+            <div className="flex w-max gap-5 scroll-smooth">
+              {featuredGms.map((beer) => (
                 <div
-                  key={`${beer.slug}-${index}`}
-                  className="w-[19rem] shrink-0 sm:w-[21rem]"
+                  key={beer.slug}
+                  className="w-[17rem] shrink-0 sm:w-[20rem]"
                 >
                   <BeerCard beer={beer} />
                 </div>
@@ -112,7 +98,7 @@ export default function FindUsPage() {
             </p>
             <div className="mt-8">
               <CtaLink href="/travailler-avec-nous" variant="light">
-                Et si nous travaillions ensemble ?
+                Et si on travaillait ensemble ?
               </CtaLink>
             </div>
           </div>

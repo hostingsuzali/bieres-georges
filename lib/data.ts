@@ -5,11 +5,11 @@ export type NavLink = {
 };
 
 export const navLinks: readonly NavLink[] = [
-  { label: "Notre Brasserie", href: "/#brasserie" },
-  { label: "Toutes les bières", href: "/toutes-les-bieres" },
-  { label: "Où nous trouver ?", href: "/trouver" },
-  { label: "Location de tireuse", href: "/louer-une-tireuse" },
-  { label: "Travaillons ensemble", href: "/travailler-avec-nous" },
+  { label: "Brasserie audacieuse", href: "/#brasserie" },
+  { label: "Bières emblématiques", href: "/toutes-les-bieres" },
+  { label: "Trouver les Bières Georges", href: "/trouver" },
+  { label: "Louer une tireuse", href: "/louer-une-tireuse" },
+  { label: "Travailler avec les Bières Georges", href: "/travailler-avec-nous" },
   { label: "Blog", href: "/#journal" },
   { label: "Contact", href: "mailto:bonjour@bieresgeorges.fr" },
 ];
@@ -44,66 +44,51 @@ export const brasseriePillars = [
 
 export const founderValues = [
   {
-    title: "Savoir-faire",
-    description: "Un brassage maîtrisé, des techniques éprouvées, jamais figées.",
-    icon: "savoirFaire",
-  },
-  {
-    title: "Héritage",
-    description: "Un héritage perpétué, un esprit transmis depuis 1836.",
+    title: "L'audace du fondateur",
+    description: "Nous portons l'audace de Georges Hoffherr comme un flambeau, pas comme une relique.",
     icon: "heritage",
   },
   {
-    title: "Caractère",
-    description: "Du goût, du caractère, jamais de compromis sur la qualité.",
+    title: "L'exigence du maître",
+    description: "Nous brassons chaque bière comme si notre nom était gravé sur chaque bouteille.",
+    icon: "savoirFaire",
+  },
+  {
+    title: "La simplicité élégante",
+    description: "Nous visons la précision juste : celle qui révèle l'essentiel sans artifice.",
     icon: "caractere",
   },
   {
-    title: "Générosité",
-    description: "Des bières généreuses à partager, sans modération de plaisir.",
+    title: "L'énergie conquérante",
+    description: "Nous cultivons l'ambition pour nourrir notre développement.",
     icon: "generosite",
+  },
+  {
+    title: "La fierté fédératrice",
+    description: "Nous partageons notre amour pour Lyon et notre passion pour la bière.",
+    icon: "heritage",
   },
 ] as const;
 
 export const collections = [
   {
-    name: "Les Intemporelles",
+    name: "Les Originales",
     description:
-      "Les recettes essentielles de Bières Georges. Des bières franches, accessibles et fidèles à l’esprit de la maison.",
-    mainBeer: "/assets/products/GMS_PALEALE_33CL.png",
+      "Pils, Pale Ale, Witbier, Hefeweizen, IPA, NEIPA, Bitter, Triple, Porter, Framboise — les bières emblématiques des styles.",
+    mainBeer: "/assets/gammes/GAMME GMS - Visuels/Version BLACKTHORNS/Bouteilles 33CL/BG_PALE-ALE_33CL.png",
     companionBeers: [
-      "/assets/products/GMS_HEFE_33CL.png",
-      "/assets/products/GMS_BITTER_33CL.png",
+      "/assets/gammes/GAMME GMS - Visuels/Version BLACKTHORNS/Bouteilles 33CL/BG_PILS_33CL.png",
+      "/assets/gammes/GAMME GMS - Visuels/Version BLACKTHORNS/Bouteilles 33CL/BG_IPA_33CL.png",
     ],
   },
   {
-    name: "Les Audacieuses",
+    name: "Les Spéciales",
     description:
-      "Des créations plus expressives, pensées pour explorer de nouveaux accords, de nouvelles intensités et de nouveaux caractères.",
-    mainBeer: "/assets/products/CHR_IPA_33CL.png",
+      "NEIPA Exotic, IPA Exotic, Red Ale, Brut — des éditions limitées audacieuses et créatives.",
+    mainBeer: "/assets/gammes/GAMME GMS - Visuels/Version BLACKTHORNS/Bouteilles 33CL/BG_NEIPA-EXOTIC_33CL.png",
     companionBeers: [
-      "/assets/products/CHR_NEIPA_33CL.png",
-      "/assets/products/CHR_MOREISBITTER_33CL.png",
-    ],
-  },
-  {
-    name: "Les Saisonnières",
-    description:
-      "Des brassins éphémères, inspirés par le rythme des saisons et l’envie de proposer des expériences renouvelées.",
-    mainBeer: "/assets/products/CHR_BIERE%20D_HIVER_33CL_chevalet.png",
-    companionBeers: [
-      "/assets/products/CHR_FRAMBOISE_33CL.png",
-      "/assets/products/GMS_BIERE%20D_HIVER_33CL.png",
-    ],
-  },
-  {
-    name: "Les Explorations",
-    description:
-      "Des recettes libres, créatives, parfois inattendues, qui ouvrent le champ des possibles autour de la bière.",
-    mainBeer: "/assets/products/CHR_VERYGOODTRIPLE_33CL.png",
-    companionBeers: [
-      "/assets/products/CHR_MUNICA_33CL.png",
-      "/assets/products/CHR_PRINCESSE_33CL.png",
+      "/assets/gammes/GAMME GMS - Visuels/Version BLACKTHORNS/Bouteilles 33CL/BG_IPA-EXOTIC_33CL.png",
+      "/assets/gammes/GAMME CHR - Visuels/VERY GOOD TRIPLE 33CL 3760268370372.png",
     ],
   },
 ] as const;
@@ -263,11 +248,11 @@ export const emblematicBeers = [
 
 // Five-word marquee inside the Brasserie section.
 export const brasserieKeywords = [
-  "Héritage",
-  "Savoir-faire",
-  "Caractère",
-  "Générosité",
   "Audace",
+  "Exigence",
+  "Simplicité",
+  "Énergie",
+  "Fierté",
 ] as const;
 
 // Historical milestones shown in the "L'audace depuis 1836" section.
@@ -276,30 +261,30 @@ export const historyMilestones = [
     year: "1836",
     title: "Fondation",
     line: "Georges Hoffherr fonde la brasserie à Lyon.",
-    image: "/assets/images/1860-1.jpeg",
+    image: "/Charte Graphique_Dossier/Links/Biere Georges Montée Choulans.jpg",
   },
   {
     year: "1936",
     title: "Le grand essor",
     line: "Un siècle plus tard, la maison s'impose dans toute la région.",
-    image: "/assets/images/1936.jpg",
+    image: "/Charte Graphique_Dossier/Links/Bière georges anacronique.jpg",
   },
   {
     year: "Aujourd'hui",
     title: "Libres et exigeants",
     line: "La maison crée son propre rythme, sans suivre les modes.",
-    image: "/assets/images/fabrique-aujourdhui.webp",
+    image: "/Charte Graphique_Dossier/Links/BIERES GEORGES-9084 HD (2).jpg",
   },
 ] as const;
 
 export const footerColumns = [
   {
     title: "Découvrir",
-    links: ["Nos bières", "Maison Georges", "Savoir-faire", "Journal"],
+    links: ["Bières emblématiques", "Brasserie audacieuse", "Savoir-faire", "Journal"],
   },
   {
     title: "La Maison",
-    links: ["Points de vente", "Professionnels", "Nous contacter"],
+    links: ["Trouver les Bières Georges", "Travailler avec nous", "Nous contacter"],
   },
   {
     title: "Mentions légales",

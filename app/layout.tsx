@@ -1,21 +1,19 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
-import { Fraunces, Inter, Oswald, Poppins } from "next/font/google";
+import { Fraunces, Poppins } from "next/font/google";
+import localFont from "next/font/local";
 
 import { AgeVerification } from "@/components/ui/AgeVerification";
 import { AgeVerificationProvider } from "@/lib/age-context";
 
 import "./globals.css";
 
-// Bold condensed display for the big uppercase poster headings.
-const oswald = Oswald({
-  subsets: ["latin"],
+const grayback = localFont({
+  src: "../public/GW Grayback Variable Fonts/Variable/GWGraybackVFVF.ttf",
   variable: "--font-display",
   display: "swap",
-  weight: ["500", "600", "700"],
 });
 
-// Italic serif for the editorial / script accents ("Fondateur", etc.).
 const fraunces = Fraunces({
   subsets: ["latin"],
   variable: "--font-serif",
@@ -23,17 +21,11 @@ const fraunces = Fraunces({
   axes: ["SOFT", "WONK", "opsz"],
 });
 
-const inter = Inter({
+const poppins = Poppins({
   subsets: ["latin"],
   variable: "--font-sans",
   display: "swap",
-});
-
-const poppins = Poppins({
-  subsets: ["latin"],
-  variable: "--font-poppins",
-  display: "swap",
-  weight: ["400", "500", "600"],
+  weight: ["300", "400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -50,7 +42,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html
       lang="fr"
-      className={`${oswald.variable} ${fraunces.variable} ${inter.variable} ${poppins.variable}`}
+      className={`${grayback.variable} ${fraunces.variable} ${poppins.variable}`}
     >
       <body>
         <AgeVerificationProvider>

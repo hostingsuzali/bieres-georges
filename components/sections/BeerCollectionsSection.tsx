@@ -34,12 +34,12 @@ export function BeerCollectionsSection() {
       <div className="container-page">
         <div className="mx-auto max-w-3xl text-center">
           <Badge tone="orange" dot={false}>
-            Nos Collections
+            Bières emblématiques
           </Badge>
 
           <AnimatedHeading
             as="h2"
-            text="À chaque envie,"
+            text="Bières"
             className="font-display mt-7 text-4xl font-bold leading-[0.95] tracking-tight text-green sm:text-5xl lg:text-7xl"
           />
 
@@ -50,7 +50,18 @@ export function BeerCollectionsSection() {
             transition={{ duration: 0.7, ease: EASE }}
             className="font-serif mt-1 text-3xl italic text-orange sm:text-4xl lg:text-6xl"
           >
-            sa collection.
+            emblématiques
+          </motion.p>
+
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={inViewOnce}
+            transition={{ duration: 0.7, ease: EASE, delay: 0.1 }}
+            className="mx-auto mt-5 max-w-2xl text-dark-text/65 leading-relaxed"
+          >
+            Nous brassons, avec une exigence sans concession et une audace
+            parfois impertinente, des bières emblématiques des styles.
           </motion.p>
         </div>
 
@@ -59,7 +70,7 @@ export function BeerCollectionsSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={inViewOnce}
           transition={{ duration: 0.8, delay: 0.18, ease: EASE }}
-          className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 md:mt-14 xl:grid-cols-4"
+          className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 md:mt-14"
         >
           {collections.map((collection) => (
             <CollectionCard key={collection.name} {...collection} />
@@ -106,9 +117,9 @@ function CollectionCard({
       className="tag-shape group relative flex min-h-[26rem] cursor-pointer flex-col overflow-hidden bg-cream-dark p-6 text-green outline-none transition-colors duration-500 hover:bg-orange hover:text-cream focus-visible:bg-orange focus-visible:text-cream sm:p-7 md:min-h-[38rem]"
     >
       <div
-        className="pointer-events-none absolute inset-0 bg-cover bg-center opacity-80 mix-blend-multiply transition-opacity duration-500 group-hover:opacity-35 group-focus-visible:opacity-35"
+        className="pointer-events-none absolute inset-0 bg-[length:55%] bg-[center_right_-10%] bg-no-repeat opacity-60 mix-blend-multiply transition-opacity duration-500 group-hover:opacity-25 group-focus-visible:opacity-25"
         style={{
-          backgroundImage: "url(/assets/backgrounds/brewery-etching.png)",
+          backgroundImage: "url(/assets/logos/sigle-stripes.png)",
         }}
       />
 

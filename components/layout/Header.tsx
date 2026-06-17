@@ -27,19 +27,20 @@ export function Header() {
         className="border-b border-green/10 bg-cream/95 shadow-[0_10px_30px_-24px_rgba(6,58,52,0.65)] backdrop-blur-md"
         style={{ WebkitBackdropFilter: "blur(2px)" }}
       >
-        <div className="container-page flex items-center justify-between py-4">
-          <Link href="/" className="block">
+        <div className="container-page flex items-center justify-between py-2.5">
+          {/* Left — Bières Georges wordmark */}
+          <Link href="/" aria-label="Bières Georges — accueil">
             <Image
-              src="/assets/logos/logo-bieres-georges.svg"
+              src="/assets/logos/logo-classique-brique.png"
               alt="Bières Georges"
-              width={92}
-              height={47}
+              width={1093}
+              height={465}
               priority
-              className="h-10 w-auto"
+              className="h-7 w-auto sm:h-8"
             />
           </Link>
 
-          <nav className="hidden items-center gap-5 lg:flex">
+          <nav className="hidden items-center gap-3 lg:flex xl:gap-4">
             {navLinks.map((link) => {
               const children = "children" in link ? link.children : undefined;
 
@@ -47,7 +48,7 @@ export function Header() {
                 <div key={link.label} className="group/nav relative">
                   <a
                     href={link.href}
-                    className="eyebrow group/link relative block whitespace-nowrap text-[0.62rem] text-dark-text/80 transition-colors hover:text-orange"
+                    className="group/link relative block whitespace-nowrap text-[0.58rem] font-semibold uppercase tracking-[0.14em] text-dark-text/75 transition-colors hover:text-orange"
                   >
                     {link.label}
                     <span className="absolute -bottom-1.5 left-0 h-px w-0 bg-orange transition-all duration-300 group-hover/link:w-full" />
@@ -73,14 +74,25 @@ export function Header() {
             })}
           </nav>
 
-          <button
-            type="button"
-            aria-label="Ouvrir le menu"
-            onClick={() => setOpen(true)}
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-dark-text/15 text-dark-text transition-colors hover:bg-dark-text hover:text-cream"
-          >
-            <Icon name="menu" size={20} />
-          </button>
+          {/* Right — La Fabrique du Faubourg + hamburger */}
+          <div className="flex items-center gap-3">
+            <Image
+              src="/assets/logos/logo-ff-brique.png"
+              alt="La Fabrique du Faubourg"
+              width={1510}
+              height={484}
+              priority
+              className="hidden h-7 w-auto sm:block"
+            />
+            <button
+              type="button"
+              aria-label="Ouvrir le menu"
+              onClick={() => setOpen(true)}
+              className="flex h-9 w-9 items-center justify-center rounded-full border border-dark-text/15 text-dark-text transition-colors hover:bg-dark-text hover:text-cream"
+            >
+              <Icon name="menu" size={18} />
+            </button>
+          </div>
         </div>
       </motion.div>
 
@@ -93,13 +105,22 @@ export function Header() {
             className="fixed inset-0 z-50 flex flex-col bg-green text-cream"
           >
             <div className="flex items-center justify-between border-b border-green/10 bg-cream px-5 py-4 sm:px-8">
-              <Image
-                src="/assets/logos/logo-bieres-georges.svg"
-                alt="Bières Georges"
-                width={92}
-                height={47}
-                className="h-10 w-auto"
-              />
+              <div className="flex flex-col gap-1.5">
+                <Image
+                  src="/assets/logos/logo-classique-brique.png"
+                  alt="Bières Georges"
+                  width={1093}
+                  height={465}
+                  className="h-8 w-auto"
+                />
+                <Image
+                  src="/assets/logos/logo-ff-brique.png"
+                  alt="La Fabrique du Faubourg"
+                  width={1510}
+                  height={484}
+                  className="h-5 w-auto"
+                />
+              </div>
               <button
                 type="button"
                 aria-label="Fermer le menu"
@@ -120,7 +141,7 @@ export function Header() {
                   <a
                     href={link.href}
                     onClick={() => setOpen(false)}
-                    className="font-display block text-3xl font-semibold transition-colors hover:text-orange sm:text-5xl"
+                    className="font-display block text-2xl font-semibold transition-colors hover:text-orange sm:text-3xl"
                   >
                     {link.label}
                   </a>

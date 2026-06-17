@@ -7,252 +7,70 @@ import { CtaLink } from "@/components/ui/CtaLink";
 import { useAgeVerification } from "@/lib/age-context";
 import { EASE } from "@/lib/motion";
 
-const HERO_PHOTO = "/assets/backgrounds/hero-back.png";
+const BG_PHOTO = "/Charte Graphique_Dossier/Links/Biere Georges Montée Choulans.jpg";
 
 export function HeroSection() {
   const { verified, hydrated } = useAgeVerification();
-  // Hold entry animations until the visitor has confirmed they are 18+.
-  // Each motion element starts in its `initial` state; once `play` flips to
-  // true we send it the target props and framer animates the difference.
   const play = hydrated && verified;
 
-  const beerTransition = {
-    duration: 1.65,
-    ease: EASE,
-    times: [0, 0.38, 1],
-  };
-
-  // Helper for entry animations: either fire the target props, or sit still.
-  // The `||` fallback for `target.delay` keeps the gate clean.
   return (
     <section
       id="hero"
-      className="relative flex min-h-[44rem] items-center justify-center overflow-hidden bg-cream px-4 pb-44 pt-28 sm:min-h-screen sm:pb-16"
+      className="relative flex min-h-[44rem] items-center justify-center overflow-hidden bg-green-deep px-4 py-32 sm:min-h-screen"
     >
-      {/* layered background */}
+      {/* Full-bleed background photo */}
       <div className="pointer-events-none absolute inset-0 z-0" aria-hidden="true">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src={HERO_PHOTO}
+          src={BG_PHOTO}
           alt=""
-          className="absolute inset-0 h-full w-full object-cover"
-          onError={(e) => {
-            e.currentTarget.style.display = "none";
-          }}
+          className="absolute inset-0 h-full w-full object-cover object-center"
         />
-
-        <div className="absolute inset-0 bg-gradient-to-b from-cream/55 via-cream/35 to-cream/65" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_55%_at_50%_42%,transparent_0%,var(--color-cream)_75%)]" />
-        <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-cream/80 to-transparent" />
+        <div className="absolute inset-0 bg-green-deep/55" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_70%_at_50%_50%,transparent_25%,rgba(5,43,37,0.6)_100%)]" />
+        <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-green-deep to-transparent" />
       </div>
 
-      <motion.div
-        initial={{ opacity: 0, scale: 0.82 }}
-        animate={
-          play
-            ? {
-                opacity: [0, 0.92, 0.92, 0],
-                scale: [0.82, 1, 1, 1.08],
-              }
-            : { opacity: 0, scale: 0.82 }
-        }
-        transition={{
-          delay: 0.2,
-          duration: 1.85,
-          ease: EASE,
-          times: [0, 0.2, 0.72, 1],
-        }}
-        className="pointer-events-none absolute inset-0 z-[15] flex translate-x-5 items-center justify-center sm:translate-x-7"
-        aria-hidden="true"
-      >
-        <Image
-          src="/assets/B-logo-green (1).png"
-          alt=""
-          width={408}
-          height={472}
-          className="h-auto w-32 sm:w-44 lg:w-52"
-        />
-      </motion.div>
+      {/* Centre content */}
+      <div className="relative z-10 flex flex-col items-center text-center">
 
-      {/* left hand + amber bottle — pinned to the left edge */}
-      <motion.div
-        initial={{ x: "22vw", y: 90, rotate: -6, opacity: 0 }}
-        animate={
-          play
-            ? {
-                x: ["22vw", "22vw", "0vw"],
-                y: [90, 0, 0],
-                rotate: [-6, -6, 0],
-                opacity: [0, 1, 1],
-              }
-            : { x: "22vw", y: 90, rotate: -6, opacity: 0 }
-        }
-        transition={{ ...beerTransition, delay: 0.1 }}
-        className="absolute left-0 top-[10%] z-10 hidden w-[26vw] max-w-[26rem] min-w-[14rem] md:block"
-      >
+        {/* Wordmark — brique color, large */}
         <motion.div
-          animate={play ? { y: [0, -12, 0] } : { y: 0 }}
-          transition={{ delay: 1.8, duration: 6, repeat: Infinity, ease: "easeInOut" }}
+          initial={{ opacity: 0, y: 28 }}
+          animate={play ? { opacity: 1, y: 0 } : { opacity: 0, y: 28 }}
+          transition={{ duration: 1.0, ease: EASE, delay: 0.3 }}
         >
           <Image
-            src="/assets/beers/hero-left-hand-beer.png"
-            alt="Main tenant une bière ambrée Georges"
-            width={520}
-            height={820}
+            src="/assets/logos/logo-classique-brique.png"
+            alt="Bières Georges"
+            width={1093}
+            height={465}
             priority
-            className="h-auto w-full drop-shadow-2xl"
+            className="w-[min(82vw,22rem)] sm:w-[min(70vw,30rem)] lg:w-[38rem]"
           />
         </motion.div>
-      </motion.div>
 
-      {/* right hand + IPA bottle — pinned to the right edge, sitting lower */}
-      <motion.div
-        initial={{ x: "-28vw", y: 90, rotate: 6, opacity: 0 }}
-        animate={
-          play
-            ? {
-                x: ["-28vw", "-28vw", "0vw"],
-                y: [90, 0, 0],
-                rotate: [6, 6, 0],
-                opacity: [0, 1, 1],
-              }
-            : { x: "-28vw", y: 90, rotate: 6, opacity: 0 }
-        }
-        transition={{ ...beerTransition, delay: 0.18 }}
-        className="absolute right-0 top-[26%] z-10 hidden w-[24vw] max-w-[24rem] min-w-[13rem] md:block"
-      >
-        <motion.div
-          animate={play ? { y: [0, -12, 0] } : { y: 0 }}
-          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 2.6 }}
-        >
-          <Image
-            src="/assets/beers/hero-right-hand-beer.png"
-            alt="Main tenant une IPA Georges"
-            width={520}
-            height={820}
-            priority
-            className="h-auto w-full drop-shadow-2xl"
-          />
-        </motion.div>
-      </motion.div>
-
-      {/* centre content */}
-      <div className="relative z-20 mx-auto max-w-2xl text-center">
+        {/* Tagline */}
         <motion.p
-          initial={{ opacity: 0, y: 10 }}
-          animate={play ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
-          transition={{ delay: 2.05, duration: 0.7, ease: EASE }}
-          className="font-serif text-xl italic text-orange sm:text-3xl"
+          initial={{ opacity: 0, y: 18 }}
+          animate={play ? { opacity: 1, y: 0 } : { opacity: 0, y: 18 }}
+          transition={{ duration: 0.8, ease: EASE, delay: 0.75 }}
+          className="font-display mt-7 text-lg font-bold uppercase tracking-[0.22em] text-orange sm:text-xl lg:text-2xl"
         >
-          Bières Georges
+          Brasserie audacieuse depuis{" "}
+          <span className="text-cream">1836</span>
         </motion.p>
 
-        <motion.h1
-          initial="hidden"
-          animate={play ? "visible" : "hidden"}
-          variants={{ visible: { transition: { staggerChildren: 0.1, delayChildren: 2.2 } } }}
-          className="font-display mt-2 text-4xl font-bold uppercase leading-[0.9] tracking-tight text-green sm:text-7xl"
-        >
-          {["Brasserie", "lyonnaise"].map((line) => (
-            <span
-              key={line}
-              className="-my-[0.12em] block overflow-hidden py-[0.12em]"
-            >
-              <motion.span
-                variants={{
-                  hidden: { y: "100%", opacity: 0 },
-                  visible: { y: 0, opacity: 1, transition: { duration: 0.7, ease: EASE } },
-                }}
-                className="block"
-              >
-                {line}
-              </motion.span>
-            </span>
-          ))}
-          <span className="-my-[0.12em] block overflow-hidden py-[0.12em]">
-            <motion.span
-              variants={{
-                hidden: { y: "100%", opacity: 0 },
-                visible: { y: 0, opacity: 1, transition: { duration: 0.7, ease: EASE } },
-              }}
-              className="block"
-            >
-              depuis <span className="text-orange">1836</span>
-            </motion.span>
-          </span>
-        </motion.h1>
-
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={play ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ delay: 2.85, duration: 0.7, ease: EASE }}
-          className="mx-auto mt-6 max-w-md text-dark-text/70 leading-relaxed"
-        >
-          Une bière de caractère, brassée avec exigence, héritage et audace.
-        </motion.p>
-
+        {/* CTA */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={play ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ delay: 3.05, duration: 0.7, ease: EASE }}
-          className="mt-9 flex flex-wrap items-center justify-center gap-3"
+          initial={{ opacity: 0, y: 18 }}
+          animate={play ? { opacity: 1, y: 0 } : { opacity: 0, y: 18 }}
+          transition={{ duration: 0.8, ease: EASE, delay: 1.0 }}
+          className="mt-9"
         >
-          <CtaLink href="/toutes-les-bieres" variant="green" className="px-9">
-            Découvrir nos bières
+          <CtaLink href="/toutes-les-bieres" variant="light" className="px-10">
+            Voir nos bières
           </CtaLink>
-          <CtaLink href="/#history" variant="outline" className="px-6">
-            Notre histoire
-          </CtaLink>
-        </motion.div>
-      </div>
-
-      {/* bottles for small screens — flanking, smaller */}
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 flex items-end justify-between md:hidden">
-        <motion.div
-          initial={{ x: "18vw", y: 50, rotate: -5, opacity: 0 }}
-          animate={
-            play
-              ? {
-                  x: ["18vw", "18vw", "0vw"],
-                  y: [50, 0, 0],
-                  rotate: [-5, -5, 0],
-                  opacity: [0, 1, 1],
-                }
-              : { x: "18vw", y: 50, rotate: -5, opacity: 0 }
-          }
-          transition={{ ...beerTransition, delay: 0.1 }}
-          className="w-[34%]"
-        >
-          <Image
-            src="/assets/beers/hero-left-hand-beer.png"
-            alt=""
-            width={300}
-            height={470}
-            className="h-auto w-full drop-shadow-xl"
-          />
-        </motion.div>
-        <motion.div
-          initial={{ x: "-25vw", y: 50, rotate: 5, opacity: 0 }}
-          animate={
-            play
-              ? {
-                  x: ["-25vw", "-25vw", "0vw"],
-                  y: [50, 0, 0],
-                  rotate: [5, 5, 0],
-                  opacity: [0, 1, 1],
-                }
-              : { x: "-25vw", y: 50, rotate: 5, opacity: 0 }
-          }
-          transition={{ ...beerTransition, delay: 0.18 }}
-          className="w-[32%]"
-        >
-          <Image
-            src="/assets/beers/hero-right-hand-beer.png"
-            alt=""
-            width={300}
-            height={470}
-            className="h-auto w-full drop-shadow-xl"
-          />
         </motion.div>
       </div>
     </section>

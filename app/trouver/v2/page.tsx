@@ -75,7 +75,7 @@ export default function FindUsV2Page() {
           <div className="mx-auto max-w-3xl text-center">
             <p className="eyebrow text-orange">Réseau partenaire</p>
             <h2 className="font-display mt-4 text-5xl font-bold uppercase leading-[0.9] sm:text-7xl">
-              Ils font déjà découvrir Georges
+              Ils nous font déjà confiance
             </h2>
             <p className="mt-5 leading-relaxed text-cream/60">
               Un repère rassurant pour montrer la présence de la marque sur des
@@ -113,7 +113,7 @@ export default function FindUsV2Page() {
           <div className="flex flex-col justify-center p-8 sm:p-12 lg:p-16">
             <p className="eyebrow text-cream/70">À emporter</p>
             <h2 className="font-display mt-4 text-5xl font-bold uppercase leading-[0.9] sm:text-6xl">
-              La gamme disponible en magasin
+              Nos bières en grande distribution
             </h2>
             <p className="mt-6 max-w-lg leading-relaxed text-cream/75">
               Découvrez les références GMS et leurs différents formats avant de
@@ -139,7 +139,7 @@ export default function FindUsV2Page() {
             </p>
           </div>
           <CtaLink href="/travailler-avec-nous" variant="green">
-            Devenir partenaire
+            Et si on travaillait ensemble ?
           </CtaLink>
         </div>
       </section>

@@ -7,8 +7,8 @@ import { useRef, useState } from "react";
 
 import { AnimatedHeading } from "@/components/ui/AnimatedHeading";
 import { Badge } from "@/components/ui/Badge";
-import { Button } from "@/components/ui/Button";
 import { CtaLink } from "@/components/ui/CtaLink";
+import { Icon } from "@/components/ui/Icon";
 import { fadeUp, inViewOnce } from "@/lib/motion";
 
 const ELFSIGHT_APP_ID = "555fd09f-0667-4579-8499-edd2f28f3398";
@@ -31,44 +31,40 @@ export function StoreLocatorSection() {
     >
       <Script src="https://elfsightcdn.com/platform.js" strategy="lazyOnload" />
 
-      <motion.div
-        initial={{ opacity: 0, x: -24 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        viewport={inViewOnce}
-        transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-className="pointer-events-none absolute left-2 top-5 w-48 sm:left-4 sm:top-8 sm:w-60 lg:left-6 lg:top-12 lg:w-72"        aria-hidden="true"
+      {/* Decorative sigle — top-left */}
+      <div
+        className="pointer-events-none absolute -left-8 -top-8 w-56 opacity-[0.07] sm:w-72 lg:w-96"
+        aria-hidden="true"
       >
         <Image
-          src="/assets/images/BG-Beige.png"
+          src="/assets/logos/sigle-stripes.png"
           alt=""
-          width={499}
-          height={417}
+          width={792}
+          height={894}
           className="h-auto w-full"
         />
-      </motion.div>
+      </div>
 
-      <motion.div
-        initial={{ opacity: 0, x: 24 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        viewport={inViewOnce}
-        transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-className="pointer-events-none absolute bottom-5 right-2 w-64 sm:bottom-8 sm:right-4 sm:w-60 lg:bottom-12 lg:right-6 lg:w-72"        aria-hidden="true"
+      {/* Decorative sigle — bottom-right */}
+      <div
+        className="pointer-events-none absolute -bottom-8 -right-8 w-56 rotate-180 opacity-[0.07] sm:w-72 lg:w-96"
+        aria-hidden="true"
       >
         <Image
-          src="/assets/images/BG-Beige.png"
+          src="/assets/logos/sigle-stripes.png"
           alt=""
-          width={359}
-          height={457}
+          width={792}
+          height={894}
           className="h-auto w-full"
         />
-      </motion.div>
+      </div>
 
       <div className="container-page relative z-10">
         <div className="flex flex-col items-center text-center">
           <Badge tone="cream">Points de vente</Badge>
           <AnimatedHeading
             as="h2"
-            text="Où goûter l'audace ?"
+            text="Trouver les Bières Georges"
             accentFrom={2}
             className="font-display mt-6 text-4xl font-semibold uppercase leading-[0.95] tracking-tight text-green sm:text-5xl lg:text-7xl"
           />
@@ -79,8 +75,8 @@ className="pointer-events-none absolute bottom-5 right-2 w-64 sm:bottom-8 sm:rig
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
             className="mt-5 max-w-xl text-dark-text/65 leading-relaxed"
           >
-            Bars, restaurants, caves, épiceries fines ou lieux de convivialité —
-            Bières Georges se découvre dans des adresses choisies avec soin.
+            Un point de vente proche de chez vous — en magasin ou en établissement,
+            retrouvez les Bières Georges près de chez vous.
           </motion.p>
         </div>
 
@@ -89,20 +85,37 @@ className="pointer-events-none absolute bottom-5 right-2 w-64 sm:bottom-8 sm:rig
           initial="hidden"
           whileInView="visible"
           viewport={inViewOnce}
-          className="mt-9 flex justify-center"
+          className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2"
         >
-          <Button
-            variant="solid"
-            withArrow={!isMapVisible}
-            cut
-            onClick={isMapVisible ? undefined : showMap}
-            aria-controls="georges-store-map"
-            aria-expanded={isMapVisible}
-            disabled={isMapVisible}
-            className={isMapVisible ? "cursor-default opacity-70" : ""}
-          >
-            {isMapVisible ? "Carte affichée" : "Voir la carte"}
-          </Button>
+          {[
+            {
+              title: "Les Magasins",
+              desc: "Grande distribution, magasins spécialisés, cavistes",
+            },
+            {
+              title: "Les Établissements",
+              desc: "Cafés, bars, hôtels, restaurants",
+            },
+          ].map((block) => (
+            <button
+              key={block.title}
+              type="button"
+              onClick={isMapVisible ? undefined : showMap}
+              aria-controls="georges-store-map"
+              className="group rounded-3xl border border-green/10 bg-cream-dark p-8 text-left transition-colors hover:bg-orange hover:text-cream"
+            >
+              <h3 className="font-display text-2xl font-bold uppercase text-green transition-colors group-hover:text-cream sm:text-3xl">
+                {block.title}
+              </h3>
+              <p className="mt-3 text-sm leading-relaxed text-dark-text/60 transition-colors group-hover:text-cream/75">
+                {block.desc}
+              </p>
+              <span className="eyebrow mt-6 inline-flex items-center gap-2 text-orange transition-colors group-hover:text-cream">
+                Voir la carte
+                <Icon name="arrowRight" size={14} />
+              </span>
+            </button>
+          ))}
         </motion.div>
 
         <div className="mt-5 flex justify-center">

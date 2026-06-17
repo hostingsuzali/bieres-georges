@@ -96,18 +96,9 @@ export function TireuseSection() {
 
             <AnimatedHeading
               as="h2"
-              text="Une tireuse"
+              text="Louer une tireuse"
               className="font-display mt-6 text-4xl font-bold uppercase leading-[0.92] tracking-tight sm:text-5xl lg:text-7xl"
             />
-            <motion.p
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={inViewOnce}
-              transition={{ duration: 0.7, ease: EASE }}
-              className="font-serif mt-1 text-2xl italic text-orange sm:text-4xl lg:text-5xl"
-            >
-              pour vos moments forts.
-            </motion.p>
 
             <motion.p
               initial={{ opacity: 0, y: 16 }}
@@ -116,9 +107,9 @@ export function TireuseSection() {
               transition={{ duration: 0.7, ease: EASE, delay: 0.15 }}
               className="mt-7 max-w-md text-cream/70 leading-relaxed"
             >
-              Bières Georges accompagne vos instants de partage avec des
-              solutions de tirage adaptées. Une expérience généreuse, conviviale
-              et simple à mettre en place.
+              Bières Georges accompagne vos événements privés ou professionnels
+              quel que soit le nombre de convives. Nous vous proposons du matériel
+              adapté à votre projet avec différents modèles de tireuses mobiles.
             </motion.p>
 
             {/* occasions chips */}

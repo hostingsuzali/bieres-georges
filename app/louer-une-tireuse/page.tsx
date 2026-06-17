@@ -72,7 +72,7 @@ export default function RentTapPage() {
       <InternalPageHero
         eyebrow="Location événementielle"
         title="Louer une tireuse à bière"
-        intro="Servez les Bières Georges à la pression lors de vos événements. Préparez votre demande en quelques étapes."
+        intro="Bières Georges accompagne vos événements privés ou professionnels quel que soit le nombre de convives. Nous vous proposons du matériel adapté à votre projet avec différents modèles de tireuses mobiles."
         image="/assets/images/pression_bar.jpg"
         primary={{ label: "Préparer ma réservation", href: "#reservation" }}
         secondary={{ label: "Voir le mode d'emploi", href: "#mode-emploi" }}
@@ -191,18 +191,6 @@ export default function RentTapPage() {
         </div>
       </section>
 
-      <section className="bg-orange px-4 py-16 text-cream">
-        <div className="container-page">
-          <h2 className="font-display text-4xl font-bold uppercase">
-            Informations à confirmer
-          </h2>
-          <p className="mt-3 max-w-3xl leading-relaxed text-cream/80">
-            Tarifs, caution, capacités exactes, zone de livraison, délais,
-            modalités de retrait et références disponibles seront ajoutés dès
-            validation commerciale.
-          </p>
-        </div>
-      </section>
       <VersionSwitcher href="/louer-une-tireuse/v2" targetVersion="V2" />
     </SiteShell>
   );
