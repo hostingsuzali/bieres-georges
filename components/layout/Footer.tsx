@@ -132,18 +132,17 @@ export function Footer() {
       </motion.div>
 
       <motion.div
-        initial={{ opacity: 0, y: 32 }}
+        initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={inViewOnce}
         transition={{ duration: 0.9 }}
-        className="container-page flex min-h-[10rem] items-end justify-center pb-8 sm:min-h-[20rem] md:min-h-[38rem]"
+        className="flex items-center justify-center border-t border-green-deep/10 py-12 sm:py-16"
       >
-        <Image
-          src="/assets/logos/largefooter.png"
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/Elements de la charte graphique (format .png)/Logos Fabrique du Faubourg/Logo_FF_1.png"
           alt="La Fabrique du Faubourg"
-          width={589}
-          height={141}
-          className="h-auto w-full max-w-[70rem]"
+          className="h-auto w-[min(72vw,26rem)] opacity-75"
         />
       </motion.div>
 
