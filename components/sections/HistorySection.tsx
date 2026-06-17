@@ -43,9 +43,7 @@ export function HistorySection() {
       className="section-padding relative overflow-hidden bg-cream px-4"
     >
       <div className="pointer-events-none absolute inset-0 opacity-[0.38] [background-image:linear-gradient(rgba(7,60,52,0.055)_1px,transparent_1px),linear-gradient(90deg,rgba(7,60,52,0.045)_1px,transparent_1px),radial-gradient(circle_at_18%_20%,rgba(217,106,58,0.16),transparent_28rem),radial-gradient(circle_at_85%_62%,rgba(7,60,52,0.12),transparent_30rem)] [background-size:48px_48px,48px_48px,auto,auto]" />
-      <div className="pointer-events-none absolute -right-8 top-8 font-display text-[8rem] font-bold leading-none text-green/[0.045] sm:text-[13rem] lg:right-8 lg:top-0 lg:text-[20rem]">
-        1836
-      </div>
+      
 
       <motion.div
         variants={stagger(0.14)}
