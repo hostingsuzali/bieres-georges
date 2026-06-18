@@ -127,6 +127,8 @@ export default function BrasserieAudacieusePage() {
 
       {/* ── Savoir-faire ── */}
       <SavoirFaireSection />
+
+      <VersionSwitcher href="/brasserie-audacieuse/v2" targetVersion="V2" />
     </SiteShell>
   );
 }

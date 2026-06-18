@@ -28,7 +28,7 @@ export function CtaLink({
   return (
     <Link
       href={href}
-      className={`eyebrow group cut-all inline-flex items-center justify-center gap-2.5 px-7 py-3.5 transition-all hover:-translate-y-0.5 ${variants[variant]} ${className}`}
+      className={`eyebrow group cut-all inline-flex items-center justify-center gap-2.5 px-7 py-3.5 transition-colors transition-transform hover:-translate-y-0.5 ${variants[variant]} ${className}`}
     >
       {children}
       {withArrow && (
