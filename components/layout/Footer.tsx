@@ -13,7 +13,7 @@ const footerColumns = [
       { label: "Accueil", href: "/" },
       { label: "Toutes les bières", href: "/toutes-les-bieres" },
       { label: "Collections", href: "/#collections" },
-      { label: "Notre histoire", href: "/#history" },
+      { label: "Notre histoire", href: "/brasserie-audacieuse#histoire" },
     ],
   },
   {
@@ -22,7 +22,7 @@ const footerColumns = [
       { label: "Points de vente", href: "/trouver" },
       { label: "Professionnels", href: "/travailler-avec-nous" },
       { label: "Louer une tireuse", href: "/louer-une-tireuse" },
-      { label: "Journal", href: "/#journal" },
+      { label: "Journal", href: "/#blog" },
       { label: "Contact", href: "mailto:bonjour@bieresgeorges.fr" },
     ],
   },

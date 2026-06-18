@@ -5,12 +5,12 @@ export type NavLink = {
 };
 
 export const navLinks: readonly NavLink[] = [
-  { label: "Brasserie audacieuse", href: "/#brasserie" },
+  { label: "Brasserie audacieuse", href: "/brasserie-audacieuse" },
   { label: "Bières emblématiques", href: "/toutes-les-bieres" },
   { label: "Trouver les Bières Georges", href: "/trouver" },
   { label: "Louer une tireuse", href: "/louer-une-tireuse" },
   { label: "Travailler avec les Bières Georges", href: "/travailler-avec-nous" },
-  { label: "Blog", href: "/#journal" },
+  { label: "Blog", href: "/#blog" },
   { label: "Contact", href: "mailto:bonjour@bieresgeorges.fr" },
 ];
 
@@ -274,6 +274,101 @@ export const historyMilestones = [
     title: "Libres et exigeants",
     line: "La maison crée son propre rythme, sans suivre les modes.",
     image: "/Charte Graphique_Dossier/Links/BIERES GEORGES-9084 HD (2).jpg",
+  },
+] as const;
+
+// ---------------------------------------------------------------------------
+// Brasserie Audacieuse page data
+// ---------------------------------------------------------------------------
+
+export type TeamDepartment =
+  | "Souverain"
+  | "Management"
+  | "Production"
+  | "Administratif"
+  | "Logistique"
+  | "Commerce GMS"
+  | "Commerce CHR";
+
+export type TeamMember = {
+  name: string;
+  role: string;
+  department: TeamDepartment;
+};
+
+export const teamMembers: readonly TeamMember[] = [
+  { name: "Georges", role: "Fondateur", department: "Souverain" },
+  { name: "Julien", role: "Dirigeant", department: "Management" },
+  { name: "Marc-Antoine", role: "Responsable Production", department: "Production" },
+  { name: "Nicolas", role: "Responsable Brassage", department: "Production" },
+  { name: "Tristan", role: "Responsable Conditionnement", department: "Production" },
+  { name: "Léa", role: "Opératrice Production", department: "Production" },
+  { name: "Laure", role: "Assistante ADV/ADM", department: "Administratif" },
+  { name: "Yohan", role: "Chauffeur/livreur", department: "Logistique" },
+  { name: "Audrey", role: "Responsable Secteur", department: "Commerce GMS" },
+  { name: "Nader", role: "Commercial 01, 69, 73, 74", department: "Commerce GMS" },
+  { name: "Eddy", role: "Commercial 07, 26, 38, 42, 43, 69", department: "Commerce GMS" },
+  { name: "Lucas", role: "Responsable Commercial", department: "Commerce CHR" },
+] as const;
+
+export const departmentColors: Record<TeamDepartment, string> = {
+  Souverain: "bg-orange text-cream",
+  Management: "bg-green text-cream",
+  Production: "bg-green-deep text-cream",
+  Administratif: "bg-cream-dark text-green",
+  Logistique: "bg-orange-soft text-cream",
+  "Commerce GMS": "bg-green text-cream",
+  "Commerce CHR": "bg-orange text-cream",
+};
+
+export const manifestoContent = {
+  headline: "Faire une bière de caractère, pas une bière de décor.",
+  philosophy: {
+    title: "Notre philosophie",
+    text: "Nous sommes les héritiers de l'audacieux Georges. Nous brassons bien plus qu'une bière : nous poursuivons l'histoire des Bières Georges nées à Lyon en 1836.",
+  },
+  vision: {
+    title: "Notre vision pour le futur",
+    text: "Nous sommes les conquérants de la bière. Nous puisons dans notre héritage et notre époque pour que Bières Georges soit incontournable en région Auvergne-Rhône-Alpes.",
+  },
+  engagements: {
+    title: "Nos engagements",
+    text: "Nous conjuguons notre histoire au présent. Nous brassons, avec une exigence sans concession, des bières emblématiques et nous créons, avec une audace parfois impertinente, des bières originales.",
+    items: [
+      "Brasser avec exigence et transparence",
+      "Porter l'identité lyonnaise avec fierté",
+      "Innover sans trahir l'héritage",
+      "Rendre la bière accessible et généreuse",
+    ],
+  },
+} as const;
+
+export const savoirFaireBlocks = [
+  {
+    eyebrow: "Maîtrise artisanale",
+    title: "Le maître signe son œuvre",
+    body: "Un maître brasseur ne triche jamais. Il connaît ses matières premières, maîtrise ses process, ajuste au millimètre. Notre exigence commence par le choix des ingrédients et ne s'arrête qu'au moment où le client savoure sa bière.",
+    secondary: "Nous sommes intransigeants sur la qualité, patients dans l'élaboration, méticuleux dans le contrôle. Cette rigueur n'est pas une contrainte, c'est notre fierté.",
+    image: "/Charte Graphique_Dossier/Links/brasserie jour.jpg",
+    highlights: [
+      "Sélection rigoureuse des matières premières",
+      "Process de brassage maîtrisé au millimètre",
+      "Contrôle qualité à chaque étape",
+      "Amélioration continue de la production",
+    ],
+  },
+  {
+    eyebrow: "La simplicité élégante",
+    title: "Révéler l'essentiel sans artifice",
+    body: "Nous maîtrisons un savoir-faire complexe pour créer des bières d'une simplicité désarmante. La complexité du brassage doit aboutir à la simplicité du plaisir.",
+    secondary: "Cette simplicité n'est pas un appauvrissement, c'est un raffinement : elle demande plus de maîtrise que la surenchère.",
+    image: "/assets/images/fabrique-aujourdhui.webp",
+    highlights: [
+      "Recettes précises et équilibrées",
+      "Chaque ingrédient a sa raison d'être",
+      "Profils aromatiques nets et lisibles",
+      "L'élégance du geste, pas la démonstration",
+    ],
   },
 ] as const;
 

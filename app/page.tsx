@@ -2,11 +2,11 @@ import { SiteShell } from "@/components/layout/SiteShell";
 import { BeerCollectionsSection } from "@/components/sections/BeerCollectionsSection";
 import { BrasserieSection } from "@/components/sections/BrasserieSection";
 import { HeroSection } from "@/components/sections/HeroSection";
-import { HistorySection } from "@/components/sections/HistorySection";
 import { PartnersSection } from "@/components/sections/PartnersSection";
 import { StoreLocatorSection } from "@/components/sections/StoreLocatorSection";
 import { TireuseSection } from "@/components/sections/TireuseSection";
 import { BlogSection } from "@/components/sections/BlogSection";
+import { TrustedBySection } from "@/components/sections/TrustedBySection";
 
 
 export default function Home() {
@@ -18,8 +18,8 @@ export default function Home() {
       <StoreLocatorSection />
       <TireuseSection />
       <PartnersSection />
+      <TrustedBySection />
       <BlogSection />
-      <HistorySection />
     </SiteShell>
   );
 }

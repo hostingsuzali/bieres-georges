@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { BeerCard } from "@/components/beers/BeerCard";
 import { SiteShell } from "@/components/layout/SiteShell";
 import { ProfessionalContactPrompt } from "@/components/sections/ProfessionalContactPrompt";
+import { TrustedBySection } from "@/components/sections/TrustedBySection";
 import { CtaLink } from "@/components/ui/CtaLink";
 import { Icon, type IconName } from "@/components/ui/Icon";
 import { InternalPageHero } from "@/components/ui/InternalPageHero";
@@ -141,6 +142,8 @@ export default function WorkWithUsPage() {
           </div>
         </div>
       </section>
+
+      <TrustedBySection />
 
       <ProfessionalContactPrompt />
 

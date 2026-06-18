@@ -96,7 +96,7 @@ export function BlogSection() {
           viewport={inViewOnce}
           className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-3"
         >
-          {articles.map((article, i) => (
+          {articles.map((article) => (
             <motion.a
               key={article.slug}
               href={`/blog/${article.slug}`}
@@ -144,7 +144,7 @@ export function BlogSection() {
                 </p>
 
                 <span className="eyebrow mt-6 inline-block text-orange transition-colors duration-300 group-hover:text-cream">
-                  Lire l'article →
+                  Lire l&apos;article →
                 </span>
               </div>
             </motion.a>

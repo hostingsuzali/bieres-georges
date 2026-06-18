@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import type { Beer } from "@/lib/products";
 
 export function BeerCard({ beer }: { beer: Beer }) {
@@ -33,10 +35,15 @@ export function BeerCard({ beer }: { beer: Beer }) {
       <p className="mt-4 text-sm leading-relaxed text-dark-text/65">
         {beer.description}
       </p>
-      <p className="mt-auto pt-5 text-xs font-semibold uppercase tracking-[0.16em] text-green/55">
+      <p className="pt-5 text-xs font-semibold uppercase tracking-[0.16em] text-green/55">
         {beer.formats.join(" · ")}
       </p>
+      <Link
+        href={`/toutes-les-bieres/${beer.slug}`}
+        className="eyebrow mt-auto inline-flex pt-5 text-orange transition-colors hover:text-green"
+      >
+        Voir le détail
+      </Link>
     </article>
   );
 }
-
