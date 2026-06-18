@@ -7,6 +7,7 @@ import { useRef } from "react";
 import { AnimatedHeading } from "@/components/ui/AnimatedHeading";
 import { Badge } from "@/components/ui/Badge";
 import { CtaLink } from "@/components/ui/CtaLink";
+import { ExpandableText } from "@/components/ui/ExpandableText";
 import { Icon } from "@/components/ui/Icon";
 import { savoirFaireBlocks } from "@/lib/data";
 import { EASE, fadeUp, inViewOnce, stagger } from "@/lib/motion";
@@ -102,25 +103,20 @@ export function SavoirFaireSection() {
                   className="mt-7 h-px w-20 origin-left bg-orange"
                 />
 
-                <motion.p
+                {/* Body + expandable "voir plus" */}
+                <motion.div
                   initial={{ opacity: 0, y: 16 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={inViewOnce}
                   transition={{ duration: 0.7, delay: 0.15 }}
-                  className="mt-7 leading-relaxed text-green/70"
+                  className="mt-7"
                 >
-                  {block.body}
-                </motion.p>
-
-                <motion.p
-                  initial={{ opacity: 0, y: 16 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={inViewOnce}
-                  transition={{ duration: 0.7, delay: 0.25 }}
-                  className="mt-4 text-sm leading-relaxed text-green/55"
-                >
-                  {block.secondary}
-                </motion.p>
+                  <ExpandableText
+                    summary={block.body}
+                    expanded={block.expanded}
+                    className="text-green/70"
+                  />
+                </motion.div>
 
                 {/* Highlight list */}
                 <motion.ul

@@ -13,6 +13,13 @@ export type Beer = {
   collection: BeerCollection;
   formats: string[];
   image: string;
+  /** Technical specs — benchmark-inspired */
+  abv: number;          // Alcohol % (0–14)
+  ebc: number;          // Colour scale (0–80)
+  ibu: number;          // Bitterness (0–80)
+  temperature: string;  // Serving temp range, e.g. "5–7°C"
+  ingredients: string;  // Key ingredients / characteristics
+  pairing: string;      // Food pairing suggestion per beer
 };
 
 const gmsBase =
@@ -29,6 +36,12 @@ export const beers: Beer[] = [
     collection: "Les Originales",
     formats: ["33 cl", "44 cl", "75 cl"],
     image: `${gmsBase}/BG_PILS_33CL.png`,
+    abv: 4.5,
+    ebc: 6,
+    ibu: 25,
+    temperature: "5–7°C",
+    ingredients: "Malts d'orge Pilsner · Houblon Saaz · Eau pure · Levure de basse fermentation",
+    pairing: "Olives, crudités, poissons grillés, fromages frais",
   },
   {
     slug: "pale-ale",
@@ -39,6 +52,12 @@ export const beers: Beer[] = [
     collection: "Les Originales",
     formats: ["33 cl", "75 cl"],
     image: `${gmsBase}/BG_PALE-ALE_33CL.png`,
+    abv: 5.2,
+    ebc: 12,
+    ibu: 35,
+    temperature: "6–8°C",
+    ingredients: "Malts Pale et Crystal · Houblons Cascade & Centennial · Levure anglaise",
+    pairing: "Planches de charcuterie, poulet rôti, cheddar affiné",
   },
   {
     slug: "witbier",
@@ -49,6 +68,12 @@ export const beers: Beer[] = [
     collection: "Les Originales",
     formats: ["33 cl", "75 cl"],
     image: `${gmsBase}/BG_WITBIER_33CL.png`,
+    abv: 4.8,
+    ebc: 4,
+    ibu: 15,
+    temperature: "4–6°C",
+    ingredients: "Malt de blé & d'orge · Écorces d'orange · Coriandre · Levure belge",
+    pairing: "Salades fraîches, moules-frites, ceviche, tartares",
   },
   {
     slug: "hefeweizen",
@@ -59,6 +84,12 @@ export const beers: Beer[] = [
     collection: "Les Originales",
     formats: ["33 cl", "75 cl"],
     image: `${gmsBase}/BG_HEFEWEIZEN_33CL.png`,
+    abv: 5.0,
+    ebc: 8,
+    ibu: 12,
+    temperature: "6–8°C",
+    ingredients: "Malt de blé (60%) & d'orge · Houblon Hallertauer · Levure Weizen bavaroise",
+    pairing: "Bretzels, saucisses blanches, tartes flambées, banane flambée",
   },
   {
     slug: "ambree",
@@ -69,6 +100,12 @@ export const beers: Beer[] = [
     collection: "Les Originales",
     formats: ["33 cl", "75 cl"],
     image: `${gmsBase}/BG_AMBREE_33CL.png`,
+    abv: 5.5,
+    ebc: 28,
+    ibu: 22,
+    temperature: "8–10°C",
+    ingredients: "Malts Pale, Munich & Crystal · Houblon Styrian Goldings · Levure anglaise",
+    pairing: "Viandes rôties, grillades, fromages comté, desserts au caramel",
   },
   {
     slug: "ipa",
@@ -79,6 +116,12 @@ export const beers: Beer[] = [
     collection: "Les Originales",
     formats: ["33 cl", "44 cl", "75 cl", "Fût"],
     image: `${chrBase}/IPA 33CL 3760268370136.png`,
+    abv: 6.2,
+    ebc: 14,
+    ibu: 55,
+    temperature: "6–8°C",
+    ingredients: "Malts Pale & Cara · Houblons Citra, Mosaic & Simcoe · Dry hopping généreux",
+    pairing: "Cuisine épicée, tacos, burgers, fromages à pâte persillée",
   },
   {
     slug: "neipa",
@@ -89,6 +132,12 @@ export const beers: Beer[] = [
     collection: "Les Originales",
     formats: ["33 cl", "44 cl", "75 cl", "Fût"],
     image: `${chrBase}/NEIPA 33CL.png`,
+    abv: 6.5,
+    ebc: 15,
+    ibu: 12,
+    temperature: "6–8°C",
+    ingredients: "Malts Pale, blé & flocons d'avoine · Houblons Galaxy & El Dorado · Double dry hop",
+    pairing: "Poké bowls, sushi, ceviche, salades de fruits exotiques",
   },
   {
     slug: "more-is-bitter",
@@ -99,6 +148,12 @@ export const beers: Beer[] = [
     collection: "Les Originales",
     formats: ["33 cl", "75 cl", "Fût"],
     image: `${chrBase}/MORE IS BITTER 33CL 3760268370044.png`,
+    abv: 5.8,
+    ebc: 22,
+    ibu: 60,
+    temperature: "8–10°C",
+    ingredients: "Malts Pale & Crystal · Houblons East Kent Goldings & Fuggles · Levure anglaise",
+    pairing: "Fish and chips, ploughman's lunch, cheddar, viande rouge grillée",
   },
   {
     slug: "neipa-exotic",
@@ -109,6 +164,12 @@ export const beers: Beer[] = [
     collection: "Les Spéciales",
     formats: ["33 cl", "75 cl"],
     image: `${gmsBase}/BG_NEIPA-EXOTIC_33CL.png`,
+    abv: 6.0,
+    ebc: 12,
+    ibu: 15,
+    temperature: "5–7°C",
+    ingredients: "Malts Pale & flocons d'avoine · Houblons Sabro & Idaho7 · Purée de fruits tropicaux",
+    pairing: "Ceviche exotique, brochettes de crevettes, desserts à la mangue",
   },
   {
     slug: "ipa-exotic",
@@ -119,6 +180,12 @@ export const beers: Beer[] = [
     collection: "Les Spéciales",
     formats: ["33 cl", "75 cl"],
     image: `${gmsBase}/BG_IPA-EXOTIC_33CL.png`,
+    abv: 6.3,
+    ebc: 14,
+    ibu: 45,
+    temperature: "6–8°C",
+    ingredients: "Malts Pale & Cara · Houblons Nelson Sauvin & Motueka · Notes fruit de la passion",
+    pairing: "Curry thaï, poulet yakitori, fromages de chèvre, ananas grillé",
   },
   {
     slug: "very-good-triple",
@@ -129,6 +196,12 @@ export const beers: Beer[] = [
     collection: "Les Originales",
     formats: ["33 cl", "75 cl"],
     image: `${chrBase}/VERY GOOD TRIPLE 33CL 3760268370372.png`,
+    abv: 8.5,
+    ebc: 10,
+    ibu: 28,
+    temperature: "8–10°C",
+    ingredients: "Malts Pilsner & sucre candi · Houblon Saaz · Triple fermentation · Levure d'abbaye",
+    pairing: "Foie gras, volaille en sauce, fromages affinés, tarte tatin",
   },
   {
     slug: "munica",
@@ -139,6 +212,12 @@ export const beers: Beer[] = [
     collection: "Les Originales",
     formats: ["33 cl", "75 cl"],
     image: `${chrBase}/MUNICA BRUNE² 33CL 3760268370068.png`,
+    abv: 6.8,
+    ebc: 60,
+    ibu: 30,
+    temperature: "10–12°C",
+    ingredients: "Malts torréfiés, chocolat & caramunich · Houblon Styrian Goldings · Levure anglaise",
+    pairing: "Ragoûts, gibier, fondant au chocolat, fromages à croûte lavée",
   },
   {
     slug: "princesse",
@@ -149,6 +228,12 @@ export const beers: Beer[] = [
     collection: "Les Originales",
     formats: ["33 cl", "75 cl"],
     image: `${chrBase}/PRINCESSE PALE ALE 33CL 3760268370006.png`,
+    abv: 5.0,
+    ebc: 10,
+    ibu: 30,
+    temperature: "6–8°C",
+    ingredients: "Malts Pale & Munich · Houblons Amarillo & Cascade · Notes florales et résineuses",
+    pairing: "Risotto aux légumes, poulet fermier, fromage de brebis, tarte aux agrumes",
   },
   {
     slug: "framboise",
@@ -159,6 +244,12 @@ export const beers: Beer[] = [
     collection: "Les Originales",
     formats: ["33 cl", "75 cl"],
     image: `${chrBase}/Visuel - FRAMBOISE 33CL - 3760268370471.png`,
+    abv: 4.5,
+    ebc: 12,
+    ibu: 8,
+    temperature: "4–6°C",
+    ingredients: "Malt d'orge & de blé · Purée de framboises (15%) · Houblon léger · Levure mixte",
+    pairing: "Desserts fruités, cheesecake, salade de chèvre chaud, brunch",
   },
   {
     slug: "abricot",
@@ -169,6 +260,12 @@ export const beers: Beer[] = [
     collection: "Les Originales",
     formats: ["33 cl"],
     image: `${chrBase}/ABRICOT 33CL 3760268370846.png`,
+    abv: 4.2,
+    ebc: 8,
+    ibu: 10,
+    temperature: "4–6°C",
+    ingredients: "Malt d'orge Pilsner · Purée d'abricots de la Drôme · Houblon Saaz · Levure neutre",
+    pairing: "Tartes estivales, fromage frais, apéritif ensoleillé, salade de fruits",
   },
   {
     slug: "hiver",
@@ -179,6 +276,12 @@ export const beers: Beer[] = [
     collection: "Les Originales",
     formats: ["33 cl", "75 cl"],
     image: `${chrBase}/HIVER 33CL 3760268370495.png`,
+    abv: 7.2,
+    ebc: 35,
+    ibu: 25,
+    temperature: "10–12°C",
+    ingredients: "Malts Munich, Crystal & Spécial B · Épices (cannelle, muscade, gingembre) · Miel",
+    pairing: "Raclette, fondue, pain d'épices, chocolat chaud, gibier en sauce",
   },
 ];
 
@@ -186,4 +289,3 @@ export const beerCollections: BeerCollection[] = [
   "Les Originales",
   "Les Spéciales",
 ];
-

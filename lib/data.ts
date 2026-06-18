@@ -348,26 +348,32 @@ export const savoirFaireBlocks = [
     eyebrow: "Maîtrise artisanale",
     title: "Le maître signe son œuvre",
     body: "Un maître brasseur ne triche jamais. Il connaît ses matières premières, maîtrise ses process, ajuste au millimètre. Notre exigence commence par le choix des ingrédients et ne s'arrête qu'au moment où le client savoure sa bière.",
-    secondary: "Nous sommes intransigeants sur la qualité, patients dans l'élaboration, méticuleux dans le contrôle. Cette rigueur n'est pas une contrainte, c'est notre fierté.",
+    expanded:
+      "Nous sommes intransigeants sur la qualité, patients dans l'élaboration, méticuleux dans le contrôle. Cette rigueur n'est pas une contrainte, c'est notre fierté.\n\nChaque brassin est suivi de A à Z par notre maître brasseur. De la réception des malts à la mise en bouteille, rien n'est laissé au hasard. Les températures, les durées de fermentation, les profils de houblonnage — tout est mesuré, goûté, ajusté. C'est cette discipline quotidienne qui garantit une bière régulière, franche et reconnaissable.\n\nNotre brasserie tourne avec un équipement dimensionné pour la précision artisanale, pas pour le volume industriel. Chaque cuve a sa personnalité, chaque recette son tempo. On ne force rien : on accompagne la matière jusqu'au verre.",
     image: "/Charte Graphique_Dossier/Links/brasserie jour.jpg",
     highlights: [
       "Sélection rigoureuse des matières premières",
       "Process de brassage maîtrisé au millimètre",
       "Contrôle qualité à chaque étape",
       "Amélioration continue de la production",
+      "Suivi personnalisé de chaque brassin",
+      "Équipement dimensionné pour la précision",
     ],
   },
   {
     eyebrow: "La simplicité élégante",
     title: "Révéler l'essentiel sans artifice",
     body: "Nous maîtrisons un savoir-faire complexe pour créer des bières d'une simplicité désarmante. La complexité du brassage doit aboutir à la simplicité du plaisir.",
-    secondary: "Cette simplicité n'est pas un appauvrissement, c'est un raffinement : elle demande plus de maîtrise que la surenchère.",
+    expanded:
+      "Cette simplicité n'est pas un appauvrissement, c'est un raffinement : elle demande plus de maîtrise que la surenchère.\n\nChaque recette est pensée pour que le buveur retrouve immédiatement ce qu'il attend : un goût net, un profil lisible, un plaisir sans détour. Pas de surcharge aromatique, pas de complexité pour la complexité. L'équilibre est notre obsession.\n\nDe l'étiquette au liquide, tout doit parler la même langue — celle d'une brasserie qui sait ce qu'elle fait et qui n'a pas besoin de le crier. La simplicité Georges, c'est la confiance dans le produit. Une bière qui se suffit à elle-même, servie sans discours, appréciée sans mode d'emploi.",
     image: "/assets/images/fabrique-aujourdhui.webp",
     highlights: [
       "Recettes précises et équilibrées",
       "Chaque ingrédient a sa raison d'être",
       "Profils aromatiques nets et lisibles",
       "L'élégance du geste, pas la démonstration",
+      "De l'étiquette au liquide, cohérence totale",
+      "Un produit qui se suffit à lui-même",
     ],
   },
 ] as const;
