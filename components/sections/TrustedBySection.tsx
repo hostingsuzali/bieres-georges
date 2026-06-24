@@ -36,7 +36,7 @@ function MarqueeRow({
 export function TrustedBySection() {
   return (
     <section className="relative overflow-hidden bg-green px-4 py-20 text-cream sm:py-24">
-      <div className="container-page relative mb-12 text-center">
+      <div className="container-page relative mb-6 text-center">
         <p className="eyebrow text-orange">Ils nous font confiance</p>
         <h2 className="font-display mx-auto mt-4 max-w-3xl text-4xl font-bold uppercase leading-[0.95] sm:text-5xl">
           Des comptoirs, des caves, des tables.

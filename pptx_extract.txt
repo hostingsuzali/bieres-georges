@@ -1,0 +1,736 @@
+## Slide 1
+2026
+Site web
+
+## Slide 2
+BRASSERIE AUDACIEUSE
+
+Contenu
+Histoire
+Manifesto
+Valeurs
+Equipe
+Savoir-faire
+
+Maillage
+/
+arborescence
+TROUVER LES BIERES GEORGES
+
+Contenu
+Dealer locator
+Maillage
+Gamme GMS
+BIERES EMBLEMATIQUES
+
+Contenu
+Gamme GMS
+Gamme CHR
+(Vignettes produits)
+
+Maillage
+Dealer locator
+Module de réservation
+LOUER UNE TIREUSE
+
+Contenu
+Module de réservation
+Mode d’emploi
+Maillage
+Gamme CHR
+TRAVAILLER AVEC LES BIERES GEORGES
+
+Contenu
+Bars, Restaurants et Cavistes
+Grande Distribution
+Evènements
+
+Maillage
+Gamme GMS
+Gamme CHR
+
+## Slide 3
+BENCHMARK - Homepage
+BRASSERIE DU MONT BLANC
+Vidéo « La bière brassée à l'eau pure du Mont Blanc » qui affirme le positionnement et lien ave les Alpes
+Vignettes « Nos bières » qui offrent un accès simple et direct aux gammes et produits
+« Bienvenue dans les Alpes » (lien Excellence de la brasserie) qui souligne l’ancrage régional
+« Brasserie du Mont Blanc : une marque qui oblige » qui met en relief les actions RSE
+
+PIGGY BREWING
+Design contemporain qui reste simple
+Structure claire avec des bandeaux horizontaux
+Bière avec bouton d’action « Voir » et « Panier » : mise en avant des produits, possibilité d’avoir des informations complémentaires
+
+DECK AND DONOHUE 
+« Vous voulez travailler avec nous » : « Bar et Restaurant »; « Magasins »; « Evénements » : favorise les contacts commerciaux
+ROYAL BEVERAGE
+Design punchy avec le logo et le verre qui déborde et ensuite les titres avec une police de grande taille comme les produits
+Design dynamique avec les animations
+Vidéo insérée dans le décor ce qui est beaucoup mieux qu’une fenêtre youtube
+
+BRANDNAPAVALLEY
+Design pur avec une vue de la propriété et la mise en scène d’une bouteille
+
+MONKEY47
+Design basé sur une jolie illustration et et des photos de qualité
+Bandeaux horizontaux  : offrent une bonne lisibilité
+
+INNOCENT
+Design frais et punchy avec le logo, les photos de fruit et les nuages qui sont animés
+Structure très claire avec des cadres qui contiennent des titres et des images
+
+FEVERTREE
+Vidéo de qualité qui donne soif!
+
+## Slide 4
+WIREFRAMES - Homepage
+Bières GEORGES
+Logo
+Image
+Impact visuel
+
+## Slide 5
+WIREFRAMES - Homepage
+Bières emblématiques
+Image
+Brasserie audacieuse
+Vidéo
+Présentation des bières avec des vignettes individuelles contenant les informations suivantes :
+Visuel du produit
+Descriptif
+Ingrédients
+Médailles
+Contenant
+Histoire
+Projet
+Valeurs
+Equipe
+Savoir-faire
+
+## Slide 6
+WIREFRAMES - Homepage
+LOUER UNE TIREUSE
+Image ou Vidéo
+TROUVER LES BIERES GEORGES 
+Image
+TRAVAILLER AVEC LES BIERES GEORGES
+Image
+Dealer locator
+Bars, Restaurants et Cavistes
+Grande Distribution
+Evènements
+Module de location
+
+## Slide 7
+BENCHMARK – PAGE PRODUIT
+BRASSERIE DU MONT BLANC
+Vignettes détaillées pour chaque produit qui conserve une bonne lisibilité grâce à l’utilisation de pictogrammes et échelles
+AEROFAB
+Bandeau pour chaque produit avec un visuel original qui met en valeur le produit
+
+## Slide 8
+Bieres emblématiques - GMS
+BLONDE original PALE ALE
+Cette bière est une Pale Ale : les Britanniques l'ont inventée, nous l'avons apprivoisée. Deux malts, deux houblons, zéro compromis.
+Amertume délicate et arômes subtils d'agrumes. Elle est rafraîchissante, avec du caractère.
+Fermentation haute (Ale)
+Alcool : 5,4%
+Amertume (IBU) : 2/5
+Couleur (EBC) : 1/5
+
+Ingrédients :
+Malts d’orge (Pils, Munich)
+Houblons (Cascade, Magnum)
+Levure (AY4)
+CO₂
+Conditionnement :
+Bouteille 33CL
+Bouteille 75CL
+Fût Inox 20L
+BLONDE original PILS
+Cette bière est une Pils : née en Tchéquie en 1842, elle est devenue la bière la plus brassée au monde. La star des bières.
+Légère, finement amère, précise. Elle se boit très fraîche, en toute simplicité.
+Fermentation basse (Lager)
+Alcool : 4,2%
+Amertume (IBU) : 2/5
+Couleur (EBC) : 1/5
+
+Ingrédients :
+Malts d’orge (Pils, Munich)
+Houblons (Strisselspalt, Magnum)
+Levure (Crisp Lager)
+CO₂
+Conditionnement :
+Canette 44CL
+Bouteille 75CL
+Fût Inox 20L et 30L
+· Gamme Originale ·
+
+## Slide 9
+BLANCHE original HEFEWEIZEN
+Cette bière est une Hefeweizen : la Bavière dans un verre, avec sa robe orangée et trouble, sa mousse blanche et abondante. Elle ne ressemble à aucune autre bière.
+Notes subtiles de banane et d’épices, ronde et soyeuse. Elle est ample et douce.
+Fermentation haute (Ale)
+Alcool : 5,4%
+Amertume (IBU) : 1/5
+Couleur (EBC) : 2/5
+
+Ingrédients :
+Malts d’orge (Pils)
+Malt de blé
+Houblons (Strisselspalt, Herkules)
+Levure (Banana)
+CO₂
+Conditionnement :
+Bouteille 33CL
+Bouteille 75CL
+Fût Inox 20L
+BLANCHE original WITBIER
+Cette bière est une Witbier : les moines belges l'ont créée au Moyen-Âge. Gingembre, coriandre, zestes d'agrumes. Un savant mélange.
+Ronde, légèrement épicée, désaltérante. Elle est tonique et rafraîchissante.
+Fermentation haute (Ale)
+Alcool : 4,5%
+Amertume (IBU) : 1/5
+Couleur (EBC) : 2/5
+
+Ingrédients :
+Malt d’orge (Pils)
+Malt de blé
+Flocons d’avoine
+Gingembre
+Zestes d’orange et de citron
+Epices (Coriandre)
+Houblons (Magnum)
+Levure (BW-20)
+CO₂
+Conditionnement :
+Bouteille 75CL
+Fût Inox 20L
+Bieres emblématiques - GMS
+· Gamme Originale ·
+
+## Slide 10
+Bieres emblématiques - GMS
+IPA original INDIA PALE ALE
+
+Cette bière est une IPA : les Anglais l’ont inventée pour qu’elle survivre à la longue traversée jusqu'aux Indes. Elle n'a pas fait tout ce chemin pour passer inaperçue.
+Amertume franche, arômes d'agrumes, belle rondeur. Elle est parfaitement équilibrée.
+Fermentation haute (Ale)
+Alcool : 5,5%
+Amertume (IBU) : 4/5
+Couleur (EBC) : 2/5
+
+Ingrédients :
+Malts d’orge (Pils, Carapils)
+Malt de blé
+Houblons (Triskel, Mistral, Magnum)
+Levure (AY4)
+CO₂
+Conditionnement :
+Canette 44CL
+Bouteille 33CL
+Bouteille 75CL
+Fût Inox 20L
+NEIPA original NEW ENGLAND INDIA PALE ALE
+Cette bière est une NEIPA : née il y a seulement quelques années en Nouvelle-Angleterre, elle a séduit par ses arômes explosifs et sa douceur. Une belle harmonie.
+Arômes intenses de fruits blancs, rondeur veloutée, aucune amertume. Elle surprend par sa délicatesse.
+Fermentation haute (Ale)
+Alcool : 5%
+Amertume (IBU) : 1/5
+Couleur (EBC) : 3/5
+
+Ingrédients :
+Malts d’orge (Pils, Munich, Caravienna)
+Flocons d’avoine
+Houblons (Motueka, Rakau)
+Levure (Saturated)
+CO₂
+Conditionnement :
+Canette 44CL
+Bouteille 33CL
+Bouteille 75CL
+Fût Inox 20L
+· Gamme Originale ·
+
+## Slide 11
+FRAMBOISE original FRUITEE
+Cette bière est une fruitée : les framboises sont ajoutées durant la fermentation. Pas d'arôme artificiel, pas de sucre, pas de raccourci.
+Goût naturel de framboise, robe rosée, fraîcheur acidulée. Elle ne triche pas.
+Fermentation haute (Ale)
+Alcool : 5%
+Amertume (IBU) : 0/5
+Couleur (EBC) : 2/5
+
+Ingrédients :
+Malts d’orge (Pils)
+Malt de blé 
+Purée de framboise (100g/L)
+Houblons (Strisselspalt, Magnum)
+Levure (Banana)
+CO₂
+Conditionnement :
+Bouteille 75CL
+Fût Inox 20L
+Bieres emblématiques - GMS
+AMBREE original BITTER
+Cette bière est une Bitter : les Anglais l'appellent "Real Ale" : la vraie bière. Ils la servent à partir du « Cask » : le fût en bois utilisé pour la fermentation. La pure tradition.
+Arômes de biscuit et de caramel, amertume sèche et franche. Elle affirme son caractère sans concession.
+Fermentation haute (Ale)
+Alcool : 4,5 %
+Amertume (IBU) : 4/5
+Couleur (EBC) : 4/5
+
+Ingrédients :
+Malt d’orge (Pils, Cara amber)
+Houblons (East Kent Goldings, Magnum)
+Levure (AY4)
+CO₂
+Conditionnement :
+Bouteille 75CL
+Fût Inox 20L
+· Gamme Originale ·
+
+## Slide 12
+TRIPLE original TRIPEL
+Cette bière est une Triple : au Moyen-Âge, les moines réservaient leur bière la plus forte aux hôtes les plus considérés. Nous perpétuons la tradition.
+Arômes de miel et de fruits mûrs. Elle est puissante et élégante.
+Fermentation haute (Ale)
+Alcool : 9%
+Amertume (IBU) : 1/5
+Couleur (EBC) : 3/5
+
+Ingrédients :
+Malts d’orge (Pils, Munich)
+Sucre
+Houblons (Strisselspalt, Magnum)
+Levure (Bel Abbey)
+CO₂
+Conditionnement :
+Bouteille 75CL
+Fût Inox 20L
+Bieres emblématiques - GMS
+BRUNE original PORTER
+Cette bière est une Porter : née à Londres au XVIIIème siècle, elle était la préférée des porteurs de fardeaux. Ils avaient plutôt bon goût.
+Arômes toastés et chocolatés, des airs de cappuccino. Elle est généreuse et réconfortante.
+Fermentation haute (Ale)
+Alcool : 7 %
+Amertume (IBU) : 3/5
+Couleur (EBC) : 5/5
+
+Ingrédients :
+Malts d’orge (Pils, Cara amber, Cara vienna, Chocolat)
+Sucre
+Lactose
+Houblons (Cascade, Herkules)
+CO₂
+Conditionnement :
+Bouteille 75CL
+Fût Inox 20L
+· Gamme Originale ·
+
+## Slide 13
+IPA special EXOTIC (Disponible en septembre)
+Cette bière est une IPA au caractère exotique : ses houblons ont été choisis pour vous proposer une aventure inédite. Georges était intrépide. Cette bière vous emmène encore plus loin.
+Fruits exotiques intenses, amertume franche. Elle conduit vers l’inattendu.
+Fermentation haute (Ale)
+Alcool : 3,8%
+Amertume (IBU) : 3/5
+Couleur (EBC) : 2/5
+
+Ingrédients :
+Malts d’orge
+Houblons
+Levure
+CO₂
+Conditionnement :
+Bouteille 75CL
+Fût Inox 20L
+Bieres emblématiques - GMS
+NEIPA special EXOTIC (Disponible en mai)
+Cette bière est une NEIPA au caractère exotique : ses houblons ont été sélectionnés pour vous transporter tout en douceur. Georges avait l'esprit voyageur. Cette bière aussi.
+Explosion de fruits exotiques, rondeur veloutée, sans amertume. Elle ouvre de nouveaux horizons.
+Fermentation haute (Ale)
+Alcool : 4 %
+Amertume (IBU) : 1/5
+Couleur (EBC) : 1/5
+
+Ingrédients :
+Malt d’orge
+Flocons d’avoine
+Houblons
+Levure
+CO₂
+Conditionnement :
+Bouteille 75CL
+Fût Inox 20L
+· EDITIONS LIMITEES ·
+
+## Slide 14
+Bieres emblématiques - CHR
+PRINCESSE PALE ALE
+Cette bière est une Pale Ale : les Britanniques l'ont inventée, nous l'avons apprivoisée. Deux malts, deux houblons, zéro compromis.
+Amertume délicate et arômes subtils d'agrumes. Elle est rafraîchissante, avec du caractère.
+Fermentation haute (Ale)
+Alcool : 5,4%
+Amertume (IBU) : 2/5
+Couleur (EBC) : 1/5
+
+Ingrédients :
+Malts d’orge (Pils, Munich)
+Houblons (Cascade, Magnum)
+Levure (AY4)
+CO₂
+Conditionnement :
+Bouteille 33CL
+Bouteille 75CL
+Fût Inox 20L
+BLONDE original PILS
+Cette bière est une Pils : née en Tchéquie en 1842, elle est devenue la bière la plus brassée au monde. La star des bières.
+Légère, finement amère, précise. Elle se boit très fraîche, en toute simplicité.
+Fermentation basse (Lager)
+Alcool : 4,2%
+Amertume (IBU) : 2/5
+Couleur (EBC) : 1/5
+
+Ingrédients :
+Malts d’orge (Pils, Munich)
+Houblons (Strisselspalt, Magnum)
+Levure (Crisp Lager)
+CO₂
+Conditionnement :
+Bouteille 33CL
+Bouteille 75CL
+Fût Inox 20L
+· Gamme Originale ·
+
+## Slide 15
+SILKY WEISS
+Cette bière est une Hefeweizen : la Bavière dans un verre, avec sa robe orangée et trouble, sa mousse blanche et abondante. Elle ne ressemble à aucune autre bière.
+Notes subtiles de banane et d’épices, ronde et soyeuse. Elle est ample et douce.
+Fermentation haute (Ale)
+Alcool : 5,4%
+Amertume (IBU) : 1/5
+Couleur (EBC) : 2/5
+
+Ingrédients :
+Malts d’orge (Pils)
+Malt de blé
+Houblons (Strisselspalt, Herkules)
+Levure (Banana)
+CO₂
+Conditionnement :
+Bouteille 33CL
+Bouteille 75CL
+Fût Inox 20L
+WITBIER
+Cette bière est une Witbier : les moines belges l'ont créée au Moyen-Âge. Gingembre, coriandre, zestes d'agrumes. Un savant mélange.
+Ronde, légèrement épicée, désaltérante. Elle est tonique et rafraîchissante.
+Fermentation haute (Ale)
+Alcool : 4,5%
+Amertume (IBU) : 1/5
+Couleur (EBC) : 2/5
+
+Ingrédients :
+Malt d’orge (Pils)
+Malt de blé
+Flocons d’avoine
+Gingembre
+Zestes d’orange et de citron
+Epices (Coriandre)
+Houblons (Magnum)
+Levure (BW-20)
+CO₂
+Conditionnement :
+Bouteille 33CL
+Fût Inox 20L
+Bieres emblématiques (CHR)
+· Gamme Originale ·
+
+## Slide 16
+Bieres emblématiques - CHR
+IPA
+Cette bière est une IPA : les Anglais l’ont inventée pour qu’elle survivre à la longue traversée jusqu'aux Indes. Elle n'a pas fait tout ce chemin pour passer inaperçue.
+Amertume franche, arômes d'agrumes, belle rondeur. Elle est parfaitement équilibrée.
+Fermentation haute (Ale)
+Alcool : 5,5%
+Amertume (IBU) : 4/5
+Couleur (EBC) : 2/5
+
+Ingrédients :
+Malts d’orge (Pils, Carapils)
+Malt de blé
+Houblons (Triskel, Mistral, Magnum)
+Levure (AY4)
+CO₂
+Conditionnement :
+Canette 44CL
+Bouteille 33CL
+Bouteille 75CL
+Fût Inox 20L
+NEIPA
+Cette bière est une NEIPA : née il y a seulement quelques années en Nouvelle-Angleterre, elle a séduit par ses arômes explosifs et sa douceur. Une belle harmonie.
+Arômes intenses de fruits blancs, rondeur veloutée, aucune amertume. Elle surprend par sa délicatesse.
+Fermentation haute (Ale)
+Alcool : 5%
+Amertume (IBU) : 1/5
+Couleur (EBC) : 3/5
+
+Ingrédients :
+Malts d’orge (Pils, Munich, Caravienna)
+Flocons d’avoine
+Houblons (Motueka, Rakau)
+Levure (Saturated)
+CO₂
+Conditionnement :
+Canette 44CL
+Bouteille 33CL
+Bouteille 75CL
+Fût Inox 20L
+· Gamme Originale ·
+
+## Slide 17
+FRAMBOISE original FRUITEE
+Cette bière est une fruitée : les framboises sont ajoutées durant la fermentation. Pas d'arôme artificiel, pas de sucre, pas de raccourci.
+Goût naturel de framboise, robe rosée, fraîcheur acidulée. Elle ne triche pas.
+Fermentation haute (Ale)
+Alcool : 5%
+Amertume (IBU) : 0/5
+Couleur (EBC) : 2/5
+
+Ingrédients :
+Malts d’orge (Pils)
+Malt de blé 
+Purée de framboise (100g/L)
+Houblons (Strisselspalt, Magnum)
+Levure (Banana)
+CO₂
+Conditionnement :
+Bouteille 75CL
+Fût Inox 20L
+Bieres emblématiques -CHR
+AMBREE original BITTER
+Cette bière est une Bitter : les Anglais l'appellent "Real Ale" : la vraie bière. Ils la servent à partir du « Cask » : le fût en bois utilisé pour la fermentation. La pure tradition.
+Arômes de biscuit et de caramel, amertume sèche et franche. Elle affirme son caractère sans concession.
+Fermentation haute (Ale)
+Alcool : 4,5 %
+Amertume (IBU) : 4/5
+Couleur (EBC) : 4/5
+
+Ingrédients :
+Malt d’orge (Pils, Cara amber)
+Houblons (East Kent Goldings, Magnum)
+Levure (AY4)
+CO₂
+Conditionnement :
+Bouteille 75CL
+Fût Inox 20L
+· Gamme Originale ·
+
+## Slide 18
+VERY GOOD TRIPLE
+Cette bière est une Triple : au Moyen-Âge, les moines réservaient leur bière la plus forte aux hôtes les plus considérés. Nous perpétuons la tradition.
+Arômes de miel et de fruits mûrs. Elle est puissante et élégante.
+Fermentation haute (Ale)
+Alcool : 9%
+Amertume (IBU) : 1/5
+Couleur (EBC) : 3/5
+
+Ingrédients :
+Malts d’orge (Pils, Munich)
+Sucre
+Houblons (Strisselspalt, Magnum)
+Levure (Bel Abbey)
+CO₂
+Conditionnement :
+Bouteille 75CL
+Fût Inox 20L
+Bieres emblématiques - CHR
+MUNICA BRUNE²
+Cette bière est une Porter : née à Londres au XVIIIème siècle, elle était la préférée des porteurs de fardeaux. Ils avaient plutôt bon goût.
+Arômes toastés et chocolatés, des airs de cappuccino. Elle est généreuse et réconfortante.
+Fermentation haute (Ale)
+Alcool : 7 %
+Amertume (IBU) : 3/5
+Couleur (EBC) : 5/5
+
+Ingrédients :
+Malts d’orge (Pils, Cara amber, Cara vienna, Chocolat)
+Sucre
+Lactose
+Houblons (Cascade, Herkules)
+CO₂
+Conditionnement :
+Bouteille 75CL
+Fût Inox 20L
+· Gamme Originale ·
+
+## Slide 19
+IPA special EXOTIC (Disponible en septembre)
+Cette bière est une IPA au caractère exotique : ses houblons ont été choisis pour vous proposer une aventure inédite. Georges était intrépide. Cette bière vous emmène encore plus loin.
+Fruits exotiques intenses, amertume franche. Elle conduit vers l’inattendu.
+Fermentation haute (Ale)
+Alcool : 3,8%
+Amertume (IBU) : 3/5
+Couleur (EBC) : 2/5
+
+Ingrédients :
+Malts d’orge
+Houblons
+Levure
+CO₂
+Conditionnement :
+Bouteille 75CL
+Fût Inox 20L
+Bieres emblématiques - CHR
+NEIPA special EXOTIC (Disponible en mai)
+Cette bière est une NEIPA au caractère exotique : ses houblons ont été sélectionnés pour vous transporter tout en douceur. Georges avait l'esprit voyageur. Cette bière aussi.
+Explosion de fruits exotiques, rondeur veloutée, sans amertume. Elle ouvre de nouveaux horizons.
+Fermentation haute (Ale)
+Alcool : 4 %
+Amertume (IBU) : 1/5
+Couleur (EBC) : 1/5
+
+Ingrédients :
+Malt d’orge
+Flocons d’avoine
+Houblons
+Levure
+CO₂
+Conditionnement :
+Bouteille 75CL
+Fût Inox 20L
+· EDITIONS LIMITEES ·
+
+## Slide 20
+RED ALE (Disponible le 01/10)
+
+Fermentation haute (Ale)
+Alcool : %
+Amertume (IBU) : /5
+Couleur (EBC) : /5
+
+Ingrédients :
+Conditionnement :
+Bouteille 33CL
+Fût Inox 20L
+Bieres emblématiques (CHR)
+BRUT IPA (Disponible le 01/11)
+
+Fermentation haute (Ale)
+Alcool : %
+Amertume (IBU) : /5
+Couleur (EBC) : /5
+
+Ingrédients :
+Conditionnement :
+Bouteille 33CL
+Fût Inox 20L
+· EDITIONS LIMITEES ·
+
+## Slide 21
+Brasserie audacieuse - HISTOIRE
+Georges Hoffherr est né en 1795. Il est issu d’une lignée d’agriculteurs et de brasseurs alsaciens. Ainsi, il suit le même chemin et exploite la brasserie Sternenberg puis celle de Volgelsang. Mais le destin s’en mêle. Son épouse décède soudainement le laissant seul avec 6 enfants. Georges n’a que quarante ans. Il décide de changer de vie et quitte son Alsace natale pour s’installer à Lyon. Ce n’est pas un hasard. Lyon est en pleine expansion et une ville où l’on brasse!
+
+Georges est audacieux et cela se voit. Il installe sa brasserie dans un imposant bâtiment dans le cœur du quartier de Perrache. Le succès ne se fera pas attendre. La bière coule à flots et 3000 hectolitres sont vendus en 1860. Georges développe son affaire et prépare la relève en formant ses enfants et en associant ses deux gendres Mathieu Umdenstock et Jean Lutzius. La nouvelle génération a, elle aussi, de l’ambition. La brasserie devient une petite usine.
+
+Georges s’éteint en 1873. Sa fille Sophie et son gendre Mathieu Umdenstock deviennent les nouveaux propriétaires de la Brasserie Georges. Mathieu, alsacien et brasseur, n’en reste pas là. Il ouvre des établissements aux quatre coins de Lyon dans l’objectif de faire croître les Bières Georges. L’un des fils de Georges, Fritz, fait de même. Les Bières Georges sont servies dans les brasseries du Parc, de l’Alhambra,  Dupuis, Thomassin mais aussi dans la vallée du Rhône et même en Algérie et en Tunisie.
+
+Lyon dispose de tous les atouts pour devenir la capitale de la bière : l’eau puisée dans les nappes souterraines est d’excellente qualité et les régions voisines approvisionnent, par le chemin de fer, l’orge et le houblon. La demande est de plus en plus importante. Mathieu établit une nouvelle usine, dans la Montée de Choulans, dotée d’outils modernes et poursuit le développement. 10 000 hectolitres sont produits en 1880. 15 000 hectolitres en 1890.
+
+Le temps passe… et Lyon s’affirme comme le second centre brassicole français. Mais le secteur d’activité est affecté par les pénuries de l’après-guerre et de nombreuses brasseries sont confrontées à des difficultés financières. Certaines se regroupent pour résister. La brasserie Georges survit mais l’usine et la marque Bières Georges disparaissent en 1939.
+
+Il faudra attendre le rachat de Brasserie Georges, en 2001, par un entrepreneur lyonnais pour que les Bières Georges soient ressuscitées grâce à l’installation d’une micro-brasserie au cœur du restaurant. Les Bières Georges sont fabriquées et servies su place.
+
+L’histoire prend un nouveau tournant en 2018 à la création de LA FABRIQUE DU FAUBOURG qui installe à Vénissieux, dans un local de 1500m², un outil de production permettant le brassage et le conditionnement des Bières Georges. Julien Chauve, associé à la famille  Lameloise, porte lui aussi l’ambition du fondateur
+
+L’histoire prend un nouveau tournant en 2018. Julien Chauve, associé à la famille Lameloise, crée la FABRIQUE DU FAUBOURG et installe à Vénissieux un outil de production dédié au brassage et au conditionnement des Bières Georges afin de les distribuer dans les établissements et les magasins de Lyon et sa région.
+
+## Slide 22
+BENCHMARK - MANIFESTO
+BRANDNAPAVALLEY
+Images et phrases clés avec une grande taille de caractère
+
+## Slide 23
+Brasserie audacieuse – MANIFESTO
+Notre philosophie
+Nous sommes les héritiers de l’audacieux Georges.
+Nous brassons bien plus qu’une bière : nous poursuivons l’histoire des BIERES GEORGES nées à Lyon en 1836.
+Notre vision pour le futur
+Nous sommes les conquérants de la bière.
+Nous puisons dans notre héritage et notre époque pour que BIERES GEORGES soit incontournable en région Auvergne-Rhône-Alpes.
+Nos engagements
+Nous conjuguons notre histoire au présent.
+Nous brassons, avec une exigence sans concession, des bières emblématiques et nous créons, avec une audace parfois impertinente, des bières originales.
+Image
+
+## Slide 24
+Brasserie audacieuse – VALEURS
+1. L’AUDACE DU FONDATEUR
+Nous portons l’audace de Georges Hoffrerr comme un flambeau, pas comme une relique.
+
+2. L’EXIGENCE DU MAÎTRE
+Nous brassons chaque bière comme si notre nom était gravé sur chaque bouteille.
+
+
+3. LA SIMPLICITÉ ÉLÉGANTE
+Nous visons la précision juste : celle qui révèle l’essentiel sans artifice
+
+4. L’ÉNERGIE CONQUÉRANTE
+Nous cultivons l’ambition pour nourrir notre développement.
+
+5. LA FIERTÉ FÉDÉRATRICE
+Nous partageons notre amour pour Lyon et notre passion pour la bière.
+Image
+
+## Slide 25
+Brasserie audacieuse – EQUIPE
+ADMINISTRATIF
+PRODUCTION
+LOGISTIQUE
+COMMERCE GMS
+JULIEN
+Dirigeant
+LAURE
+Assistante ADV/ADM
+NICOLAS
+Responsable Brassage
+TRISTAN
+Responsable Conditionnement
+MARC-ANTOINE
+Responsable
+Production
+LÉA
+Opératrice Production
+AUDREY
+Responsable
+Secteur
+NADER
+Commercial
+01,69,73,74
+EDDY
+Commercial
+07,26,38,42,43,69
+YOHAN
+Chauffeur/livreur
+COMMERCE CHR
+LUCAS
+Responsable Commercial
+v
+SOUVERAIN
+GEORGES
+Fondateur
+MANAGEMENT
+
+## Slide 26
+Brasserie audacieuse – SAVOIR FAIRE
+Nous maîtrisons un savoir-faire complexe pour créer des bières d’une simplicité désarmante. La complexité du brassage doit aboutir à la simplicité du plaisir. Nous créons des bières précises, équilibrées, où chaque ingrédient a sa raison d’être et aucun n’est superflu.
+Cette simplicité n’est pas un appauvrissement, c’est un raffinement : elle demande plus de maîtrise que la surenchère.
+Notre ambition ? Qu’un néophyte découvre le plaisir d’une belle bière, et qu’un connaisseur y reconnaisse l’élégance du geste. Pas de fioritures, pas de démonstration technique gratuite. Juste la bière, dans toute sa vérité.
+La simplicité élégante, c’est rendre accessible ce qui est excellent, sans jamais tomber dans la facilité.
+Un maître brasseur ne triche jamais. Il connaît ses matières premières, maîtrise ses process, ajuste au millimètre. Notre exigence commence par le choix des ingrédients et ne s’arrête qu’au moment où le client savoure sa bière.
+Nous sommes intransigeants sur la qualité, patients dans l’élaboration, méticuleux dans le contrôle. Cette rigueur n’est pas une contrainte, c’est notre fierté. Elle se voit dans le geste du brasseur qui prend soin de son outil de production, qui améliore continuellement son process de fabrication et qui goûte perpétuellement sa bière.
+Le maître signe son œuvre. Nous signons chaque bière de notre exigence.
+Image
+Image
+

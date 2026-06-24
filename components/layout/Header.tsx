@@ -27,7 +27,7 @@ export function Header() {
         className="border-b border-green/10 bg-cream/95 shadow-[0_10px_30px_-24px_rgba(6,58,52,0.65)] backdrop-blur-md"
         style={{ WebkitBackdropFilter: "blur(2px)" }}
       >
-        <div className="container-page flex items-center justify-between py-2.5">
+        <div className="container-page flex items-center justify-between py-4">
           {/* Left — Bières Georges wordmark */}
           <Link href="/" aria-label="Bières Georges — accueil">
             <Image
@@ -36,11 +36,11 @@ export function Header() {
               width={1093}
               height={465}
               priority
-              className="h-7 w-auto sm:h-8"
+              className="h-9 w-auto sm:h-10"
             />
           </Link>
 
-          <nav className="hidden items-center gap-3 lg:flex xl:gap-4">
+          <nav className="hidden items-center gap-4 lg:flex xl:gap-6">
             {navLinks.map((link) => {
               const children = "children" in link ? link.children : undefined;
 
@@ -48,7 +48,7 @@ export function Header() {
                 <div key={link.label} className="group/nav relative">
                   <a
                     href={link.href}
-                    className="group/link relative block whitespace-nowrap text-[0.58rem] font-semibold uppercase tracking-[0.14em] text-dark-text/75 transition-colors hover:text-orange"
+                    className="group/link relative block max-w-[7.5rem] text-center text-[0.72rem] font-semibold uppercase leading-tight tracking-[0.1em] text-dark-text/75 transition-colors hover:text-orange"
                   >
                     {link.label}
                     <span className="absolute -bottom-1.5 left-0 h-px w-0 bg-orange transition-all duration-300 group-hover/link:w-full" />
@@ -82,7 +82,7 @@ export function Header() {
               width={1510}
               height={484}
               priority
-              className="hidden h-7 w-auto sm:block"
+              className="hidden h-9 w-auto sm:block"
             />
             <button
               type="button"
