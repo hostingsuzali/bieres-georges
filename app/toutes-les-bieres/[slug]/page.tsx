@@ -3,37 +3,13 @@ import { notFound } from "next/navigation";
 
 import { SiteShell } from "@/components/layout/SiteShell";
 import { ProductHero } from "@/components/sections/product/ProductHero";
-import { ProductProfile } from "@/components/sections/product/ProductProfile";
-import { ProductDegustation } from "@/components/sections/product/ProductDegustation";
 import { ProductTechnical } from "@/components/sections/product/ProductTechnical";
 import { ProductRelated } from "@/components/sections/product/ProductRelated";
-import { FilmStripDivider } from "@/components/ui/FilmStripDivider";
-import { beers, type Beer } from "@/lib/products";
+import { beers } from "@/lib/products";
 
 type ProductPageProps = {
   params: Promise<{ slug: string }>;
 };
-
-const tastingByCollection = {
-  "Les Originales": {
-    hook: "Un repère Georges, droit dans son style et pensé pour revenir au verre.",
-    notes: [
-      { label: "Équilibre", description: "Un rapport malt-houblon maîtrisé pour une bière franche." },
-      { label: "Fraîcheur", description: "Chaque gorgée rafraîchit, sans lourdeur ni amertume excessive." },
-      { label: "Finale nette", description: "Pas de traîne. Le goût part propre, on y revient." },
-    ],
-    serving: "Servir dans un verre tulipe propre. Incliner le verre, verser lentement, laisser la mousse se former.",
-  },
-  "Les Spéciales": {
-    hook: "Une expression plus libre, construite pour surprendre sans perdre l'équilibre.",
-    notes: [
-      { label: "Aromatique", description: "Des houblons choisis pour leur expressivité et leur complexité." },
-      { label: "Créative", description: "Des assemblages qui osent, sans sacrifier la buvabilité." },
-      { label: "Intense", description: "Un caractère affirmé qui se mérite, gorgée après gorgée." },
-    ],
-    serving: "Servir dans un verre à pied. Laisser la bière respirer quelques instants avant de déguster.",
-  },
-} satisfies Record<Beer["collection"], { hook: string; notes: { label: string; description: string }[]; serving: string }>;
 
 export function generateStaticParams() {
   return beers.map((beer) => ({ slug: beer.slug }));
@@ -63,7 +39,6 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
     notFound();
   }
 
-  const tasting = tastingByCollection[beer.collection];
   const related = beers
     .filter(
       (item) =>
@@ -75,13 +50,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
 
   return (
     <SiteShell>
-      <ProductHero beer={beer} hook={tasting.hook} />
-      <ProductProfile notes={tasting.notes} />
-      <FilmStripDivider />
-      <ProductDegustation
-        pairing={beer.pairing}
-        serving={tasting.serving}
-      />
+      <ProductHero beer={beer} />
       <ProductTechnical beer={beer} />
       {related.length > 0 && <ProductRelated beers={related} />}
     </SiteShell>

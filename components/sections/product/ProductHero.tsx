@@ -11,10 +11,9 @@ import { EASE } from "@/lib/motion";
 
 type ProductHeroProps = {
   beer: Beer;
-  hook: string;
 };
 
-export function ProductHero({ beer, hook }: ProductHeroProps) {
+export function ProductHero({ beer }: ProductHeroProps) {
   const sectionRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -75,7 +74,7 @@ export function ProductHero({ beer, hook }: ProductHeroProps) {
               transition={{ duration: 0.7, ease: EASE, delay: 0.3 }}
               className="mt-7 max-w-lg text-base leading-relaxed text-cream/65 sm:text-lg"
             >
-              {beer.description} {hook}
+              {beer.description} {beer.tastingNote}
             </motion.p>
 
             {/* Quick specs strip */}
