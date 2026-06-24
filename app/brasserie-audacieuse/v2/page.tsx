@@ -197,11 +197,11 @@ export default function BrasserieAudacieuseV2Page() {
           </div>
           <div className={styles.valueList}>
             {values.map(([number, title, copy]) => (
-              <article className={styles.value} key={number}>
+              <button className={styles.value} key={number}>
                 <span>{number}</span>
                 <h3>{title}</h3>
                 <p>{copy}</p>
-              </article>
+              </button>
             ))}
           </div>
         </section>
