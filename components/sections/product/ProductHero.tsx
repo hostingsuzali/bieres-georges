@@ -6,6 +6,7 @@ import { useRef, useState } from "react";
 
 import { Badge } from "@/components/ui/Badge";
 import { CtaLink } from "@/components/ui/CtaLink";
+import { ProductGauges } from "@/components/sections/product/ProductGauges";
 import type { Beer } from "@/lib/products";
 import { EASE } from "@/lib/motion";
 
@@ -98,25 +99,17 @@ export function ProductHero({ beer }: ProductHeroProps) {
               ))}
             </motion.div>
 
-            {/* Inline spec pills */}
+            {/* Jauges — degré, amertume, caractère */}
             <motion.div
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, ease: EASE, delay: 0.45 }}
-              className="mt-6 flex flex-wrap gap-3"
+              className="mt-7 rounded-2xl border border-cream/10 bg-cream/5 p-5"
             >
-              <span className="inline-flex items-center gap-1.5 rounded-full border border-cream/15 bg-cream/5 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-cream/60">
-                Alcool <strong className="text-orange">{beer.abv}%</strong>
-              </span>
-              <span className="inline-flex items-center gap-1.5 rounded-full border border-cream/15 bg-cream/5 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-cream/60">
-                EBC <strong className="text-orange">{beer.ebc}/5</strong>
-              </span>
-              <span className="inline-flex items-center gap-1.5 rounded-full border border-cream/15 bg-cream/5 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-cream/60">
-                IBU <strong className="text-orange">{beer.ibu}/5</strong>
-              </span>
-              <span className="inline-flex items-center gap-1.5 rounded-full border border-cream/15 bg-cream/5 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-cream/60">
+              <ProductGauges abv={beer.abv} ibu={beer.ibu} ebc={beer.ebc} />
+              <p className="mt-4 text-xs font-semibold uppercase tracking-wider text-cream/45">
                 {beer.fermentation}
-              </span>
+              </p>
             </motion.div>
 
             {/* Formats — horizontal scroll */}

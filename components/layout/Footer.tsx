@@ -22,8 +22,8 @@ const footerColumns = [
       { label: "Points de vente", href: "/trouver" },
       { label: "Professionnels", href: "/travailler-avec-nous" },
       { label: "Louer une tireuse", href: "/louer-une-tireuse" },
-      { label: "Journal", href: "/#blog" },
-      { label: "Contact", href: "mailto:bonjour@bieresgeorges.fr" },
+      { label: "Actualités", href: "/actualites" },
+      { label: "Contact", href: "/contact" },
     ],
   },
   {

@@ -10,8 +10,8 @@ export const navLinks: readonly NavLink[] = [
   { label: "Trouver les Bières Georges", href: "/trouver" },
   { label: "Louer une tireuse", href: "/louer-une-tireuse" },
   { label: "Travailler avec les Bières Georges", href: "/travailler-avec-nous" },
-  { label: "Blog", href: "/#blog" },
-  { label: "Contact", href: "mailto:bonjour@bieresgeorges.fr" },
+  { label: "Actualités", href: "/actualites" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export const brasseriePillars = [
@@ -173,6 +173,70 @@ export const articles = [
       "Pourquoi certaines bières se construisent avec patience, exigence et simplicité.",
     tone: "green",
     image: "/assets/bieres.jpg",
+  },
+] as const;
+
+// Full article set for the "/actualites" journal page.
+export const blogArticles = [
+  {
+    slug: "art-du-brassage-georges",
+    category: "Brasserie",
+    date: "12 juin 2026",
+    title: "L'art du brassage : comment naît une Bières Georges",
+    excerpt:
+      "De la sélection des houblons à la mise en fût, plongez dans les coulisses de notre processus de brassage artisanal.",
+    image: "/assets/images/BRASSERIE.jpg",
+    readTime: "5 min",
+  },
+  {
+    slug: "histoire-brasserie-depuis-1836",
+    category: "Histoire",
+    date: "3 mai 2026",
+    title: "1836 : la maison qui refusait de disparaître",
+    excerpt:
+      "Deux siècles de caractère ne s'inventent pas. Retour sur les tournants qui ont forgé l'identité des Bières Georges.",
+    image: "/assets/images/1860-1.jpeg",
+    readTime: "8 min",
+  },
+  {
+    slug: "accords-bieres-gastronomie",
+    category: "Gastronomie",
+    date: "18 avr. 2026",
+    title: "Accords bières & cuisine : nos trois duos incontournables",
+    excerpt:
+      "Nos brasseurs partagent leurs associations préférées entre les Originales, les Spéciales et les plats de saison.",
+    image: "/assets/images/verres 3 bières.jpg",
+    readTime: "4 min",
+  },
+  {
+    slug: "dans-lombre-des-cuves",
+    category: "Coulisses",
+    date: "12 mai 2024",
+    title: "Dans l'ombre des cuves",
+    excerpt:
+      "Une immersion dans les gestes, les temps longs et les détails qui façonnent chaque brassin.",
+    image: "/assets/images/pression_bar.jpg",
+    readTime: "6 min",
+  },
+  {
+    slug: "lyon-ville-de-caractere",
+    category: "Terroir",
+    date: "5 mai 2024",
+    title: "Lyon, ville de caractère",
+    excerpt:
+      "Entre tradition, gastronomie et convivialité, Lyon inspire depuis toujours l'esprit Georges.",
+    image: "/assets/images/trinquent.jpg",
+    readTime: "5 min",
+  },
+  {
+    slug: "le-gout-du-temps-long",
+    category: "Savoir-faire",
+    date: "28 avril 2024",
+    title: "Le goût du temps long",
+    excerpt:
+      "Pourquoi certaines bières se construisent avec patience, exigence et simplicité.",
+    image: "/assets/bieres.jpg",
+    readTime: "5 min",
   },
 ] as const;
 

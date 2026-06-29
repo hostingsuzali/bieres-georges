@@ -19,7 +19,8 @@ type IconName =
   | "instagram"
   | "facebook"
   | "linkedin"
-  | "diamond";
+  | "diamond"
+  | "mail";
 
 type IconProps = SVGProps<SVGSVGElement> & {
   name: IconName;
@@ -149,6 +150,12 @@ const paths: Record<IconName, ReactElement> = {
   diamond: (
     <>
       <path d="M12 3 21 12l-9 9-9-9 9-9Z" />
+    </>
+  ),
+  mail: (
+    <>
+      <rect x="3" y="5" width="18" height="14" rx="2" />
+      <path d="m4 7 8 6 8-6" />
     </>
   ),
 };

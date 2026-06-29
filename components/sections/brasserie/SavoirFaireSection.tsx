@@ -147,15 +147,51 @@ export function SavoirFaireSection() {
         );
       })}
 
-      {/* Bottom CTA strip */}
-      <div className="border-t border-green/10 bg-cream px-4 py-14">
-        <div className="container-page flex flex-wrap items-center justify-center gap-4">
-          <CtaLink href="/toutes-les-bieres" variant="green">
-            Voir les bières
-          </CtaLink>
-          <CtaLink href="/travailler-avec-nous" variant="outline">
-            Travailler avec nous
-          </CtaLink>
+      {/* Maillage interne — blocs visuels pleine largeur */}
+      <div className="border-t border-green/10 bg-cream px-4 py-16 sm:py-20">
+        <div className="container-page">
+          <p className="eyebrow text-center text-orange">Poursuivre la découverte</p>
+          <h2 className="font-display mx-auto mt-4 max-w-2xl text-center text-3xl font-bold uppercase leading-[0.95] text-green sm:text-5xl">
+            La suite de l&apos;histoire
+          </h2>
+
+          <div className="mt-12 grid gap-6 lg:grid-cols-2">
+            <article className="grid gap-6 rounded-3xl bg-green-deep p-8 text-cream sm:grid-cols-[auto_1fr] sm:items-center sm:p-10">
+              <Icon name="caviste" size={36} className="text-orange" />
+              <div>
+                <h3 className="font-display text-2xl font-bold uppercase leading-[0.95] sm:text-3xl">
+                  Nos bières emblématiques
+                </h3>
+                <p className="mt-3 text-sm leading-relaxed text-cream/65">
+                  Quatre caractères, une même exigence : explorez la gamme
+                  Georges, des Originales aux Spéciales.
+                </p>
+                <div className="mt-6">
+                  <CtaLink href="/toutes-les-bieres" variant="light">
+                    Voir les bières
+                  </CtaLink>
+                </div>
+              </div>
+            </article>
+
+            <article className="grid gap-6 rounded-3xl border border-green/15 bg-cream-dark p-8 text-green sm:grid-cols-[auto_1fr] sm:items-center sm:p-10">
+              <Icon name="bar" size={36} className="text-orange" />
+              <div>
+                <h3 className="font-display text-2xl font-bold uppercase leading-[0.95] sm:text-3xl">
+                  Travailler avec nous
+                </h3>
+                <p className="mt-3 text-sm leading-relaxed text-green/65">
+                  Bars, cavistes, grande distribution ou événements : construisons
+                  un accompagnement adapté à votre activité.
+                </p>
+                <div className="mt-6">
+                  <CtaLink href="/travailler-avec-nous" variant="green">
+                    Travailler avec nous
+                  </CtaLink>
+                </div>
+              </div>
+            </article>
+          </div>
         </div>
       </div>
     </section>
