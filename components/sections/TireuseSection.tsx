@@ -53,24 +53,6 @@ export function TireuseSection() {
             />
           </motion.div>
 
-          {/* corner tag */}
-          <motion.div
-            initial={{ opacity: 0, x: -16 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={inViewOnce}
-            transition={{ duration: 0.7, ease: EASE, delay: 0.3 }}
-            className="absolute bottom-4 left-4 flex items-center gap-2.5 bg-orange px-4 py-2.5 text-cream sm:bottom-10 sm:left-10 sm:gap-3 sm:px-5 sm:py-3"
-          >
-            <span className="font-display text-2xl font-bold leading-none sm:text-3xl">
-              5L → 30L
-            </span>
-            <span className="eyebrow text-cream/85">
-              Fûts
-              <br />
-              disponibles
-            </span>
-          </motion.div>
-
           {/* small floating badge in the upper corner */}
           <motion.div
             initial={{ opacity: 0, scale: 0.6 }}
@@ -109,7 +91,8 @@ export function TireuseSection() {
             >
               Bières Georges accompagne vos événements privés ou professionnels
               quel que soit le nombre de convives. Nous vous proposons du matériel
-              adapté à votre projet avec différents modèles de tireuses mobiles.
+              adapté à votre projet avec différents modèles de tireuses mobiles
+              ainsi que des prestations logistiques personnalisées.
             </motion.p>
 
             {/* occasions chips */}

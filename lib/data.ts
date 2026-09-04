@@ -385,6 +385,111 @@ export const departmentColors: Record<TeamDepartment, string> = {
   "Commerce CHR": "bg-orange text-cream",
 };
 
+/**
+ * Histoire — 12 jalons fournis par le client (slides « HISTOIRE - MAQUETTE »).
+ * `era` pilote le traitement graphique uniforme des visuels :
+ *   - "heritage"  → 1795 – 1939 (archives, duotone vert/sépia)
+ *   - "renouveau" → 2004 – 2026 (photos actuelles, couleur)
+ * Les visuels ci-dessous sont les meilleurs disponibles dans le repo ;
+ * les archives originales du deck restent à fournir par Julien.
+ */
+export type HistoryEra = "heritage" | "renouveau";
+
+export type HistoryMilestone = {
+  year: string;
+  title: string;
+  text: string;
+  image: string;
+  era: HistoryEra;
+};
+
+export const historyTimeline: readonly HistoryMilestone[] = [
+  {
+    year: "1795",
+    title: "Le pionnier",
+    text: "Georges Hoffherr naît à Schiltigheim en Alsace. Il est issu d'une lignée d'agriculteurs et de brasseurs alsaciens. Ainsi, il suit le même chemin et exploite la brasserie Sternenberg puis celle de Volgelsang. Mais le destin s'en mêle. Son épouse décède soudainement le laissant seul avec 6 enfants.",
+    image: "/assets/logos/georges-hofherr.png",
+    era: "heritage",
+  },
+  {
+    year: "1836",
+    title: "Le début de l'histoire",
+    text: "Georges n'a que quarante ans. Il décide de changer de vie et quitte son Alsace natale pour s'installer à Lyon. Ce n'est pas un hasard. Lyon est en pleine expansion et une ville où l'on brasse ! Georges est audacieux et cela se voit. Il installe sa brasserie dans un imposant bâtiment dans le cœur du quartier de Perrache. Le succès ne se fera pas attendre.",
+    image: "/assets/images/BRASSERIE.jpg",
+    era: "heritage",
+  },
+  {
+    year: "1860",
+    title: "Le succès",
+    text: "La bière coule à flots et 3000 hectolitres sont vendus en 1860. Georges développe son affaire et prépare la relève en formant ses enfants et en associant ses deux gendres Mathieu Umdenstock et Jean Lutzius. La nouvelle génération a, elle aussi, de l'ambition. La brasserie devient une petite usine.",
+    image: "/history/history-1.jpg",
+    era: "heritage",
+  },
+  {
+    year: "1873",
+    title: "Une affaire de famille",
+    text: "Georges s'éteint. Sa fille Sophie et son gendre Mathieu Umdenstock deviennent les nouveaux propriétaires de la Brasserie Georges. Mathieu, alsacien et brasseur, n'en reste pas là. Il ouvre des établissements aux quatre coins de Lyon dans l'objectif de faire croître les Bières Georges. L'un des fils de Georges, Fritz, fait de même. Les Bières Georges sont servies dans les brasseries du Parc, de l'Alhambra, Dupuis, Thomassin mais aussi dans la vallée du Rhône et même en Algérie et en Tunisie.",
+    image: "/history/history-3.jpg",
+    era: "heritage",
+  },
+  {
+    year: "1880",
+    title: "L'audace",
+    text: "Lyon dispose de tous les atouts pour devenir la capitale de la bière : l'eau puisée dans les nappes souterraines est d'excellente qualité et les régions voisines approvisionnent, par le chemin de fer, l'orge et le houblon. La demande est de plus en plus importante. Mathieu établit une nouvelle usine, dans la Montée de Choulans, dotée d'outils modernes et poursuit le développement. 10 000 hectolitres sont produits en 1880. 15 000 hectolitres en 1890.",
+    image: "/Charte Graphique_Dossier/Links/Biere Georges Montée Choulans.jpg",
+    era: "heritage",
+  },
+  {
+    year: "1936",
+    title: "Une fin amère",
+    text: "Le temps passe… La Brasserie Georges fête ses 100 ans et Lyon s'affirme comme le second centre brassicole français. Mais le secteur d'activité est affecté par les pénuries de l'après-guerre et de nombreuses brasseries sont confrontées à des difficultés financières. Certaines se regroupent pour résister. La brasserie Georges survit mais l'usine et la marque Bières Georges disparaissent en 1939.",
+    image: "/history/history-2.jpg",
+    era: "heritage",
+  },
+  {
+    year: "2004",
+    title: "Une nouvelle ère",
+    text: "La Brasserie Georges sera exploitée par la famille Rinck de 1939 à 2002 en tant que lieu de restauration puis sera reprise en 2002 par Christian Lameloise qui installe une micro-brasserie pour reprendre la fabrication des Bières Georges. 625 hl sont produits la première année.",
+    image: "/Charte Graphique_Dossier/Links/brasserie nuit.jpg",
+    era: "renouveau",
+  },
+  {
+    year: "2017",
+    title: "La genèse d'un projet audacieux",
+    text: "Le projet naît dans l'esprit de plusieurs entrepreneurs : les Bières Georges doivent franchir les murs de la Brasserie Georges. Elles sont servies de la cuve au verre aux amateurs de « Bonne Bière et bonne chère » qui viennent s'attabler au restaurant. Elles doivent maintenant devenir accessibles à tous, dans les magasins et les établissements de la région.",
+    image: "/assets/images/trinquent.jpg",
+    era: "renouveau",
+  },
+  {
+    year: "2018",
+    title: "La naissance d'une brasserie indépendante",
+    text: "La Fabrique du Faubourg est créée en 2018 et s'installe à Lyon pour fabriquer, conditionner et distribuer les Bières Georges dans la région Auvergne-Rhône-Alpes. Elle abrite un outil de production qui permet de brasser des bières, avec l'exigence du maître fondateur, dans des volumes importants, pour servir l'ambition de ses successeurs.",
+    image: "/assets/logos/logo-ff-brique.png",
+    era: "renouveau",
+  },
+  {
+    year: "2019",
+    title: "Le développement",
+    text: "Les Bières Georges sont commercialisées dans les établissements de Lyon et sa région grâce à des partenariats noués avec des distributeurs de boissons. Elles s'invitent en 2021 dans les rayons des magasins de la grande distribution. La Fabrique du Faubourg est en croissance et compte plus de 10 collaborateurs.",
+    image: "/assets/images/fabrique-aujourdhui.webp",
+    era: "renouveau",
+  },
+  {
+    year: "2025",
+    title: "Une nouvelle dimension",
+    text: "Quatre entrepreneurs entrent au capital pour doter l'entreprise des ressources financières nécessaires à son accélération. Le plan de développement est ambitieux et s'articule autour de 3 axes : faire vivre la marque Bières Georges, moderniser le process et l'outil de production et développer la distribution. La question n'est plus « comment vivre » mais « comment conquérir ».",
+    image: "/assets/logos/logo-classique-brique.png",
+    era: "renouveau",
+  },
+  {
+    year: "2026",
+    title: "L'accélération",
+    text: "L'équipe est renforcée avec l'intégration de personnes clés notamment en production et au commerce. Les innovations sont nombreuses et concernent les formats, tels que la canette 44CL et les produits, comme la Pils (bière blonde désaltérante) et la Witbier (bière blanche au gingembre et citron vert).",
+    image: "/assets/images/bieres.jpg",
+    era: "renouveau",
+  },
+] as const;
+
 export const manifestoContent = {
   headline: "Faire une bière de caractère, pas une bière de décor.",
   philosophy: {
@@ -410,10 +515,10 @@ export const manifestoContent = {
 export const savoirFaireBlocks = [
   {
     eyebrow: "Maîtrise artisanale",
-    title: "Le maître signe son œuvre",
+    title: "Le maître signe son œuvre. Nous signons chaque bière",
     body: "Un maître brasseur ne triche jamais. Il connaît ses matières premières, maîtrise ses process, ajuste au millimètre. Notre exigence commence par le choix des ingrédients et ne s'arrête qu'au moment où le client savoure sa bière.",
     expanded:
-      "Nous sommes intransigeants sur la qualité, patients dans l'élaboration, méticuleux dans le contrôle. Cette rigueur n'est pas une contrainte, c'est notre fierté.\n\nChaque brassin est suivi de A à Z par notre maître brasseur. De la réception des malts à la mise en bouteille, rien n'est laissé au hasard. Les températures, les durées de fermentation, les profils de houblonnage — tout est mesuré, goûté, ajusté. C'est cette discipline quotidienne qui garantit une bière régulière, franche et reconnaissable.\n\nNotre brasserie tourne avec un équipement dimensionné pour la précision artisanale, pas pour le volume industriel. Chaque cuve a sa personnalité, chaque recette son tempo. On ne force rien : on accompagne la matière jusqu'au verre.",
+      "Nous sommes intransigeants sur la qualité, patients dans l'élaboration, méticuleux dans le contrôle. Cette rigueur n'est pas une contrainte, c'est notre fierté. Elle se voit dans le geste du brasseur qui prend soin de son outil de production, qui améliore continuellement son process de fabrication et qui goûte perpétuellement sa bière.\n\nLe maître signe son œuvre. Nous signons chaque bière de notre exigence.",
     image: "/Charte Graphique_Dossier/Links/brasserie jour.jpg",
     highlights: [
       "Sélection rigoureuse des matières premières",
@@ -422,22 +527,6 @@ export const savoirFaireBlocks = [
       "Amélioration continue de la production",
       "Suivi personnalisé de chaque brassin",
       "Équipement dimensionné pour la précision",
-    ],
-  },
-  {
-    eyebrow: "La simplicité élégante",
-    title: "Révéler l'essentiel sans artifice",
-    body: "Nous maîtrisons un savoir-faire complexe pour créer des bières d'une simplicité désarmante. La complexité du brassage doit aboutir à la simplicité du plaisir.",
-    expanded:
-      "Cette simplicité n'est pas un appauvrissement, c'est un raffinement : elle demande plus de maîtrise que la surenchère.\n\nChaque recette est pensée pour que le buveur retrouve immédiatement ce qu'il attend : un goût net, un profil lisible, un plaisir sans détour. Pas de surcharge aromatique, pas de complexité pour la complexité. L'équilibre est notre obsession.\n\nDe l'étiquette au liquide, tout doit parler la même langue — celle d'une brasserie qui sait ce qu'elle fait et qui n'a pas besoin de le crier. La simplicité Georges, c'est la confiance dans le produit. Une bière qui se suffit à elle-même, servie sans discours, appréciée sans mode d'emploi.",
-    image: "/assets/images/fabrique-aujourdhui.webp",
-    highlights: [
-      "Recettes précises et équilibrées",
-      "Chaque ingrédient a sa raison d'être",
-      "Profils aromatiques nets et lisibles",
-      "L'élégance du geste, pas la démonstration",
-      "De l'étiquette au liquide, cohérence totale",
-      "Un produit qui se suffit à lui-même",
     ],
   },
 ] as const;

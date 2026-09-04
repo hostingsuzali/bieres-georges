@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 
-import { CtaLink } from "@/components/ui/CtaLink";
 import { useAgeVerification } from "@/lib/age-context";
 import { EASE } from "@/lib/motion";
 
@@ -60,18 +59,6 @@ export function HeroSection() {
           Brasserie audacieuse depuis{" "}
           <span className="text-cream">1836</span>
         </motion.p>
-
-        {/* CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 18 }}
-          animate={play ? { opacity: 1, y: 0 } : { opacity: 0, y: 18 }}
-          transition={{ duration: 0.8, ease: EASE, delay: 1.0 }}
-          className="mt-9"
-        >
-          <CtaLink href="/toutes-les-bieres" variant="light" className="px-10">
-            Voir nos bières
-          </CtaLink>
-        </motion.div>
       </div>
     </section>
   );

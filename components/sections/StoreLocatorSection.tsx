@@ -6,7 +6,6 @@ import Script from "next/script";
 import { useRef, useState } from "react";
 
 import { AnimatedHeading } from "@/components/ui/AnimatedHeading";
-import { Badge } from "@/components/ui/Badge";
 import { CtaLink } from "@/components/ui/CtaLink";
 import { Icon } from "@/components/ui/Icon";
 import { fadeUp, inViewOnce } from "@/lib/motion";
@@ -61,7 +60,6 @@ export function StoreLocatorSection() {
 
       <div className="container-page relative z-10">
         <div className="flex flex-col items-center text-center">
-          <Badge tone="cream">Points de vente</Badge>
           <AnimatedHeading
             as="h2"
             text="Trouver les Bières Georges"
@@ -120,7 +118,7 @@ export function StoreLocatorSection() {
 
         <div className="mt-5 flex justify-center">
           <CtaLink href="/trouver" variant="outline">
-            Ouvrir la page points de vente
+            Ouvrir la carte
           </CtaLink>
         </div>
 
@@ -135,6 +133,11 @@ export function StoreLocatorSection() {
               transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
               className="mt-8 scroll-mt-6 overflow-hidden rounded-3xl border border-dark-text/10 bg-cream-dark [transform-origin:top]"
             >
+              <div className="flex items-center justify-between border-b border-dark-text/10 bg-cream px-6 py-4">
+                <span className="font-display text-lg font-bold uppercase tracking-wider text-green">
+                  Les magasins &amp; Les établissements
+                </span>
+              </div>
               <div
                 className={`elfsight-app-${ELFSIGHT_APP_ID} min-h-[32rem] w-full`}
                 data-elfsight-app-lazy

@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 
 import { AnimatedHeading } from "@/components/ui/AnimatedHeading";
-import { Badge } from "@/components/ui/Badge";
 import { Icon, type IconName } from "@/components/ui/Icon";
 import { founderValues } from "@/lib/data";
 import { fadeUp, inViewOnce, stagger } from "@/lib/motion";
@@ -18,10 +17,19 @@ export function ValeursSection() {
         {/* Header */}
         <div className="grid gap-8 lg:grid-cols-[0.55fr_0.45fr] lg:items-end">
           <div>
-            <Badge tone="green">Valeurs</Badge>
+            <motion.p
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={inViewOnce}
+              transition={{ duration: 0.7 }}
+              className="eyebrow text-sm font-bold tracking-[0.25em] text-orange sm:text-base"
+            >
+              Valeurs
+            </motion.p>
+            {/* Titre provisoire (Lorem ipsum) — en attente du texte définitif */}
             <AnimatedHeading
               as="h2"
-              text="Ce qui tient la maison debout."
+              text="Lorem ipsum dolor sit amet."
               className="font-display mt-5 text-4xl font-bold uppercase leading-[0.9] sm:text-6xl lg:text-7xl"
             />
           </div>
@@ -30,10 +38,10 @@ export function ValeursSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={inViewOnce}
             transition={{ duration: 0.7 }}
-            className="max-w-md leading-relaxed text-cream/60"
+            className="max-w-md text-lg leading-relaxed text-cream/70"
           >
-            Cinq convictions qui guident chaque brassin, chaque étiquette,
-            chaque rencontre avec ceux qui boivent nos bières.
+            Chacune de nos valeurs est un ingrédient pour que la bière est
+            juste, on le sait.
           </motion.p>
         </div>
 

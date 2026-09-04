@@ -2,9 +2,9 @@ import { Badge } from "@/components/ui/Badge";
 import { CtaLink } from "@/components/ui/CtaLink";
 
 type InternalPageHeroProps = {
-  eyebrow: string;
+  eyebrow?: string;
   title: string;
-  intro: string;
+  intro?: string;
   image: string;
   primary?: { label: string; href: string };
   secondary?: { label: string; href: string };
@@ -27,13 +27,15 @@ export function InternalPageHero({
       </div>
       <div className="container-page relative z-10">
         <div className="max-w-4xl">
-          <Badge tone="green">{eyebrow}</Badge>
-          <h1 className="font-display mt-7 text-5xl font-bold uppercase leading-[0.9] tracking-tight sm:text-7xl lg:text-8xl">
+          {eyebrow && <Badge tone="green">{eyebrow}</Badge>}
+          <h1 className="font-display mt-4 text-6xl font-bold uppercase leading-[0.88] tracking-tight sm:text-8xl lg:text-[8.5rem]">
             {title}
           </h1>
-          <p className="mt-7 max-w-2xl text-base leading-relaxed text-cream/75 sm:text-lg">
-            {intro}
-          </p>
+          {intro && (
+            <p className="mt-7 max-w-2xl text-base leading-relaxed text-cream/75 sm:text-lg">
+              {intro}
+            </p>
+          )}
           {(primary || secondary) && (
             <div className="mt-9 flex flex-wrap gap-3">
               {primary && (
