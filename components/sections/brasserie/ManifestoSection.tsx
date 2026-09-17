@@ -6,6 +6,7 @@ import { useRef } from "react";
 
 import { AnimatedHeading } from "@/components/ui/AnimatedHeading";
 import { Icon } from "@/components/ui/Icon";
+import { SectionLabel } from "@/components/ui/SectionLabel";
 import { manifestoContent } from "@/lib/data";
 import { EASE, fadeUp, inViewOnce, stagger } from "@/lib/motion";
 
@@ -21,11 +22,17 @@ export function ManifestoSection() {
   });
   const stripY = useTransform(stripProgress, [0, 1], [-40, 40]);
 
+  const pillars = [
+    { title: ["Les héritiers", "de l'audacieux."], text: philosophy.text },
+    { title: ["Les conquérants", "de la bière."], text: vision.text },
+  ];
+
   return (
     <section id="manifeste" className="scroll-mt-20 overflow-hidden">
       {/* ═══════════════════════════════════════════════════════════
           ACT 1 — The Declaration
-          Dark green, massive headline, stripes texture + arch graphic
+          Même mise en forme que les autres sections : sur-titre + titre
+          à gauche, paragraphe à droite.
           ═══════════════════════════════════════════════════════════ */}
       <div className="relative bg-green-deep text-cream">
         {/* Stripes texture */}
@@ -50,48 +57,43 @@ export function ManifestoSection() {
           />
         </div>
 
-        <div className="container-page relative z-10 px-4 py-24 sm:py-32 lg:py-40">
-          <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={inViewOnce}
-            transition={{ duration: 0.8 }}
-            className="eyebrow text-orange text-sm sm:text-base font-bold tracking-[0.25em]"
-          >
-            Manifeste
-          </motion.p>
+        <div className="container-page relative z-10 px-4 py-20 sm:py-24 lg:py-28">
+          <div className="grid gap-8 lg:grid-cols-[0.52fr_0.48fr] lg:items-end">
+            <div>
+              <SectionLabel>Manifeste</SectionLabel>
 
-          <AnimatedHeading
-            as="h2"
-            text="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-            className="font-display mt-8 max-w-[18ch] text-5xl font-bold uppercase leading-[0.82] tracking-tight sm:mt-10 sm:text-7xl lg:text-8xl xl:text-[6.5rem]"
-          />
+              {/* Titre provisoire (Lorem ipsum) — en attente du texte définitif */}
+              <AnimatedHeading
+                as="h2"
+                text="Lorem ipsum dolor sit amet."
+                className="font-display mt-5 text-4xl font-bold uppercase leading-[0.9] tracking-tight sm:text-5xl lg:text-6xl"
+              />
+            </div>
 
-          <motion.div
-            initial={{ scaleX: 0 }}
-            whileInView={{ scaleX: 1 }}
-            viewport={inViewOnce}
-            transition={{ duration: 1.2, ease: EASE, delay: 0.4 }}
-            className="mt-12 h-[3px] w-32 origin-left bg-orange sm:mt-16 sm:w-48"
-          />
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={inViewOnce}
-            transition={{ duration: 0.7, delay: 0.3 }}
-            className="mt-10 max-w-xl text-lg leading-relaxed text-cream/75 sm:mt-12 sm:text-xl space-y-1"
-          >
-            <p>Nous conjuguons l&apos;héritage au présent.</p>
-            <p>Nous brassons avec la rigueur du passé et l&apos;audace du futur.</p>
-          </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={inViewOnce}
+              transition={{ duration: 0.7, delay: 0.15 }}
+              className="max-w-xl space-y-1 leading-relaxed text-cream/75"
+            >
+              <p>Nous conjuguons l&apos;héritage au présent.</p>
+              <p>
+                Nous brassons avec la rigueur du passé et l&apos;audace du
+                futur.
+              </p>
+            </motion.div>
+          </div>
         </div>
       </div>
 
       {/* ═══════════════════════════════════════════════════════════
           PHOTO STRIP — full-bleed visual pause with parallax
           ═══════════════════════════════════════════════════════════ */}
-      <div ref={stripRef} className="relative h-48 overflow-hidden sm:h-64 lg:h-80">
+      <div
+        ref={stripRef}
+        className="relative h-48 overflow-hidden sm:h-64 lg:h-80"
+      >
         <motion.div style={{ y: stripY }} className="absolute inset-[-40px_0]">
           <Image
             src="/Charte Graphique_Dossier/Links/brasserie jour.jpg"
@@ -102,42 +104,14 @@ export function ManifestoSection() {
           />
           <div className="absolute inset-0 bg-green-deep/40" />
         </motion.div>
-        {/* Decorative separator centered */}
-        <div className="absolute inset-0 flex items-center justify-center">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={inViewOnce}
-            transition={{ duration: 0.6 }}
-            className="relative h-12 w-32 opacity-60 sm:h-14 sm:w-40"
-          >
-            <Image
-              src="/assets/logos/separateur.png"
-              alt=""
-              fill
-              className="object-contain"
-            />
-          </motion.div>
-        </div>
       </div>
 
       {/* ═══════════════════════════════════════════════════════════
           ACT 2 — The Three Pillars
-          Cream bg, editorial rows (no numbers, no labels),
-          charte shapes: arches in watermark + separateur between rows
+          Lignes éditoriales : ni numéros, ni sur-titres, ni filets
+          verticaux — seulement un filet horizontal entre les blocs.
           ═══════════════════════════════════════════════════════════ */}
       <div className="relative overflow-hidden bg-cream text-green">
-        {/* Trame de la charte en fond */}
-        <div className="pointer-events-none absolute inset-0 opacity-[0.05]">
-          <Image
-            src="/assets/logos/stripes-pattern.png"
-            alt=""
-            fill
-            className="object-cover"
-            sizes="100vw"
-          />
-        </div>
-
         <div className="container-page relative z-10 px-4">
           <motion.div
             variants={stagger(0.15)}
@@ -145,95 +119,32 @@ export function ManifestoSection() {
             whileInView="visible"
             viewport={inViewOnce}
           >
-            <motion.article
-              variants={fadeUp}
-              className="relative grid items-start gap-6 py-14 sm:py-16 lg:grid-cols-[0.9fr_1.1fr] lg:gap-14 lg:py-20"
-            >
-              <div className="relative">
-                {/* Arche de la charte en filigrane derrière le titre */}
-                <div className="pointer-events-none absolute -left-8 -top-10 h-44 w-44 opacity-[0.09] sm:h-56 sm:w-56">
-                  <Image
-                    src="/assets/logos/arche-brique.png"
-                    alt=""
-                    fill
-                    className="object-contain"
-                  />
+            {pillars.map((pillar) => (
+              <motion.article
+                key={pillar.title[0]}
+                variants={fadeUp}
+                className="grid items-start gap-6 border-b border-green/10 py-14 sm:py-16 lg:grid-cols-[0.9fr_1.1fr] lg:gap-14 lg:py-20"
+              >
+                <div>
+                  <h3 className="font-display text-3xl font-bold uppercase leading-[0.85] sm:text-4xl lg:text-5xl">
+                    {pillar.title[0]}
+                    <br className="hidden lg:block" /> {pillar.title[1]}
+                  </h3>
+                  <span className="mt-7 block h-[3px] w-16 bg-orange" />
                 </div>
-                <h3 className="font-display relative text-3xl font-bold uppercase leading-[0.85] sm:text-4xl lg:text-5xl">
-                  Les héritiers
-                  <br className="hidden lg:block" /> de l&apos;audacieux.
-                </h3>
-                <span className="mt-7 block h-[3px] w-16 bg-orange" />
-              </div>
-              <p className="max-w-2xl self-center text-[1.05rem] leading-[1.8] text-green/70">
-                {philosophy.text}
-              </p>
-            </motion.article>
-            {/* Séparateur de la charte graphique */}
-            <motion.div
-              variants={fadeUp}
-              className="flex justify-center opacity-45"
-            >
-              <Image
-                src="/assets/logos/separateur.png"
-                alt=""
-                width={200}
-                height={48}
-                className="h-7 w-auto object-contain sm:h-9"
-              />
-            </motion.div>
-            <motion.article
-              variants={fadeUp}
-              className="relative grid items-start gap-6 py-14 sm:py-16 lg:grid-cols-[0.9fr_1.1fr] lg:gap-14 lg:py-20"
-            >
-              <div className="relative">
-                {/* Arche de la charte en filigrane derrière le titre */}
-                <div className="pointer-events-none absolute -left-8 -top-10 h-44 w-44 opacity-[0.09] sm:h-56 sm:w-56">
-                  <Image
-                    src="/assets/logos/arche-vert.png"
-                    alt=""
-                    fill
-                    className="object-contain"
-                  />
-                </div>
-                <h3 className="font-display relative text-3xl font-bold uppercase leading-[0.85] sm:text-4xl lg:text-5xl">
-                  Les conquérants
-                  <br className="hidden lg:block" /> de la bière.
-                </h3>
-                <span className="mt-7 block h-[3px] w-16 bg-orange" />
-              </div>
-              <p className="max-w-2xl self-center text-[1.05rem] leading-[1.8] text-green/70">
-                {vision.text}
-              </p>
-            </motion.article>
-            {/* Séparateur de la charte graphique */}
-            <motion.div
-              variants={fadeUp}
-              className="flex justify-center opacity-45"
-            >
-              <Image
-                src="/assets/logos/separateur.png"
-                alt=""
-                width={200}
-                height={48}
-                className="h-7 w-auto object-contain sm:h-9"
-              />
-            </motion.div>
+                <p className="max-w-2xl self-center text-[1.05rem] leading-[1.8] text-green/70">
+                  {pillar.text}
+                </p>
+              </motion.article>
+            ))}
+
             {/* Troisième pilier — titre, texte et engagements */}
             <motion.article
               variants={fadeUp}
-              className="relative grid items-start gap-6 py-14 sm:py-16 lg:grid-cols-[0.9fr_1.1fr] lg:gap-14 lg:py-20"
+              className="grid items-start gap-6 py-14 sm:py-16 lg:grid-cols-[0.9fr_1.1fr] lg:gap-14 lg:py-20"
             >
-              <div className="relative">
-                <div className="pointer-events-none absolute -left-8 -top-10 h-44 w-44 opacity-[0.09] sm:h-56 sm:w-56">
-                  <Image
-                    src="/assets/logos/arche-brique.png"
-                    alt=""
-                    fill
-                    className="object-contain"
-                  />
-                </div>
-                <h3 className="font-display relative text-3xl font-bold uppercase leading-[0.85] sm:text-4xl lg:text-5xl">
+              <div>
+                <h3 className="font-display text-3xl font-bold uppercase leading-[0.85] sm:text-4xl lg:text-5xl">
                   L&apos;exigence
                   <br className="hidden lg:block" /> sans concession.
                 </h3>
@@ -242,7 +153,7 @@ export function ManifestoSection() {
                   {engagements.text}
                 </p>
               </div>
-              <ul className="space-y-4 self-center border-l border-orange/25 pl-6 lg:pl-10">
+              <ul className="space-y-4 self-center">
                 {engagements.items.map((item, i) => (
                   <motion.li
                     key={item}
@@ -267,7 +178,6 @@ export function ManifestoSection() {
           </motion.div>
         </div>
       </div>
-
     </section>
   );
 }

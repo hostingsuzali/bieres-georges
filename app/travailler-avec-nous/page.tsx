@@ -66,6 +66,7 @@ export default function WorkWithUsPage() {
       <InternalPageHero
         eyebrow="Professionnels"
         title="Travailler avec les Bières Georges"
+        accentFrom={3}
         intro="Une maison lyonnaise historique, des bières de caractère et des solutions adaptées à chaque métier."
         image="/assets/images/pression bar_03.JPG"
         primary={{ label: "Présenter mon projet", href: "#contact-pro" }}

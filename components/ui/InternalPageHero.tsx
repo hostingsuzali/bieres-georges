@@ -4,6 +4,12 @@ import { CtaLink } from "@/components/ui/CtaLink";
 type InternalPageHeroProps = {
   eyebrow?: string;
   title: string;
+  /**
+   * Mise en forme spécifique du titre de page : les mots à partir de cet index
+   * passent en serif italique orange, sur une seconde ligne — le duo de la
+   * charte (« BRASSERIE audacieuse »). Par défaut, le dernier mot du titre.
+   */
+  accentFrom?: number;
   intro?: string;
   image: string;
   primary?: { label: string; href: string };
@@ -13,11 +19,20 @@ type InternalPageHeroProps = {
 export function InternalPageHero({
   eyebrow,
   title,
+  accentFrom,
   intro,
   image,
   primary,
   secondary,
 }: InternalPageHeroProps) {
+  const words = title.split(" ");
+  const splitAt = Math.min(
+    Math.max(accentFrom ?? words.length - 1, 1),
+    words.length,
+  );
+  const lead = words.slice(0, splitAt).join(" ");
+  const accent = words.slice(splitAt).join(" ");
+
   return (
     <section className="relative overflow-hidden bg-green-deep px-4 pb-16 pt-32 text-cream sm:pb-24 sm:pt-40">
       <div className="pointer-events-none absolute inset-0 opacity-30">
@@ -28,8 +43,13 @@ export function InternalPageHero({
       <div className="container-page relative z-10">
         <div className="max-w-4xl">
           {eyebrow && <Badge tone="green">{eyebrow}</Badge>}
-          <h1 className="font-display mt-4 text-6xl font-bold uppercase leading-[0.88] tracking-tight sm:text-8xl lg:text-[8.5rem]">
-            {title}
+          <h1 className="font-display mt-4 text-6xl font-bold uppercase leading-[0.86] tracking-tight sm:text-8xl lg:text-[8.5rem]">
+            {lead}
+            {accent && (
+              <span className="font-serif -mt-[0.06em] block text-[0.6em] font-normal normal-case italic tracking-normal text-orange">
+                {accent}
+              </span>
+            )}
           </h1>
           {intro && (
             <p className="mt-7 max-w-2xl text-base leading-relaxed text-cream/75 sm:text-lg">
@@ -53,4 +73,3 @@ export function InternalPageHero({
     </section>
   );
 }
-

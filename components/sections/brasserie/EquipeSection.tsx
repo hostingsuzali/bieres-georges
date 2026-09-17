@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 
 import { AnimatedHeading } from "@/components/ui/AnimatedHeading";
-import { Badge } from "@/components/ui/Badge";
+import { SectionLabel } from "@/components/ui/SectionLabel";
 import { departmentColors, teamMembers } from "@/lib/data";
 import { EASE, fadeUp, inViewOnce, scaleIn, stagger } from "@/lib/motion";
 
@@ -32,7 +32,7 @@ export function EquipeSection() {
         {/* Header */}
         <div className="grid gap-8 lg:grid-cols-[0.55fr_0.45fr] lg:items-end">
           <div>
-            <Badge tone="orange">Équipe</Badge>
+            <SectionLabel>Équipe</SectionLabel>
             <AnimatedHeading
               as="h2"
               text="Une nouvelle garde, pas un copier-coller."
@@ -105,12 +105,20 @@ export function EquipeSection() {
               variants={fadeUp}
               className="group"
             >
-              {/* Initials portrait */}
-              <div className="relative flex aspect-square items-center justify-center overflow-hidden border border-green/10 bg-green-deep transition-colors duration-300 group-hover:bg-green">
-                <span className="font-display select-none text-5xl font-bold uppercase text-cream/15 transition-colors duration-300 group-hover:text-orange/30">
-                  {getInitials(member.name)}
-                </span>
-              </div>
+              {/* Portrait : initiales, ou vignette dediee si le poste est a pourvoir */}
+              {member.pending ? (
+                <div className="relative flex aspect-square items-center justify-center overflow-hidden border border-dashed border-orange/45 bg-orange/5 transition-colors duration-300 group-hover:bg-orange/10">
+                  <span className="font-display select-none text-5xl font-bold leading-none text-orange/45 transition-transform duration-300 group-hover:scale-110">
+                    +
+                  </span>
+                </div>
+              ) : (
+                <div className="relative flex aspect-square items-center justify-center overflow-hidden border border-green/10 bg-green-deep transition-colors duration-300 group-hover:bg-green">
+                  <span className="font-display select-none text-5xl font-bold uppercase text-cream/15 transition-colors duration-300 group-hover:text-orange/30">
+                    {getInitials(member.name)}
+                  </span>
+                </div>
+              )}
               {/* Info */}
               <div className="mt-4">
                 <span

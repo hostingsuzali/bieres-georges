@@ -22,6 +22,7 @@ export default function FindUsPage() {
       <InternalPageHero
         eyebrow="Points de vente"
         title="Trouver les Bières Georges"
+        accentFrom={2}
         intro="Repérez les bars, restaurants, caves et magasins où retrouver nos bières, puis découvrez les références pensées pour la grande distribution."
         image="/assets/images/trinquent.jpg"
         primary={{ label: "Voir nos bières", href: "/toutes-les-bieres" }}

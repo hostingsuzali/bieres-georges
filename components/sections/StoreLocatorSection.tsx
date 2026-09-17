@@ -135,7 +135,7 @@ export function StoreLocatorSection() {
             >
               <div className="flex items-center justify-between border-b border-dark-text/10 bg-cream px-6 py-4">
                 <span className="font-display text-lg font-bold uppercase tracking-wider text-green">
-                  Les magasins &amp; Les établissements
+                  Les établissements
                 </span>
               </div>
               <div

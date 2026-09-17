@@ -35,6 +35,7 @@ export default function ContactPage() {
       <InternalPageHero
         eyebrow="Contact"
         title="Parlons ensemble"
+        accentFrom={1}
         intro="Une question sur nos bières, une envie de collaborer ou simplement l'envie de nous dire bonjour : la maison Georges vous écoute."
         image="/assets/images/trinquent.jpg"
         primary={{ label: "Écrire un message", href: "#formulaire" }}

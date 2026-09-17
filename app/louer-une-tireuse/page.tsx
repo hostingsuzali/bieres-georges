@@ -72,6 +72,7 @@ export default function RentTapPage() {
       <InternalPageHero
         eyebrow="Location événementielle"
         title="Louer une tireuse à bière"
+        accentFrom={3}
         intro="Bières Georges accompagne vos événements privés ou professionnels quel que soit le nombre de convives. Nous vous proposons du matériel adapté à votre projet avec différents modèles de tireuses mobiles."
         image="/assets/images/pression_bar.jpg"
         primary={{ label: "Préparer ma réservation", href: "#reservation" }}

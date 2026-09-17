@@ -22,6 +22,7 @@ export default function ActualitesPage() {
       <InternalPageHero
         eyebrow="Journal"
         title="Actualités & Histoires"
+        accentFrom={2}
         intro="Un regard éditorial sur la brasserie, les coulisses, les rencontres et les savoir-faire qui donnent à Bières Georges son caractère."
         image="/assets/images/BRASSERIE.jpg"
         primary={{ label: "Lire le dernier article", href: `#${featured.slug}` }}

@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 
 import { AnimatedHeading } from "@/components/ui/AnimatedHeading";
+import { SectionLabel } from "@/components/ui/SectionLabel";
 import { Icon, type IconName } from "@/components/ui/Icon";
 import { founderValues } from "@/lib/data";
 import { fadeUp, inViewOnce, stagger } from "@/lib/motion";
@@ -17,15 +18,7 @@ export function ValeursSection() {
         {/* Header */}
         <div className="grid gap-8 lg:grid-cols-[0.55fr_0.45fr] lg:items-end">
           <div>
-            <motion.p
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={inViewOnce}
-              transition={{ duration: 0.7 }}
-              className="eyebrow text-sm font-bold tracking-[0.25em] text-orange sm:text-base"
-            >
-              Valeurs
-            </motion.p>
+            <SectionLabel>Valeurs</SectionLabel>
             {/* Titre provisoire (Lorem ipsum) — en attente du texte définitif */}
             <AnimatedHeading
               as="h2"

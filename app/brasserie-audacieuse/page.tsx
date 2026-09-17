@@ -22,6 +22,7 @@ export default function BrasserieAudacieusePage() {
     <SiteShell>
       <InternalPageHero
         title="Brasserie audacieuse"
+        accentFrom={1}
         image="/assets/images/BRASSERIE.jpg"
       />
 

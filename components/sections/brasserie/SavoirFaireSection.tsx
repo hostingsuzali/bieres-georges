@@ -8,6 +8,7 @@ import { AnimatedHeading } from "@/components/ui/AnimatedHeading";
 import { CtaLink } from "@/components/ui/CtaLink";
 import { ExpandableText } from "@/components/ui/ExpandableText";
 import { Icon } from "@/components/ui/Icon";
+import { SectionLabel } from "@/components/ui/SectionLabel";
 import { savoirFaireBlocks } from "@/lib/data";
 import { EASE, fadeUp, inViewOnce, stagger } from "@/lib/motion";
 
@@ -85,9 +86,7 @@ export function SavoirFaireSection() {
               }`}
             >
               <div className="mx-auto max-w-xl lg:px-8 xl:px-14">
-                <span className="eyebrow inline-block rounded-full bg-orange/15 px-4 py-1.5 text-orange text-sm font-bold tracking-[0.2em]">
-                  {block.eyebrow}
-                </span>
+                <SectionLabel>{block.eyebrow}</SectionLabel>
 
                 <AnimatedHeading
                   as="h3"

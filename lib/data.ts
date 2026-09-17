@@ -358,6 +358,8 @@ export type TeamMember = {
   name: string;
   role: string;
   department: TeamDepartment;
+  /** Poste en cours de recrutement : affiche une vignette dediee, sans portrait. */
+  pending?: boolean;
 };
 
 export const teamMembers: readonly TeamMember[] = [
@@ -370,8 +372,8 @@ export const teamMembers: readonly TeamMember[] = [
   { name: "Laure", role: "Assistante ADV/ADM", department: "Administratif" },
   { name: "Yohan", role: "Chauffeur/livreur", department: "Logistique" },
   { name: "Audrey", role: "Responsable Secteur", department: "Commerce GMS" },
-  { name: "Nader", role: "Commercial 01, 69, 73, 74", department: "Commerce GMS" },
-  { name: "Eddy", role: "Commercial 07, 26, 38, 42, 43, 69", department: "Commerce GMS" },
+  { name: "Commercial GMS", role: "Recrutement en cours", department: "Commerce GMS", pending: true },
+  { name: "Commercial CHR", role: "Recrutement en cours", department: "Commerce CHR", pending: true },
   { name: "Lucas", role: "Responsable Commercial", department: "Commerce CHR" },
 ] as const;
 
@@ -527,6 +529,22 @@ export const savoirFaireBlocks = [
       "Amélioration continue de la production",
       "Suivi personnalisé de chaque brassin",
       "Équipement dimensionné pour la précision",
+    ],
+  },
+  {
+    eyebrow: "La simplicité élégante",
+    title: "Rendre accessible ce qui est excellent",
+    body: "Nous maîtrisons un savoir-faire complexe pour créer des bières d'une simplicité désarmante. La complexité du brassage doit aboutir à la simplicité du plaisir. Nous créons des bières précises, équilibrées, où chaque ingrédient a sa raison d'être et aucun n'est superflu.",
+    expanded:
+      "Cette simplicité n'est pas un appauvrissement, c'est un raffinement : elle demande plus de maîtrise que la surenchère.\n\nNotre ambition ? Qu'un néophyte découvre le plaisir d'une belle bière, et qu'un connaisseur y reconnaisse l'élégance du geste. Pas de fioritures, pas de démonstration technique gratuite. Juste la bière, dans toute sa vérité.\n\nLa simplicité élégante, c'est rendre accessible ce qui est excellent, sans jamais tomber dans la facilité.",
+    image: "/assets/images/fabrique-aujourdhui.webp",
+    highlights: [
+      "Recettes précises et équilibrées",
+      "Chaque ingrédient a sa raison d'être",
+      "Profils aromatiques nets et lisibles",
+      "L'élégance du geste, pas la démonstration",
+      "De l'étiquette au liquide, cohérence totale",
+      "Un produit qui se suffit à lui-même",
     ],
   },
 ] as const;

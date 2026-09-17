@@ -18,6 +18,7 @@ export default function AllBeersPage() {
       <InternalPageHero
         eyebrow="Le catalogue"
         title="Toutes les Bières Georges"
+        accentFrom={2}
         intro="Des recettes historiques aux créations les plus audacieuses, explorez les références disponibles pour les particuliers et les professionnels."
         image="/assets/images/verres 3 bières.jpg"
         primary={{ label: "Trouver un point de vente", href: "/trouver" }}
