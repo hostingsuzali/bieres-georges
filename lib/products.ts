@@ -21,6 +21,8 @@ export type Beer = {
   ibu: number;            // Amertume, /5
   ebc: number;            // Couleur, /5
   ingredients: string[];
+  /** Mention de disponibilité pour les éditions limitées */
+  availability?: string;
 };
 
 const gmsBase =
@@ -38,7 +40,7 @@ export const beers: Beer[] = [
       "Légère, finement amère, précise. Elle se boit très fraîche, en toute simplicité.",
     ranges: ["GMS", "CHR"],
     collection: "Les Originales",
-    formats: ["Canette 44 cl", "Bouteille 75 cl", "Fût Inox 20L / 30L"],
+    formats: ["Canette 44 cl", "Bouteille 33 cl", "Bouteille 75 cl", "Fût Inox 20L / 30L"],
     image: `${gmsBase}/BG_PILS_33CL.png`,
     fermentation: "Basse (Lager)",
     abv: 4.2,
@@ -74,7 +76,7 @@ export const beers: Beer[] = [
       "Ronde, légèrement épicée, désaltérante. Elle est tonique et rafraîchissante.",
     ranges: ["GMS", "CHR"],
     collection: "Les Originales",
-    formats: ["Bouteille 75 cl", "Fût Inox 20L"],
+    formats: ["Bouteille 33 cl", "Bouteille 75 cl", "Fût Inox 20L"],
     image: `${gmsBase}/BG_WITBIER_33CL.png`,
     fermentation: "Haute (Ale)",
     abv: 4.5,
@@ -247,6 +249,7 @@ export const beers: Beer[] = [
     ibu: 1,
     ebc: 1,
     ingredients: ["Malt d'orge", "Flocons d'avoine", "Houblons", "Levure", "CO₂"],
+    availability: "Disponible en mai",
   },
   {
     slug: "ipa-exotic",
@@ -264,6 +267,7 @@ export const beers: Beer[] = [
     ibu: 3,
     ebc: 2,
     ingredients: ["Malts d'orge", "Houblons", "Levure", "CO₂"],
+    availability: "Disponible en septembre",
   },
   {
     slug: "very-good-triple",

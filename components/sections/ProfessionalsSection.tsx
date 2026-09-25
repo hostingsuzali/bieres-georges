@@ -42,7 +42,7 @@ export function ProfessionalsSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={inViewOnce}
             transition={{ duration: 0.7, ease: EASE }}
-            className="font-serif mt-1 text-2xl italic text-orange sm:text-3xl lg:text-4xl"
+            className="font-sans font-medium mt-1 text-2xl italic text-orange sm:text-3xl lg:text-4xl"
           >
             Une bière de caractère pour vos établissements.
           </motion.p>

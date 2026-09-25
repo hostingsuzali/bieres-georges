@@ -11,7 +11,6 @@
 
   --font-sans: var(--font-sans), "Poppins", ui-sans-serif, system-ui, sans-serif;
   --font-display: var(--font-display), "GW Grayback", sans-serif;
-  --font-serif: var(--font-serif), ui-serif, Georgia, serif;
 }
 
 @layer base {
@@ -112,3 +111,13 @@
   }
 }
 
+/* Le widget Elfsight imprime son propre titre « Store Locator », redondant
+   avec le bandeau maison placé au-dessus. Voir useElfsightTitleMask pour le
+   pendant JS (shadow DOM + montage tardif du widget). */
+[class*="elfsight-app-"] [class*="directory-header__Title"],
+[class*="elfsight-app-"] [class*="DirectoryHeader__Title"],
+[class*="elfsight-app-"] [class*="directory-header__Heading"],
+[class*="elfsight-app-"] [class*="DirectoryHeader__Heading"],
+[class*="elfsight-app-"] [class*="es-directory-header-title"] {
+  display: none !important;
+}

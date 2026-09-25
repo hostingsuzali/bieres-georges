@@ -46,7 +46,7 @@ export function ProductBannerSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={inViewOnce}
               transition={{ duration: 0.7, ease: EASE }}
-              className="font-serif mt-1 text-3xl italic text-orange sm:text-4xl lg:text-5xl"
+              className="font-sans font-medium mt-1 text-3xl italic text-orange sm:text-4xl lg:text-5xl"
             >
               Une histoire brassée dans le temps.
             </motion.p>
@@ -71,7 +71,7 @@ export function ProductBannerSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={inViewOnce}
               transition={{ duration: 0.7, ease: EASE, delay: 0.25 }}
-              className="font-serif text-xl italic text-orange sm:text-2xl"
+              className="font-sans font-medium text-xl italic text-orange sm:text-2xl"
             >
               Bières Georges ne cherche pas à suivre les modes. Elle préfère
               créer son propre rythme.
@@ -139,7 +139,7 @@ export function ProductBannerSection() {
                       </p>
                       <p className="eyebrow mt-1 text-orange">{m.title}</p>
                     </div>
-                    <p className="font-serif max-w-[55%] text-right text-[0.7rem] italic leading-snug text-green/65">
+                    <p className="font-sans font-medium max-w-[55%] text-right text-[0.7rem] italic leading-snug text-green/65">
                       {m.line}
                     </p>
                   </figcaption>

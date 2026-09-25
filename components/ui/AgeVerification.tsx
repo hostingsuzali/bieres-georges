@@ -77,7 +77,7 @@ export function AgeVerification() {
                   exit={{ opacity: 0, y: -16 }}
                   transition={{ duration: 0.5, ease: EASE }}
                 >
-                  <p className="font-serif mt-7 text-xl italic text-orange sm:text-2xl">
+                  <p className="font-sans font-medium mt-7 text-xl italic text-orange sm:text-2xl">
                     Avant d’entrer.
                   </p>
 
@@ -128,7 +128,7 @@ export function AgeVerification() {
                   exit={{ opacity: 0, y: -16 }}
                   transition={{ duration: 0.5, ease: EASE }}
                 >
-                  <p className="font-serif mt-7 text-xl italic text-orange sm:text-2xl">
+                  <p className="font-sans font-medium mt-7 text-xl italic text-orange sm:text-2xl">
                     Désolé.
                   </p>
 

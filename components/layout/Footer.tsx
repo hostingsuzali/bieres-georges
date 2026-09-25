@@ -19,7 +19,7 @@ const footerColumns = [
   {
     title: "La maison",
     links: [
-      { label: "Points de vente", href: "/trouver" },
+      { label: "Les établissements", href: "/trouver" },
       { label: "Professionnels", href: "/travailler-avec-nous" },
       { label: "Louer une tireuse", href: "/louer-une-tireuse" },
       { label: "Actualités", href: "/actualites" },

@@ -69,7 +69,7 @@ export function FounderVisionSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={inViewOnce}
             transition={{ duration: 0.7, ease: EASE }}
-            className="font-serif mt-1 text-3xl italic text-orange sm:text-4xl lg:text-5xl"
+            className="font-sans font-medium mt-1 text-3xl italic text-orange sm:text-4xl lg:text-5xl"
           >
             libre depuis 1836.
           </motion.p>
@@ -100,7 +100,7 @@ export function FounderVisionSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={inViewOnce}
             transition={{ duration: 0.7, ease: EASE, delay: 0.45 }}
-            className="font-serif mt-5 max-w-md text-lg italic text-green sm:text-xl"
+            className="font-sans font-medium mt-5 max-w-md text-lg italic text-green sm:text-xl"
           >
             Ici, chaque recette raconte une rencontre entre tradition, caractère
             et liberté.

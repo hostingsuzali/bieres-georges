@@ -48,7 +48,7 @@ export function BeerCollectionsSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={inViewOnce}
             transition={{ duration: 0.7, ease: EASE }}
-            className="font-serif mt-1 text-3xl italic text-orange sm:text-4xl lg:text-6xl"
+            className="font-sans font-medium mt-1 text-3xl italic text-orange sm:text-4xl lg:text-6xl"
           >
             emblématiques
           </motion.p>

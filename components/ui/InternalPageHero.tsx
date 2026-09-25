@@ -46,7 +46,7 @@ export function InternalPageHero({
           <h1 className="font-display mt-4 text-6xl font-bold uppercase leading-[0.86] tracking-tight sm:text-8xl lg:text-[8.5rem]">
             {lead}
             {accent && (
-              <span className="font-serif -mt-[0.06em] block text-[0.6em] font-normal normal-case italic tracking-normal text-orange">
+              <span className="font-sans -mt-[0.06em] block text-[0.6em] font-normal normal-case italic tracking-normal text-orange">
                 {accent}
               </span>
             )}

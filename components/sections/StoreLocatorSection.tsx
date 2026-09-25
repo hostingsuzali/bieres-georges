@@ -5,6 +5,7 @@ import Image from "next/image";
 import Script from "next/script";
 import { useRef, useState } from "react";
 
+import { useElfsightTitleMask } from "@/components/store/useElfsightTitleMask";
 import { AnimatedHeading } from "@/components/ui/AnimatedHeading";
 import { CtaLink } from "@/components/ui/CtaLink";
 import { Icon } from "@/components/ui/Icon";
@@ -15,6 +16,8 @@ const ELFSIGHT_APP_ID = "555fd09f-0667-4579-8499-edd2f28f3398";
 export function StoreLocatorSection() {
   const [isMapVisible, setIsMapVisible] = useState(false);
   const mapRef = useRef<HTMLDivElement>(null);
+
+  useElfsightTitleMask(mapRef, isMapVisible);
 
   const showMap = () => {
     setIsMapVisible(true);

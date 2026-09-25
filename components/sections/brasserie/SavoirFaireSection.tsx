@@ -6,10 +6,9 @@ import { useRef } from "react";
 
 import { AnimatedHeading } from "@/components/ui/AnimatedHeading";
 import { CtaLink } from "@/components/ui/CtaLink";
-import { ExpandableText } from "@/components/ui/ExpandableText";
 import { Icon } from "@/components/ui/Icon";
 import { SectionLabel } from "@/components/ui/SectionLabel";
-import { savoirFaireBlocks } from "@/lib/data";
+import { savoirFaireContent } from "@/lib/data";
 import { EASE, fadeUp, inViewOnce, stagger } from "@/lib/motion";
 
 function ParallaxImage({
@@ -56,96 +55,77 @@ export function SavoirFaireSection() {
       id="savoir-faire"
       className="scroll-mt-20 overflow-hidden bg-cream-dark text-green"
     >
-      {savoirFaireBlocks.map((block, index) => {
-        const isReversed = index % 2 !== 0;
+      <div className="grid lg:grid-cols-2">
+        {/* Photo */}
+        <div className="min-h-[28rem] lg:min-h-0">
+          <ParallaxImage
+            src={savoirFaireContent.image}
+            alt={savoirFaireContent.title}
+          />
+        </div>
 
-        return (
-          <div
-            key={block.eyebrow}
-            className={`grid lg:grid-cols-2 ${
-              index > 0 ? "border-t border-green/10" : ""
-            }`}
-          >
-            {/* Photo — left on even, right on odd */}
-            <div
-              className={`min-h-[24rem] lg:min-h-0 ${
-                isReversed ? "order-1 lg:order-2" : "order-1"
-              }`}
+        {/* Copy — single block matching client presentation */}
+        <div className="section-padding flex items-center px-4">
+          <div className="mx-auto max-w-xl lg:px-8 xl:px-14">
+            <SectionLabel>{savoirFaireContent.eyebrow}</SectionLabel>
+
+            <AnimatedHeading
+              as="h2"
+              text={savoirFaireContent.title}
+              className="font-display mt-5 text-3xl font-bold uppercase leading-[0.9] sm:text-4xl lg:text-5xl"
+            />
+
+            {/* Animated divider */}
+            <motion.div
+              initial={{ scaleX: 0 }}
+              whileInView={{ scaleX: 1 }}
+              viewport={inViewOnce}
+              transition={{ duration: 0.9, ease: EASE, delay: 0.3 }}
+              className="mt-7 h-px w-20 origin-left bg-orange"
+            />
+
+            {/* Intro highlight */}
+            <motion.p
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={inViewOnce}
+              transition={{ duration: 0.7, delay: 0.15 }}
+              className="mt-7 text-base font-medium leading-relaxed text-green sm:text-lg"
             >
-              <ParallaxImage
-                src={block.image}
-                alt={block.title}
-                reverse={isReversed}
-              />
-            </div>
+              {savoirFaireContent.intro}
+            </motion.p>
 
-            {/* Copy */}
-            <div
-              className={`section-padding flex items-center px-4 ${
-                isReversed ? "order-2 lg:order-1" : "order-2"
-              }`}
+            {/* Body paragraphs */}
+            <motion.div
+              variants={stagger(0.08, 0.2)}
+              initial="hidden"
+              whileInView="visible"
+              viewport={inViewOnce}
+              className="mt-5 space-y-4 text-sm leading-relaxed text-green/75 sm:text-[0.95rem]"
             >
-              <div className="mx-auto max-w-xl lg:px-8 xl:px-14">
-                <SectionLabel>{block.eyebrow}</SectionLabel>
+              {savoirFaireContent.paragraphs.map((p, idx) => (
+                <motion.p key={idx} variants={fadeUp}>
+                  {p}
+                </motion.p>
+              ))}
+            </motion.div>
 
-                <AnimatedHeading
-                  as="h3"
-                  text={block.title}
-                  className="font-display mt-5 text-3xl font-bold uppercase leading-[0.9] sm:text-4xl lg:text-5xl"
-                />
-
-                {/* Animated divider */}
-                <motion.div
-                  initial={{ scaleX: 0 }}
-                  whileInView={{ scaleX: 1 }}
-                  viewport={inViewOnce}
-                  transition={{ duration: 0.9, ease: EASE, delay: 0.3 }}
-                  className="mt-7 h-px w-20 origin-left bg-orange"
-                />
-
-                {/* Body + expandable "voir plus" */}
-                <motion.div
-                  initial={{ opacity: 0, y: 16 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={inViewOnce}
-                  transition={{ duration: 0.7, delay: 0.15 }}
-                  className="mt-7"
-                >
-                  <ExpandableText
-                    summary={block.body}
-                    expanded={block.expanded}
-                    className="text-green/70"
-                  />
-                </motion.div>
-
-                {/* Highlight list */}
-                <motion.ul
-                  className="mt-8 space-y-3"
-                  variants={stagger(0.1, 0.3)}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={inViewOnce}
-                >
-                  {block.highlights.map((item) => (
-                    <motion.li
-                      key={item}
-                      variants={fadeUp}
-                      className="flex items-start gap-3 text-sm leading-relaxed text-green/75"
-                    >
-                      <Icon
-                        name="check"
-                        size={16}
-                        className="mt-0.5 shrink-0 text-orange"
-                      />
-                      {item}
-                    </motion.li>
-                  ))}
-                </motion.ul>
-              </div>
-            </div>
+            {/* Punchline / Quote callout */}
+            <motion.div
+              variants={fadeUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={inViewOnce}
+              className="mt-8 border-l-2 border-orange py-1 pl-5"
+            >
+              <p className="font-sans text-lg font-medium italic text-orange sm:text-xl">
+                « {savoirFaireContent.punchline} »
+              </p>
+            </motion.div>
           </div>
-        );
-      })}
+        </div>
+      </div>
+
 
       {/* Maillage interne — blocs visuels pleine largeur */}
       <div className="border-t border-green/10 bg-cream px-4 py-16 sm:py-20">

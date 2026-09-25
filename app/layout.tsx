@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
-import { Fraunces, Poppins } from "next/font/google";
+import { Poppins } from "next/font/google";
 import localFont from "next/font/local";
 
 import { AgeVerification } from "@/components/ui/AgeVerification";
@@ -14,18 +14,13 @@ const grayback = localFont({
   display: "swap",
 });
 
-const fraunces = Fraunces({
-  subsets: ["latin"],
-  variable: "--font-serif",
-  display: "swap",
-  axes: ["SOFT", "WONK", "opsz"],
-});
-
 const poppins = Poppins({
   subsets: ["latin"],
   variable: "--font-sans",
   display: "swap",
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["300", "400", "500", "600", "700", "800", "900"],
+  // les accents de la charte sont posés en Poppins italique
+  style: ["normal", "italic"],
 });
 
 export const metadata: Metadata = {
@@ -42,7 +37,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html
       lang="fr"
-      className={`${grayback.variable} ${fraunces.variable} ${poppins.variable}`}
+      className={`${grayback.variable} ${poppins.variable}`}
     >
       <body>
         <AgeVerificationProvider>

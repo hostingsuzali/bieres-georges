@@ -61,7 +61,7 @@ export function TireuseSection() {
             transition={{ duration: 0.6, ease: EASE, delay: 0.5 }}
             className="absolute right-6 top-6 hidden h-24 w-24 items-center justify-center rounded-full border border-cream/40 bg-green-deep/55 text-cream backdrop-blur-sm sm:flex sm:right-10 sm:top-10"
           >
-            <p className="text-center font-serif text-xs italic leading-tight">
+            <p className="text-center font-sans font-medium text-xs italic leading-tight">
               À la pression,
               <br />
               comme au bar.

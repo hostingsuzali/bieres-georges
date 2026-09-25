@@ -51,9 +51,17 @@ export function ProductHero({ beer }: ProductHeroProps) {
             >
               <Badge tone="green">{beer.collection}</Badge>
               <span className="h-4 w-px bg-cream/20" />
-              <span className="font-serif text-lg italic text-orange sm:text-xl">
+              <span className="font-sans text-lg font-medium italic text-orange sm:text-xl">
                 {beer.style}
               </span>
+              {beer.availability ? (
+                <>
+                  <span className="h-4 w-px bg-cream/20" />
+                  <span className="eyebrow text-cream/60">
+                    {beer.availability}
+                  </span>
+                </>
+              ) : null}
             </motion.div>
 
             <motion.h1

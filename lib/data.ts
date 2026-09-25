@@ -514,40 +514,22 @@ export const manifestoContent = {
   },
 } as const;
 
-export const savoirFaireBlocks = [
-  {
-    eyebrow: "Maîtrise artisanale",
-    title: "Le maître signe son œuvre. Nous signons chaque bière",
-    body: "Un maître brasseur ne triche jamais. Il connaît ses matières premières, maîtrise ses process, ajuste au millimètre. Notre exigence commence par le choix des ingrédients et ne s'arrête qu'au moment où le client savoure sa bière.",
-    expanded:
-      "Nous sommes intransigeants sur la qualité, patients dans l'élaboration, méticuleux dans le contrôle. Cette rigueur n'est pas une contrainte, c'est notre fierté. Elle se voit dans le geste du brasseur qui prend soin de son outil de production, qui améliore continuellement son process de fabrication et qui goûte perpétuellement sa bière.\n\nLe maître signe son œuvre. Nous signons chaque bière de notre exigence.",
-    image: "/Charte Graphique_Dossier/Links/brasserie jour.jpg",
-    highlights: [
-      "Sélection rigoureuse des matières premières",
-      "Process de brassage maîtrisé au millimètre",
-      "Contrôle qualité à chaque étape",
-      "Amélioration continue de la production",
-      "Suivi personnalisé de chaque brassin",
-      "Équipement dimensionné pour la précision",
-    ],
-  },
-  {
-    eyebrow: "La simplicité élégante",
-    title: "Rendre accessible ce qui est excellent",
-    body: "Nous maîtrisons un savoir-faire complexe pour créer des bières d'une simplicité désarmante. La complexité du brassage doit aboutir à la simplicité du plaisir. Nous créons des bières précises, équilibrées, où chaque ingrédient a sa raison d'être et aucun n'est superflu.",
-    expanded:
-      "Cette simplicité n'est pas un appauvrissement, c'est un raffinement : elle demande plus de maîtrise que la surenchère.\n\nNotre ambition ? Qu'un néophyte découvre le plaisir d'une belle bière, et qu'un connaisseur y reconnaisse l'élégance du geste. Pas de fioritures, pas de démonstration technique gratuite. Juste la bière, dans toute sa vérité.\n\nLa simplicité élégante, c'est rendre accessible ce qui est excellent, sans jamais tomber dans la facilité.",
-    image: "/assets/images/fabrique-aujourdhui.webp",
-    highlights: [
-      "Recettes précises et équilibrées",
-      "Chaque ingrédient a sa raison d'être",
-      "Profils aromatiques nets et lisibles",
-      "L'élégance du geste, pas la démonstration",
-      "De l'étiquette au liquide, cohérence totale",
-      "Un produit qui se suffit à lui-même",
-    ],
-  },
-] as const;
+export const savoirFaireContent = {
+  eyebrow: "Savoir-faire",
+  title: "La simplicité élégante",
+  intro:
+    "Nous maîtrisons un savoir-faire complexe pour créer des bières d’une simplicité désarmante. La complexité du brassage doit aboutir à la simplicité du plaisir. Nous créons des bières précises, équilibrées, où chaque ingrédient a sa raison d’être et aucun n’est superflu.",
+  paragraphs: [
+    "Cette simplicité n’est pas un appauvrissement, c’est un raffinement : elle demande plus de maîtrise que la surenchère.",
+    "Notre ambition ? Qu’un néophyte découvre le plaisir d’une belle bière, et qu’un connaisseur y reconnaisse l’élégance du geste. Pas de fioritures, pas de démonstration technique gratuite. Juste la bière, dans toute sa vérité.",
+    "La simplicité élégante, c’est rendre accessible ce qui est excellent, sans jamais tomber dans la facilité.",
+    "Un maître brasseur ne triche jamais. Il connaît ses matières premières, maîtrise ses process, ajuste au millimètre. Notre exigence commence par le choix des ingrédients et ne s’arrête qu’au moment où le client savoure sa bière.",
+    "Nous sommes intransigeants sur la qualité, patients dans l’élaboration, méticuleux dans le contrôle. Cette rigueur n’est pas une contrainte, c’est notre fierté. Elle se voit dans le geste du brasseur qui prend soin de son outil de production, qui améliore continuellement son process de fabrication et qui goûte perpétuellement sa bière.",
+  ],
+  punchline: "Le maître signe son œuvre. Nous signons chaque bière de notre exigence.",
+  image: "/Charte Graphique_Dossier/Links/brasserie jour.jpg",
+  secondaryImage: "/assets/images/fabrique-aujourdhui.webp",
+} as const;
 
 export const footerColumns = [
   {

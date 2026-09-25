@@ -61,7 +61,7 @@ export function HistoireSection() {
               Nous fabriquons des bières de caractère à Lyon depuis presque deux
               siècles.
             </p>
-            <p className="font-serif mt-1 text-xl italic leading-tight text-orange sm:text-2xl">
+            <p className="font-sans mt-1 text-xl font-medium italic leading-tight text-orange sm:text-2xl">
               Et ce n&apos;est pas fini.
             </p>
           </motion.div>
@@ -140,24 +140,24 @@ export function HistoireSection() {
                 <p className="font-display text-5xl font-bold leading-none text-green sm:text-6xl">
                   {item.year}
                 </p>
-                <h3 className="font-serif mt-3 text-2xl italic leading-tight text-orange sm:text-3xl">
+                <h3 className="font-display mt-3 text-2xl font-bold uppercase leading-tight text-orange sm:text-3xl">
                   {item.title}
                 </h3>
 
                 <p
                   className={`mt-5 text-[0.95rem] leading-[1.75] text-green/70 ${
                     expanded ? "" : "line-clamp-4"
-                  }`}
+                  } md:line-clamp-none`}
                 >
                   {item.text}
                 </p>
 
-                <div className="mt-6 flex items-center justify-between gap-4">
+                <div className="mt-6 flex items-center justify-between gap-4 md:justify-end">
                   <button
                     type="button"
                     onClick={() => setExpanded((prev) => !prev)}
                     aria-expanded={expanded}
-                    className="eyebrow flex items-center gap-2 text-orange transition-transform duration-300 hover:translate-x-1"
+                    className="eyebrow flex items-center gap-2 text-orange transition-transform duration-300 hover:translate-x-1 md:hidden"
                   >
                     {expanded ? "Réduire" : "En savoir plus"}
                     <Icon name="arrowRight" size={12} />

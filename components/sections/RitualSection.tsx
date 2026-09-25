@@ -60,7 +60,7 @@ export function RitualSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={inViewOnce}
               transition={{ duration: 0.7, ease: EASE }}
-              className="font-serif mt-1 text-3xl italic text-orange sm:text-4xl lg:text-5xl"
+              className="font-sans font-medium mt-1 text-3xl italic text-orange sm:text-4xl lg:text-5xl"
             >
               pensées pour tous les moments.
             </motion.p>
@@ -125,7 +125,7 @@ export function RitualSection() {
                   </h3>
                 </div>
                 <span
-                  className={`font-serif italic max-w-[55%] text-right text-sm leading-snug ${accent.chip} border-r-2 pr-3`}
+                  className={`font-sans font-medium italic max-w-[55%] text-right text-sm leading-snug ${accent.chip} border-r-2 pr-3`}
                 >
                   {current.profile}
                 </span>

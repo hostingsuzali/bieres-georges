@@ -6,7 +6,7 @@ import Image from "next/image";
 import { AnimatedHeading } from "@/components/ui/AnimatedHeading";
 import { CtaLink } from "@/components/ui/CtaLink";
 import type { Beer } from "@/lib/products";
-import { EASE, fadeUp, inViewOnce, stagger } from "@/lib/motion";
+import { fadeUp, inViewOnce, stagger } from "@/lib/motion";
 
 type ProductSpecsProps = {
   beer: Beer;
@@ -40,6 +40,15 @@ export function ProductSpecs({ beer }: ProductSpecsProps) {
           ? "Les bières historiques et emblématiques de la maison."
           : "Des créations audacieuses en édition spéciale.",
     },
+    ...(beer.availability
+      ? [
+          {
+            label: "Disponibilité",
+            value: beer.availability,
+            detail: "Édition limitée — brassée sur une période donnée.",
+          },
+        ]
+      : []),
   ];
 
   return (

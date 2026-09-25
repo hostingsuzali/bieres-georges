@@ -64,7 +64,7 @@ export function HistorySection() {
               <span className="block text-orange">de caractere</span>
             </h2>
 
-            <p className="font-serif mt-5 max-w-xl text-2xl italic leading-tight text-green/75 sm:text-4xl">
+            <p className="font-sans font-medium mt-5 max-w-xl text-2xl italic leading-tight text-green/75 sm:text-4xl">
               Une memoire de brasserie, relevee par une lecture contemporaine
               du gout.
             </p>
@@ -85,7 +85,7 @@ export function HistorySection() {
             </p>
 
             <div className="mt-8 border-l-2 border-orange bg-cream-dark/70 px-6 py-5 shadow-[0_22px_60px_-42px_rgba(6,58,52,0.55)]">
-              <p className="font-serif text-xl italic leading-snug text-green sm:text-2xl">
+              <p className="font-sans font-medium text-xl italic leading-snug text-green sm:text-2xl">
                 &quot;Le patrimoine n&apos;est pas un decor: c&apos;est une
                 exigence que l&apos;on remet en jeu a chaque brassin.&quot;
               </p>

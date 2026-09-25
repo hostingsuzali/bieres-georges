@@ -109,7 +109,7 @@ function BrasserieStage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={inViewOnce}
               transition={{ duration: 0.7, ease: EASE, delay: 0.1 }}
-              className="font-serif mt-1 text-3xl italic text-orange sm:text-4xl lg:text-5xl"
+              className="font-sans font-medium mt-1 text-3xl italic text-orange sm:text-4xl lg:text-5xl"
             >
               audacieuse
             </motion.p>
