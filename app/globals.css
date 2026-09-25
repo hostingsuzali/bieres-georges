@@ -114,10 +114,16 @@
 /* Le widget Elfsight imprime son propre titre « Store Locator », redondant
    avec le bandeau maison placé au-dessus. Voir useElfsightTitleMask pour le
    pendant JS (shadow DOM + montage tardif du widget). */
+[class*="elfsight-app-"] [class*="directory" i][class*="header" i] [class*="title" i],
+[class*="elfsight-app-"] [class*="directory" i][class*="header" i] [class*="heading" i],
 [class*="elfsight-app-"] [class*="directory-header__Title"],
 [class*="elfsight-app-"] [class*="DirectoryHeader__Title"],
 [class*="elfsight-app-"] [class*="directory-header__Heading"],
 [class*="elfsight-app-"] [class*="DirectoryHeader__Heading"],
-[class*="elfsight-app-"] [class*="es-directory-header-title"] {
+[class*="elfsight-app-"] [class*="es-directory-header-title"],
+[class*="elfsight-app-"] [class*="Header__Title"],
+[class*="elfsight-app-"] [class*="Header__Heading"],
+[class*="elfsight-app-"] [class*="header__title"],
+[class*="elfsight-app-"] [class*="header__heading"] {
   display: none !important;
 }

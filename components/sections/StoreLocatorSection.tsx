@@ -15,11 +15,15 @@ const ELFSIGHT_APP_ID = "555fd09f-0667-4579-8499-edd2f28f3398";
 
 export function StoreLocatorSection() {
   const [isMapVisible, setIsMapVisible] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState<string>("Les établissements");
   const mapRef = useRef<HTMLDivElement>(null);
 
   useElfsightTitleMask(mapRef, isMapVisible);
 
-  const showMap = () => {
+  const showMap = (title?: string) => {
+    if (title) {
+      setSelectedCategory(title);
+    }
     setIsMapVisible(true);
     window.setTimeout(() => {
       mapRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -101,7 +105,7 @@ export function StoreLocatorSection() {
             <button
               key={block.title}
               type="button"
-              onClick={isMapVisible ? undefined : showMap}
+              onClick={() => showMap(block.title)}
               aria-controls="georges-store-map"
               className="group rounded-3xl border border-green/10 bg-cream-dark p-8 text-left transition-colors hover:bg-orange hover:text-cream"
             >
@@ -134,17 +138,27 @@ export function StoreLocatorSection() {
               animate={{ opacity: 1, height: "auto", rotateX: 0 }}
               exit={{ opacity: 0, height: 0, rotateX: -8 }}
               transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
-              className="mt-8 scroll-mt-6 overflow-hidden rounded-3xl border border-dark-text/10 bg-cream-dark [transform-origin:top]"
+              className="relative mt-8 scroll-mt-6 overflow-hidden rounded-3xl border border-dark-text/10 bg-cream-dark shadow-xl [transform-origin:top]"
             >
-              <div className="flex items-center justify-between border-b border-dark-text/10 bg-cream px-6 py-4">
-                <span className="font-display text-lg font-bold uppercase tracking-wider text-green">
-                  Les établissements
+              <div className="relative z-20 flex items-center justify-between border-b border-dark-text/10 bg-cream px-6 py-4 shadow-sm">
+                <span className="font-display text-lg font-bold uppercase tracking-wider text-green sm:text-xl">
+                  {selectedCategory}
                 </span>
+                <button
+                  type="button"
+                  onClick={() => setIsMapVisible(false)}
+                  className="eyebrow flex items-center gap-1.5 text-xs text-dark-text/60 transition-colors hover:text-orange"
+                  aria-label="Fermer la carte"
+                >
+                  Fermer ✕
+                </button>
               </div>
-              <div
-                className={`elfsight-app-${ELFSIGHT_APP_ID} min-h-[32rem] w-full`}
-                data-elfsight-app-lazy
-              />
+              <div className="relative z-10">
+                <div
+                  className={`elfsight-app-${ELFSIGHT_APP_ID} min-h-[32rem] w-full`}
+                  data-elfsight-app-lazy
+                />
+              </div>
             </motion.div>
           )}
         </AnimatePresence>
