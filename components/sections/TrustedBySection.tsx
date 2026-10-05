@@ -1,3 +1,4 @@
+import { AnimatedHeading } from "@/components/ui/AnimatedHeading";
 import { partners } from "@/lib/data";
 
 const row1 = partners.slice(0, Math.ceil(partners.length / 2));
@@ -38,9 +39,12 @@ export function TrustedBySection() {
     <section className="relative overflow-hidden bg-green px-4 py-20 text-cream sm:py-24">
       <div className="container-page relative mb-6 text-center">
         <p className="eyebrow text-orange">Ils nous font confiance</p>
-        <h2 className="font-display mx-auto mt-4 max-w-3xl text-4xl font-semibold uppercase leading-[0.95] tracking-tight sm:text-5xl">
-          Des comptoirs, des caves, des tables.
-        </h2>
+        <AnimatedHeading
+          as="h2"
+          text="Des comptoirs, des caves, des tables."
+          accentFrom={4}
+          className="font-display mx-auto mt-6 max-w-5xl text-4xl font-semibold uppercase leading-[0.95] tracking-tight sm:text-5xl lg:text-7xl"
+        />
       </div>
 
       <div className="flex flex-col gap-4">

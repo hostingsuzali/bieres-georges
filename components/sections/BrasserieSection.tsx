@@ -99,20 +99,11 @@ function BrasserieStage() {
             <motion.div style={{ color: titleColor }}>
               <AnimatedHeading
                 as="h2"
-                text="Brasserie"
+                text="Brasserie audacieuse"
+                accentFrom={1}
                 className="font-display mt-4 text-4xl font-semibold uppercase leading-[0.95] tracking-tight sm:text-5xl lg:text-7xl"
               />
             </motion.div>
-
-            <motion.p
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={inViewOnce}
-              transition={{ duration: 0.7, ease: EASE, delay: 0.1 }}
-              className="font-sans font-medium mt-1 text-3xl italic text-orange sm:text-4xl lg:text-5xl"
-            >
-              audacieuse
-            </motion.p>
 
             <motion.p
               initial={{ opacity: 0, y: 16 }}

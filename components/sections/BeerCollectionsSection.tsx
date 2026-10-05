@@ -39,19 +39,10 @@ export function BeerCollectionsSection() {
 
           <AnimatedHeading
             as="h2"
-            text="Bières"
+            text="Bières emblématiques"
+            accentFrom={1}
             className="font-display mt-7 text-4xl font-semibold uppercase leading-[0.95] tracking-tight text-green sm:text-5xl lg:text-7xl"
           />
-
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={inViewOnce}
-            transition={{ duration: 0.7, ease: EASE }}
-            className="font-sans font-medium mt-1 text-3xl italic text-orange sm:text-4xl lg:text-6xl"
-          >
-            emblématiques
-          </motion.p>
 
           <motion.p
             initial={{ opacity: 0, y: 16 }}
