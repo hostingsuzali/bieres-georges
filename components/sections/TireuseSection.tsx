@@ -79,7 +79,7 @@ export function TireuseSection() {
             <AnimatedHeading
               as="h2"
               text="Louer une tireuse"
-              className="font-display mt-6 text-4xl font-bold uppercase leading-[0.92] tracking-tight sm:text-5xl lg:text-7xl"
+              className="font-display mt-6 text-4xl font-semibold uppercase leading-[0.95] tracking-tight sm:text-5xl lg:text-7xl"
             />
 
             <motion.p

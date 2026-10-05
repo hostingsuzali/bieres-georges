@@ -52,14 +52,14 @@ export function PartnersSection() {
       </div>
 
       <div className="container-page">
-        <div className="mx-auto max-w-3xl text-center">
+        <div className="mx-auto max-w-5xl text-center">
           <Badge tone="cream">Professionnels</Badge>
 
           <AnimatedHeading
             as="h2"
             text="Travailler avec les Bières Georges"
             accentFrom={3}
-            className="mt-6 font-display text-4xl font-semibold uppercase leading-[0.95] tracking-tight text-green sm:text-5xl lg:text-6xl"
+            className="mt-6 font-display text-4xl font-semibold uppercase leading-[0.95] tracking-tight text-green sm:text-5xl lg:text-7xl"
           />
 
           <motion.p

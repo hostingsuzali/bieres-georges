@@ -1,15 +1,15 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
+import { AnimatePresence, motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 import { AnimatedHeading } from "@/components/ui/AnimatedHeading";
 import { CtaLink } from "@/components/ui/CtaLink";
 import { Icon } from "@/components/ui/Icon";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { savoirFaireContent } from "@/lib/data";
-import { EASE, fadeUp, inViewOnce, stagger } from "@/lib/motion";
+import { EASE, inViewOnce } from "@/lib/motion";
 
 function ParallaxImage({
   src,
@@ -50,6 +50,8 @@ function ParallaxImage({
 }
 
 export function SavoirFaireSection() {
+  const [open, setOpen] = useState(false);
+
   return (
     <section
       id="savoir-faire"
@@ -95,33 +97,50 @@ export function SavoirFaireSection() {
               {savoirFaireContent.intro}
             </motion.p>
 
-            {/* Body paragraphs */}
-            <motion.div
-              variants={stagger(0.08, 0.2)}
-              initial="hidden"
-              whileInView="visible"
-              viewport={inViewOnce}
-              className="mt-5 space-y-4 text-sm leading-relaxed text-green/75 sm:text-[0.95rem]"
-            >
-              {savoirFaireContent.paragraphs.map((p, idx) => (
-                <motion.p key={idx} variants={fadeUp}>
-                  {p}
-                </motion.p>
-              ))}
-            </motion.div>
+            {/* Body paragraphs + punchline — collapsed behind "Voir plus" */}
+            <AnimatePresence initial={false}>
+              {open && (
+                <motion.div
+                  key="savoir-faire-more"
+                  id="savoir-faire-more"
+                  initial={{ height: 0, opacity: 0 }}
+                  animate={{ height: "auto", opacity: 1 }}
+                  exit={{ height: 0, opacity: 0 }}
+                  transition={{ duration: 0.4, ease: EASE }}
+                  className="overflow-hidden"
+                >
+                  <div className="mt-5 space-y-4 text-sm leading-relaxed text-green/75 sm:text-[0.95rem]">
+                    {savoirFaireContent.paragraphs.map((p, idx) => (
+                      <p key={idx}>{p}</p>
+                    ))}
+                  </div>
 
-            {/* Punchline / Quote callout */}
-            <motion.div
-              variants={fadeUp}
-              initial="hidden"
-              whileInView="visible"
-              viewport={inViewOnce}
-              className="mt-8 border-l-2 border-orange py-1 pl-5"
+                  {/* Punchline / Quote callout */}
+                  <div className="mt-8 border-l-2 border-orange py-1 pl-5">
+                    <p className="font-sans text-lg font-medium italic text-orange sm:text-xl">
+                      « {savoirFaireContent.punchline} »
+                    </p>
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+
+            <button
+              type="button"
+              onClick={() => setOpen((prev) => !prev)}
+              aria-expanded={open}
+              aria-controls="savoir-faire-more"
+              className="mt-6 inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-orange transition-colors hover:text-orange/80"
             >
-              <p className="font-sans text-lg font-medium italic text-orange sm:text-xl">
-                « {savoirFaireContent.punchline} »
-              </p>
-            </motion.div>
+              <span>{open ? "Voir moins" : "Voir plus"}</span>
+              <motion.span
+                animate={{ rotate: open ? 180 : 0 }}
+                transition={{ duration: 0.3, ease: EASE }}
+                className="inline-block text-base"
+              >
+                ↓
+              </motion.span>
+            </button>
           </div>
         </div>
       </div>
