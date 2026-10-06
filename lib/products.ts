@@ -70,7 +70,7 @@ export const beers: Beer[] = [
     name: "Pale Ale",
     style: "Pale Ale",
     tagline: "Bière désaltérante avec du caractère",
-    medals: ["m52", "m42", "m49", "m61", "m46"],
+    medals: ["m52", "m42", "m49", "m61", "m46", "m45"],
     description:
       "Cette bière est une Pale Ale : les Britanniques l'ont inventée, nous l'avons apprivoisée. Deux malts, deux houblons, zéro compromis.",
     tastingNote:
@@ -353,7 +353,7 @@ export const beers: Beer[] = [
     name: "Princesse Pale Ale",
     style: "Pale Ale",
     tagline: "Bière désaltérante avec du caractère",
-    medals: ["m52", "m42", "m49", "m61", "m46"],
+    medals: ["m52", "m42", "m49", "m61", "m46", "m45"],
     description:
       "Cette bière est une Pale Ale : les Britanniques l'ont inventée, nous l'avons apprivoisée. Deux malts, deux houblons, zéro compromis.",
     tastingNote: "Amertume délicate et arômes subtils d'agrumes. Elle est rafraîchissante, avec du caractère.",
@@ -514,7 +514,7 @@ export const lineups: Lineup[] = [
       "À déguster dans un établissement ou lors d’un événement, en bouteille ou à la pression.",
     entries: [
       { slug: "pils", title: "Pils" },
-      { slug: "princesse", title: "Princesse", subtitle: "Pale Ale" },
+      { slug: "princesse", title: "Princesse Pale Ale" },
       { slug: "witbier", title: "Witbier" },
       { slug: "silky-weiss", title: "Silky Weiss", subtitle: "Hefeweizen" },
       { slug: "ipa", title: "IPA" },
@@ -537,20 +537,4 @@ export function lineupPlacement(slug: string) {
     if (index !== -1) return { lineup, entry: lineup.entries[index], index };
   }
   return undefined;
-}
-
-/** Bières précédente et suivante dans la même gamme (navigation en boucle). */
-export function lineupNeighbours(slug: string) {
-  const placement = lineupPlacement(slug);
-  if (!placement) return undefined;
-
-  const { lineup, index } = placement;
-  const count = lineup.entries.length;
-  const at = (offset: number) => {
-    const entry = lineup.entries[(index + offset + count) % count];
-    const beer = beers.find((item) => item.slug === entry.slug);
-    return beer ? { beer, entry } : undefined;
-  };
-
-  return { lineup, previous: at(-1), next: at(1) };
 }

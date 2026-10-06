@@ -19,10 +19,9 @@ export function ValeursSection() {
         <div className="grid gap-8 lg:grid-cols-[0.55fr_0.45fr] lg:items-end">
           <div>
             <SectionLabel>Valeurs</SectionLabel>
-            {/* Titre provisoire (Lorem ipsum) — en attente du texte définitif */}
             <AnimatedHeading
               as="h2"
-              text="Lorem ipsum dolor sit amet."
+              text="Les ingrédients pour que la bière soit juste."
               className="font-display mt-5 text-4xl font-bold uppercase leading-[0.9] sm:text-6xl lg:text-7xl"
             />
           </div>
@@ -33,8 +32,7 @@ export function ValeursSection() {
             transition={{ duration: 0.7 }}
             className="max-w-md text-lg leading-relaxed text-cream/70"
           >
-            Chacune de nos valeurs est un ingrédient pour que la bière est
-            juste, on le sait.
+            Nous sommes guidés dans nos réflexions et nos actions.
           </motion.p>
         </div>
 

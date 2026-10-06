@@ -11,7 +11,6 @@ import { manifestoContent } from "@/lib/data";
 import { EASE, fadeUp, inViewOnce, stagger } from "@/lib/motion";
 
 export function ManifestoSection() {
-  // `headline` reste dans lib/data.ts : le titre est provisoirement en Lorem ipsum.
   const { philosophy, vision, engagements } = manifestoContent;
 
   /* Parallax for the photo strip */
@@ -62,10 +61,9 @@ export function ManifestoSection() {
             <div>
               <SectionLabel>Manifeste</SectionLabel>
 
-              {/* Titre provisoire (Lorem ipsum) — en attente du texte définitif */}
               <AnimatedHeading
                 as="h2"
-                text="Lorem ipsum dolor sit amet."
+                text="L'héritage se conjugue au présent."
                 className="font-display mt-5 text-4xl font-bold uppercase leading-[0.9] tracking-tight sm:text-5xl lg:text-6xl"
               />
             </div>
@@ -77,7 +75,6 @@ export function ManifestoSection() {
               transition={{ duration: 0.7, delay: 0.15 }}
               className="max-w-xl space-y-1 leading-relaxed text-cream/75"
             >
-              <p>Nous conjuguons l&apos;héritage au présent.</p>
               <p>
                 Nous brassons avec la rigueur du passé et l&apos;audace du
                 futur.

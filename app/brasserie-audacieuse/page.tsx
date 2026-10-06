@@ -23,7 +23,7 @@ export default function BrasserieAudacieusePage() {
       <InternalPageHero
         title="Brasserie audacieuse"
         accentFrom={1}
-        image="/assets/images/BRASSERIE.jpg"
+        image="/assets/images/brasserie-salle-brassage.jpg"
       />
 
       {/* ── Histoire — slider des 12 jalons ── */}

@@ -3,7 +3,6 @@ import { notFound } from "next/navigation";
 
 import { SiteShell } from "@/components/layout/SiteShell";
 import { ProductHero } from "@/components/sections/product/ProductHero";
-import { ProductPager } from "@/components/sections/product/ProductPager";
 import { ProductTechnical } from "@/components/sections/product/ProductTechnical";
 import { ProductRelated } from "@/components/sections/product/ProductRelated";
 import { beers, hasVisual, lineupPlacement } from "@/lib/products";
@@ -54,7 +53,6 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
     <SiteShell>
       <ProductHero beer={beer} kicker={lineupPlacement(beer.slug)?.entry.kicker} />
       <ProductTechnical beer={beer} />
-      <ProductPager slug={beer.slug} />
       {related.length > 0 && <ProductRelated beers={related} />}
     </SiteShell>
   );

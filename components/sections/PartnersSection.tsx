@@ -14,21 +14,21 @@ const channels = [
     desc: "Grande Distribution, Magasins spécialisés, Cavistes",
     href: "/travailler-avec-nous#magasins",
     imagePlaceholder: "Rayon point de vente GMS — à venir",
-    imageSrc: null as string | null,
+    imageSrc: "/assets/images/travailler-gms.jpg" as string | null,
   },
   {
     label: "Établissements",
     desc: "Cafés/Bars, Hôtels, Restaurants",
     href: "/travailler-avec-nous#etablissements",
     imagePlaceholder: "Tirage pression bar avec macaron BG — à venir",
-    imageSrc: null as string | null,
+    imageSrc: "/assets/images/travailler-chr.webp" as string | null,
   },
   {
     label: "Événements",
     desc: "Associations culturelles et sportives, Festivals",
     href: "/travailler-avec-nous#evenements",
     imagePlaceholder: "Tireuse mobile festival — à venir",
-    imageSrc: null as string | null,
+    imageSrc: "/assets/images/travailler-evenement.jpg" as string | null,
   },
 ];
 

@@ -47,8 +47,8 @@ export function TireuseSection() {
           <motion.div style={{ scale: photoScale, y: photoY }} className="h-full w-full">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/assets/images/pression_bar.jpg"
-              alt="Une bière Georges servie à la pression au bar"
+              src="/assets/images/tireuse-bar.jpg"
+              alt="Tireuse Bières Georges à six becs au comptoir d'un bar"
               className="h-full w-full object-cover"
             />
           </motion.div>

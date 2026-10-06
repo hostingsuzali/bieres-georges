@@ -9,7 +9,7 @@ export type Medal = {
   competition: Competition;
 };
 
-const medal = (n: number) => `/assets/medals/medal-${n}.png`;
+const medal = (n: number, ext = "png") => `/assets/medals/medal-${n}.${ext}`;
 
 const lyonArgent = {
   alt: "Médaille d'argent — Concours de Lyon",
@@ -58,6 +58,7 @@ export const medals = {
   m68: { src: medal(68), ...other("Médaille d'argent") },
   m78: { src: medal(78), ...other("Médaille d'argent") },
   m71: { src: medal(71), ...other("Médaille") },
+  m45: { src: medal(45, "jpg"), ...other("Sélection Guide Hachette des Bières") },
 } as const satisfies Record<string, Medal>;
 
 export type MedalId = keyof typeof medals;

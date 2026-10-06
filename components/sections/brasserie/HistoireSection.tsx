@@ -39,32 +39,17 @@ export function HistoireSection() {
     >
       <div className="container-page relative z-10">
         {/* ── En-tête ── */}
-        <div className="grid gap-8 lg:grid-cols-[0.52fr_0.48fr] lg:items-end">
+        <div className="max-w-5xl">
           <div>
             <SectionLabel>Histoire</SectionLabel>
-            {/* Titre provisoire (Lorem ipsum) — en attente du texte définitif */}
+            {/* Titre principal demandé le 05/10 : la phrase seule, sans paragraphe */}
             <AnimatedHeading
               as="h2"
-              text="Lorem ipsum dolor sit amet."
-              className="font-display mt-5 text-4xl font-bold uppercase leading-[0.9] tracking-tight text-green sm:text-5xl lg:text-6xl"
+              text="Nous fabriquons des bières de caractère à Lyon depuis presque deux siècles. Et ce n'est pas fini."
+              accentFrom={12}
+              className="font-display mt-5 text-3xl font-bold uppercase leading-[0.95] tracking-tight text-green sm:text-4xl lg:text-5xl"
             />
           </div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={inViewOnce}
-            transition={{ duration: 0.7, delay: 0.15 }}
-            className="max-w-xl"
-          >
-            <p className="leading-relaxed text-green/70">
-              Nous fabriquons des bières de caractère à Lyon depuis presque deux
-              siècles.
-            </p>
-            <p className="font-sans mt-1 text-xl font-medium italic leading-tight text-orange sm:text-2xl">
-              Et ce n&apos;est pas fini.
-            </p>
-          </motion.div>
         </div>
 
         {/* ── Frise horizontale : 12 dates sur une seule ligne ── */}

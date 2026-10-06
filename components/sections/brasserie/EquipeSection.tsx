@@ -30,24 +30,21 @@ export function EquipeSection() {
     >
       <div className="container-page">
         {/* Header */}
-        <div className="grid gap-8 lg:grid-cols-[0.55fr_0.45fr] lg:items-end">
-          <div>
-            <SectionLabel>Équipe</SectionLabel>
-            <AnimatedHeading
-              as="h2"
-              text="Une nouvelle garde, pas un copier-coller."
-              className="font-display mt-5 text-4xl font-bold uppercase leading-[0.9] sm:text-6xl lg:text-7xl"
-            />
-          </div>
+        <div>
+          <SectionLabel>Équipe</SectionLabel>
+          <AnimatedHeading
+            as="h2"
+            text="La nouvelle garde"
+            className="font-display mt-5 text-4xl font-bold uppercase leading-[0.9] sm:text-6xl lg:text-7xl"
+          />
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={inViewOnce}
             transition={{ duration: 0.7 }}
-            className="max-w-md leading-relaxed text-green/60"
+            className="font-sans mt-4 text-xl font-medium italic text-orange sm:text-2xl"
           >
-            12 personnes, 7 métiers, une même exigence : faire vivre
-            l&apos;héritage Georges avec l&apos;énergie d&apos;aujourd&apos;hui.
+            Nous sommes les héritiers de Georges Hoffherr.
           </motion.p>
         </div>
 

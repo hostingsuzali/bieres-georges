@@ -168,7 +168,7 @@ function BeerImage({ src, alt, variants, className }: BeerImageProps) {
           src={src}
           alt={alt}
           draggable={false}
-          className="h-full w-auto max-w-none object-contain object-bottom drop-shadow-xl"
+          className="h-full w-auto max-w-none object-contain object-bottom"
         />
       </motion.div>
     </div>

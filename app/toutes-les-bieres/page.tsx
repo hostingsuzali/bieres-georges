@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 
 import { CatalogueLineup } from "@/components/beers/CatalogueLineup";
-import { CatalogueRangeNav } from "@/components/beers/CatalogueRangeNav";
 import { SiteShell } from "@/components/layout/SiteShell";
 import { CtaLink } from "@/components/ui/CtaLink";
 import { InternalPageHero } from "@/components/ui/InternalPageHero";
@@ -20,13 +19,17 @@ export default function AllBeersPage() {
       <InternalPageHero
         title="Bières emblématiques"
         accentFrom={1}
+        intro="Les styles de bières sont une référence pour les brasseurs du monde entier. Ils sont le point de départ de nos créations."
         image="/assets/images/verres 3 bières.jpg"
       />
 
-      {/* flow-root : la marge négative des cartes déborde sur le bandeau sans entraîner le fond crème */}
-      <div className="flow-root bg-cream pb-2">
-        <CatalogueRangeNav />
-      </div>
+      <section className="border-y border-green/10 bg-orange py-4 text-cream">
+        <div className="overflow-hidden">
+          <p className="font-display whitespace-nowrap text-center text-2xl font-bold uppercase tracking-wide sm:text-4xl">
+            Originales · Spéciales · Éditions limitées
+          </p>
+        </div>
+      </section>
 
       {lineups.map((lineup, index) => (
         <CatalogueLineup

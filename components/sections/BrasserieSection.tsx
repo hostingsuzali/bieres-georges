@@ -8,15 +8,23 @@ import { CtaLink } from "@/components/ui/CtaLink";
 import { KeywordsMarquee } from "@/components/ui/KeywordsMarquee";
 import { EASE, inViewOnce } from "@/lib/motion";
 
-const BREWERY_VIDEO_POSTER = "/Charte Graphique_Dossier/Links/BIERES GEORGES-9084 HD (2).jpg";
+// Vidéo client « Fabrique du Faubourg – Outil de production (version courte) »,
+// recompressée pour le web (1280 px, sans piste son puisqu'elle tourne en muet).
+const BREWERY_VIDEO = "/assets/videos/fabrique-du-faubourg.mp4";
+const BREWERY_VIDEO_POSTER = "/assets/videos/fabrique-du-faubourg-poster.jpg";
 
 function BrasserieVideoPlayer() {
   return (
     <div className="cut-corner relative h-full min-h-[18rem] w-full overflow-hidden bg-green-deep shadow-[0_40px_100px_-60px_rgba(6,58,52,0.55)] sm:min-h-[26rem] lg:min-h-[36rem] xl:min-h-[42rem]">
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src={BREWERY_VIDEO_POSTER}
-        alt="La brasserie Bières Georges"
+      <video
+        src={BREWERY_VIDEO}
+        poster={BREWERY_VIDEO_POSTER}
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="metadata"
+        aria-label="La salle de brassage des Bières Georges en fonctionnement"
         className="absolute inset-0 h-full w-full object-cover"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-green-deep/55 via-transparent to-green-deep/10" />
