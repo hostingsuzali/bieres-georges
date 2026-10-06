@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 import { BeerHeroBottles } from "@/components/beers/BeerHeroBottles";
-import { BeerCatalogV2 } from "@/components/beers/BeerCatalogV2";
+import { BeerMenuV2 } from "@/components/beers/BeerMenuV2";
 import { SiteShell } from "@/components/layout/SiteShell";
 import { CtaLink } from "@/components/ui/CtaLink";
 import { VersionSwitcher } from "@/components/ui/VersionSwitcher";
@@ -10,7 +10,7 @@ import { beers, type Beer } from "@/lib/products";
 export const metadata: Metadata = {
   title: "Toutes les bières V2 | Bières Georges",
   description:
-    "Seconde proposition éditoriale pour le catalogue des Bières Georges.",
+    "Seconde proposition éditoriale pour le catalogue des Bières Georges : les gammes BG et Bières Georges présentées comme une carte de bar.",
 };
 
 const heroBeers = [
@@ -33,7 +33,7 @@ export default function AllBeersV2Page() {
             </h1>
             <p className="mt-8 max-w-xl text-lg leading-relaxed text-green/65">
               Parcourez les recettes Georges comme une carte de dégustation :
-              style, collection, circuit et formats en un seul regard.
+              style, TAV, conditionnements et médailles en un seul regard.
             </p>
             <div className="mt-9 flex flex-wrap gap-3">
               <CtaLink href="#liste" variant="green">
@@ -49,29 +49,21 @@ export default function AllBeersV2Page() {
         </div>
       </section>
 
-      <section className="border-y border-green/10 bg-orange py-4 text-cream">
-        <div className="overflow-hidden">
-          <p className="font-display whitespace-nowrap text-center text-2xl font-bold uppercase tracking-wide sm:text-4xl">
-            Les Originales · Les Spéciales · Éditions limitées
-          </p>
-        </div>
-      </section>
-
       <section id="liste" className="section-padding scroll-mt-20 bg-green-deep px-4 text-cream">
         <div className="container-page">
           <div className="mb-12 grid gap-6 lg:grid-cols-[1fr_0.6fr] lg:items-end">
             <div>
               <p className="eyebrow text-orange">La carte complète</p>
-              <h2 className="font-display mt-4 text-5xl font-bold uppercase leading-[0.9] sm:text-7xl">
-                Choisissez votre Georges
+              <h2 className="font-display mt-4 text-4xl font-semibold uppercase leading-[0.95] tracking-tight sm:text-5xl lg:text-7xl">
+                Choisissez votre <span className="text-orange">Georges</span>
               </h2>
             </div>
             <p className="max-w-md leading-relaxed text-cream/60">
-              Une lecture plus éditoriale du catalogue, avec des filtres
-              concentrés et des références présentées comme une carte de bar.
+              Une gamme à la fois, chaque bière sur sa ligne : son TAV, ses
+              conditionnements et ses médailles, comme sur une carte de bar.
             </p>
           </div>
-          <BeerCatalogV2 />
+          <BeerMenuV2 />
         </div>
       </section>
 

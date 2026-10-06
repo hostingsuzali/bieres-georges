@@ -529,3 +529,28 @@ export const lineups: Lineup[] = [
     ],
   },
 ];
+
+/** Gamme et vignette où la bière est présentée (gamme BG d'abord, puis Bières Georges). */
+export function lineupPlacement(slug: string) {
+  for (const lineup of lineups) {
+    const index = lineup.entries.findIndex((entry) => entry.slug === slug);
+    if (index !== -1) return { lineup, entry: lineup.entries[index], index };
+  }
+  return undefined;
+}
+
+/** Bières précédente et suivante dans la même gamme (navigation en boucle). */
+export function lineupNeighbours(slug: string) {
+  const placement = lineupPlacement(slug);
+  if (!placement) return undefined;
+
+  const { lineup, index } = placement;
+  const count = lineup.entries.length;
+  const at = (offset: number) => {
+    const entry = lineup.entries[(index + offset + count) % count];
+    const beer = beers.find((item) => item.slug === entry.slug);
+    return beer ? { beer, entry } : undefined;
+  };
+
+  return { lineup, previous: at(-1), next: at(1) };
+}

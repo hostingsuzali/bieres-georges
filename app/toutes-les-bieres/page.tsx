@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 import { CatalogueLineup } from "@/components/beers/CatalogueLineup";
+import { CatalogueRangeNav } from "@/components/beers/CatalogueRangeNav";
 import { SiteShell } from "@/components/layout/SiteShell";
 import { CtaLink } from "@/components/ui/CtaLink";
 import { InternalPageHero } from "@/components/ui/InternalPageHero";
@@ -21,6 +22,11 @@ export default function AllBeersPage() {
         accentFrom={1}
         image="/assets/images/verres 3 bières.jpg"
       />
+
+      {/* flow-root : la marge négative des cartes déborde sur le bandeau sans entraîner le fond crème */}
+      <div className="flow-root bg-cream pb-2">
+        <CatalogueRangeNav />
+      </div>
 
       {lineups.map((lineup, index) => (
         <CatalogueLineup

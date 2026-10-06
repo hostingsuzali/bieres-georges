@@ -2,22 +2,35 @@
 
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
-import { useRef } from "react";
+import { useRef, type ReactNode } from "react";
 
+import {
+  BitternessScale,
+  ColourScale,
+  ebcColour,
+} from "@/components/beers/BeerScales";
 import { FormatPictos } from "@/components/beers/FormatPictos";
 import { MedalRow } from "@/components/beers/MedalRow";
 import { Badge } from "@/components/ui/Badge";
 import { CtaLink } from "@/components/ui/CtaLink";
-import { ProductGauges } from "@/components/sections/product/ProductGauges";
 import { formatAbv } from "@/lib/beer-meta";
-import type { Beer } from "@/lib/products";
+import { summarizeMedals } from "@/lib/medals";
 import { EASE } from "@/lib/motion";
+import type { Beer } from "@/lib/products";
 
 type ProductHeroProps = {
   beer: Beer;
+  /** Sur-titre de la gamme (« Blonde · Original »), quand il existe. */
+  kicker?: string;
 };
 
-export function ProductHero({ beer }: ProductHeroProps) {
+const reveal = (delay: number) => ({
+  initial: { opacity: 0, y: 14 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.7, ease: EASE, delay },
+});
+
+export function ProductHero({ beer, kicker }: ProductHeroProps) {
   const sectionRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -25,6 +38,7 @@ export function ProductHero({ beer }: ProductHeroProps) {
   });
   const bottleY = useTransform(scrollYProgress, [0, 1], [0, 80]);
   const bottleScale = useTransform(scrollYProgress, [0, 0.5], [1, 0.92]);
+  const tint = ebcColour(beer.ebc) ?? "#d96a3a";
 
   return (
     <section
@@ -46,24 +60,22 @@ export function ProductHero({ beer }: ProductHeroProps) {
           {/* ─ Left: Copy ─ */}
           <div className="order-2 lg:order-1">
             <motion.div
-              initial={{ opacity: 0, y: 14 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, ease: EASE }}
+              {...reveal(0)}
               className="flex flex-wrap items-center gap-3"
             >
               <Badge tone="green">{beer.collection}</Badge>
-              <span className="h-4 w-px bg-cream/20" />
-              <span className="font-sans text-lg font-medium italic text-orange sm:text-xl">
-                {beer.style}
-              </span>
-              {beer.availability ? (
+              {kicker && (
                 <>
                   <span className="h-4 w-px bg-cream/20" />
-                  <span className="eyebrow text-cream/60">
-                    {beer.availability}
-                  </span>
+                  <span className="eyebrow text-cream/70">{kicker}</span>
                 </>
-              ) : null}
+              )}
+              {beer.availability && (
+                <>
+                  <span className="h-4 w-px bg-cream/20" />
+                  <span className="eyebrow text-orange">{beer.availability}</span>
+                </>
+              )}
             </motion.div>
 
             <motion.h1
@@ -76,75 +88,61 @@ export function ProductHero({ beer }: ProductHeroProps) {
             </motion.h1>
 
             <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, ease: EASE, delay: 0.3 }}
-              className="mt-7 max-w-lg text-base leading-relaxed text-cream/65 sm:text-lg"
+              {...reveal(0.2)}
+              className="mt-5 font-sans text-xl font-medium italic text-orange sm:text-2xl"
+            >
+              {beer.tagline ?? beer.style}
+            </motion.p>
+
+            <motion.p
+              {...reveal(0.3)}
+              className="mt-5 max-w-lg text-base leading-relaxed text-cream/65 sm:text-lg"
             >
               {[beer.description, beer.tastingNote].filter(Boolean).join(" ")}
             </motion.p>
 
-            {/* Compact specs row */}
-            <motion.div
-              initial={{ opacity: 0, y: 14 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, ease: EASE, delay: 0.4 }}
-              className="mt-8 flex flex-wrap items-center gap-4"
+            {/* Fiche express — TAV, amertume, couleur, fermentation */}
+            <motion.dl
+              {...reveal(0.4)}
+              className="mt-8 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-cream/10 bg-cream/10 sm:grid-cols-4"
             >
-              <span className="font-display text-2xl font-bold text-orange">
-                {formatAbv(beer.abv, beer.abvLabel)}
-              </span>
-            </motion.div>
-
-            {/* Jauges — degré, amertume, caractère */}
-            <motion.div
-              initial={{ opacity: 0, y: 14 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, ease: EASE, delay: 0.45 }}
-              className="mt-7 rounded-2xl border border-cream/10 bg-cream/5 p-5"
-            >
-              <ProductGauges
-                abv={beer.abv}
-                abvLabel={beer.abvLabel}
-                ibu={beer.ibu}
-                ebc={beer.ebc}
-              />
-              <p className="mt-4 text-xs font-semibold uppercase tracking-wider text-cream/45">
-                {beer.fermentation}
-              </p>
-            </motion.div>
+              <Stat label="TAV">
+                <span className="font-display text-3xl font-bold leading-none text-orange">
+                  {formatAbv(beer.abv, beer.abvLabel)}
+                </span>
+              </Stat>
+              <Stat label="Amertume">
+                <BitternessScale value={beer.ibu} tone="light" />
+              </Stat>
+              <Stat label="Couleur">
+                <ColourScale value={beer.ebc} tone="light" />
+              </Stat>
+              <Stat label="Fermentation">
+                <span className="text-sm font-semibold uppercase tracking-wide text-cream/85">
+                  {beer.fermentation}
+                </span>
+              </Stat>
+            </motion.dl>
 
             {/* Conditionnements — pictogrammes */}
-            <motion.div
-              initial={{ opacity: 0, y: 14 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, ease: EASE, delay: 0.5 }}
-              className="mt-6"
-            >
+            <motion.div {...reveal(0.5)} className="mt-7">
               <p className="eyebrow mb-3 text-cream/50">Conditionnements</p>
               <FormatPictos formats={beer.formats} tone="light" />
             </motion.div>
 
             {/* Médailles */}
             {beer.medals.length > 0 && (
-              <motion.div
-                initial={{ opacity: 0, y: 14 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, ease: EASE, delay: 0.55 }}
-                className="mt-7"
-              >
+              <motion.div {...reveal(0.55)} className="mt-7">
                 <p className="eyebrow mb-3 text-cream/50">Médailles</p>
                 <MedalRow ids={beer.medals} height={52} />
+                <p className="mt-3 text-xs leading-relaxed text-cream/55">
+                  {summarizeMedals(beer.medals)}
+                </p>
               </motion.div>
             )}
 
             {/* CTAs */}
-            <motion.div
-              initial={{ opacity: 0, y: 14 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, ease: EASE, delay: 0.6 }}
-              className="mt-9 flex flex-wrap gap-3"
-            >
+            <motion.div {...reveal(0.6)} className="mt-9 flex flex-wrap gap-3">
               <CtaLink href="/trouver">Où la trouver ?</CtaLink>
               <CtaLink href="/toutes-les-bieres" variant="light">
                 Toutes les bières
@@ -162,7 +160,10 @@ export function ProductHero({ beer }: ProductHeroProps) {
               className="relative"
             >
               <div className="pointer-events-none absolute bottom-[8%] left-1/2 -translate-x-1/2">
-                <div className="h-56 w-56 rounded-full bg-orange/35 blur-[80px] sm:h-72 sm:w-72" />
+                <div
+                  style={{ backgroundColor: tint }}
+                  className="h-56 w-56 rounded-full opacity-40 blur-[80px] sm:h-72 sm:w-72"
+                />
               </div>
               <div className="pointer-events-none absolute bottom-[12%] left-1/2 -translate-x-1/2">
                 <div className="h-36 w-36 rounded-full bg-orange/55 blur-[40px]" />
@@ -181,5 +182,14 @@ export function ProductHero({ beer }: ProductHeroProps) {
         </div>
       </div>
     </section>
+  );
+}
+
+function Stat({ label, children }: { label: string; children: ReactNode }) {
+  return (
+    <div className="flex flex-col justify-between gap-3 bg-green-deep p-4">
+      <dt className="eyebrow text-cream/50">{label}</dt>
+      <dd>{children}</dd>
+    </div>
   );
 }

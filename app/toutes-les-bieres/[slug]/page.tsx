@@ -3,9 +3,10 @@ import { notFound } from "next/navigation";
 
 import { SiteShell } from "@/components/layout/SiteShell";
 import { ProductHero } from "@/components/sections/product/ProductHero";
+import { ProductPager } from "@/components/sections/product/ProductPager";
 import { ProductTechnical } from "@/components/sections/product/ProductTechnical";
 import { ProductRelated } from "@/components/sections/product/ProductRelated";
-import { beers, hasVisual } from "@/lib/products";
+import { beers, hasVisual, lineupPlacement } from "@/lib/products";
 
 type ProductPageProps = {
   params: Promise<{ slug: string }>;
@@ -51,8 +52,9 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
 
   return (
     <SiteShell>
-      <ProductHero beer={beer} />
+      <ProductHero beer={beer} kicker={lineupPlacement(beer.slug)?.entry.kicker} />
       <ProductTechnical beer={beer} />
+      <ProductPager slug={beer.slug} />
       {related.length > 0 && <ProductRelated beers={related} />}
     </SiteShell>
   );
