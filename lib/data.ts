@@ -75,19 +75,19 @@ export const collections = [
     name: "Les Originales",
     description:
       "Pils, Pale Ale, Witbier, Hefeweizen, IPA, NEIPA, Bitter, Triple, Porter, Framboise — les bières emblématiques des styles.",
-    mainBeer: "/assets/gammes/GAMME GMS - Visuels/Version BLACKTHORNS/Bouteilles 33CL/BG_PALE-ALE_33CL.png",
+    mainBeer: "/assets/beers/sans-ombre/BG_PALE-ALE_33CL.png",
     companionBeers: [
-      "/assets/gammes/GAMME GMS - Visuels/Version BLACKTHORNS/Bouteilles 33CL/BG_PILS_33CL.png",
-      "/assets/gammes/GAMME GMS - Visuels/Version BLACKTHORNS/Bouteilles 33CL/BG_IPA_33CL.png",
+      "/assets/beers/sans-ombre/BG_PILS_33CL.png",
+      "/assets/beers/sans-ombre/BG_IPA_33CL.png",
     ],
   },
   {
     name: "Les Spéciales",
     description:
       "NEIPA Exotic, IPA Exotic, Red Ale, Brut — des éditions limitées audacieuses et créatives.",
-    mainBeer: "/assets/gammes/GAMME GMS - Visuels/Version BLACKTHORNS/Bouteilles 33CL/BG_NEIPA-EXOTIC_33CL.png",
+    mainBeer: "/assets/beers/sans-ombre/BG_NEIPA-EXOTIC_33CL.png",
     companionBeers: [
-      "/assets/gammes/GAMME GMS - Visuels/Version BLACKTHORNS/Bouteilles 33CL/BG_IPA-EXOTIC_33CL.png",
+      "/assets/beers/sans-ombre/BG_IPA-EXOTIC_33CL.png",
       "/assets/gammes/GAMME CHR - Visuels/VERY GOOD TRIPLE 33CL 3760268370372.png",
     ],
   },
