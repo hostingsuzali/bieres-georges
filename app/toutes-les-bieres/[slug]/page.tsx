@@ -5,7 +5,7 @@ import { SiteShell } from "@/components/layout/SiteShell";
 import { ProductHero } from "@/components/sections/product/ProductHero";
 import { ProductTechnical } from "@/components/sections/product/ProductTechnical";
 import { ProductRelated } from "@/components/sections/product/ProductRelated";
-import { beers } from "@/lib/products";
+import { beers, hasVisual } from "@/lib/products";
 
 type ProductPageProps = {
   params: Promise<{ slug: string }>;
@@ -43,6 +43,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
     .filter(
       (item) =>
         item.slug !== beer.slug &&
+        hasVisual(item) &&
         (item.collection === beer.collection ||
           item.ranges.some((range) => beer.ranges.includes(range))),
     )

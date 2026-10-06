@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 520" role="img" aria-label="Visuel à venir">
+  <g fill="none" stroke="#f6ede4" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" opacity="0.55">
+    <path d="M100 24h40v16h-40z"/>
+    <path d="M104 40v96c0 34-52 52-52 112v236a22 22 0 0 0 22 22h92a22 22 0 0 0 22-22V248c0-60-52-78-52-112V40"/>
+    <path d="M52 300h136" stroke-dasharray="3 9"/>
+  </g>
+  <text x="120" y="388" text-anchor="middle" font-family="Poppins, Arial, sans-serif" font-size="22" font-weight="600" fill="#f6ede4" opacity="0.7" letter-spacing="3">VISUEL</text>
+  <text x="120" y="420" text-anchor="middle" font-family="Poppins, Arial, sans-serif" font-size="22" font-weight="600" fill="#f6ede4" opacity="0.7" letter-spacing="3">À VENIR</text>
+</svg>

@@ -2,11 +2,14 @@
 
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
-import { useRef, useState } from "react";
+import { useRef } from "react";
 
+import { FormatPictos } from "@/components/beers/FormatPictos";
+import { MedalRow } from "@/components/beers/MedalRow";
 import { Badge } from "@/components/ui/Badge";
 import { CtaLink } from "@/components/ui/CtaLink";
 import { ProductGauges } from "@/components/sections/product/ProductGauges";
+import { formatAbv } from "@/lib/beer-meta";
 import type { Beer } from "@/lib/products";
 import { EASE } from "@/lib/motion";
 
@@ -22,7 +25,6 @@ export function ProductHero({ beer }: ProductHeroProps) {
   });
   const bottleY = useTransform(scrollYProgress, [0, 1], [0, 80]);
   const bottleScale = useTransform(scrollYProgress, [0, 0.5], [1, 0.92]);
-  const [showDetails, setShowDetails] = useState(false);
 
   return (
     <section
@@ -79,7 +81,7 @@ export function ProductHero({ beer }: ProductHeroProps) {
               transition={{ duration: 0.7, ease: EASE, delay: 0.3 }}
               className="mt-7 max-w-lg text-base leading-relaxed text-cream/65 sm:text-lg"
             >
-              {beer.description} {beer.tastingNote}
+              {[beer.description, beer.tastingNote].filter(Boolean).join(" ")}
             </motion.p>
 
             {/* Compact specs row */}
@@ -90,21 +92,8 @@ export function ProductHero({ beer }: ProductHeroProps) {
               className="mt-8 flex flex-wrap items-center gap-4"
             >
               <span className="font-display text-2xl font-bold text-orange">
-                {beer.abv}%
+                {formatAbv(beer.abv, beer.abvLabel)}
               </span>
-              <span className="h-4 w-px bg-cream/20" />
-              {beer.ranges.map((range) => (
-                <span
-                  key={range}
-                  className={`eyebrow rounded-sm px-3 py-1.5 text-xs font-bold ${
-                    range === "CHR"
-                      ? "bg-cream/10 text-cream"
-                      : "bg-orange/20 text-orange"
-                  }`}
-                >
-                  {range}
-                </span>
-              ))}
             </motion.div>
 
             {/* Jauges — degré, amertume, caractère */}
@@ -114,86 +103,40 @@ export function ProductHero({ beer }: ProductHeroProps) {
               transition={{ duration: 0.7, ease: EASE, delay: 0.45 }}
               className="mt-7 rounded-2xl border border-cream/10 bg-cream/5 p-5"
             >
-              <ProductGauges abv={beer.abv} ibu={beer.ibu} ebc={beer.ebc} />
+              <ProductGauges
+                abv={beer.abv}
+                abvLabel={beer.abvLabel}
+                ibu={beer.ibu}
+                ebc={beer.ebc}
+              />
               <p className="mt-4 text-xs font-semibold uppercase tracking-wider text-cream/45">
                 {beer.fermentation}
               </p>
             </motion.div>
 
-            {/* Formats — horizontal scroll */}
+            {/* Conditionnements — pictogrammes */}
             <motion.div
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, ease: EASE, delay: 0.5 }}
-              className="mt-5 overflow-x-auto scrollbar-none"
+              className="mt-6"
             >
-              <div className="flex gap-2">
-                {beer.formats.map((format) => {
-                  const isFut = format.toLowerCase().includes("fût");
-                  return (
-                    <span
-                      key={format}
-                      className={`inline-flex shrink-0 items-center gap-1.5 rounded-sm border px-3 py-1.5 text-xs font-bold uppercase tracking-wide ${
-                        isFut
-                          ? "border-orange/40 bg-orange/10 text-orange"
-                          : "border-cream/15 bg-cream/5 text-cream/80"
-                      }`}
-                    >
-                      {format}
-                    </span>
-                  );
-                })}
-              </div>
+              <p className="eyebrow mb-3 text-cream/50">Conditionnements</p>
+              <FormatPictos formats={beer.formats} tone="light" />
             </motion.div>
 
-            {/* Toggle details (distribution) */}
-            <motion.div
-              initial={{ opacity: 0, y: 14 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, ease: EASE, delay: 0.55 }}
-              className="mt-5"
-            >
-              <button
-                onClick={() => setShowDetails((v) => !v)}
-                className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-orange/80 transition-colors hover:text-orange"
+            {/* Médailles */}
+            {beer.medals.length > 0 && (
+              <motion.div
+                initial={{ opacity: 0, y: 14 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, ease: EASE, delay: 0.55 }}
+                className="mt-7"
               >
-                <span>{showDetails ? "Masquer" : "Voir plus"}</span>
-                <motion.span
-                  animate={{ rotate: showDetails ? 180 : 0 }}
-                  transition={{ duration: 0.3, ease: EASE }}
-                  className="inline-block text-sm"
-                >
-                  ↓
-                </motion.span>
-              </button>
-
-              {showDetails && (
-                <motion.div
-                  initial={{ height: 0, opacity: 0 }}
-                  animate={{ height: "auto", opacity: 1 }}
-                  exit={{ height: 0, opacity: 0 }}
-                  transition={{ duration: 0.4, ease: EASE }}
-                  className="overflow-hidden"
-                >
-                  <div className="mt-4 flex flex-wrap gap-3">
-                    {beer.ranges.map((range) => (
-                      <span
-                        key={range}
-                        className={`eyebrow rounded-sm px-3 py-1.5 text-xs font-bold ${
-                          range === "CHR"
-                            ? "bg-cream/10 text-cream"
-                            : "bg-orange/20 text-orange"
-                        }`}
-                      >
-                        {range === "CHR"
-                          ? "Cafés · Hôtels · Restaurants"
-                          : "Grande distribution"}
-                      </span>
-                    ))}
-                  </div>
-                </motion.div>
-              )}
-            </motion.div>
+                <p className="eyebrow mb-3 text-cream/50">Médailles</p>
+                <MedalRow ids={beer.medals} height={52} />
+              </motion.div>
+            )}
 
             {/* CTAs */}
             <motion.div
@@ -228,10 +171,10 @@ export function ProductHero({ beer }: ProductHeroProps) {
               <Image
                 src={beer.image}
                 alt={`Bière Georges ${beer.name}`}
-                width={420}
-                height={680}
+                width={520}
+                height={840}
                 priority
-                className="relative z-10 mx-auto h-[22rem] w-auto object-contain drop-shadow-[0_30px_60px_rgba(0,0,0,0.5)] sm:h-[28rem] lg:h-[34rem] xl:h-[38rem]"
+                className="relative z-10 mx-auto h-[26rem] w-auto object-contain drop-shadow-[0_30px_60px_rgba(0,0,0,0.5)] sm:h-[34rem] lg:h-[42rem] xl:h-[48rem]"
               />
             </motion.div>
           </div>

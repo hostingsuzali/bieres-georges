@@ -5,7 +5,7 @@ import { SiteShell } from "@/components/layout/SiteShell";
 import { StoreLocatorEmbed } from "@/components/store/StoreLocatorEmbed";
 import { CtaLink } from "@/components/ui/CtaLink";
 import { VersionSwitcher } from "@/components/ui/VersionSwitcher";
-import { beers } from "@/lib/products";
+import { beers, hasVisual } from "@/lib/products";
 
 export const metadata: Metadata = {
   title: "Trouver les Bières Georges V2",
@@ -24,7 +24,9 @@ const partnerLogos = [
   "Auberge Quai 7",
 ];
 const marqueeLogos = [...partnerLogos, ...partnerLogos];
-const featuredGms = beers.filter((beer) => beer.ranges.includes("GMS"));
+const featuredGms = beers.filter(
+  (beer) => beer.ranges.includes("GMS") && hasVisual(beer),
+);
 
 export default function FindUsV2Page() {
   return (

@@ -1,56 +1,34 @@
 import type { Metadata } from "next";
 
-import { BeerCatalog } from "@/components/beers/BeerCatalog";
+import { CatalogueLineup } from "@/components/beers/CatalogueLineup";
 import { SiteShell } from "@/components/layout/SiteShell";
 import { CtaLink } from "@/components/ui/CtaLink";
 import { InternalPageHero } from "@/components/ui/InternalPageHero";
 import { VersionSwitcher } from "@/components/ui/VersionSwitcher";
+import { lineups } from "@/lib/products";
 
 export const metadata: Metadata = {
-  title: "Toutes les bières | Bières Georges",
+  title: "Bières emblématiques | Bières Georges",
   description:
-    "Découvrez les bières Georges et filtrez le catalogue par gamme CHR, GMS et collection.",
+    "Les bières emblématiques des gammes BG et Bières Georges : styles, TAV, conditionnements et médailles.",
 };
 
 export default function AllBeersPage() {
   return (
     <SiteShell>
       <InternalPageHero
-        eyebrow="Le catalogue"
-        title="Toutes les Bières Georges"
-        accentFrom={2}
-        intro="Des recettes historiques aux créations les plus audacieuses, explorez les références disponibles pour les particuliers et les professionnels."
-        image="/assets/images/verres 3 bières.jpg"
-        primary={{ label: "Trouver un point de vente", href: "/trouver" }}
-        secondary={{ label: "Louer une tireuse", href: "/louer-une-tireuse" }}
+        title="Bières emblématiques"
+        accentFrom={1}
+        image="/assets/images/verres 3 bières.jpg"
       />
 
-      <section className="border-y border-green/10 bg-orange py-4 text-cream">
-        <div className="overflow-hidden">
-          <p className="font-display whitespace-nowrap text-center text-2xl font-bold uppercase tracking-wide sm:text-4xl">
-            Les Originales · Les Spéciales · Éditions limitées
-          </p>
-        </div>
-      </section>
-
-      <section id="catalogue" className="section-padding scroll-mt-20 bg-cream px-4">
-        <div className="container-page">
-          <div className="max-w-3xl">
-            <p className="eyebrow text-orange">Choisissez votre gamme</p>
-            <h2 className="font-display mt-4 text-4xl font-bold uppercase leading-[0.95] text-green sm:text-6xl">
-              Une bière pour chaque moment
-            </h2>
-            <p className="mt-5 leading-relaxed text-green/65">
-              Filtrez les références par circuit de distribution ou par
-              collection. Les disponibilités détaillées seront précisées avec le
-              catalogue commercial définitif.
-            </p>
-          </div>
-          <div className="mt-10">
-            <BeerCatalog />
-          </div>
-        </div>
-      </section>
+      {lineups.map((lineup, index) => (
+        <CatalogueLineup
+          key={lineup.id}
+          lineup={lineup}
+          tone={index % 2 === 0 ? "cream" : "cream-dark"}
+        />
+      ))}
 
       <section className="bg-orange px-4 py-16 text-cream sm:py-20">
         <div className="container-page flex flex-col items-start justify-between gap-7 lg:flex-row lg:items-center">

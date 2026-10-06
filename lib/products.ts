@@ -1,3 +1,5 @@
+import type { MedalId } from "@/lib/medals";
+
 export type BeerRange = "GMS" | "CHR";
 
 export type BeerCollection =
@@ -10,20 +12,33 @@ export type Beer = {
   style: string;
   /** Short pitch — the "Cette bière est une X..." line */
   description: string;
-  /** Tasting note — the second, shorter sensory line */
+  /** Accroche courte du tableau client (slides 28 et 35) — vignettes du catalogue */
+  tagline?: string;
+  /** Tasting note — the second, shorter sensory line (vide tant que le client ne l'a pas fournie) */
   tastingNote: string;
   ranges: BeerRange[];
   collection: BeerCollection;
   formats: string[];
   image: string;
   fermentation: string; // e.g. "Haute (Ale)" / "Basse (Lager)"
-  abv: number;           // Alcohol %
-  ibu: number;            // Amertume, /5
-  ebc: number;            // Couleur, /5
+  /** Alcohol % — absent tant que le client ne l'a pas communiqué */
+  abv?: number;
+  /** TAV tel qu'écrit dans le tableau client quand ce n'est pas un nombre simple (« 4-5 % ») */
+  abvLabel?: string;
+  ibu?: number;           // Amertume, /5
+  ebc?: number;           // Couleur, /5
   ingredients: string[];
+  /** Médailles (visuels de lib/medals.ts), dans l'ordre de la présentation client */
+  medals: MedalId[];
   /** Mention de disponibilité pour les éditions limitées */
   availability?: string;
 };
+
+/** Visuel provisoire tant que le client n'a pas fourni le packshot (Red Ale, Brut). */
+export const placeholderImage = "/assets/beers/visuel-a-venir.svg";
+
+/** Vrai quand la bière dispose d'un vrai packshot — pour les carrousels publics. */
+export const hasVisual = (beer: { image: string }) => beer.image !== placeholderImage;
 
 const gmsBase =
   "/assets/gammes/GAMME GMS - Visuels/Version BLACKTHORNS/Bouteilles 33CL";
@@ -34,6 +49,8 @@ export const beers: Beer[] = [
     slug: "pils",
     name: "Pils",
     style: "Pils",
+    tagline: "Bière légère et rafraîchissante",
+    medals: [],
     description:
       "Cette bière est une Pils : née en Tchéquie en 1842, elle est devenue la bière la plus brassée au monde. La star des bières.",
     tastingNote:
@@ -52,6 +69,8 @@ export const beers: Beer[] = [
     slug: "pale-ale",
     name: "Pale Ale",
     style: "Pale Ale",
+    tagline: "Bière désaltérante avec du caractère",
+    medals: ["m52", "m42", "m49", "m61", "m46"],
     description:
       "Cette bière est une Pale Ale : les Britanniques l'ont inventée, nous l'avons apprivoisée. Deux malts, deux houblons, zéro compromis.",
     tastingNote:
@@ -70,6 +89,8 @@ export const beers: Beer[] = [
     slug: "witbier",
     name: "Witbier",
     style: "Witbier",
+    tagline: "Bière tonique et surprenante",
+    medals: [],
     description:
       "Cette bière est une Witbier : les moines belges l'ont créée au Moyen-Âge. Gingembre, coriandre, zestes d'agrumes. Un savant mélange.",
     tastingNote:
@@ -98,6 +119,8 @@ export const beers: Beer[] = [
     slug: "hefeweizen",
     name: "Hefeweizen",
     style: "Hefeweizen",
+    tagline: "Bière soyeuse et flatteuse",
+    medals: ["m58", "m47", "m63", "m49"],
     description:
       "Cette bière est une Hefeweizen : la Bavière dans un verre, avec sa robe orangée et trouble, sa mousse blanche et abondante. Elle ne ressemble à aucune autre bière.",
     tastingNote:
@@ -116,6 +139,8 @@ export const beers: Beer[] = [
     slug: "silky-weiss",
     name: "Silky Weiss",
     style: "Hefeweizen",
+    tagline: "Bière soyeuse et flatteuse",
+    medals: ["m58", "m47", "m63", "m49"],
     description:
       "Cette bière est une Hefeweizen : la Bavière dans un verre, avec sa robe orangée et trouble, sa mousse blanche et abondante. Elle ne ressemble à aucune autre bière.",
     tastingNote:
@@ -134,6 +159,8 @@ export const beers: Beer[] = [
     slug: "ambree",
     name: "Ambrée",
     style: "Bitter",
+    tagline: "Bière amère et légère",
+    medals: ["m75", "m73", "m64", "m71", "m70", "m68", "m80", "m78", "m89"],
     description:
       "Cette bière est une Bitter : les Anglais l'appellent « Real Ale » : la vraie bière. Ils la servent à partir du « Cask », le fût en bois utilisé pour la fermentation. La pure tradition.",
     tastingNote:
@@ -152,6 +179,8 @@ export const beers: Beer[] = [
     slug: "triple",
     name: "Triple",
     style: "Tripel",
+    tagline: "Bière forte et réconfortante",
+    medals: ["m52", "m85"],
     description:
       "Cette bière est une Triple : au Moyen-Âge, les moines réservaient leur bière la plus forte aux hôtes les plus considérés. Nous perpétuons la tradition.",
     tastingNote: "Arômes de miel et de fruits mûrs. Elle est puissante et élégante.",
@@ -169,6 +198,8 @@ export const beers: Beer[] = [
     slug: "brune",
     name: "Brune",
     style: "Porter",
+    tagline: "Bière à la façon d’un cappuccino",
+    medals: ["m74", "m64", "m76", "m81"],
     description:
       "Cette bière est une Porter : née à Londres au XVIIIème siècle, elle était la préférée des porteurs de fardeaux. Ils avaient plutôt bon goût.",
     tastingNote: "Arômes toastés et chocolatés, des airs de cappuccino. Elle est généreuse et réconfortante.",
@@ -186,6 +217,8 @@ export const beers: Beer[] = [
     slug: "ipa",
     name: "IPA",
     style: "India Pale Ale",
+    tagline: "Bière amère et parfaitement équilibrée",
+    medals: ["m67", "m54"],
     description:
       "Cette bière est une IPA : les Anglais l'ont inventée pour qu'elle survive à la longue traversée jusqu'aux Indes. Elle n'a pas fait tout ce chemin pour passer inaperçue.",
     tastingNote: "Amertume franche, arômes d'agrumes, belle rondeur. Elle est parfaitement équilibrée.",
@@ -203,6 +236,8 @@ export const beers: Beer[] = [
     slug: "neipa",
     name: "NEIPA",
     style: "New England India Pale Ale",
+    tagline: "Bière douce et aromatique",
+    medals: ["m65"],
     description:
       "Cette bière est une NEIPA : née il y a seulement quelques années en Nouvelle-Angleterre, elle a séduit par ses arômes explosifs et sa douceur. Une belle harmonie.",
     tastingNote: "Arômes intenses de fruits blancs, rondeur veloutée, aucune amertume. Elle surprend par sa délicatesse.",
@@ -220,6 +255,8 @@ export const beers: Beer[] = [
     slug: "more-is-bitter",
     name: "More is Bitter",
     style: "Bitter",
+    tagline: "Bière amère et légère",
+    medals: ["m75", "m73", "m64", "m71", "m70", "m68", "m80", "m78", "m89"],
     description:
       "Cette bière est une Bitter : les Anglais l'appellent « Real Ale » : la vraie bière. Ils la servent à partir du « Cask », le fût en bois utilisé pour la fermentation. La pure tradition.",
     tastingNote: "Arômes de biscuit et de caramel, amertume sèche et franche. Elle affirme son caractère sans concession.",
@@ -237,6 +274,8 @@ export const beers: Beer[] = [
     slug: "neipa-exotic",
     name: "NEIPA Exotic",
     style: "NEIPA fruitée",
+    tagline: "Bière qui ne cache pas son nom",
+    medals: [],
     description:
       "Cette bière est une NEIPA au caractère exotique : ses houblons ont été sélectionnés pour vous transporter tout en douceur. Georges avait l'esprit voyageur. Cette bière aussi.",
     tastingNote: "Explosion de fruits exotiques, rondeur veloutée, sans amertume. Elle ouvre de nouveaux horizons.",
@@ -249,12 +288,14 @@ export const beers: Beer[] = [
     ibu: 1,
     ebc: 1,
     ingredients: ["Malt d'orge", "Flocons d'avoine", "Houblons", "Levure", "CO₂"],
+    abvLabel: "4-5 %",
     availability: "Disponible en mai",
   },
   {
     slug: "ipa-exotic",
     name: "IPA Exotic",
     style: "IPA fruitée",
+    medals: [],
     description:
       "Cette bière est une IPA au caractère exotique : ses houblons ont été choisis pour vous proposer une aventure inédite. Georges était intrépide. Cette bière vous emmène encore plus loin.",
     tastingNote: "Fruits exotiques intenses, amertume franche. Elle conduit vers l'inattendu.",
@@ -273,6 +314,8 @@ export const beers: Beer[] = [
     slug: "very-good-triple",
     name: "Very Good Triple",
     style: "Tripel",
+    tagline: "Bière forte et réconfortante",
+    medals: ["m52", "m85"],
     description:
       "Cette bière est une Triple : au Moyen-Âge, les moines réservaient leur bière la plus forte aux hôtes les plus considérés. Nous perpétuons la tradition.",
     tastingNote: "Arômes de miel et de fruits mûrs. Elle est puissante et élégante.",
@@ -290,6 +333,8 @@ export const beers: Beer[] = [
     slug: "munica",
     name: "Munica Brune²",
     style: "Porter",
+    tagline: "Bière à la façon d’un cappuccino",
+    medals: ["m74", "m64", "m76", "m81"],
     description:
       "Cette bière est une Porter : née à Londres au XVIIIème siècle, elle était la préférée des porteurs de fardeaux. Ils avaient plutôt bon goût.",
     tastingNote: "Arômes toastés et chocolatés, des airs de cappuccino. Elle est généreuse et réconfortante.",
@@ -307,6 +352,8 @@ export const beers: Beer[] = [
     slug: "princesse",
     name: "Princesse Pale Ale",
     style: "Pale Ale",
+    tagline: "Bière désaltérante avec du caractère",
+    medals: ["m52", "m42", "m49", "m61", "m46"],
     description:
       "Cette bière est une Pale Ale : les Britanniques l'ont inventée, nous l'avons apprivoisée. Deux malts, deux houblons, zéro compromis.",
     tastingNote: "Amertume délicate et arômes subtils d'agrumes. Elle est rafraîchissante, avec du caractère.",
@@ -324,6 +371,8 @@ export const beers: Beer[] = [
     slug: "framboise",
     name: "Framboise",
     style: "Bière fruitée",
+    tagline: "Bière fruitée sans sucres ajoutés",
+    medals: [],
     description:
       "Cette bière est une fruitée : les framboises sont ajoutées durant la fermentation. Pas d'arôme artificiel, pas de sucre, pas de raccourci.",
     tastingNote: "Goût naturel de framboise, robe rosée, fraîcheur acidulée. Elle ne triche pas.",
@@ -341,6 +390,7 @@ export const beers: Beer[] = [
     slug: "abricot",
     name: "Abricot",
     style: "Bière fruitée",
+    medals: [],
     description: "Une recette solaire et gourmande autour de l'abricot.",
     tastingNote: "Goût naturel d'abricot, fraîcheur acidulée, robe dorée.",
     ranges: ["CHR"],
@@ -357,6 +407,7 @@ export const beers: Beer[] = [
     slug: "hiver",
     name: "Bière d'Hiver",
     style: "Bière saisonnière",
+    medals: [],
     description: "Un brassin réconfortant aux notes épicées et maltées.",
     tastingNote: "Arômes de cannelle, muscade et gingembre, corps rond et chaleureux.",
     ranges: ["CHR"],
@@ -369,9 +420,112 @@ export const beers: Beer[] = [
     ebc: 4,
     ingredients: ["Malts Munich, Crystal & Spécial B", "Épices (cannelle, muscade, gingembre)", "Miel"],
   },
+  {
+    slug: "red-ale",
+    name: "Red Ale",
+    style: "Red Ale",
+    tagline: "Bière d’automne",
+    medals: [],
+    description: "Bière d’automne.",
+    tastingNote: "",
+    ranges: ["GMS", "CHR"],
+    collection: "Les Spéciales",
+    formats: ["Bouteille 33 cl", "Fût Inox 20L"],
+    image: placeholderImage,
+    fermentation: "Haute (Ale)",
+    abvLabel: "4-5 %",
+    ingredients: [],
+    availability: "Disponible le 01/10",
+  },
+  {
+    slug: "brut",
+    name: "Brut",
+    style: "Brut",
+    tagline: "Bière aux allures de champagne",
+    medals: [],
+    description: "Bière aux allures de champagne.",
+    tastingNote: "",
+    ranges: ["CHR"],
+    collection: "Les Spéciales",
+    formats: ["Bouteille 33 cl", "Fût Inox 20L"],
+    image: placeholderImage,
+    fermentation: "Haute (Ale)",
+    ingredients: [],
+    availability: "Disponible le 01/11",
+  },
 ];
 
 export const beerCollections: BeerCollection[] = [
   "Les Originales",
   "Les Spéciales",
+];
+
+/**
+ * Gammes présentées sur la page « Bières emblématiques » (slides 27, 28 et 35
+ * de la présentation client). Les libellés reprennent ceux du client.
+ */
+export type LineupEntry = {
+  slug: string;
+  /** Sur-titre « Couleur · Original » (gamme BG) */
+  kicker?: string;
+  title: string;
+  subtitle?: string;
+};
+
+export type Lineup = {
+  id: "bg" | "bieres-georges";
+  eyebrow: string;
+  title: string;
+  intro: string;
+  where: string;
+  entries: LineupEntry[];
+};
+
+export const lineups: Lineup[] = [
+  {
+    id: "bg",
+    eyebrow: "Gamme",
+    title: "BG",
+    intro:
+      "Des bières brassées destinées aux amateurs de goût qui recherchent des produits issus d’un savoir-faire et dotés de caractère pour un plaisir authentique.",
+    where: "À retrouver en magasin, en bouteille ou en canette.",
+    entries: [
+      { slug: "pils", kicker: "Blonde · Original", title: "Pils" },
+      { slug: "pale-ale", kicker: "Blonde · Original", title: "Pale Ale" },
+      { slug: "witbier", kicker: "Blanche · Original", title: "Witbier" },
+      { slug: "hefeweizen", kicker: "Blanche · Original", title: "Hefeweizen" },
+      { slug: "ipa", kicker: "IPA · Original", title: "India Pale Ale" },
+      { slug: "neipa", kicker: "NEIPA · Original", title: "New England IPA" },
+      { slug: "framboise", kicker: "Framboise · Original", title: "Fruitée" },
+      { slug: "ambree", kicker: "Ambrée · Original", title: "Bitter" },
+      { slug: "triple", kicker: "Triple · Original", title: "Tripel" },
+      { slug: "brune", kicker: "Brune · Original", title: "Porter" },
+      { slug: "neipa-exotic", title: "NEIPA Exotic", subtitle: "New England IPA" },
+      { slug: "red-ale", title: "Red Ale" },
+    ],
+  },
+  {
+    id: "bieres-georges",
+    eyebrow: "Gamme",
+    title: "Bières Georges",
+    intro:
+      "Des bières pour les amateurs d’histoires vraies qui aiment les aventures prenant racine dans notre patrimoine, offrant des récits insolites et se poursuivant avec panache.",
+    where:
+      "À déguster dans un établissement ou lors d’un événement, en bouteille ou à la pression.",
+    entries: [
+      { slug: "pils", title: "Pils" },
+      { slug: "princesse", title: "Princesse", subtitle: "Pale Ale" },
+      { slug: "witbier", title: "Witbier" },
+      { slug: "silky-weiss", title: "Silky Weiss", subtitle: "Hefeweizen" },
+      { slug: "ipa", title: "IPA" },
+      { slug: "neipa", title: "NEIPA" },
+      { slug: "framboise", title: "Framboise" },
+      { slug: "more-is-bitter", title: "More is Bitter", subtitle: "Bitter" },
+      { slug: "very-good-triple", title: "Very Good Triple", subtitle: "Triple" },
+      { slug: "munica", title: "Munica Brune²", subtitle: "Porter" },
+      { slug: "neipa-exotic", title: "NEIPA Exotic" },
+      { slug: "red-ale", title: "Red Ale" },
+      { slug: "brut", title: "Brut" },
+    ],
+  },
 ];

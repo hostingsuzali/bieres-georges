@@ -2,32 +2,47 @@
 
 import { motion } from "framer-motion";
 
+import { formatAbv } from "@/lib/beer-meta";
 import { EASE } from "@/lib/motion";
 
 type Gauge = {
   label: string;
-  value: number;
+  value?: number;
   max: number;
   display: string;
 };
 
 type ProductGaugesProps = {
-  abv: number;
-  ibu: number;
-  ebc: number;
+  abv?: number;
+  abvLabel?: string;
+  ibu?: number;
+  ebc?: number;
 };
 
-export function ProductGauges({ abv, ibu, ebc }: ProductGaugesProps) {
+const pending = "À confirmer";
+
+export function ProductGauges({ abv, abvLabel, ibu, ebc }: ProductGaugesProps) {
   const gauges: Gauge[] = [
-    { label: "Degré", value: abv, max: 12, display: `${abv}%` },
-    { label: "Amertume", value: ibu, max: 5, display: `${ibu}/5` },
-    { label: "Caractère", value: ebc, max: 5, display: `${ebc}/5` },
+    { label: "Degré", value: abv, max: 12, display: formatAbv(abv, abvLabel) },
+    {
+      label: "Amertume",
+      value: ibu,
+      max: 5,
+      display: ibu === undefined ? pending : `${ibu}/5`,
+    },
+    {
+      label: "Caractère",
+      value: ebc,
+      max: 5,
+      display: ebc === undefined ? pending : `${ebc}/5`,
+    },
   ];
 
   return (
     <div className="grid grid-cols-3 gap-5">
       {gauges.map((gauge, index) => {
-        const ratio = Math.min(gauge.value / gauge.max, 1);
+        const ratio =
+          gauge.value === undefined ? 0 : Math.min(gauge.value / gauge.max, 1);
         return (
           <div key={gauge.label}>
             <div className="flex items-baseline justify-between gap-2">
