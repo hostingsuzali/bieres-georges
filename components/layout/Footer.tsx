@@ -53,7 +53,7 @@ export function Footer() {
         initial="hidden"
         whileInView="visible"
         viewport={inViewOnce}
-        className="container-page grid gap-14 pb-16 pt-12 md:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)] md:pb-20 md:pt-16"
+        className="container-page grid gap-10 pb-10 pt-10 md:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)] md:pb-12 md:pt-12"
       >
         <motion.div
           variants={fadeUp}
@@ -129,21 +129,6 @@ export function Footer() {
             </motion.div>
           ))}
         </motion.div>
-      </motion.div>
-
-      <motion.div
-        initial={{ opacity: 0, y: 24 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={inViewOnce}
-        transition={{ duration: 0.9 }}
-        className="flex items-center justify-center border-t border-green-deep/10 py-12 sm:py-16"
-      >
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src="/Elements de la charte graphique (format .png)/Logos Fabrique du Faubourg/Logo_FF_1.png"
-          alt="La Fabrique du Faubourg"
-          className="h-auto w-[min(72vw,26rem)] opacity-75"
-        />
       </motion.div>
 
       <div className="border-t border-green-deep/10">
