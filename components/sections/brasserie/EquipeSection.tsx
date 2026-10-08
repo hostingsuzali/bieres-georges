@@ -96,12 +96,15 @@ export function EquipeSection() {
           )}
 
           {/* Other team members */}
-          {others.map((member) => (
-            <motion.article
-              key={member.name}
-              variants={fadeUp}
-              className="group"
-            >
+          {others.map((member, index) => {
+            const isFirstInBottomRow = index === 8;
+
+            return (
+              <motion.article
+                key={member.name}
+                variants={fadeUp}
+                className={`group ${isFirstInBottomRow ? "xl:col-start-3" : ""}`}
+              >
               {/* Portrait : initiales, ou vignette dediee si le poste est a pourvoir */}
               {member.pending ? (
                 <div className="relative flex aspect-square items-center justify-center overflow-hidden border border-dashed border-orange/45 bg-orange/5 transition-colors duration-300 group-hover:bg-orange/10">
@@ -131,7 +134,8 @@ export function EquipeSection() {
                 </p>
               </div>
             </motion.article>
-          ))}
+            );
+          })}
         </motion.div>
       </div>
     </section>
