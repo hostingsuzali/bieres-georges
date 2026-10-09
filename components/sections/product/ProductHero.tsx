@@ -11,7 +11,6 @@ import {
 } from "@/components/beers/BeerScales";
 import { FormatPictos } from "@/components/beers/FormatPictos";
 import { MedalRow } from "@/components/beers/MedalRow";
-import { Badge } from "@/components/ui/Badge";
 import { CtaLink } from "@/components/ui/CtaLink";
 import { formatAbv } from "@/lib/beer-meta";
 import { summarizeMedals } from "@/lib/medals";
@@ -20,8 +19,6 @@ import type { Beer } from "@/lib/products";
 
 type ProductHeroProps = {
   beer: Beer;
-  /** Sur-titre de la gamme (« Blonde · Original »), quand il existe. */
-  kicker?: string;
 };
 
 const reveal = (delay: number) => ({
@@ -30,7 +27,7 @@ const reveal = (delay: number) => ({
   transition: { duration: 0.7, ease: EASE, delay },
 });
 
-export function ProductHero({ beer, kicker }: ProductHeroProps) {
+export function ProductHero({ beer }: ProductHeroProps) {
   const sectionRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -59,30 +56,17 @@ export function ProductHero({ beer, kicker }: ProductHeroProps) {
         <div className="grid items-start gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:gap-6">
           {/* ─ Left: Copy ─ */}
           <div className="order-2 lg:order-1">
-            <motion.div
-              {...reveal(0)}
-              className="flex flex-wrap items-center gap-3"
-            >
-              <Badge tone="green">{beer.collection}</Badge>
-              {kicker && (
-                <>
-                  <span className="h-4 w-px bg-cream/20" />
-                  <span className="eyebrow text-cream/70">{kicker}</span>
-                </>
-              )}
-              {beer.availability && (
-                <>
-                  <span className="h-4 w-px bg-cream/20" />
-                  <span className="eyebrow text-orange">{beer.availability}</span>
-                </>
-              )}
-            </motion.div>
+            {beer.availability && (
+              <motion.p {...reveal(0)} className="eyebrow text-orange">
+                {beer.availability}
+              </motion.p>
+            )}
 
             <motion.h1
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: EASE, delay: 0.1 }}
-              className="font-display mt-6 text-6xl font-bold uppercase leading-[0.78] tracking-tight sm:text-7xl lg:text-8xl xl:text-[7rem]"
+              className={`font-display text-6xl font-bold uppercase leading-[0.78] tracking-tight sm:text-7xl lg:text-8xl xl:text-[7rem] ${beer.availability ? "mt-6" : ""}`}
             >
               {beer.name}
             </motion.h1>

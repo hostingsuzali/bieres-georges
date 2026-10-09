@@ -5,7 +5,7 @@ import { SiteShell } from "@/components/layout/SiteShell";
 import { ProductHero } from "@/components/sections/product/ProductHero";
 import { ProductTechnical } from "@/components/sections/product/ProductTechnical";
 import { ProductRelated } from "@/components/sections/product/ProductRelated";
-import { beers, hasVisual, lineupPlacement } from "@/lib/products";
+import { beers, hasVisual } from "@/lib/products";
 
 type ProductPageProps = {
   params: Promise<{ slug: string }>;
@@ -51,7 +51,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
 
   return (
     <SiteShell>
-      <ProductHero beer={beer} kicker={lineupPlacement(beer.slug)?.entry.kicker} />
+      <ProductHero beer={beer} />
       <ProductTechnical beer={beer} />
       {related.length > 0 && <ProductRelated beers={related} />}
     </SiteShell>
